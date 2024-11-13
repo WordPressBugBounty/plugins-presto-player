@@ -23,14 +23,8 @@ const VIDEO_POSTER_ALLOWED_MEDIA_TYPES = ["image"];
 const { useInstanceId } = wp.compose;
 
 const VideoSettings = ({ setAttributes, attributes }) => {
-  const {
-    mutedPreview,
-    autoplay,
-    playsInline,
-    preload,
-    poster,
-    mutedOverlay,
-  } = attributes;
+  const { mutedPreview, autoplay, playsInline, preload, poster, mutedOverlay } =
+    attributes;
 
   const instanceId = useInstanceId(VideoSettings);
 
@@ -226,50 +220,52 @@ const VideoSettings = ({ setAttributes, attributes }) => {
           />
         </PanelRow>
       )}
-      <MediaUploadCheck>
-        <BaseControl className="editor-video-poster-control">
-          <BaseControl.VisualLabel>
-            <p>{__("Poster image", "presto-player")}</p>
-          </BaseControl.VisualLabel>
-          <MediaUpload
-            title={__("Select poster image", "presto-player")}
-            onSelect={onSelectPoster}
-            allowedTypes={VIDEO_POSTER_ALLOWED_MEDIA_TYPES}
-            render={({ open }) => (
-              <Button
-                className="presto-setting__poster"
-                isPrimary
-                onClick={open}
-                aria-describedby={videoPosterDescription}
-              >
-                {!poster
-                  ? __("Select", "presto-player")
-                  : __("Replace", "presto-player")}
-              </Button>
-            )}
-          />
-          <p id={videoPosterDescription} hidden>
-            {poster
-              ? sprintf(
-                  __("The current poster image url is %s", "presto-player"),
-                  poster
-                )
-              : __(
-                  "There is no poster image currently selected",
-                  "presto-player"
+        <PanelRow>
+          <MediaUploadCheck>
+            <BaseControl className="editor-video-poster-control">
+              <BaseControl.VisualLabel>
+               {__("Poster image", "presto-player")}
+              </BaseControl.VisualLabel>
+              <MediaUpload
+                title={__("Select poster image", "presto-player")}
+                onSelect={onSelectPoster}
+                allowedTypes={VIDEO_POSTER_ALLOWED_MEDIA_TYPES}
+                render={({ open }) => (
+                  <Button
+                    className="presto-setting__poster"
+                    isPrimary
+                    onClick={open}
+                    aria-describedby={videoPosterDescription}
+                  >
+                    {!poster
+                      ? __("Select", "presto-player")
+                      : __("Replace", "presto-player")}
+                  </Button>
                 )}
-          </p>
-          {!!poster && (
-            <Button
-              onClick={onRemovePoster}
-              className="presto-setting__remove-poster"
-              isTertiary
-            >
-              {__("Remove", "presto-player")}
-            </Button>
-          )}
-        </BaseControl>
-      </MediaUploadCheck>
+              />
+              <p id={videoPosterDescription} hidden>
+                {poster
+                  ? sprintf(
+                      __("The current poster image url is %s", "presto-player"),
+                      poster
+                    )
+                  : __(
+                      "There is no poster image currently selected",
+                      "presto-player"
+                    )}
+              </p>
+              {!!poster && (
+                <Button
+                  onClick={onRemovePoster}
+                  className="presto-setting__remove-poster"
+                  isTertiary
+                >
+                  {__("Remove", "presto-player")}
+                </Button>
+              )}
+            </BaseControl>
+          </MediaUploadCheck>
+        </PanelRow>
     </>
   );
 };

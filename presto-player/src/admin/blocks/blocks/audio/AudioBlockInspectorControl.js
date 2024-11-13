@@ -114,50 +114,52 @@ function AudioBlockInspectorControl({ attributes, setAttributes }) {
         </PanelRow>
 
         {/* Poster Image */}
-        <MediaUploadCheck>
-          <BaseControl className="editor-video-poster-control">
-            <BaseControl.VisualLabel>
-              <p>{__("Poster image", "presto-player")}</p>
-            </BaseControl.VisualLabel>
-            <MediaUpload
-              title={__("Select poster image", "presto-player")}
-              onSelect={onSelectPoster}
-              allowedTypes={AUDIO_POSTER_ALLOWED_MEDIA_TYPES}
-              render={({ open }) => (
+        <PanelRow>
+          <MediaUploadCheck>
+            <BaseControl className="editor-video-poster-control">
+              <BaseControl.VisualLabel>
+                {__("Poster image", "presto-player")}
+              </BaseControl.VisualLabel>
+              <MediaUpload
+                title={__("Select poster image", "presto-player")}
+                onSelect={onSelectPoster}
+                allowedTypes={AUDIO_POSTER_ALLOWED_MEDIA_TYPES}
+                render={({ open }) => (
+                  <Button
+                    className="presto-setting__poster"
+                    isPrimary
+                    onClick={open}
+                    aria-describedby={audioPosterDescription}
+                  >
+                    {!poster
+                      ? __("Select", "presto-player")
+                      : __("Replace", "presto-player")}
+                  </Button>
+                )}
+              />
+              <p id={audioPosterDescription} hidden>
+                {poster
+                  ? sprintf(
+                      __("The current poster image url is %s", "presto-player"),
+                      poster
+                    )
+                  : __(
+                      "There is no poster image currently selected",
+                      "presto-player"
+                    )}
+              </p>
+              {!!poster && (
                 <Button
-                  className="presto-setting__poster"
-                  isPrimary
-                  onClick={open}
-                  aria-describedby={audioPosterDescription}
+                  onClick={onRemovePoster}
+                  className="presto-setting__remove-poster"
+                  isTertiary
                 >
-                  {!poster
-                    ? __("Select", "presto-player")
-                    : __("Replace", "presto-player")}
+                  {__("Remove", "presto-player")}
                 </Button>
               )}
-            />
-            <p id={audioPosterDescription} hidden>
-              {poster
-                ? sprintf(
-                    __("The current poster image url is %s", "presto-player"),
-                    poster
-                  )
-                : __(
-                    "There is no poster image currently selected",
-                    "presto-player"
-                  )}
-            </p>
-            {!!poster && (
-              <Button
-                onClick={onRemovePoster}
-                className="presto-setting__remove-poster"
-                isTertiary
-              >
-                {__("Remove", "presto-player")}
-              </Button>
-            )}
-          </BaseControl>
-        </MediaUploadCheck>
+            </BaseControl>
+          </MediaUploadCheck>
+        </PanelRow>
       </PanelBody>
 
       {/* Audio Presets */}

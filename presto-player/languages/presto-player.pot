@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-11T19:40:35+00:00\n"
+"POT-Creation-Date: 2024-11-13T20:14:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 
@@ -197,13 +197,13 @@ msgid "Audio Settings"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:74
-#: admin/blocks/shared/settings/index.js:167
+#: admin/blocks/shared/settings/index.js:161
 #: Integrations/Elementor/VideoWidget.php:278
 msgid "Autoplay"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:86
-#: admin/blocks/shared/settings/index.js:192
+#: admin/blocks/shared/settings/index.js:186
 msgid "Performance Preference"
 msgstr ""
 
@@ -212,71 +212,71 @@ msgid "Audio Playback Speed"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:106
-#: admin/blocks/shared/settings/index.js:219
+#: admin/blocks/shared/settings/index.js:213
 msgid "Page Load Speed"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:110
-#: admin/blocks/shared/settings/index.js:223
+#: admin/blocks/shared/settings/index.js:217
 msgid "Page Load Speed (Extreme)"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:120
-#: admin/blocks/shared/settings/index.js:232
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:121
+#: admin/blocks/shared/settings/index.js:227
 msgid "Poster image"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:123
-#: admin/blocks/shared/settings/index.js:235
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:124
+#: admin/blocks/shared/settings/index.js:230
 msgid "Select poster image"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:134
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:135
 #: admin/blocks/shared/audioPresets/Behavior.js:80
 #: admin/blocks/shared/branding/index.js:91
 #: admin/blocks/shared/presets/Behavior.js:135
-#: admin/blocks/shared/settings/index.js:246
+#: admin/blocks/shared/settings/index.js:241
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:64
 #: admin/settings/components/Media.js:48
 msgid "Select"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:135
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:136
 #: admin/blocks/blocks/audio/edit.js:128
 #: admin/blocks/blocks/bunny/edit.js:414
 #: admin/blocks/blocks/hosted/edit.js:213
 #: admin/blocks/blocks/vimeo/edit.js:119
 #: admin/blocks/blocks/youtube/edit.js:119
 #: admin/blocks/shared/branding/index.js:92
-#: admin/blocks/shared/settings/index.js:247
+#: admin/blocks/shared/settings/index.js:242
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:65
 #: admin/settings/components/Media.js:49
 msgid "Replace"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:142
-#: admin/blocks/shared/settings/index.js:254
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:143
+#: admin/blocks/shared/settings/index.js:249
 msgid "The current poster image url is %s"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:145
-#: admin/blocks/shared/settings/index.js:257
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:146
+#: admin/blocks/shared/settings/index.js:252
 msgid "There is no poster image currently selected"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:156
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:157
 #: admin/blocks/shared/branding/index.js:113
-#: admin/blocks/shared/settings/index.js:268
+#: admin/blocks/shared/settings/index.js:263
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:86
 #: admin/settings/components/Media.js:64
 msgid "Remove"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:164
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:166
 msgid "Audio Preset"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:171
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:173
 #: admin/blocks/shared/BlockInspectorControls.js:96
 msgid "Global Player Branding"
 msgstr ""
@@ -2075,48 +2075,48 @@ msgstr ""
 msgid "Select media"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:41
+#: admin/blocks/shared/settings/index.js:35
 msgid "Note: Autoplaying videos may cause usability issues for some visitors."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:82
+#: admin/blocks/shared/settings/index.js:76
 msgid "Muted Autoplay Preview"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:100
+#: admin/blocks/shared/settings/index.js:94
 msgid "Shows a muted preview of the video."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:105
+#: admin/blocks/shared/settings/index.js:99
 msgid "Muted Preview Captions"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:116
+#: admin/blocks/shared/settings/index.js:110
 msgid "Play captions during muted autoplay"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:126
+#: admin/blocks/shared/settings/index.js:120
 msgid "Muted Preview Overlay"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:144
+#: admin/blocks/shared/settings/index.js:138
 msgid "Show an image over the top of the video either before or after the video."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:176
+#: admin/blocks/shared/settings/index.js:170
 #: Integrations/Elementor/VideoWidget.php:289
 msgid "Play inline"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:181
+#: admin/blocks/shared/settings/index.js:175
 msgid "On mobile browsers, play the video on the page instead of opening it up fullscreen."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:207
+#: admin/blocks/shared/settings/index.js:201
 msgid "A poster image is recommended for this setting."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:215
+#: admin/blocks/shared/settings/index.js:209
 msgid "Video Playback Speed"
 msgstr ""
 
