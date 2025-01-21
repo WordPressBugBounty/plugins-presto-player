@@ -1,14 +1,37 @@
 <?php
+/**
+ * Video Post Type Service
+ *
+ * @package PrestoPlayer
+ * @since 1.0.0
+ */
 
 namespace PrestoPlayer\Services;
 
 use PrestoPlayer\Models\ReusableVideo;
 use PrestoPlayer\Models\Video;
 
+/**
+ * Class VideoPostType
+ *
+ * Handles the registration and management of the custom post type for video blocks
+ * in the Presto Player plugin. This includes setting up custom columns, managing
+ * post type UI, and handling various actions and filters related to video posts.
+ */
 class VideoPostType {
 
+	/**
+	 * The custom post type identifier for video blocks.
+	 *
+	 * @var string
+	 */
 	protected $post_type = 'pp_video_block';
 
+	/**
+	 * Register all hooks and filters for the video post type.
+	 *
+	 * @return void
+	 */
 	public function register() {
 		global $wp_version;
 
@@ -23,27 +46,27 @@ class VideoPostType {
 
 		add_filter( 'enter_title_here', array( $this, 'videoTitle' ) );
 
-		// post type ui
+		// post type ui.
 		add_filter( "manage_{$this->post_type}_posts_columns", array( $this, 'postTypeColumns' ), 1 );
 		add_action( "manage_{$this->post_type}_posts_custom_column", array( $this, 'postTypeColumnContent' ), 10, 2 );
 
-		// filter by tags
+		// filter by tags.
 		add_action( 'restrict_manage_posts', array( $this, 'tagFilter' ) );
 		add_action( 'parse_query', array( $this, 'tagQuery' ) );
 
-		// force gutenberg here
+		// force gutenberg here.
 		add_action( 'use_block_editor_for_post', array( $this, 'forceGutenberg' ), 999, 2 );
 
-		// limit media hub posts
+		// limit media hub posts.
 		add_filter( 'pre_get_posts', array( $this, 'limitMediaHubPosts' ) );
 
-		// redirect to 404 if instant video page not published
+		// redirect to 404 if instant video page not published.
 		add_action( 'template_redirect', array( $this, 'maybeRedirectTo404' ) );
 
 		// filter the single template.
 		add_filter( 'single_template', array( $this, 'singleTemplate' ) );
 
-		// script for instant video page dropdown on editor toolbar
+		// script for instant video page dropdown on editor toolbar.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueueEditorToolbarScript' ) );
 
 		add_filter( 'post_thumbnail_id', array( $this, 'attachPoster' ), 10, 2 );
@@ -58,7 +81,7 @@ class VideoPostType {
 	/**
 	 * Limit media hub posts by author if cannot edit others posts
 	 *
-	 * @param  \WP_Query $query
+	 * @param  \WP_Query $query The WP_Query instance.
 	 * @return \WP_Query
 	 */
 	public function limitMediaHubPosts( $query ) {
@@ -76,7 +99,12 @@ class VideoPostType {
 	}
 
 	/**
-	 * Force gutenberg in case of classic editor
+	 * Force gutenberg in case of classic editor.
+	 *
+	 * @param bool   $use Whether to use the block editor.
+	 * @param object $post The post object.
+	 *
+	 * @return bool Whether to use the block editor.
 	 */
 	public function forceGutenberg( $use, $post ) {
 		if ( $this->post_type === $post->post_type ) {
@@ -87,10 +115,10 @@ class VideoPostType {
 	}
 
 	/**
-	 * Columns on all posts page
+	 * Columns on all posts page.
 	 *
-	 * @param  array $defaults
-	 * @return array
+	 * @param  array $defaults The default columns.
+	 * @return array The columns.
 	 */
 	public function postTypeColumns( $defaults ) {
 		$columns = array_merge(
@@ -227,13 +255,13 @@ class VideoPostType {
 						),
 					);
 
-					// Merge the default allowed HTML tags with the SVG arguments
+					// Merge the default allowed HTML tags with the SVG arguments.
 					$allowed_tags = array_merge( wp_kses_allowed_html( 'post' ), $svg_args );
 
-					// Initialize the WP_HTML_Tag_Processor
+					// Initialize the WP_HTML_Tag_Processor.
 					$processor = new \WP_HTML_Tag_Processor( $svg_content );
 
-					// Find the SVG tag and set the width and height attributes
+					// Find the SVG tag and set the width and height attributes.
 					if ( $processor->next_tag( 'svg' ) ) {
 						$processor->set_attribute( 'width', '20px' );
 						$processor->set_attribute( 'height', 'auto' );
@@ -248,6 +276,12 @@ class VideoPostType {
 		return ob_get_clean();
 	}
 
+	/**
+	 * Modifies the default title placeholder text
+	 *
+	 * @param string $title The title placeholder text.
+	 * @return string Modified title text
+	 */
 	public function videoTitle( $title ) {
 		$screen = get_current_screen();
 		if ( $this->post_type == $screen->post_type ) {
@@ -280,6 +314,13 @@ class VideoPostType {
 		return $allowed_block_types;
 	}
 
+	/**
+	 * Filter allowed block types for deprecated WordPress versions
+	 *
+	 * @param array   $allowed_block_types Array of allowed block types
+	 * @param WP_Post $post               Post being loaded
+	 * @return array Filtered block types
+	 */
 	public function allowedTypesDeprecated( $allowed_block_types, $post ) {
 		if ( $post->post_type !== $this->post_type ) {
 			return $allowed_block_types;
@@ -326,7 +367,7 @@ class VideoPostType {
 					'name'                     => _x( 'Media Hub', 'post type general name', 'presto-player' ),
 					'singular_name'            => _x( 'Media', 'post type singular name', 'presto-player' ),
 					'menu_name'                => _x( 'Media', 'admin menu', 'presto-player' ),
-					'name_admin_bar'           => _x( 'Media', 'add new on admin bar', 'presto-player' ),
+					'name_admin_bar'           => _x( 'Presto Media', 'add new on admin bar', 'presto-player' ),
 					'add_new'                  => _x( 'Add New', 'Media', 'presto-player' ),
 					'add_new_item'             => __( 'Add New Media', 'presto-player' ),
 					'new_item'                 => __( 'New Media', 'presto-player' ),
@@ -471,12 +512,12 @@ class VideoPostType {
 	/**
 	 * Get the translated block name.
 	 *
-	 * @param int $blockName The block name.
+	 * @param string $block_name The block name.
 	 *
 	 * @return string The translated block name.
 	 */
-	public function getTranslatedBlockName( $blockName ) {
-		if ( empty( $blockName ) ) {
+	public function getTranslatedBlockName( $block_name ) {
+		if ( empty( $block_name ) ) {
 			return '';
 		}
 		$translation_map = array(
@@ -486,7 +527,7 @@ class VideoPostType {
 			'presto-player/youtube'     => __( 'Youtube', 'presto-player' ),
 			'presto-player/bunny'       => __( 'Bunny', 'presto-player' ),
 		);
-		return $translation_map[ $blockName ];
+		return $translation_map[ $block_name ];
 	}
 
 	/**
@@ -675,7 +716,7 @@ class VideoPostType {
 		if ( ! empty( $title ) ) {
 			return $title;
 		}
-		$videoTitle = $this->getVideoTitleFromBlock( $post_id );
-		return $videoTitle ?? $this->getTitleFallback( $title, $post_id );
+		$video_title = $this->getVideoTitleFromBlock( $post_id );
+		return $video_title ?? $this->getTitleFallback( $title, $post_id );
 	}
 }

@@ -1,9 +1,12 @@
 <?php
+/**
+ * Handles divi integration related functionality.
+ *
+ * @package presto-player
+ */
 
 namespace PrestoPlayer\Integrations\Divi;
 
-use PrestoPlayer\Plugin;
-use PrestoPlayer\WPackio\Enqueue;
 use PrestoPlayer\Models\ReusableVideo;
 use PrestoPlayer\Models\Post;
 
@@ -12,40 +15,41 @@ use PrestoPlayer\Models\Post;
  */
 class Divi {
 
+	/**
+	 * Registers the Divi integration.
+	 */
 	public function register() {
 		add_action( 'divi_extensions_init', array( $this, 'init' ) );
 		add_action( 'wp_ajax_presto_get_media_attributes', array( $this, 'getMediaItemAttributes' ) );
 	}
 
+	/**
+	 * Initializes the Divi integration.
+	 */
 	public function init() {
-		// require our module
+		// require our module.
 		include_once 'includes/PrestoDiviExtension.php';
 
-		// enqueue the scripts
+		// enqueue the scripts.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
 
 		// fix rankmath conflict.
 		add_filter( 'script_loader_tag', array( $this, 'rankMathFix' ), 11, 3 );
 
-		// parse the divi block to get the inner media hub block
-		add_filter( 'presto_player_get_block_from_content', array( $this, 'getInnerBlockFromDiviBlock' ) );
+		// parse the divi block to get the inner media hub block.
+		add_filter( 'presto_player_get_block_from_content', array( $this, 'getInnerBlockFromDiviContent' ) );
 	}
 
 	/**
-	 * Gets the inner media hub block from the divi block.
+	 * Gets the inner media hub block from the divi content for lessons and topics.
 	 *
 	 * @param array $block the Divi block array.
 	 *
 	 * @return array $block the filtered media hub inner block array.
 	 */
-	public function getInnerBlockFromDiviBlock( $block ) {
-		// bail if block is empty
+	public function getInnerBlockFromDiviContent( $block ) {
+		// bail if block is empty.
 		if ( empty( $block ) ) {
-			return $block;
-		}
-
-		// bail if block is not a divi block
-		if ( 'divi/placeholder' !== $block['blockName'] ) {
 			return $block;
 		}
 
@@ -87,8 +91,8 @@ class Divi {
 	/**
 	 * Get attributes to inject into JSX component
 	 *
-	 * @param  integer $id
-	 * @return void
+	 * @param int $id id of the media item.
+	 * @return array|WP_Error
 	 */
 	public function getMediaItemAttributes( $id ) {
 		\check_ajax_referer( 'et_admin_load_nonce' );
@@ -99,13 +103,17 @@ class Divi {
 			return new \WP_Error( 'invalid', 'You must provide an id', array( 'status' => 400 ) );
 		}
 
-		if ( ! $video = new ReusableVideo( $id ) ) {
+		$video = new ReusableVideo( $id );
+		if ( ! $video ) {
 			return false;
 		}
 
 		return wp_send_json_success( $video->getAttributes() );
 	}
 
+	/**
+	 * Enqueues scripts for Divi integration.
+	 */
 	public function enqueueScripts() {
 		if ( ! et_core_is_fb_enabled() ) {
 			return;

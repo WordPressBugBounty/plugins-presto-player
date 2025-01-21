@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-11-13T20:14:27",
+  "timestamp": "2025-01-21T20:11:17",
   "compiler": {
     "name": "node",
-    "version": "18.20.4"
+    "version": "20.18.1"
   },
   "app": {
     "namespace": "WebComponents",

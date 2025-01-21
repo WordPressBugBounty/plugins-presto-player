@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.7
-Stable tag: 3.0.7
+Stable tag: 3.0.8
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -149,6 +149,10 @@ It is also important to point out that BunnyNet has a $1 per month minimum.
 
 
 == Changelog ==
+
+= 3.0.8 = 
+- Fix: Leandash video progression not working when DIVI builder is used to build lesson pages.
+- Change: Rename admin bar menu item from "Media" to "Presto Media" to prevent conflict with WordPress media library.
 
 = 3.0.7 =
 * Improvement: Fix minor spacing issues with block inspector sidebar inWordPress 6.7.

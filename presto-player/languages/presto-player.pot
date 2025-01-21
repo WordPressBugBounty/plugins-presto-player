@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-11-13T20:14:08+00:00\n"
+"POT-Creation-Date: 2025-01-21T20:10:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 
@@ -1694,7 +1694,7 @@ msgstr ""
 
 #: admin/blocks/shared/presets/Behavior.js:155
 #: Blocks/YouTubeBlock.php:26
-#: Services/VideoPostType.php:486
+#: Services/VideoPostType.php:527
 msgid "Youtube"
 msgstr ""
 
@@ -1915,7 +1915,7 @@ msgid "Choose an audience"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/MailchimpConfig.js:75
-#: Services/VideoPostType.php:314
+#: Services/VideoPostType.php:355
 msgid "Tag"
 msgstr ""
 
@@ -2061,13 +2061,13 @@ msgstr ""
 #: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:188
 #: Blocks/VimeoBlock.php:23
 #: Integrations/Elementor/VideoWidget.php:151
-#: Services/VideoPostType.php:485
+#: Services/VideoPostType.php:526
 msgid "Vimeo"
 msgstr ""
 
 #: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:195
 #: Blocks/AudioBlock.php:25
-#: Services/VideoPostType.php:484
+#: Services/VideoPostType.php:525
 msgid "Audio"
 msgstr ""
 
@@ -2283,7 +2283,7 @@ msgid "Logo"
 msgstr ""
 
 #: admin/settings/pages/General.js:192
-#: Services/VideoPostType.php:335
+#: Services/VideoPostType.php:376
 msgid "Media Hub"
 msgstr ""
 
@@ -2986,7 +2986,7 @@ msgid "Forbidden"
 msgstr ""
 
 #: Blocks/SelfHostedBlock.php:25
-#: Services/VideoPostType.php:483
+#: Services/VideoPostType.php:524
 msgid "Self-hosted"
 msgstr ""
 
@@ -3042,7 +3042,7 @@ msgid "Please choose media above before selecting dynamic URL override."
 msgstr ""
 
 #: Integrations/Elementor/ReusableVideoWidget.php:126
-#: Services/VideoPostType.php:333
+#: Services/VideoPostType.php:374
 msgid "Edit Media"
 msgstr ""
 
@@ -3074,7 +3074,7 @@ msgid "Muted Preview"
 msgstr ""
 
 #: Integrations/Elementor/VideoWidget.php:297
-#: Services/VideoPostType.php:99
+#: Services/VideoPostType.php:127
 msgid "Poster"
 msgstr ""
 
@@ -3499,120 +3499,120 @@ msgstr ""
 msgid "Start Over"
 msgstr ""
 
-#: Services/VideoPostType.php:101
+#: Services/VideoPostType.php:129
 msgid "Shortcode"
 msgstr ""
 
-#: Services/VideoPostType.php:254
+#: Services/VideoPostType.php:288
 msgid "Enter a title..."
 msgstr ""
 
-#: Services/VideoPostType.php:309
+#: Services/VideoPostType.php:350
 msgctxt "post type general name"
 msgid "Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:310
+#: Services/VideoPostType.php:351
 msgctxt "post type singular name"
 msgid "Media Tag"
 msgstr ""
 
-#: Services/VideoPostType.php:311
+#: Services/VideoPostType.php:352
 msgctxt "admin menu"
 msgid "Search Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:312
+#: Services/VideoPostType.php:353
 msgctxt "add new on admin bar"
 msgid "Popular Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:326
+#: Services/VideoPostType.php:367
 msgctxt "post type general name"
 msgid "Media Hub"
 msgstr ""
 
-#: Services/VideoPostType.php:327
+#: Services/VideoPostType.php:368
 msgctxt "post type singular name"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:328
+#: Services/VideoPostType.php:369
 msgctxt "admin menu"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:329
+#: Services/VideoPostType.php:370
 msgctxt "add new on admin bar"
-msgid "Media"
+msgid "Presto Media"
 msgstr ""
 
-#: Services/VideoPostType.php:330
+#: Services/VideoPostType.php:371
 msgctxt "Media"
 msgid "Add New"
 msgstr ""
 
-#: Services/VideoPostType.php:331
+#: Services/VideoPostType.php:372
 msgid "Add New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:332
+#: Services/VideoPostType.php:373
 msgid "New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:334
+#: Services/VideoPostType.php:375
 msgid "View Media"
 msgstr ""
 
-#: Services/VideoPostType.php:336
+#: Services/VideoPostType.php:377
 msgid "Search Media"
 msgstr ""
 
-#: Services/VideoPostType.php:337
+#: Services/VideoPostType.php:378
 msgid "No Media found."
 msgstr ""
 
-#: Services/VideoPostType.php:338
+#: Services/VideoPostType.php:379
 msgid "No Media found in Trash."
 msgstr ""
 
-#: Services/VideoPostType.php:339
+#: Services/VideoPostType.php:380
 msgid "Filter Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:340
+#: Services/VideoPostType.php:381
 msgid "Media list navigation"
 msgstr ""
 
-#: Services/VideoPostType.php:341
+#: Services/VideoPostType.php:382
 msgid "Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:342
+#: Services/VideoPostType.php:383
 msgid "Media published."
 msgstr ""
 
-#: Services/VideoPostType.php:343
+#: Services/VideoPostType.php:384
 msgid "Media published privately."
 msgstr ""
 
-#: Services/VideoPostType.php:344
+#: Services/VideoPostType.php:385
 msgid "Media reverted to draft."
 msgstr ""
 
-#: Services/VideoPostType.php:345
+#: Services/VideoPostType.php:386
 msgid "Media scheduled."
 msgstr ""
 
-#: Services/VideoPostType.php:346
+#: Services/VideoPostType.php:387
 msgid "Media updated."
 msgstr ""
 
-#: Services/VideoPostType.php:393
+#: Services/VideoPostType.php:434
 msgid "Show all %s"
 msgstr ""
 
-#: Services/VideoPostType.php:487
+#: Services/VideoPostType.php:528
 msgid "Bunny"
 msgstr ""
 
