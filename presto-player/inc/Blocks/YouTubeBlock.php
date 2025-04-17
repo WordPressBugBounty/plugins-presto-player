@@ -92,8 +92,8 @@ class YouTubeBlock extends Block {
 	 * @return string
 	 */
 	public function getIdFromURL( $url = '' ) {
-		preg_match( "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches );
-		return ! empty( $matches[1] ) ? $matches[1] : '';
+		preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user|shorts)\/))([^\?&\"'>]+)/", $url, $matches);
+		return !empty($matches[1]) ? $matches[1] : '';
 	}
 
 	/**

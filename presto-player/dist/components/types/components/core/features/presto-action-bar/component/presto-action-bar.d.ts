@@ -9,6 +9,8 @@ export declare class PrestoActionBar {
     duration: number;
     ended: boolean;
     componentWillLoad(): void;
+    /** Watch for player changes on lazy load.*/
+    handlePlayerChange(): void;
     setEnded(): void;
     setCurrentTime(e: any): void;
     /**

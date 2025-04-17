@@ -139,11 +139,17 @@ export default (props) => {
             }
           : {
               "--presto-player-border-radius": `${preset?.border_radius}px`,
+              "--presto-player-aspect-ratio":
+                attributes?.ratio === "original"
+                  ? "unset"
+                  : attributes?.ratio?.replace(":", "/") || "16/9",
               ...(preset?.caption_background
                 ? { "--plyr-captions-background": preset.caption_background }
                 : {}),
               ...(branding?.color
-                ? { "--plyr-color-main": `var(--presto-player-highlight-color, ${branding.color})` }
+                ? {
+                    "--plyr-color-main": `var(--presto-player-highlight-color, ${branding.color})`,
+                  }
                 : {}),
               "--presto-player-email-border-radius": `${
                 preset?.email_collection?.border_radius || 0

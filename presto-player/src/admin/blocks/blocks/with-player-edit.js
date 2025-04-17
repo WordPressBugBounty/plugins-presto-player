@@ -25,7 +25,7 @@ export default () =>
       } = props;
       const [presetData, setPresetData] = useState({});
       const [count, setCount] = useState(1);
-      let { poster, chapters } = attributes;
+      let { poster, chapters, ratio } = attributes;
 
       // don't allow selection if there is an override
       useEffect(() => {
@@ -54,7 +54,7 @@ export default () =>
       // re-render the player if presetdata, poster or chapters change
       useEffect(() => {
         onUpdate();
-      }, [poster, presetData, chapters, branding.logo]);
+      }, [poster, presetData, chapters, branding.logo, ratio]);
 
       // increment update key
       const onUpdate = () => {

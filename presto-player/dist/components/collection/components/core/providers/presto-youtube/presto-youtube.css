@@ -23,7 +23,11 @@
   .plyr__video-embed,
   .plyr__video-wrapper--fixed-ratio {
     height: 0 !important;
-    padding-bottom: 56.25%;
+    padding-bottom: calc(100% / (var(--presto-player-aspect-ratio, 16/9)));
     position: relative;
   }
+}
+
+.plyr--youtube {
+  aspect-ratio: var(--presto-player-aspect-ratio, auto);
 }

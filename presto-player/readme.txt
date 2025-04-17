@@ -3,8 +3,8 @@ Contributors: 2winfactor, wpcrafter
 Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
-Tested up to: 6.7
-Stable tag: 3.0.8
+Tested up to: 6.8
+Stable tag: 3.1.0
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -149,6 +149,11 @@ It is also important to point out that BunnyNet has a $1 per month minimum.
 
 
 == Changelog ==
+= 3.1.0 = 
+- New: Setting to adjust the aspect ratio of the videos (vertical video support) [Learn More](https://www.youtube.com/watch?v=dKL8t9RtdvA).
+- Fix: Issue where action bar was sometimes not appearing for lazy loaded Youtube videos.
+- Fix: YouTube playlist item showing loading bar before playing on iOS devices.
+- Fix: Select media dropdown spacing issue on initial load in upcoming WordPress 6.8.
 
 = 3.0.8 = 
 - Fix: Leandash video progression not working when DIVI builder is used to build lesson pages.

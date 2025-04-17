@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-21T20:10:59+00:00\n"
+"POT-Creation-Date: 2025-04-17T19:24:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 
@@ -1361,20 +1361,20 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:36
-#: admin/blocks/shared/components/EntitySearchDropdown.js:68
+#: admin/blocks/shared/components/EntitySearchDropdown.js:38
+#: admin/blocks/shared/components/EntitySearchDropdown.js:69
 msgid "None found."
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:61
+#: admin/blocks/shared/components/EntitySearchDropdown.js:62
 msgid "Add New"
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:103
+#: admin/blocks/shared/components/EntitySearchDropdown.js:104
 msgid "Load More"
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:147
+#: admin/blocks/shared/components/EntitySearchDropdown.js:149
 msgid "Search..."
 msgstr ""
 
@@ -2118,6 +2118,42 @@ msgstr ""
 
 #: admin/blocks/shared/settings/index.js:209
 msgid "Video Playback Speed"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:272
+msgid "Aspect Ratio"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:278
+msgid "Original"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:279
+msgid "Square - 1:1"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:280
+msgid "Standard - 4:3"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:281
+msgid "Portrait - 3:4"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:282
+msgid "Classic - 3:2"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:285
+msgid "Classic Portrait - 2:3"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:287
+msgid "Wide - 16:9"
+msgstr ""
+
+#: admin/blocks/shared/settings/index.js:288
+msgid "Tall - 9:16"
 msgstr ""
 
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:51

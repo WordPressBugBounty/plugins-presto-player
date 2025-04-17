@@ -220,52 +220,76 @@ const VideoSettings = ({ setAttributes, attributes }) => {
           />
         </PanelRow>
       )}
-        <PanelRow>
-          <MediaUploadCheck>
-            <BaseControl className="editor-video-poster-control">
-              <BaseControl.VisualLabel>
-               {__("Poster image", "presto-player")}
-              </BaseControl.VisualLabel>
-              <MediaUpload
-                title={__("Select poster image", "presto-player")}
-                onSelect={onSelectPoster}
-                allowedTypes={VIDEO_POSTER_ALLOWED_MEDIA_TYPES}
-                render={({ open }) => (
-                  <Button
-                    className="presto-setting__poster"
-                    isPrimary
-                    onClick={open}
-                    aria-describedby={videoPosterDescription}
-                  >
-                    {!poster
-                      ? __("Select", "presto-player")
-                      : __("Replace", "presto-player")}
-                  </Button>
-                )}
-              />
-              <p id={videoPosterDescription} hidden>
-                {poster
-                  ? sprintf(
-                      __("The current poster image url is %s", "presto-player"),
-                      poster
-                    )
-                  : __(
-                      "There is no poster image currently selected",
-                      "presto-player"
-                    )}
-              </p>
-              {!!poster && (
+      <PanelRow>
+        <MediaUploadCheck>
+          <BaseControl className="editor-video-poster-control">
+            <BaseControl.VisualLabel>
+              {__("Poster image", "presto-player")}
+            </BaseControl.VisualLabel>
+            <MediaUpload
+              title={__("Select poster image", "presto-player")}
+              onSelect={onSelectPoster}
+              allowedTypes={VIDEO_POSTER_ALLOWED_MEDIA_TYPES}
+              render={({ open }) => (
                 <Button
-                  onClick={onRemovePoster}
-                  className="presto-setting__remove-poster"
-                  isTertiary
+                  className="presto-setting__poster"
+                  isPrimary
+                  onClick={open}
+                  aria-describedby={videoPosterDescription}
                 >
-                  {__("Remove", "presto-player")}
+                  {!poster
+                    ? __("Select", "presto-player")
+                    : __("Replace", "presto-player")}
                 </Button>
               )}
-            </BaseControl>
-          </MediaUploadCheck>
-        </PanelRow>
+            />
+            <p id={videoPosterDescription} hidden>
+              {poster
+                ? sprintf(
+                    __("The current poster image url is %s", "presto-player"),
+                    poster
+                  )
+                : __(
+                    "There is no poster image currently selected",
+                    "presto-player"
+                  )}
+            </p>
+            {!!poster && (
+              <Button
+                onClick={onRemovePoster}
+                className="presto-setting__remove-poster"
+                isTertiary
+              >
+                {__("Remove", "presto-player")}
+              </Button>
+            )}
+          </BaseControl>
+        </MediaUploadCheck>
+      </PanelRow>
+      <PanelRow>
+        <div style={{ width: "100%", flex: 1 }}>
+          <SelectControl
+            label={__("Aspect Ratio", "presto-player")}
+            value={attributes?.ratio}
+            onChange={(value) => {
+              setAttributes({ ratio: value });
+            }}
+            options={[
+              { value: "original", label: __("Original", "presto-player") },
+              { value: "1:1", label: __("Square - 1:1", "presto-player") },
+              { value: "4:3", label: __("Standard - 4:3", "presto-player") },
+              { value: "3:4", label: __("Portrait - 3:4", "presto-player") },
+              { value: "3:2", label: __("Classic - 3:2", "presto-player") },
+              {
+                value: "2:3",
+                label: __("Classic Portrait - 2:3", "presto-player"),
+              },
+              { value: "16:9", label: __("Wide - 16:9", "presto-player") },
+              { value: "9:16", label: __("Tall - 9:16", "presto-player") },
+            ]}
+          />
+        </div>
+      </PanelRow>
     </>
   );
 };

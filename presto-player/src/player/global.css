@@ -1,17 +1,9 @@
-@supports not (aspect-ratio: 16 / 9) {
-  presto-player:not(.hydrated) {
-    height: 0;
-    padding-bottom: 56%;
-    position: relative;
-  }
-}
-
 presto-player:not(.hydrated) {
   position: relative;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
   display: block;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--presto-player-aspect-ratio, 16/9);
 }
 
 presto-player:not(.hydrated) .presto-loader {

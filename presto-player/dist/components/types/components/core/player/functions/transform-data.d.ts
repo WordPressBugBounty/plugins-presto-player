@@ -1,5 +1,6 @@
 import { PrestoConfig } from '../../../../interfaces';
 export default function ({ preset, chapters, branding, src, analytics, automations, autoplay, blockAttributes, provider, provider_video_id, youtube, type, isAdmin, i18n, storage, }: PrestoConfig): {
+    ratio: string;
     invertTime: boolean;
     storage: {
         enabled?: boolean;
@@ -53,6 +54,7 @@ export default function ({ preset, chapters, branding, src, analytics, automatio
             captions?: boolean;
         };
         mutedOverlay?: import("../../../../interfaces").MutedOverlay;
+        ratio?: string;
         constructor: Function;
         toString(): string;
         toLocaleString(): string;

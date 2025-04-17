@@ -138,6 +138,7 @@ export declare class PrestoPlayer {
             enabled: boolean;
             points: any[];
         };
+        ratio: string;
         invertTime: boolean;
         storage: {
             enabled?: boolean;
@@ -191,6 +192,7 @@ export declare class PrestoPlayer {
                 captions?: boolean;
             };
             mutedOverlay?: import("../../../interfaces").MutedOverlay;
+            ratio?: string;
             constructor: Function;
             toString(): string;
             toLocaleString(): string;
@@ -243,6 +245,7 @@ export declare class PrestoPlayer {
                 enabled: boolean;
                 points: any[];
             };
+            ratio: string;
             invertTime: boolean;
             storage: {
                 enabled?: boolean;
@@ -296,6 +299,7 @@ export declare class PrestoPlayer {
                     captions?: boolean;
                 };
                 mutedOverlay?: import("../../../interfaces").MutedOverlay;
+                ratio?: string;
                 constructor: Function;
                 toString(): string;
                 toLocaleString(): string;

@@ -24,18 +24,19 @@ const EntitySearchDropdown = ({
   ...dropdownProps
 }) => {
   const renderContent = () => {
-    if (isLoading && !options.length) return <Spinner />;
+    if (isLoading && !options.length)
+      return (
+        <MenuGroup>
+          <MenuItem>
+            <Spinner />
+          </MenuItem>
+        </MenuGroup>
+      );
     if (!options.length) {
       return (
-        <>
-          <span
-            css={css`
-             margin: 8px;
-            `}
-          >
-            {__("None found.", "presto-player")}
-          </span>
-        </>
+        <MenuGroup>
+          <MenuItem>{__("None found.", "presto-player")}</MenuItem>
+        </MenuGroup>
       );
     }
     return (
@@ -123,6 +124,7 @@ const EntitySearchDropdown = ({
             css={css`
               width: 500px;
               max-width: 100vw;
+              padding: 8px;
               .components-menu-group {
                 padding: 8px;
                 margin-top: 0;

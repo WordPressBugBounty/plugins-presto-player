@@ -110,4 +110,8 @@ export default {
     },
     default: [],
   },
+  ratio: {
+    type: String,
+    default: "original",
+  },
 };

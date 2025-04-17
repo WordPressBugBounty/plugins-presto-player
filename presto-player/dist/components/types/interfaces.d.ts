@@ -119,6 +119,7 @@ export interface blockAttributes extends Object {
         captions?: boolean;
     };
     mutedOverlay?: MutedOverlay;
+    ratio?: string;
 }
 export interface MutedOverlay extends Object {
     enabled?: boolean;

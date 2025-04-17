@@ -240,8 +240,8 @@ class Block {
 		}
 		$branding     = $this->getBranding( $preset );
 		$class        = $this->getClasses( $attributes );
-		$player_class = $this->getPlayerClasses( $id, $preset );
-		$styles       = $this->getPlayerStyles( $preset, $branding );
+		$player_class = $this->getPlayerClasses( $id, $preset, $attributes );
+		$styles       = $this->getPlayerStyles( $preset, $branding, $attributes );
 		$css          = $this->getCSS( $id );
 		$src          = ! empty( $attributes['src'] ) ? $attributes['src'] : '';
 
@@ -401,9 +401,10 @@ class Block {
 	 *
 	 * @param  integer                     $id the video id.
 	 * @param  \PrestoPlayer\Models\Preset $preset the preset.
+	 * @param  array                       $attributes the block attributes.
 	 * @return string
 	 */
-	public function getPlayerClasses( $id, $preset ) {
+	public function getPlayerClasses( $id, $preset, $attributes ) {
 		$skin          = $preset->skin;
 		$player_class  = 'presto-video-id-' . (int) $id;
 		$player_class .= ' presto-preset-id-' . (int) $preset->id;
@@ -429,9 +430,10 @@ class Block {
 	 *
 	 * @param  \PrestoPlayer\Models\Preset $preset   the preset.
 	 * @param  array                       $branding the branding object.
+	 * @param  array                       $attributes the block attributes.
 	 * @return string
 	 */
-	public function getPlayerStyles( $preset, $branding ) {
+	public function getPlayerStyles( $preset, $branding, $attributes ) {
 
 		// Set brand color.
 		$background_color = ( ! empty( $preset->background_color ) ? sanitize_hex_color( $preset->background_color ) : 'var(--presto-player-highlight-color, ' . sanitize_hex_color( $branding['color'] ) . ')' );
@@ -472,6 +474,11 @@ class Block {
 				$styles .= '--plyr-range-fill-background: #ffffff;';
 				$styles .= '--plyr-audio-progress-buffered-background: ' . Utility::hex2rgba( sanitize_hex_color( sanitize_hex_color( '#dcdcdc' ) ), 0.35 ) . ';';
 			}
+		}
+
+		// Set aspect ratio css variable.
+		if ( ! empty( $attributes['ratio'] ) ) {
+			$styles .= '--presto-player-aspect-ratio: ' . str_replace( ':', '/', esc_attr( $attributes['ratio'] ) ) . ';';
 		}
 
 		return $styles;

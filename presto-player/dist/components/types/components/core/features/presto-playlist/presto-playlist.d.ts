@@ -34,6 +34,11 @@ export declare class PrestoPlaylist {
      */
     handleCurrentPlay(value: any, previousValue: any): void;
     /**
+     * Resets the playing state whenever the current playlist item changes.
+     * This ensures the playing state starts fresh with each new video selection.
+     */
+    resetPlayingStateOnItemChange(): void;
+    /**
      * Adds overlay to the player which will regulate the Next video button.
      */
     addOverlay(): void;

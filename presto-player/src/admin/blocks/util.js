@@ -88,8 +88,7 @@ export function getProvider(src) {
   const provider = "self-hosted";
 
   if (src) {
-    const yt_rx =
-      /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    const yt_rx = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))((\w|-){11})(?:\S+)?$/;
     const has_match_youtube = src.match(yt_rx);
 
     if (has_match_youtube) {
