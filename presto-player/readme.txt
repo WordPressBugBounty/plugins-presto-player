@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.8
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -149,6 +149,12 @@ It is also important to point out that BunnyNet has a $1 per month minimum.
 
 
 == Changelog ==
+
+= 3.1.1 =
+* Change: Change playlist items list to have a max-height of 200px on mobile for long lists.
+* Fix: Issue where video analytics link was incorrectly being shown on profile page, even though they don't have permission to oaccesss the page.
+* Fix: Incorrect text domain for someplugin strings.
+
 = 3.1.0 = 
 - New: Setting to adjust the aspect ratio of the videos (vertical video support) [Learn More](https://www.youtube.com/watch?v=dKL8t9RtdvA).
 - Fix: Issue where action bar was sometimes not appearing for lazy loaded Youtube videos.

@@ -216,7 +216,7 @@ class LearnDash implements Service {
 				$post_type_obj                                  = get_post_type_object( $post->post_type );
 				$settings['videos_auto_complete_delay_message'] = sprintf(
 					// translators: placeholders: 1. Lesson or Topic label, 2. span for counter.
-					wp_kses_post( _x( '<p class="ld-video-delay-message">%1$s will auto complete in %2$s seconds</p>', 'placeholders: 1. Lesson or Topic label, 2. span for counter', 'learndash' ) ),
+					wp_kses_post( _x( '<p class="ld-video-delay-message">%1$s will auto complete in %2$s seconds</p>', 'placeholders: 1. Lesson or Topic label, 2. span for counter', 'presto-player' ) ),
 					$post_type_obj->labels->singular_name,
 					'<span class="time-countdown">' . $settings['lesson_video_auto_complete_delay'] . '</span>'
 				);
@@ -366,13 +366,13 @@ class LearnDash implements Service {
 		$setting = array(
 			'lesson_use_presto_video' => array(
 				'name'           => 'lesson_use_presto_video',
-				'label'          => esc_html__( 'Use Presto Video', 'learndash' ),
+				'label'          => esc_html__( 'Use Presto Video', 'presto-player' ),
 				'type'           => 'checkbox-switch',
 				'value'          => ! empty( $settings['use_presto_video'] ) ? $settings['use_presto_video'] : '',
-				'help_text'      => esc_html__( 'Use the Presto Player video in your post content for video progression.', 'learndash' ),
+				'help_text'      => esc_html__( 'Use the Presto Player video in your post content for video progression.', 'presto-player' ),
 				'default'        => '',
 				'options'        => array(
-					'on' => esc_html__( 'The presto video in this post will be used for video progression.', 'learndash' ),
+					'on' => esc_html__( 'The presto video in this post will be used for video progression.', 'presto-player' ),
 					''   => '',
 				),
 				'parent_setting' => 'lesson_video_enabled',

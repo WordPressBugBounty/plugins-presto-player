@@ -104,8 +104,8 @@
   .playlist__info--inner {
     flex: 1;
     height: fit-content;
-    max-height: 200px;
-    min-height: min-content;
+    max-height: var(--presto-playlist-max-height-stacked, 200px);
+    min-height: var(--presto-playlist-min-height-stacked, 0);
   }
   .playlist__preview {
     min-height: 200px;
@@ -130,7 +130,7 @@
   .playlist__info--inner {
     flex: 1;
     height: fit-content;
-    max-height: 200px;
-    min-height: min-content;
+    max-height: var(--presto-playlist-max-height-stacked, 200px);
+    min-height: var(--presto-playlist-min-height-stacked, 0);
   }
 }
