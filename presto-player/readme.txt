@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.8
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -147,8 +147,17 @@ See our [BunnyNet cost calculator](https://prestoplayer.com/docs/how-to-use-bunn
 
 It is also important to point out that BunnyNet has a $1 per month minimum.
 
+= How can I report a security bug? =
+
+We take plugin security extremely seriously. If you discover a security vulnerability, please report it in a safe and responsible manner.
+
+You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/).
+
 
 == Changelog ==
+
+= 3.1.2 =
+* Improvement: Added security vulnerability reporting guidelines to FAQ section.
 
 = 3.1.1 =
 * Change: Change playlist items list to have a max-height of 200px on mobile for long lists.
