@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-09T14:14:55+00:00\n"
+"POT-Creation-Date: 2025-08-25T20:18:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 
@@ -139,7 +139,7 @@ msgid "Learn More"
 msgstr ""
 
 #: admin/analytics/pages/Dashboard.js:33
-#: admin/settings/pages/General.js:281
+#: admin/settings/pages/General.js:282
 #: Services/Menu.php:28
 #: Services/Menu.php:29
 msgid "Analytics"
@@ -747,12 +747,12 @@ msgstr ""
 
 #: admin/blocks/blocks/media-hub/edit.js:73
 #: admin/blocks/blocks/reusable-display/edit.js:176
-#: admin/settings/pages/General.js:219
+#: admin/settings/pages/General.js:220
 msgid "Synced"
 msgstr ""
 
 #: admin/blocks/blocks/media-hub/edit.js:74
-#: admin/settings/pages/General.js:220
+#: admin/settings/pages/General.js:221
 msgid "Not synced"
 msgstr ""
 
@@ -1546,7 +1546,7 @@ msgstr ""
 #: admin/blocks/shared/presets/Email.js:57
 #: admin/blocks/shared/presets/Search.js:52
 #: admin/blocks/shared/presets/Watermark.js:57
-#: admin/settings/pages/General.js:291
+#: admin/settings/pages/General.js:292
 #: admin/settings/pages/Integrations.js:174
 msgid "Enable"
 msgstr ""
@@ -2275,7 +2275,7 @@ msgid "Okay"
 msgstr ""
 
 #: admin/settings/entities.js:9
-#: admin/settings/pages/General.js:316
+#: admin/settings/pages/General.js:317
 msgid "Presets"
 msgstr ""
 
@@ -2318,93 +2318,93 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
-#: admin/settings/pages/General.js:192
+#: admin/settings/pages/General.js:193
 #: Services/VideoPostType.php:376
 msgid "Media Hub"
 msgstr ""
 
-#: admin/settings/pages/General.js:193
+#: admin/settings/pages/General.js:194
 msgid "Manage the Media Hub settings."
 msgstr ""
 
-#: admin/settings/pages/General.js:196
+#: admin/settings/pages/General.js:197
 msgid "Default Sync Behavior"
 msgstr ""
 
-#: admin/settings/pages/General.js:197
+#: admin/settings/pages/General.js:198
 msgid "Choose the default sync behavior of Presto Player blocks with the Media Hub."
 msgstr ""
 
-#: admin/settings/pages/General.js:248
+#: admin/settings/pages/General.js:249
 msgid "Sync blocks to media hub."
 msgstr ""
 
-#: admin/settings/pages/General.js:259
+#: admin/settings/pages/General.js:260
 msgid "Don't sync blocks to media hub."
 msgstr ""
 
-#: admin/settings/pages/General.js:267
+#: admin/settings/pages/General.js:268
 msgid "Instant Video Page Width"
 msgstr ""
 
-#: admin/settings/pages/General.js:273
+#: admin/settings/pages/General.js:274
 msgid "Customize the video player width on the instant video page."
 msgstr ""
 
-#: admin/settings/pages/General.js:283
+#: admin/settings/pages/General.js:284
 #: admin/settings/pages/Integrations.js:166
 msgid "Analytics settings for media plays, watch times and more."
 msgstr ""
 
-#: admin/settings/pages/General.js:292
+#: admin/settings/pages/General.js:293
 msgid "Enable view analytics for your media."
 msgstr ""
 
-#: admin/settings/pages/General.js:299
+#: admin/settings/pages/General.js:300
 msgid "Auto-Purge Data (recommended)"
 msgstr ""
 
-#: admin/settings/pages/General.js:300
+#: admin/settings/pages/General.js:301
 msgid "Automatically purge data older than 90 days."
 msgstr ""
 
-#: admin/settings/pages/General.js:318
+#: admin/settings/pages/General.js:319
 msgid "Media presets settings."
 msgstr ""
 
-#: admin/settings/pages/General.js:324
+#: admin/settings/pages/General.js:325
 msgid "Select default preset for video."
 msgstr ""
 
-#: admin/settings/pages/General.js:344
+#: admin/settings/pages/General.js:345
 msgid "Select default preset for audio."
 msgstr ""
 
-#: admin/settings/pages/General.js:362
+#: admin/settings/pages/General.js:363
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/settings/pages/General.js:363
+#: admin/settings/pages/General.js:364
 msgid "Quickly add custom css to the player web component."
 msgstr ""
 
-#: admin/settings/pages/General.js:376
+#: admin/settings/pages/General.js:377
 msgid "Uninstall Options"
 msgstr ""
 
-#: admin/settings/pages/General.js:377
+#: admin/settings/pages/General.js:378
 msgid "Options to remove data on uninstall."
 msgstr ""
 
-#: admin/settings/pages/General.js:383
+#: admin/settings/pages/General.js:384
 msgid "Remove data on uninstall"
 msgstr ""
 
-#: admin/settings/pages/General.js:384
+#: admin/settings/pages/General.js:385
 msgid "This removes all data on uninstall."
 msgstr ""
 
-#: admin/settings/pages/General.js:390
+#: admin/settings/pages/General.js:391
 msgid "Caution: Data Loss. Are you sure you want to remove all the data from this plugin? This is irreversible!"
 msgstr ""
 

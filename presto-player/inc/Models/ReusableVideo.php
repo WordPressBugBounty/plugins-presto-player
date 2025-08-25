@@ -33,7 +33,7 @@ class ReusableVideo {
 	 *
 	 * @var string
 	 */
-	public $instant_video_width_setting_key = 'presto_player_instant_video_width';
+	public const INSTANT_VIDEO_WIDTH_SETTING_KEY = 'presto_player_instant_video_width';
 
 	/**
 	 * Constructor
@@ -314,7 +314,7 @@ class ReusableVideo {
 		if ( empty( $this->post->ID ) ) {
 			return false;
 		}
-		$config = get_option( $this->instant_video_width_setting_key, '800px' );
+		$config = get_option( self::INSTANT_VIDEO_WIDTH_SETTING_KEY, '800px' );
 		return ! empty( $config ) ? $config : '800px';
 	}
 }

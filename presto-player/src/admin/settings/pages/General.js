@@ -186,6 +186,7 @@ export default () => {
           className={"presto-player__setting--brand-color"}
           onChangeComplete={(value) => updateBranding({ color: value.hex })}
           color={branding?.color}
+          disableAlpha
         />
       </Group>
       <Group

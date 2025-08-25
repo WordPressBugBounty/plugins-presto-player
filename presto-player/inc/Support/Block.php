@@ -433,7 +433,7 @@ class Block {
 	 * @param  array                       $attributes the block attributes.
 	 * @return string
 	 */
-	public function getPlayerStyles( $preset, $branding, $attributes ) {
+	public function getPlayerStyles( $preset, $branding, $attributes = array() ) {
 
 		// Set brand color.
 		$background_color = ( ! empty( $preset->background_color ) ? sanitize_hex_color( $preset->background_color ) : 'var(--presto-player-highlight-color, ' . sanitize_hex_color( $branding['color'] ) . ')' );
