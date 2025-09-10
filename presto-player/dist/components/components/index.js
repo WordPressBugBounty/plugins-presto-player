@@ -1,1 +1,1 @@
-export{getAssetPath,setAssetPath,setNonce,setPlatformOptions}from"@stencil/core/internal/client";
+export{getAssetPath,render,setAssetPath,setNonce,setPlatformOptions}from"@stencil/core/internal/client";

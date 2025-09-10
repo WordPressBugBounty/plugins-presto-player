@@ -23,3 +23,4 @@ export declare function getParents(elem: any): any[];
 export declare function setAttributes(element: any, attributes: any): void;
 export declare function createElement(type: any, attributes: any, text: any): any;
 export declare function toggleClass(element: any, className: any, force: any): any;
+export declare function parseJSON(value: string, defaultValue: any): any;

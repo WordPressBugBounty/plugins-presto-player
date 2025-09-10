@@ -10,6 +10,9 @@ import store from "./store/player";
 
 import "@/admin/blocks/shared/styles/gutenberg/index.scss";
 import ProUpgradeModal from "./shared/ProUpgradeModal";
+import "./hooks/apply-popup-preview-toggle";
+import "./hooks/apply-popup-image-trigger-placeholder";
+import "./hooks/apply-popup-button-trigger-ui";
 
 /**
  * No-op function for use as a default argument value.

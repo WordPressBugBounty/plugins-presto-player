@@ -8,12 +8,13 @@ import {
 import { select, useSelect, useDispatch } from "@wordpress/data";
 import { useEffect } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import ProvidersPlaceholder from "../../shared/ProvidersPlaceholder/ProvidersPlaceholder";
+import MediaProviders from "../../shared/MediaProviders";
 import { useContext } from "@wordpress/element";
 import EditContext from "../reusable-display/context";
+import { createBlock } from "@wordpress/blocks";
 
 export default ({ clientId, isSelected, context }) => {
-  const { selectBlock } = useDispatch(blockEditorStore);
+  const { selectBlock, insertBlock } = useDispatch(blockEditorStore);
   const { setTemplateValidity } = useDispatch(blockEditorStore);
   const { isEditing } = useContext(EditContext);
   const innerBlocks = useSelect(
@@ -42,7 +43,13 @@ export default ({ clientId, isSelected, context }) => {
   if (!innerBlocks?.length) {
     return (
       <div {...blockProps}>
-        <ProvidersPlaceholder clientId={clientId} />
+        <MediaProviders
+          sync={false}
+          onSelect={(type) => {
+            insertBlock(createBlock(`presto-player/${type}`), 0, clientId);
+          }}
+          onSelectMedia={false}
+        />
         <div {...innerBlocksProps} />
       </div>
     );

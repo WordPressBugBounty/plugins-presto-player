@@ -19,14 +19,14 @@ import {
 import { store as coreStore, useEntityBlockEditor } from "@wordpress/core-data";
 import { useSelect, useDispatch, select } from "@wordpress/data";
 import { __ } from "@wordpress/i18n";
-import ProvidersPlaceholder from "../../shared/ProvidersPlaceholder/ProvidersPlaceholder";
+import MediaProviders from "../../shared/MediaProviders";
 import { Icon, symbolFilled, edit } from "@wordpress/icons";
-import { useState } from "@wordpress/element";
+import { useState, useEffect, useMemo } from "@wordpress/element";
 import EditContext from "./context";
-import { useEffect } from "@wordpress/element";
+import { createBlock } from "@wordpress/blocks";
 
 export default ({ attributes, context, clientId, isSelected }) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(null);
   const { selectBlock } = useDispatch(blockEditorStore);
   const { id: idAttribute } = attributes;
   const id = context["presto-player/playlist-media-id"] || idAttribute;
@@ -37,16 +37,21 @@ export default ({ attributes, context, clientId, isSelected }) => {
     { id }
   );
 
-  const mediaBlocks = (blocks || []).filter(
-    (block) => block.name === "presto-player/reusable-edit"
-  );
+  const mediaBlocks = useMemo(() => {
+    return (blocks || []).filter(
+      (block) => block.name === "presto-player/reusable-edit"
+    );
+  }, [blocks]);
 
-  const hasSrc = (mediaBlocks?.[0]?.innerBlocks || []).some(
-    (block) => block.attributes.src
-  );
+  const hasSrc = useMemo(() => {
+    return (mediaBlocks?.[0]?.innerBlocks || []).some(
+      (block) => block.attributes.src
+    );
+  }, [mediaBlocks]);
 
   const blockPreviewProps = useBlockPreview({
     blocks: mediaBlocks,
+    props: blockProps,
   });
 
   const innerBlocksProps = useInnerBlocksProps(blockProps, {
@@ -81,13 +86,21 @@ export default ({ attributes, context, clientId, isSelected }) => {
 
   // we can edit the original if there is a block src,
   // the user can edit, and there is a src or provider_video_id.
-  const canEditOriginal =
-    !!hasSrc &&
-    !!canEdit &&
-    !!(media?.details?.src || media?.details?.provider_video_id);
+  const canEditOriginal = useMemo(() => {
+    return (
+      !!hasSrc &&
+      !!canEdit &&
+      !!(media?.details?.src || media?.details?.provider_video_id)
+    );
+  }, [hasSrc, canEdit, media?.details?.src, media?.details?.provider_video_id]);
 
   // set the selection based on if editing or not.
   useEffect(() => {
+    // Prevent initial focus on page load.
+    if (isEditing === null) {
+      return;
+    }
+
     // we need setimeout to ensure the block is selected after it is rendered.
     // this is because we swap between preview and regular inner blocks.
     setTimeout(() => {
@@ -146,7 +159,16 @@ export default ({ attributes, context, clientId, isSelected }) => {
   }
 
   if (!blocks.length) {
-    return <ProvidersPlaceholder clientId={clientId} />;
+    return (
+      <MediaProviders
+        sync={false}
+        onSelect={(type) => {
+          const { replaceBlock } = useDispatch(blockEditorStore);
+          replaceBlock(clientId, createBlock(`presto-player/${type}`));
+        }}
+        onSelectMedia={false}
+      />
+    );
   }
 
   if (!canEditOriginal || isEditing) {

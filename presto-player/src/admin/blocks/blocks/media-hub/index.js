@@ -14,7 +14,10 @@ const { name } = metadata;
 export { metadata, name };
 
 export const options = {
-  usesContext: ["presto-player/playlist-media-id"],
+  usesContext: [
+    "presto-player/playlist-media-id",
+    "presto-player/popup-media-id",
+  ],
   providesContext: {
     "presto-player/playlist-media-id": "id",
   },

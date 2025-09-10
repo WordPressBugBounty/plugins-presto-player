@@ -172,11 +172,13 @@ class ReusableVideo {
 			case 'presto-player/vimeo':
 				return ( new VimeoBlock() )->getAttributes( $block['attrs'] );
 
-			case 'presto-player/bunny':
-				return ( new BunnyCDNBlock() )->getAttributes( $block['attrs'] );
-
 			case 'presto-player/audio':
 				return ( new AudioBlock() )->getAttributes( $block['attrs'] );
+
+			case 'presto-player/bunny':
+				return class_exists( BunnyCDNBlock::class ) ?
+					( new BunnyCDNBlock() )->getAttributes( $block['attrs'] ) :
+					( new SelfHostedBlock() )->getAttributes( $block['attrs'] ); // in case BunnyCDN is not installed.
 		}
 	}
 

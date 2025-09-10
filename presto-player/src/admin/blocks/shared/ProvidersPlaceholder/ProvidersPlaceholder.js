@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { store as blockEditorStore } from "@wordpress/block-editor";
-import { createBlock } from "@wordpress/blocks";
 import {
   Placeholder,
   Flex,
@@ -10,11 +8,8 @@ import {
   Button,
   MenuItem,
 } from "@wordpress/components";
-import { useDispatch, dispatch } from "@wordpress/data";
-import { useState, useEffect } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import { store as coreStore } from "@wordpress/core-data";
-import { store as noticesStore } from "@wordpress/notices";
+import { useDispatch } from "@wordpress/data";
 import VideoProvider from "./components/VideoProvider";
 import providerIcons from "./icons";
 import Separator from "./components/Separator";
@@ -22,71 +17,14 @@ import SelectMediaDropdown from "../components/SelectMediaDropdown";
 import VideoIcon from "../components/VideoIcon";
 
 const ProvidersPlaceholder = ({
-  clientId,
-  shouldInsertBlock = true,
-  selectExisting = false,
-  sync,
+  loading,
+  onSelect,
+  onSelectMedia = null,
+  providers = [],
 }) => {
-  const [saving, setSaving] = useState(false);
-  const [ID, setID] = useState("");
-  const { createErrorNotice } = useDispatch(noticesStore);
-  const { saveEntityRecord } = useDispatch(coreStore);
-  const { replaceBlock } = useDispatch(blockEditorStore);
-  const { insertBlock } = useDispatch(blockEditorStore);
+  const { dispatch } = useDispatch();
 
-  // Replace current block with the selected video block.
-  useEffect(() => {
-    if (!ID) return;
-    replaceBlock(
-      clientId,
-      createBlock("presto-player/reusable-display", {
-        id: ID,
-      })
-    );
-  }, [ID]);
-
-  const createVideo = async (videoType) => {
-    if (saving) return;
-    try {
-      setSaving(true);
-      const { id } = await saveEntityRecord(
-        "postType",
-        "pp_video_block",
-        {
-          status: "publish",
-          content: `<!-- wp:presto-player/reusable-edit -->
-            <div class="wp-block-presto-player-reusable-edit"><!-- wp:presto-player/${videoType} /--></div>
-            <!-- /wp:presto-player/reusable-edit -->`,
-        },
-        { throwOnError: true }
-      );
-      setID(id);
-    } catch (e) {
-      createErrorNotice(
-        e?.message || __("Something went wrong", "presto-player")
-      );
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const handleCreate = (type) => {
-    // For media hub video blocks, directly insert blocks.
-    if (shouldInsertBlock) {
-      insertBlock(createBlock(`presto-player/${type}`), 0, clientId);
-      return;
-    }
-    // if media hub sync is turned off, we can directly create and replace the block.
-    if (!sync) {
-      const newBlock = createBlock(`presto-player/${type}`);
-      replaceBlock(clientId, newBlock);
-      return;
-    }
-    // sync with media hub, by creating a video.
-    createVideo(type);
-  };
-
-  if (saving) {
+  if (loading) {
     return (
       <Placeholder
         css={css`
@@ -117,7 +55,7 @@ const ProvidersPlaceholder = ({
             gap="16px"
           >
             <Flex justify="flex-start">
-              {providerIcons.mediaHubBlock}
+              {providerIcons?.mediaHubBlock}
               <h1
                 css={css`
                   font-size: 24px !important;
@@ -160,72 +98,28 @@ const ProvidersPlaceholder = ({
           wrap="wrap"
           gap="20px"
         >
-          <FlexItem>
-            <VideoProvider
-              provider={__("Video", "presto-player")}
-              onCreate={() => handleCreate("self-hosted")}
-              icon={providerIcons.video}
-            />
-          </FlexItem>
-          {!!prestoPlayer?.isPremium && (
-            <FlexItem>
+          {(providers || []).map((provider) => (
+            <FlexItem key={provider?.id}>
               <VideoProvider
-                provider={__("Bunny.net", "presto-player")}
-                onCreate={() => handleCreate("bunny")}
-                icon={providerIcons.bunny}
+                provider={provider?.name}
+                onSelect={() =>
+                  provider?.hasAccess
+                    ? onSelect(provider?.id)
+                    : dispatch("presto-player/player").setProModal(true)
+                }
+                icon={provider?.icon}
+                pro={provider?.premium && !provider?.hasAccess}
               />
             </FlexItem>
-          )}
-          <FlexItem>
-            <VideoProvider
-              provider={__("YouTube", "presto-player")}
-              onCreate={() => handleCreate("youtube")}
-              icon={providerIcons.youtube}
-            />
-          </FlexItem>
-          <FlexItem>
-            <VideoProvider
-              provider={__("Vimeo", "presto-player")}
-              onCreate={() => handleCreate("vimeo")}
-              icon={providerIcons.vimeo}
-            />
-          </FlexItem>
-          <FlexItem>
-            <VideoProvider
-              provider={__("Audio", "presto-player")}
-              onCreate={() => handleCreate("audio")}
-              icon={providerIcons.audio}
-            />
-          </FlexItem>
-          {/* free preview for bunny block */}
-          {!prestoPlayer?.isPremium && (
-            <FlexItem>
-              <VideoProvider
-                provider={__("Bunny.net", "presto-player")}
-                onCreate={() => {
-                  dispatch("presto-player/player").setProModal(true);
-                  return;
-                }}
-                icon={providerIcons.bunny}
-                pro={true}
-              />
-            </FlexItem>
-          )}
+          ))}
         </Flex>
-        {selectExisting && (
+        {onSelectMedia && (
           <>
             <Separator icon={providerIcons.line} />
             <Flex>
               <SelectMediaDropdown
                 popoverProps={{ placement: "bottom-start" }}
-                onSelect={({ id }) => {
-                  replaceBlock(
-                    clientId,
-                    createBlock("presto-player/reusable-display", {
-                      id,
-                    })
-                  );
-                }}
+                onSelect={({ id }) => onSelectMedia(id)}
                 renderToggle={({ isOpen, onToggle }) => (
                   <Button
                     variant="primary"

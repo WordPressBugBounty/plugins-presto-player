@@ -8,7 +8,6 @@ import {
 } from "@wordpress/block-editor";
 import { useSelect, useDispatch } from "@wordpress/data";
 import { __ } from "@wordpress/i18n";
-import ProvidersPlaceholder from "../../shared/ProvidersPlaceholder/ProvidersPlaceholder";
 import {
   Flex,
   Toolbar,
@@ -21,9 +20,15 @@ import {
 import { symbol, symbolFilled } from "@wordpress/icons";
 import { useState } from "@wordpress/element";
 import { useEntityProp } from "@wordpress/core-data";
+import { createBlock } from "@wordpress/blocks";
+import { store as coreStore } from "@wordpress/core-data";
+import MediaProviders from "../../shared/MediaProviders";
 
-export default ({ clientId }) => {
+export default ({ clientId, attributes, setAttributes, context }) => {
   const { setTemplateValidity } = useDispatch(blockEditorStore);
+  const { replaceBlock } = useDispatch(blockEditorStore);
+  const { saveEntityRecord } = useDispatch(coreStore);
+  const { createErrorNotice } = useDispatch("core/notices");
   const innerBlocks = useSelect(
     (select) => select(blockEditorStore).getBlock(clientId).innerBlocks
   );
@@ -39,6 +44,50 @@ export default ({ clientId }) => {
     "presto_player_media_hub_sync_default"
   );
   const [sync, setSync] = useState(() => mediaHubSyncDefault);
+  const [saving, setSaving] = useState(false);
+
+  // Create a video with media hub sync
+  const createSyncedVideo = async (videoType) => {
+    if (saving) return;
+    try {
+      setSaving(true);
+      const { id } = await saveEntityRecord(
+        "postType",
+        "pp_video_block",
+        {
+          status: "publish",
+          content: `<!-- wp:presto-player/reusable-edit -->
+            <div class="wp-block-presto-player-reusable-edit"><!-- wp:presto-player/${videoType} /--></div>
+            <!-- /wp:presto-player/reusable-edit -->`,
+        },
+        { throwOnError: true }
+      );
+
+      replaceBlock(
+        clientId,
+        createBlock("presto-player/reusable-display", {
+          id,
+        })
+      );
+    } catch (e) {
+      createErrorNotice(
+        e?.message || __("Something went wrong", "presto-player")
+      );
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Handle media selection
+  const handleMediaSelected = (id) => {
+    replaceBlock(
+      clientId,
+      createBlock("presto-player/reusable-display", {
+        id,
+      })
+    );
+  };
+
   if (!innerBlocks?.length) {
     return (
       <div {...innerBlocksProps}>
@@ -112,11 +161,20 @@ export default ({ clientId }) => {
               </Toolbar>
             </BlockControls>
 
-            <ProvidersPlaceholder
-              clientId={clientId}
-              shouldInsertBlock={false}
-              selectExisting={true}
+            <MediaProviders
               sync={sync}
+              onSyncedMediaCreated={(id) => {
+                replaceBlock(
+                  clientId,
+                  createBlock("presto-player/reusable-display", {
+                    id,
+                  })
+                );
+              }}
+              onSelect={(type) => {
+                replaceBlock(clientId, createBlock(`presto-player/${type}`));
+              }}
+              onSelectMedia={handleMediaSelected}
             />
           </>
         }

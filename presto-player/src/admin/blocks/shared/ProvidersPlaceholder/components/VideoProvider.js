@@ -1,13 +1,11 @@
-import {
-  Flex
-} from "@wordpress/components";
+import { Flex } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { css } from "@emotion/core";
 import ProBadge from "../../components/ProBadge";
 
-const VideoProvider = ({ provider, icon, onCreate, pro }) => {
+const VideoProvider = ({ provider, icon, onSelect, pro }) => {
   return (
-    <Flex direction="column" gap="14px" onClick={onCreate}>
+    <Flex direction="column" gap="14px" onClick={onSelect}>
       <Flex
         css={css`
           width: 80px;

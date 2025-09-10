@@ -44,10 +44,10 @@ export default (props) => {
     ref.current["data-css"] = playerCSS;
     ref.current.classes = classes;
     ref.current.currentTime = currentTime;
-    ref.current.overlays = overlays;
+    ref.current.overlays = JSON.stringify(overlays);
     ref.current.isAdmin = true;
     ref.current.preload = preload;
-    ref.current.preset = preset;
+    ref.current.preset = JSON.stringify(preset);
     ref.current.bunny = {
       thumbnail: previewThumbnail,
       preview,
@@ -68,8 +68,8 @@ export default (props) => {
           ]
         : []),
     ];
-    ref.current.branding = branding;
-    ref.current.chapters = chapters;
+    ref.current.branding = JSON.stringify(branding);
+    ref.current.chapters = JSON.stringify(chapters);
     ref.current.blockAttributes = attributes;
     ref.current.poster = poster;
     ref.current.provider = type === "audio" ? "audio" : getProvider(src);

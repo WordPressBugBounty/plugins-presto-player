@@ -42,6 +42,9 @@ class Compatibility {
 			'--plyr-audio-control-color',
 			'--plyr-range-thumb-background',
 			'--plyr-range-fill-background',
+			'--presto-popup-media-width',
+			'--presto-popup-media-width-mobile',
+			'--presto-popup-background-color',
 		);
 		return array_merge( $player_styles, $styles );
 	}
@@ -54,18 +57,31 @@ class Compatibility {
 	 */
 	public function allowHtml( $tags ) {
 		$tags['presto-player'] = array(
-			'direction'   => true,
-			'css'         => true,
-			'skin'        => true,
-			'icon-url'    => true,
-			'id'          => true,
-			'src'         => true,
-			'css'         => true,
-			'class'       => true,
-			'preload'     => true,
-			'poster'      => true,
-			'playsinline' => true,
-			'autoplay'    => true,
+			'direction'           => true,
+			'css'                 => true,
+			'skin'                => true,
+			'icon-url'            => true,
+			'id'                  => true,
+			'src'                 => true,
+			'class'               => true,
+			'preload'             => true,
+			'poster'              => true,
+			'playsinline'         => true,
+			'autoplay'            => true,
+			'preset'              => true,
+			'branding'            => true,
+			'chapters'            => true,
+			'overlays'            => true,
+			'tracks'              => true,
+			'block-attributes'    => true,
+			'analytics'           => true,
+			'automations'         => true,
+			'provider'            => true,
+			'media-title'         => true,
+			'youtube'             => true,
+			'provider-video-id'   => true,
+			'video-id'            => true,
+			'lazy-load-youtube'   => true,
 		);
 		return $tags;
 	}

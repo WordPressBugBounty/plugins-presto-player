@@ -5,6 +5,6 @@ declare const _default: {
     nodeList: (input: any) => boolean;
     element: (input: any) => boolean;
     empty: (input: any) => boolean;
-    array: (input: any) => boolean;
+    array: (input: any) => input is any[];
 };
 export default _default;

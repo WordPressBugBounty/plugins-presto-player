@@ -1,29 +1,8 @@
 import { EventEmitter } from '../../../stencil-public-runtime';
-import { ActionBarConfig, blockAttributes, BunnyConfig, DynamicOverlay, i18nConfig, presetAttributes, prestoBranding, prestoChapters, PrestoConfig, SearchBarConfig, YoutubeConfig } from '../../../interfaces';
+import { ActionBarConfig, presetAttributes, BunnyConfig, DynamicOverlay, i18nConfig, PrestoConfig, SearchBarConfig, prestoBranding, prestoChapters, blockAttributes, YoutubeConfig } from '../../../interfaces';
 export declare class PrestoPlayer {
-    private originalConfig?;
-    private i18n?;
-    video_id: number;
     iconUrl: string;
     src: string;
-    bunny: BunnyConfig;
-    branding: prestoBranding;
-    config: PrestoConfig;
-    preset: presetAttributes;
-    chapters: prestoChapters;
-    overlays: Array<DynamicOverlay>;
-    blockAttributes: blockAttributes;
-    tracks: {
-        label: string;
-        src: string;
-        srcLang: string;
-    }[];
-    analytics: boolean;
-    automations: boolean;
-    provider: string;
-    provider_video_id: string;
-    actionBar: ActionBarConfig;
-    youtube: YoutubeConfig;
     type: string;
     autoplay: boolean;
     preload: 'metadata' | 'none' | 'auto';
@@ -37,8 +16,57 @@ export declare class PrestoPlayer {
     classes: string;
     videoAttributes: object;
     audioAttributes: object;
-    search: SearchBarConfig;
     markers: any;
+    automations: boolean;
+    providerVideoId: string;
+    videoId: number;
+    analytics: boolean;
+    provider: string;
+    lazyLoadYoutube: boolean;
+    private _preset;
+    get preset(): presetAttributes;
+    set preset(value: string | presetAttributes);
+    private _branding;
+    get branding(): prestoBranding;
+    set branding(value: string | prestoBranding);
+    private _chapters;
+    get chapters(): prestoChapters;
+    set chapters(value: string | prestoChapters);
+    private _overlays;
+    get overlays(): Array<DynamicOverlay>;
+    set overlays(value: string | Array<DynamicOverlay>);
+    private _tracks;
+    get tracks(): {
+        label: string;
+        src: string;
+        srcLang: string;
+    }[];
+    set tracks(value: string | Array<{
+        label: string;
+        src: string;
+        srcLang: string;
+    }>);
+    private _blockAttributes;
+    get blockAttributes(): blockAttributes;
+    set blockAttributes(value: string | blockAttributes);
+    private _config;
+    get config(): PrestoConfig;
+    set config(value: string | PrestoConfig);
+    private _youtube;
+    get youtube(): YoutubeConfig;
+    set youtube(value: string | YoutubeConfig);
+    private _actionBar;
+    get actionBar(): ActionBarConfig;
+    set actionBar(value: string | ActionBarConfig);
+    private _bunny;
+    get bunny(): BunnyConfig;
+    set bunny(value: string | BunnyConfig);
+    private _i18n;
+    get i18n(): i18nConfig;
+    set i18n(value: string | i18nConfig);
+    private _search;
+    get search(): SearchBarConfig;
+    set search(value: string | SearchBarConfig);
     /**
      * This element
      */
@@ -68,7 +96,8 @@ export declare class PrestoPlayer {
     emailActive: boolean;
     actionBarActive: boolean;
     ready: boolean;
-    private observer;
+    private intersectionObserver;
+    private resizeObserver;
     private overlaysComponent;
     private components;
     /**
@@ -451,6 +480,10 @@ export declare class PrestoPlayer {
     handleCtaStateChange(ev: any): void;
     handleEmailStateChange(ev: any): void;
     handleActionBarStateChange(ev: any): void;
+    /**
+     * Clean up resources when component is disconnected
+     */
+    disconnectedCallback(): void;
     /**
      * Render the component
      * @returns JSX

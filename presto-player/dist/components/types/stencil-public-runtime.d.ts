@@ -261,6 +261,25 @@ export declare function setPlatformHelpers(helpers: {
  */
 export declare function getAssetPath(path: string): string;
 /**
+ * Method to render a virtual DOM tree to a container element.
+ *
+ * @example
+ * ```tsx
+ * import { render } from '@stencil/core';
+ *
+ * const vnode = (
+ *   <div>
+ *     <h1>Hello, world!</h1>
+ *   </div>
+ * );
+ * render(vnode, document.body);
+ * ```
+ *
+ * @param vnode - The virtual DOM tree to render
+ * @param container - The container element to render the virtual DOM tree to
+ */
+export declare function render(vnode: VNode, container: Element): void;
+/**
  * Used to manually set the base path where assets can be found. For lazy-loaded
  * builds the asset path is automatically set and assets copied to the correct
  * build directory. However, for custom elements builds, the `setAssetPath(path)` could
@@ -768,6 +787,7 @@ export declare namespace JSXBase {
         hrefLang?: string;
         hreflang?: string;
         media?: string;
+        ping?: string;
         rel?: string;
         target?: string;
         referrerPolicy?: ReferrerPolicy;
@@ -794,7 +814,6 @@ export declare namespace JSXBase {
         cite?: string;
     }
     interface ButtonHTMLAttributes<T> extends HTMLAttributes<T> {
-        autoFocus?: boolean;
         disabled?: boolean;
         form?: string;
         formAction?: string;
@@ -826,7 +845,8 @@ export declare namespace JSXBase {
     }
     interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
         open?: boolean;
-        onToggle?: (event: Event) => void;
+        name?: string;
+        onToggle?: (event: ToggleEvent) => void;
     }
     interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
@@ -921,8 +941,6 @@ export declare namespace JSXBase {
         autocapitalize?: string;
         autoComplete?: string;
         autocomplete?: string;
-        autoFocus?: boolean;
-        autofocus?: boolean | string;
         capture?: string;
         checked?: boolean;
         crossOrigin?: string;
@@ -979,8 +997,6 @@ export declare namespace JSXBase {
         popoverTarget?: string;
     }
     interface KeygenHTMLAttributes<T> extends HTMLAttributes<T> {
-        autoFocus?: boolean;
-        autofocus?: boolean | string;
         challenge?: string;
         disabled?: boolean;
         form?: string;
@@ -993,7 +1009,6 @@ export declare namespace JSXBase {
     interface LabelHTMLAttributes<T> extends HTMLAttributes<T> {
         form?: string;
         htmlFor?: string;
-        htmlfor?: string;
     }
     interface LiHTMLAttributes<T> extends HTMLAttributes<T> {
         value?: string | string[] | number;
@@ -1020,6 +1035,8 @@ export declare namespace JSXBase {
         autoPlay?: boolean;
         autoplay?: boolean | string;
         controls?: boolean;
+        controlslist?: 'nodownload' | 'nofullscreen' | 'noremoteplayback';
+        controlsList?: 'nodownload' | 'nofullscreen' | 'noremoteplayback';
         crossOrigin?: string;
         crossorigin?: string;
         loop?: boolean;
@@ -1104,7 +1121,6 @@ export declare namespace JSXBase {
     interface OutputHTMLAttributes<T> extends HTMLAttributes<T> {
         form?: string;
         htmlFor?: string;
-        htmlfor?: string;
         name?: string;
     }
     interface ParamHTMLAttributes<T> extends HTMLAttributes<T> {
@@ -1129,7 +1145,6 @@ export declare namespace JSXBase {
         type?: string;
     }
     interface SelectHTMLAttributes<T> extends HTMLAttributes<T> {
-        autoFocus?: boolean;
         disabled?: boolean;
         form?: string;
         multiple?: boolean;
@@ -1164,8 +1179,6 @@ export declare namespace JSXBase {
     interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
         autoComplete?: string;
         autocomplete?: string;
-        autoFocus?: boolean;
-        autofocus?: boolean | string;
         cols?: number;
         disabled?: boolean;
         form?: string;
@@ -1218,6 +1231,8 @@ export declare namespace JSXBase {
     interface HTMLAttributes<T = HTMLElement> extends DOMAttributes<T> {
         innerHTML?: string;
         accessKey?: string;
+        autoFocus?: boolean;
+        autofocus?: boolean | string;
         class?: string | {
             [className: string]: boolean;
         };
@@ -1537,6 +1552,13 @@ export declare namespace JSXBase {
         z?: number | string;
         zoomAndPan?: string;
     }
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent) */
+    interface ToggleEvent extends Event {
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent/newState) */
+        readonly newState: string;
+        /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent/oldState) */
+        readonly oldState: string;
+    }
     interface DOMAttributes<T> extends JSXAttributes<T> {
         slot?: string;
         part?: string;
@@ -1553,6 +1575,10 @@ export declare namespace JSXBase {
         onCompositionstartCapture?: (event: CompositionEvent) => void;
         onCompositionupdate?: (event: CompositionEvent) => void;
         onCompositionupdateCapture?: (event: CompositionEvent) => void;
+        onBeforeToggle?: (event: ToggleEvent) => void;
+        onBeforeToggleCapture?: (event: ToggleEvent) => void;
+        onToggle?: (event: ToggleEvent) => void;
+        onToggleCapture?: (event: ToggleEvent) => void;
         onFocus?: (event: FocusEvent) => void;
         onFocusCapture?: (event: FocusEvent) => void;
         onFocusin?: (event: FocusEvent) => void;
@@ -1582,7 +1608,7 @@ export declare namespace JSXBase {
         onKeyUp?: (event: KeyboardEvent) => void;
         onKeyUpCapture?: (event: KeyboardEvent) => void;
         onAuxClick?: (event: MouseEvent) => void;
-        onClick?: (event: MouseEvent) => void;
+        onClick?: (event: PointerEvent) => void;
         onClickCapture?: (event: MouseEvent) => void;
         onContextMenu?: (event: MouseEvent) => void;
         onContextMenuCapture?: (event: MouseEvent) => void;
@@ -1662,6 +1688,8 @@ export declare namespace JSXBase {
         onTransitionRunCapture?: (event: TransitionEvent) => void;
         onTransitionStart?: (event: TransitionEvent) => void;
         onTransitionStartCapture?: (event: TransitionEvent) => void;
+        [key: `aria-${string}`]: string | boolean | undefined;
+        [key: `aria${string}`]: string | boolean | undefined;
     }
 }
 export interface JSXAttributes<T = Element> {

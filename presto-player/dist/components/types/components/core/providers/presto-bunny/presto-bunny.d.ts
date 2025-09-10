@@ -15,6 +15,5 @@ export declare class PrestoBunny {
     thumbnail: string;
     previewUrl: string;
     videoAttributes: object;
-    componentWillLoad(): void;
     render(): any;
 }

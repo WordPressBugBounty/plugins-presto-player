@@ -1,6 +1,12 @@
 <?php
+/**
+ * Application configuration file.
+ *
+ * @package PrestoPlayer
+ */
 
 return array(
+
 	/*
 	|--------------------------------------------------------------------------
 	| Autoloaded Components
@@ -11,14 +17,14 @@ return array(
 	|
 	*/
 	'components'     => array(
-		// seeder
+		// Seeder.
 		\PrestoPlayer\Seeds\Seeder::class,
 
-		// files
+		// Files.
 		\PrestoPlayer\Files::class,
 		\PrestoPlayer\Attachment::class,
 
-		// blocks
+		// Blocks.
 		\PrestoPlayer\Blocks\SelfHostedBlock::class,
 		\PrestoPlayer\Blocks\YouTubeBlock::class,
 		\PrestoPlayer\Blocks\VimeoBlock::class,
@@ -26,12 +32,16 @@ return array(
 		\PrestoPlayer\Blocks\ReusableEditBlock::class,
 		\PrestoPlayer\Blocks\AudioBlock::class,
 		\PrestoPlayer\Blocks\MediaHubBlock::class,
+		\PrestoPlayer\Blocks\PopupBlock::class,
+		\PrestoPlayer\Blocks\PopupTriggerBlock::class,
+		\PrestoPlayer\Blocks\PopupMediaBlock::class,
 
-		// block services
+		// Block services.
 		\PrestoPlayer\Services\Blocks\YoutubeBlockService::class,
 		\PrestoPlayer\Services\Blocks\VimeoBlockService::class,
+		\PrestoPlayer\Services\Blocks\PopupTriggerService::class,
 
-		// integrations
+		// Integrations.
 		\PrestoPlayer\Integrations\Kadence::class,
 		\PrestoPlayer\Integrations\Divi\Divi::class,
 		\PrestoPlayer\Integrations\Elementor\Elementor::class,
@@ -40,7 +50,7 @@ return array(
 		\PrestoPlayer\Integrations\Tutor\Tutor::class,
 		\PrestoPlayer\Integrations\Lifter\Lifter::class,
 
-		// services
+		// Services.
 		\PrestoPlayer\Services\Migrations::class,
 		\PrestoPlayer\Services\Translation::class,
 		\PrestoPlayer\Services\Player::class,
@@ -56,7 +66,7 @@ return array(
 		\PrestoPlayer\Services\Compatibility::class,
 		\PrestoPlayer\Services\AjaxActions::class,
 
-		// api
+		// API.
 		\PrestoPlayer\Services\API\RestPresetsController::class,
 		\PrestoPlayer\Services\API\RestAudioPresetsController::class,
 		\PrestoPlayer\Services\API\RestSettingsController::class,

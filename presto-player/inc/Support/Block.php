@@ -108,30 +108,6 @@ class Block {
 	);
 
 	/**
-	 * Attributes to pass to web component
-	 *
-	 * @var array
-	 */
-	protected $component_attributes = array(
-		'preset',
-		'chapters',
-		'overlays',
-		'tracks',
-		'branding',
-		'blockAttributes',
-		'config',
-		'skin',
-		'analytics',
-		'automations',
-		'provider',
-		'video_id',
-		'videoAttributes',
-		'audioAttributes',
-		'provider_video_id',
-		'youtube',
-	);
-
-	/**
 	 * Default attributes for the block.
 	 *
 	 * @var array
@@ -574,7 +550,6 @@ class Block {
 			include PRESTO_PLAYER_PLUGIN_DIR . "templates/{$this->template_name}.php";
 		}
 
-		$this->initComponentScript( $data['id'], $data, $presto_player_instance );
 		$this->iframeFallback( $data );
 
 		// output schema markup for optimized seo.
@@ -651,38 +626,6 @@ class Block {
 			<?php
 			echo wp_json_encode( $data );
 			?>
-		</script>
-		<?php
-	}
-
-	/**
-	 * Dynamically initialize component via script tag.
-	 *
-	 * We have to do this because we cannot send arrays or objects in plain HTML.
-	 * This function generates a script tag that sets up the player attributes.
-	 *
-	 * @param int   $id       The video ID. Default is 0.
-	 * @param array $data     An array of data to be passed to the component. Default is an empty array.
-	 * @param int   $instance The instance number of the player on the page. Default is 1.
-	 *
-	 * @return void This function outputs HTML directly and doesn't return a value.
-	 */
-	public function initComponentScript( $id = 0, $data = array(), $instance = 1 ) {
-		if ( ! $id ) {
-			return;
-		}
-		?>
-		<script>
-			var player = document.querySelector('presto-player#presto-player-<?php echo (int) $instance; ?>');
-			player.video_id = <?php echo (int) $id; ?>;
-			<?php
-			$attributes = apply_filters( 'presto_player/component/attributes', $this->component_attributes, $data );
-			foreach ( $attributes as $attribute ) {
-				?>
-				<?php if ( isset( $data[ $attribute ] ) ) { ?>
-					player.<?php echo esc_js( sanitize_text_field( $attribute ) ); ?> = <?php echo wp_json_encode( $data[ $attribute ] ); ?>;
-				<?php } ?>
-			<?php } ?>
 		</script>
 		<?php
 	}

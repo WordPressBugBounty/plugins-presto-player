@@ -7,7 +7,7 @@ use PrestoPlayer\Pro\Plugin as ProPlugin;
 
 class ProCompatibility {
 
-	protected $recommended_pro_version = '2.0.1';
+	protected $recommended_pro_version = '3.0.0';
 	protected $required_pro_version    = '0.0.1';
 
 	public function register() {
@@ -35,7 +35,7 @@ class ProCompatibility {
 		<div class="notice notice-info">
 			<p><strong>Presto Player</strong></p>
 			<p><?php _e( 'Please update your Presto Player Pro plugin for compatibility with the Presto Player core plugin. This ensures you have access to new features and updates.', 'presto-player' ); ?></p>
-			<p><?php printf( __( 'The recommeneded minimum pro version is <b>%s</b>.', 'presto-player' ), $this->recommended_pro_version ); ?></p>
+			<p><?php printf( __( 'The recommended minimum pro version is <b>%s</b>.', 'presto-player' ), $this->recommended_pro_version ); ?></p>
 			<p><a href="
 			<?php
 			echo esc_url(
