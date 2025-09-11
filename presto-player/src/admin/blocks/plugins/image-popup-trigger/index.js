@@ -32,27 +32,38 @@ const withProUpgrade = createHigherOrderComponent((BlockEdit) => {
     const { getBlock } = useSelect("core/block-editor");
     const { replaceBlock } = useDispatch("core/block-editor");
 
+    /**
+     * @param {string} clientId - The block's client ID
+     * @returns {void}
+     */
     const transformToCover = (clientId) => {
       // Get the current block data
       const currentBlock = getBlock(clientId);
       if (!currentBlock) {
-        console.warn("transformToCover: Block not found");
+        console.warn(
+          `transformToCover: Block with clientId ${clientId} not found`
+        );
         return;
       }
 
       // Create the new block from the template
       const newBlocks = createBlocksFromInnerBlocksTemplate([
-        image(currentBlock.attributes?.url || currentBlock.attributes?.src),
+        image(currentBlock?.attributes?.url || currentBlock?.attributes?.src),
       ]);
 
-      replaceBlock(clientId, newBlocks[0]);
+      if (!newBlocks?.[0]) {
+        console.warn("transformToCover: New blocks not found");
+        return;
+      }
+
+      replaceBlock(clientId, newBlocks?.[0]);
     };
 
-    if (props.name !== "core/image") {
+    if (props?.name !== "core/image") {
       return <BlockEdit {...props} />;
     }
 
-    if (!props.attributes.className.includes("presto-popup-image-trigger")) {
+    if (!props?.attributes?.className?.includes("presto-popup-image-trigger")) {
       return <BlockEdit {...props} />;
     }
 
@@ -67,7 +78,7 @@ const withProUpgrade = createHigherOrderComponent((BlockEdit) => {
               onClick={() =>
                 !prestoPlayer?.hasRequiredProVersion?.popups
                   ? setProModal(true)
-                  : transformToCover(props.clientId)
+                  : transformToCover(props?.clientId)
               }
             >
               {__("Edit Play Button", "presto-player")}

@@ -13,35 +13,39 @@ const WithPopupImageTriggerPlaceholder = createHigherOrderComponent(
     return (props) => {
       const { name, attributes, setAttributes } = props;
 
-      // Check if block type is not cover or image
+      // Return if block type is not cover or image.
       if (name !== "core/cover" && name !== "core/image") {
         return <BlockEdit {...props} />;
       }
 
-      // Check if block doesn't have required class names
+      // Return if block doesn't have required class names.
       if (
-        attributes.className !== "presto-popup-image-trigger" &&
-        attributes.className !== "presto-popup-cover-trigger"
+        attributes?.className !== "presto-popup-image-trigger" &&
+        attributes?.className !== "presto-popup-cover-trigger"
       ) {
         return <BlockEdit {...props} />;
       }
 
       // Return if image/cover already has URL
-      if (attributes.url) {
+      if (attributes?.url) {
         return <BlockEdit {...props} />;
       }
 
-      // If no image is selected, show the image placeholder.
+      /**
+       * Handle the image upload.
+       * @param {Object} media - The uploaded media object
+       * @returns {void}
+       */
       const handleImageUpload = (media) => {
-        if (!media.url) {
+        if (!media?.url) {
           return;
         }
 
         if (name === "core/cover") {
           // Update the cover block attributes with the image url.
           setAttributes({
-            url: media.url,
-            id: media.id,
+            url: media?.url,
+            id: media?.id,
             customOverlayColor: "#131313",
             isUserOverlayColor: true,
             dimRatio: 50,
@@ -59,9 +63,9 @@ const WithPopupImageTriggerPlaceholder = createHigherOrderComponent(
         } else if (name === "core/image") {
           // Update the image block attributes with the image url.
           setAttributes({
-            url: media.url,
-            id: media.id,
-            alt: media.alt || "",
+            url: media?.url,
+            id: media?.id,
+            alt: media?.alt || "",
             style: {
               border: {
                 radius: "8px",

@@ -130,14 +130,9 @@ render(<ProUpgradeModal />, document.getElementById("presto-plugin-app"));
 // fetch settings
 dispatch("presto-player/player").fetchOptions();
 
-let saving = false;
-// save the settings on post save, just in case they miss the button
+// Manage the is-editing-pp-video-block class for styling/functionality
 wp.data.subscribe(function () {
-  var isSavingPost = wp.data.select("core/editor").isSavingPost();
-  var isAutosavingPost = wp.data.select("core/editor").isAutosavingPost();
-
   const settings = wp.data.select("core/editor").getEditorSettings();
-
   if (
     !!settings?.onNavigateToPreviousEntityRecord &&
     wp.data.select("core/editor").getCurrentPostType() === "pp_video_block"
@@ -145,20 +140,5 @@ wp.data.subscribe(function () {
     document.body.classList.add("is-editing-pp-video-block");
   } else {
     document.body.classList.remove("is-editing-pp-video-block");
-  }
-
-  if (isSavingPost && !isAutosavingPost) {
-    if (saving) {
-      return;
-    }
-    saving = true;
-    let { brandingReducer } = store.getState();
-    dispatch("presto-player/player")
-      .saveOptions({
-        branding: brandingReducer,
-      })
-      .then(() => {
-        saving = false;
-      });
   }
 });

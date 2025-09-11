@@ -338,17 +338,18 @@ class Scripts {
 		}
 
 		// check for data-presto-config (player rendered).
-		$wp_post = get_post( $id );
+		$wp_post      = get_post( $id );
+		$post_content = '';
 		if ( $wp_post instanceof \WP_Post ) {
-			$post = $wp_post->post_content;
+			$post_content = $wp_post->post_content;
 		}
-		$has_player = false !== strpos( $post, 'data-presto-config' );
+		$has_player = false !== strpos( $post_content, 'data-presto-config' );
 		if ( $has_player ) {
 			return true;
 		}
 
 		// check that we have a shortcode.
-		if ( has_shortcode( $post, 'presto_player' ) ) {
+		if ( has_shortcode( $post_content, 'presto_player' ) ) {
 			return true;
 		}
 

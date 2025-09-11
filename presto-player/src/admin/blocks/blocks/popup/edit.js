@@ -32,10 +32,10 @@ function Edit({ clientId, attributes, setAttributes }) {
 
   // Set a unique ID for the popup using the block's clientId
   useEffect(() => {
-    if (!attributes.popupId) {
+    if (!attributes?.popupId) {
       setAttributes({ popupId: clientId });
     }
-  }, [attributes.popupId, clientId, setAttributes]);
+  }, [attributes?.popupId, clientId, setAttributes]);
 
   const [mediaHubSyncDefault] = useEntityProp(
     "root",
@@ -81,7 +81,7 @@ function Edit({ clientId, attributes, setAttributes }) {
     // Get poster image if it's an image trigger
     const imageUrl =
       media?.details?.poster && triggerType === "image"
-        ? media.details.poster
+        ? media?.details?.poster
         : null;
 
     // Replace inner blocks with template

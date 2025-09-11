@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.8
-Stable tag: 4.0.0
+Stable tag: 4.0.1
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -156,9 +156,18 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 == Changelog ==
 
+= 4.0.1 =
+* Fix: Improved error handling for popup image trigger block transformations
+* Fix: Unnecessary requests when edit post pages.
+
 = 4.0.0 =
 * New: Presto Popups! [Learn More](https://prestoplayer.com/docs/presto-popups)
 * Improvement: Presto player has been rewritten to be more compatible with page builder popups and ajax loaded content.
+
+= 3.1.3 =
+* Change: Streamlined branding settings by removing the unused opacity option for better clarity and consistency.
+* Fix: Disabled autoplay for Vimeo playlists on iOS to prevent videos from starting muted after user interaction.
+* Fix: PHP warnings.
 
 = 3.1.2 =
 * Improvement: Added security vulnerability reporting guidelines to FAQ section.
