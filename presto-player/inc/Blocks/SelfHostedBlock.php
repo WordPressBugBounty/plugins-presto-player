@@ -1,4 +1,9 @@
 <?php
+/**
+ * Self Hosted Block.
+ *
+ * @package PrestoPlayer\Blocks
+ */
 
 namespace PrestoPlayer\Blocks;
 
@@ -6,6 +11,9 @@ use PrestoPlayer\Attachment;
 use PrestoPlayer\Support\Block;
 use PrestoPlayer\Models\CurrentUser;
 
+/**
+ * Self Hosted Block.
+ */
 class SelfHostedBlock extends Block {
 
 	/**
@@ -16,21 +24,12 @@ class SelfHostedBlock extends Block {
 	protected $name = 'self-hosted';
 
 	/**
-	 * Translated block title
-	 */
-	protected $title;
-
-	public function __construct( bool $isPremium = false, $version = 1 ) {
-		parent::__construct( $isPremium, $version );
-		$this->title = __( 'Self-hosted', 'presto-player' );
-	}
-
-	/**
 	 * Register the block type.
 	 *
 	 * @return void
 	 */
 	public function registerBlockType() {
+
 		register_block_type(
 			PRESTO_PLAYER_PLUGIN_DIR . 'src/admin/blocks/blocks/hosted',
 			array(
@@ -40,12 +39,14 @@ class SelfHostedBlock extends Block {
 	}
 
 	/**
-	 * Bail if user cannot access video
+	 * Bail if user cannot access video.
 	 *
-	 * @return void
+	 * @param array  $attributes Block attributes.
+	 * @param string $content Block content.
+	 * @return bool
 	 */
 	public function middleware( $attributes, $content ) {
-		// if private and user cannot access video, don't load
+		// If private and user cannot access video, don't load.
 		if ( ! empty( $attributes['visibility'] ) && 'private' === $attributes['visibility'] ) {
 			if ( ! CurrentUser::canAccessVideo( $attributes['id'] ) ) {
 				return false;
@@ -56,10 +57,11 @@ class SelfHostedBlock extends Block {
 	}
 
 	/**
-	 * Add src to video
+	 * Add src to video.
 	 *
-	 * @param array $attributes
-	 * @return void
+	 * @param array $attributes Block attributes.
+	 * @param array $default_config Default config.
+	 * @return array
 	 */
 	public function sanitizeAttributes( $attributes, $default_config ) {
 		$src = ! empty( $attributes['src'] ) ? $attributes['src'] : '';
@@ -74,9 +76,9 @@ class SelfHostedBlock extends Block {
 	}
 
 	/**
-	 * Override attributes
+	 * Override attributes.
 	 *
-	 * @param array $attributes
+	 * @param array $attributes Block attributes.
 	 * @return array
 	 */
 	public function overrideAttributes( $attributes ) {

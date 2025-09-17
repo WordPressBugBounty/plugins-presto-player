@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "presto-player/vimeo",
-  "title": "Presto Vimeo Video",
+  "title": "Vimeo",
   "category": "presto",
   "description": "A vimeo video wrapped in an awesome player.",
   "keywords": [

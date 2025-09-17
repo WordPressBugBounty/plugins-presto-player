@@ -510,27 +510,6 @@ class VideoPostType {
 	}
 
 	/**
-	 * Get the translated block name.
-	 *
-	 * @param string $block_name The block name.
-	 *
-	 * @return string The translated block name.
-	 */
-	public function getTranslatedBlockName( $block_name ) {
-		if ( empty( $block_name ) ) {
-			return '';
-		}
-		$translation_map = array(
-			'presto-player/self-hosted' => __( 'Self-hosted', 'presto-player' ),
-			'presto-player/audio'       => __( 'Audio', 'presto-player' ),
-			'presto-player/vimeo'       => __( 'Vimeo', 'presto-player' ),
-			'presto-player/youtube'     => __( 'Youtube', 'presto-player' ),
-			'presto-player/bunny'       => __( 'Bunny', 'presto-player' ),
-		);
-		return $translation_map[ $block_name ];
-	}
-
-	/**
 	 * Register the meta settings for the video block
 	 *
 	 * @return void

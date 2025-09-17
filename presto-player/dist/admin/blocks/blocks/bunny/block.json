@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "presto-player/bunny",
-  "title": "Presto Bunny.net Video",
+  "title": "Bunny.net",
   "category": "presto",
   "description": "Serve public video through Bunny.net CDN.",
   "keywords": [

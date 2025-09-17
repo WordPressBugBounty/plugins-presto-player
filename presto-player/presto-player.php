@@ -1,15 +1,16 @@
 <?php
-
 /**
  * Plugin Name: Presto Player
  * Plugin URI: http://prestoplayer.com
  * Description: A beautiful, fast media player for WordPress.
- * Version: 4.0.1
+ * Version: 4.0.2
  * Author: Presto Made, Inc
  * Author URI: https://prestoplayer.com/
  * Text Domain: presto-player
  * Tags: private, video, lms, hls
  * Domain Path: languages
+ *
+ * @package PrestoPlayer
  */
 
 use PrestoPlayer\Factory;
@@ -38,16 +39,26 @@ register_activation_hook(
 
 register_uninstall_hook( __FILE__, 'presto_player_uninstall' );
 
+/**
+ * Uninstall hook callback.
+ *
+ * @return void
+ */
 function presto_player_uninstall() {
 	PrestoPlayer\Deactivator::uninstall();
 }
 
-// plugin constants
+// Plugin constants.
 define( 'PRESTO_PLAYER_PLUGIN_FILE', __FILE__ );
 define( 'PRESTO_PLAYER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'PRESTO_PLAYER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 if ( ! function_exists( 'presto_player_plugin' ) ) {
+	/**
+	 * Initialize the plugin.
+	 *
+	 * @return void
+	 */
 	function presto_player_plugin() {
 		// Check plugin requirements.
 		$requirements = new Requirements();

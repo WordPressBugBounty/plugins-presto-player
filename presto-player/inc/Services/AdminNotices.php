@@ -1,17 +1,35 @@
 <?php
+/**
+ * Admin Notices.
+ *
+ * @package PrestoPlayer\Services
+ */
 
 namespace PrestoPlayer\Services;
 
 use Astra_Notices;
 use PrestoPlayer\Models\Video;
 
+/**
+ * Admin Notices.
+ */
 class AdminNotices {
 
+	/**
+	 * Register the admin notices.
+	 *
+	 * @return void
+	 */
 	public function register() {
 		add_action( 'admin_init', array( $this, 'dismiss' ) );
-		$this->displayRatingsNotice();
+		add_action( 'init', array( $this, 'displayRatingsNotice' ) );
 	}
 
+	/**
+	 * Display the ratings notice.
+	 *
+	 * @return void
+	 */
 	public function displayRatingsNotice() {
 		require_once PRESTO_PLAYER_PLUGIN_DIR . 'vendor/brainstormforce/astra-notices/class-astra-notices.php';
 		$image_path = PRESTO_PLAYER_PLUGIN_URL . 'img/presto-player-icon-color.png';
@@ -60,9 +78,11 @@ class AdminNotices {
 		);
 	}
 
-	/*
+	/**
 	 * Check whether to display notice or not.
-	*/
+	 *
+	 * @return bool
+	 */
 	public function maybeDisplayRatingsNotice() {
 		$transient_status = get_transient( 'presto-player-rating' );
 
@@ -75,6 +95,11 @@ class AdminNotices {
 		return 0 < $video_count ? true : false;
 	}
 
+	/**
+	 * Get the videos count.
+	 *
+	 * @return int
+	 */
 	public function getVideosCount() {
 		$video = new Video();
 		$items = $video->fetch(
@@ -86,28 +111,39 @@ class AdminNotices {
 		return $items->total;
 	}
 
+	/**
+	 * Check if the notice is dismissed.
+	 *
+	 * @param string $name Notice name.
+	 * @return bool
+	 */
 	public static function isDismissed( $name ) {
 		return (bool) get_option( 'presto_player_dismissed_notice_' . sanitize_text_field( $name ), false );
 	}
 
+	/**
+	 * Dismiss the notice.
+	 *
+	 * @return void
+	 */
 	public function dismiss() {
-		// permissions check
+		// Permissions check.
 		if ( ! current_user_can( 'install_plugins' ) ) {
 			return;
 		}
 
-		// not our notices, bail
+		// Not our notices, bail.
 		if ( ! isset( $_GET['presto_action'] ) || 'dismiss_notices' !== $_GET['presto_action'] ) {
 			return;
 		}
 
-		// get notice
+		// Get notice.
 		$notice = ! empty( $_GET['presto_notice'] ) ? sanitize_text_field( $_GET['presto_notice'] ) : '';
 		if ( ! $notice ) {
 			return;
 		}
 
-		// notice is dismissed
+		// Notice is dismissed.
 		update_option( 'presto_player_dismissed_notice_' . sanitize_text_field( $notice ), 1 );
 	}
 }

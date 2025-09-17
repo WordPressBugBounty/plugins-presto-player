@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "presto-player/self-hosted",
-  "title": "Presto Video",
+  "title": "Self-hosted",
   "category": "presto",
-  "description": "Presto Self-hosted video block.",
+  "description": "Self-hosted video block.",
   "keywords": ["video"],
   "textdomain": "presto-player",
   "attributes": {

@@ -16,7 +16,14 @@ presto-player:not(.hydrated) .presto-loader {
   transform: translateZ(0);
 }
 
-.presto-block-video.presto-provider-audio{
+/* Safari-specific fix - disable transform to prevent fullscreen black screen */
+@supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
+  .presto-block-video:not(.presto-sticky-parent) {
+    transform: none;
+  }
+}
+
+.presto-block-video.presto-provider-audio {
   overflow: visible;
 }
 
@@ -71,6 +78,7 @@ presto-playlist-overlay,
 presto-playlist-ui {
   visibility: hidden;
 }
+
 .hydrated {
   visibility: inherit;
 }

@@ -42,27 +42,14 @@ export const options = {
     attachment_id: {
       type: Number,
     },
-    src: {
-      type: String,
-    },
+
     visibility: {
       type: String,
       default: "public",
     },
   },
 
-  title: __("Presto Audio", "presto-player"),
-
-  description: __("A audio player wrapper.", "presto-player"),
-
   variations: [
-    {
-      name: "public",
-      isDefault: true,
-      title: __("Presto Audio", "presto-player"),
-      description: __("Presto self-hosted audio block.", "presto-player"),
-      attributes: { visibility: "public" },
-    },
     ...(prestoPlayer?.isPremium
       ? [
           {

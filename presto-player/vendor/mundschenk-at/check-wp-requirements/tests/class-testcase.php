@@ -2,7 +2,7 @@
 /**
  *  This file is part of mundschenk-at/check-wp-requirements.
  *
- *  Copyright 2017-2019 Peter Putzer.
+ *  Copyright 2017-2024 Peter Putzer.
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
@@ -29,52 +29,56 @@ use Brain\Monkey;
 /**
  * Abstract base class for our unit tests.
  */
-abstract class TestCase extends \PHPUnit\Framework\TestCase {
+abstract class TestCase extends \Yoast\PHPUnitPolyfills\TestCases\TestCase {
 
 	/**
 	 * Set up Brain Monkey.
+	 *
+	 * @return void
 	 */
-	protected function setUp() {
-		parent::setUp();
+	protected function set_up() {
+		parent::set_up();
 		Monkey\setUp();
 	}
 
 	/**
 	 * Tear down Brain Monkey.
+	 *
+	 * @return void
 	 */
-	protected function tearDown() {
+	protected function tear_down() {
 		Monkey\tearDown();
-		parent::tearDown();
+		parent::tear_down();
 	}
 
 	/**
 	 * Call protected/private method of a class.
 	 *
-	 * @param object $object      Instantiated object that we will run method on.
-	 * @param string $method_name Method name to call.
-	 * @param array  $parameters  Array of parameters to pass into method.
-	 * @param string $classname   Optional. The class to use for accessing private properties.
+	 * @param object        $instance    Instantiated object that we will run method on.
+	 * @param string        $method_name Method name to call.
+	 * @param mixed[]       $parameters  Array of parameters to pass into method.
+	 * @param ?class-string $classname   Optional. The class to use for accessing private properties.
 	 *
 	 * @return mixed Method return.
 	 */
-	protected function invokeMethod( $object, $method_name, array $parameters = [], $classname = '' ) {
+	protected function invokeMethod( $instance, $method_name, array $parameters = [], $classname = null ) {
 		if ( empty( $classname ) ) {
-			$classname = get_class( $object );
+			$classname = get_class( $instance );
 		}
 
 		$reflection = new \ReflectionClass( $classname );
 		$method     = $reflection->getMethod( $method_name );
 		$method->setAccessible( true );
 
-		return $method->invokeArgs( $object, $parameters );
+		return $method->invokeArgs( $instance, $parameters );
 	}
 
 	/**
 	 * Call protected/private method of a class.
 	 *
-	 * @param string $classname   A class that we will run the method on.
-	 * @param string $method_name Method name to call.
-	 * @param array  $parameters  Array of parameters to pass into method.
+	 * @param class-string $classname   A class that we will run the method on.
+	 * @param string       $method_name Method name to call.
+	 * @param mixed[]      $parameters  Array of parameters to pass into method.
 	 *
 	 * @return mixed Method return.
 	 */
@@ -89,9 +93,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 	/**
 	 * Sets the value of a private/protected property of a class.
 	 *
-	 * @param string     $classname     A class whose property we will access.
-	 * @param string     $property_name Property to set.
-	 * @param mixed|null $value         The new value.
+	 * @param class-string $classname     A class whose property we will access.
+	 * @param string       $property_name Property to set.
+	 * @param mixed|null   $value         The new value.
+	 *
+	 * @return void
 	 */
 	protected function setStaticValue( $classname, $property_name, $value ) {
 		$reflection = new \ReflectionClass( $classname );
@@ -103,27 +109,29 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 	/**
 	 * Sets the value of a private/protected property of a class.
 	 *
-	 * @param object     $object        Instantiated object that we will run method on.
-	 * @param string     $property_name Property to set.
-	 * @param mixed|null $value         The new value.
-	 * @param string     $classname     Optional. The class to use for accessing private properties.
+	 * @param object        $instance      Instantiated object that we will run method on.
+	 * @param string        $property_name Property to set.
+	 * @param mixed|null    $value         The new value.
+	 * @param ?class-string $classname     Optional. The class to use for accessing private properties.
+	 *
+	 * @return void
 	 */
-	protected function setValue( $object, $property_name, $value, $classname = '' ) {
+	protected function setValue( $instance, $property_name, $value, $classname = null ) {
 		if ( empty( $classname ) ) {
-			$classname = get_class( $object );
+			$classname = get_class( $instance );
 		}
 
 		$reflection = new \ReflectionClass( $classname );
 		$property   = $reflection->getProperty( $property_name );
 		$property->setAccessible( true );
-		$property->setValue( $object, $value );
+		$property->setValue( $instance, $value );
 	}
 
 	/**
 	 * Retrieves the value of a private/protected property of a class.
 	 *
-	 * @param string $classname     A class whose property we will access.
-	 * @param string $property_name Property to set.
+	 * @param class-string $classname     A class whose property we will access.
+	 * @param string       $property_name Property to set.
 	 *
 	 * @return mixed
 	 */
@@ -138,22 +146,22 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 	/**
 	 * Retrieves the value of a private/protected property of a class.
 	 *
-	 * @param object $object        Instantiated object that we will run method on.
-	 * @param string $property_name Property to set.
-	 * @param string $classname     Optional. The class to use for accessing private properties.
+	 * @param object        $instance      Instantiated object that we will run method on.
+	 * @param string        $property_name Property to set.
+	 * @param ?class-string $classname Optional. The class to use for accessing private properties.
 	 *
 	 * @return mixed
 	 */
-	protected function getValue( $object, $property_name, $classname = '' ) {
+	protected function getValue( $instance, $property_name, $classname = null ) {
 		if ( empty( $classname ) ) {
-			$classname = get_class( $object );
+			$classname = get_class( $instance );
 		}
 
 		$reflection = new \ReflectionClass( $classname );
 		$property   = $reflection->getProperty( $property_name );
 		$property->setAccessible( true );
 
-		return $property->getValue( $object );
+		return $property->getValue( $instance );
 	}
 
 	/**
@@ -161,15 +169,17 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 	 *
 	 * @param string $key       The array key.
 	 * @param string $attribute The attribute name.
-	 * @param object $object    The object.
+	 * @param object $instance  The object.
 	 * @param string $message   Optional. Default ''.
+	 *
+	 * @return void
 	 */
-	protected function assertAttributeArrayHasKey( $key, $attribute, $object, $message = '' ) {
-		$ref  = new \ReflectionClass( get_class( $object ) );
+	protected function assertAttributeArrayHasKey( $key, $attribute, $instance, $message = '' ) {
+		$ref  = new \ReflectionClass( get_class( $instance ) );
 		$prop = $ref->getProperty( $attribute );
 		$prop->setAccessible( true );
 
-		return $this->assertArrayHasKey( $key, $prop->getValue( $object ), $message );
+		$this->assertArrayHasKey( $key, $prop->getValue( $instance ), $message );
 	}
 
 	/**
@@ -177,14 +187,16 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 	 *
 	 * @param string $key       The array key.
 	 * @param string $attribute The attribute name.
-	 * @param object $object    The object.
+	 * @param object $instance  The object.
 	 * @param string $message   Optional. Default ''.
+	 *
+	 * @return void
 	 */
-	protected function assertAttributeArrayNotHasKey( $key, $attribute, $object, $message = '' ) {
-		$ref  = new \ReflectionClass( get_class( $object ) );
+	protected function assertAttributeArrayNotHasKey( $key, $attribute, $instance, $message = '' ) {
+		$ref  = new \ReflectionClass( get_class( $instance ) );
 		$prop = $ref->getProperty( $attribute );
 		$prop->setAccessible( true );
 
-		return $this->assertArrayNotHasKey( $key, $prop->getValue( $object ), $message );
+		$this->assertArrayNotHasKey( $key, $prop->getValue( $instance ), $message );
 	}
 }

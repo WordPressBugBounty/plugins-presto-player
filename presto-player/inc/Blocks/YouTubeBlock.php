@@ -1,35 +1,30 @@
 <?php
+/**
+ * YouTube Block.
+ *
+ * @package PrestoPlayer\Blocks
+ */
 
 namespace PrestoPlayer\Blocks;
 
 use PrestoPlayer\Models\Preset;
 use PrestoPlayer\Support\Block;
 
+/**
+ * YouTube Block.
+ */
 class YouTubeBlock extends Block {
 
 	/**
-	 * Block name
+	 * Block name.
 	 *
 	 * @var string
 	 */
 	protected $name = 'youtube';
 
 	/**
-	 * Translated block title
+	 * Add url to template.
 	 *
-	 * @var string
-	 */
-	protected $title;
-
-	public function __construct( bool $isPremium = false, $version = 1 ) {
-		parent::__construct( $isPremium, $version );
-		$this->title = __( 'Youtube', 'presto-player' );
-	}
-
-	/**
-	 * Add url to template
-	 *
-	 * @param array $attributes
 	 * @return array
 	 */
 	public function additionalAttributes() {
@@ -41,9 +36,9 @@ class YouTubeBlock extends Block {
 	}
 
 	/**
-	 * Make youtube URL from attributes
+	 * Make youtube URL from attributes.
 	 *
-	 * @param array $attributes
+	 * @param array $attributes Block attributes.
 	 * @return string
 	 */
 	public function makeUrl( $attributes ) {
@@ -52,7 +47,7 @@ class YouTubeBlock extends Block {
 		if ( empty( $id ) ) {
 			return '';
 		}
-		// build youtube url
+		// Build youtube url.
 		return add_query_arg(
 			array(
 				'iv_load_policy' => 3,
@@ -67,10 +62,11 @@ class YouTubeBlock extends Block {
 	}
 
 	/**
-	 * Add src
+	 * Add src.
 	 *
-	 * @param array $attributes
-	 * @return void
+	 * @param array $attributes Block attributes.
+	 * @param array $default_config Default config.
+	 * @return array
 	 */
 	public function sanitizeAttributes( $attributes, $default_config ) {
 		$preset = ! empty( $attributes['preset'] ) ? new Preset( $attributes['preset'] ) : null;
@@ -86,14 +82,14 @@ class YouTubeBlock extends Block {
 	}
 
 	/**
-	 * Gets the id from the Youtube URL
+	 * Gets the id from the Youtube URL.
 	 *
-	 * @param string $url
+	 * @param string $url URL.
 	 * @return string
 	 */
 	public function getIdFromURL( $url = '' ) {
-		preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user|shorts)\/))([^\?&\"'>]+)/", $url, $matches);
-		return !empty($matches[1]) ? $matches[1] : '';
+		preg_match( "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user|shorts)\/))([^\?&\"'>]+)/", $url, $matches );
+		return ! empty( $matches[1] ) ? $matches[1] : '';
 	}
 
 	/**

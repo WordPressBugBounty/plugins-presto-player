@@ -1,27 +1,25 @@
 <?php
+/**
+ * Vimeo Block.
+ *
+ * @package PrestoPlayer\Blocks
+ */
 
 namespace PrestoPlayer\Blocks;
 
 use PrestoPlayer\Support\Block;
 
+/**
+ * Vimeo Block.
+ */
 class VimeoBlock extends Block {
 
 	/**
-	 * Block name
+	 * Block name.
 	 *
 	 * @var string
 	 */
 	protected $name = 'vimeo';
-
-	/**
-	 * Translated block title
-	 */
-	protected $title;
-
-	public function __construct( bool $isPremium = false, $version = 1 ) {
-		parent::__construct( $isPremium, $version );
-		$this->title = __( 'Vimeo', 'presto-player' );
-	}
 
 	/**
 	 * Register the block type.

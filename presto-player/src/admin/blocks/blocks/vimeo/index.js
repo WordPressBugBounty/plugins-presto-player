@@ -1,4 +1,3 @@
-const { __ } = wp.i18n;
 import edit from "./edit";
 import blockOptions from "../block-options";
 
@@ -21,13 +20,6 @@ export const options = {
       type: String,
     },
   },
-
-  title: __("Presto Vimeo Video", "presto-player"),
-
-  description: __(
-    "A vimeo video wrapped in an awesome player.",
-    "presto-player"
-  ),
 
   icon: (
     <svg

@@ -29,13 +29,6 @@ class Block {
 	protected $name = '';
 
 	/**
-	 * The translated block title
-	 *
-	 * @var string
-	 */
-	protected $title = 'Video';
-
-	/**
 	 * The template name
 	 *
 	 * @var string
@@ -132,7 +125,7 @@ class Block {
 	 * @return void
 	 */
 	public function register() {
-		$this->registerBlockType();
+		add_action( 'init', array( $this, 'registerBlockType' ) );
 	}
 
 	/**
@@ -142,6 +135,20 @@ class Block {
 	 */
 	public function additionalAttributes() {
 		return array();
+	}
+
+	/**
+	 * Get the block title from block.json
+	 *
+	 * @return string
+	 */
+	public function getBlockTitle() {
+		// Try to get the title from block.json metadata.
+		$block_type = \WP_Block_Type_Registry::get_instance()->get_registered( "presto-player/{$this->name}" );
+		if ( $block_type && ! empty( $block_type->title ) ) {
+			return $block_type->title;
+		}
+		return '';
 	}
 
 	/**
@@ -232,7 +239,7 @@ class Block {
 			'presto_player/block/default_attributes',
 			array(
 				'type'            => $this->name,
-				'name'            => $this->title,
+				'name'            => $this->getBlockTitle(),
 				'css'             => wp_kses_post( $css ),
 				'class'           => $class,
 				'is_hls'          => $this->isHls( $src ),

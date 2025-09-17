@@ -2,7 +2,7 @@
 /**
  *  This file is part of mundschenk-at/check-wp-requirements.
  *
- *  Copyright 2017-2019 Peter Putzer.
+ *  Copyright 2017-2024 Peter Putzer.
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
@@ -23,6 +23,8 @@
  */
 
 namespace Mundschenk\WP_Requirements\Tests;
+
+use Mundschenk\WP_Requirements;
 
 use Brain\Monkey\Actions;
 use Brain\Monkey\Filters;
@@ -45,68 +47,70 @@ class WP_Requirements_Test extends TestCase {
 	/**
 	 * Test fixture.
 	 *
-	 * @var \Mundschenk\WP_Requirements
+	 * @var WP_Requirements&m\MockInterface
 	 */
 	protected $req;
 
 	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
+	 *
+	 * @return void
 	 */
-	protected function setUp() { // @codingStandardsIgnoreLine
+	protected function set_up() { // @codingStandardsIgnoreLine
 
 		// Set up virtual filesystem.
-		vfsStream::setup( 'root', null, [
-			'vendor' => [
-				'partials' => [
-					'requirements-error-notice.php' => 'REQUIREMENTS_ERROR',
+		vfsStream::setup(
+			'root',
+			null,
+			[
+				'vendor' => [
+					'partials' => [
+						'requirements-error-notice.php' => 'REQUIREMENTS_ERROR',
+					],
 				],
-			],
-		] );
+			]
+		);
 		set_include_path( 'vfs://root/' ); // @codingStandardsIgnoreLine
 
-		Functions\expect( 'wp_parse_args' )->once()->andReturnUsing( function( $array, $defaults ) {
-			return \array_merge( $defaults, $array );
-		} );
+		Functions\expect( 'wp_parse_args' )->once()->andReturnUsing(
+			function ( $args, $defaults ) {
+				return \array_merge( $defaults, $args );
+			}
+		);
 
-		$this->req = m::mock( \Mundschenk\WP_Requirements::class, [
-			'Foobar',
-			'plugin/plugin.php',
-			'textdomain',
+		$this->req = m::mock(
+			WP_Requirements::class,
 			[
-				'php'       => '5.6.0',
-				'multibyte' => true,
-				'utf-8'     => true,
-			],
-		] )->shouldAllowMockingProtectedMethods()->makePartial();
+				'Foobar',
+				'plugin/plugin.php',
+				'textdomain',
+				[
+					'php'       => '5.6.0',
+					'multibyte' => true,
+					'utf-8'     => true,
+				],
+			]
+		)->shouldAllowMockingProtectedMethods()->makePartial();
 
-		parent::setUp();
+		parent::set_up();
 	}
-
-	/**
-	 * Necesssary clean-up work.
-	 */
-	protected function tearDown() { // @codingStandardsIgnoreLine
-		parent::tearDown();
-	}
-
-
 
 	/**
 	 * Test constructor.
 	 *
 	 * @covers ::__construct
+	 *
+	 * @return void
 	 */
 	public function test_constructor() {
-		Functions\expect( 'wp_parse_args' )->once()->andReturnUsing( function( $array, $defaults ) {
-			return \array_merge( $defaults, $array );
-		} );
+		Functions\expect( 'wp_parse_args' )->once()->andReturnUsing(
+			function ( $args, $defaults ) {
+				return \array_merge( $defaults, $args );
+			}
+		);
 
 		$req = m::mock( \Mundschenk\WP_Requirements::class, [ 'Foobar', 'plugin/plugin.php', 'textdomain', [ 'php' => '5.3.5' ] ] );
-
-		$this->assertAttributeSame( 'plugin/plugin.php', 'plugin_file', $req );
-		$this->assertAttributeSame( 'Foobar', 'plugin_name', $req );
-		$this->assertAttributeSame( 'textdomain', 'textdomain', $req );
 
 		$requirements = $this->getValue( $req, 'install_requirements', \Mundschenk\WP_Requirements::class );
 		$this->assertArrayHasKey( 'php', $requirements );
@@ -122,6 +126,8 @@ class WP_Requirements_Test extends TestCase {
 	 * Test display_error_notice.
 	 *
 	 * @covers ::display_error_notice
+	 *
+	 * @return void
 	 */
 	public function test_display_error_notice() {
 		// Mock dirname( __FILE__ ).
@@ -137,18 +143,13 @@ class WP_Requirements_Test extends TestCase {
 	 * @covers ::display_error_notice
 	 *
 	 * @expectedExceptionMessage Too few arguments to function
+	 *
+	 * @return void
 	 */
 	public function test_display_error_notice_no_arguments() {
 		$this->expectOutputString( '' );
 
-		// PHP < 7.0 raises an error instead of throwing an "exception".
-		if ( version_compare( phpversion(), '7.0.0', '<' ) ) {
-			$this->expectException( \PHPUnit_Framework_Error::class );
-		} elseif ( version_compare( phpversion(), '7.1.0', '<' ) ) {
-			$this->expectException( \PHPUnit\Framework\Error\Warning::class );
-		} else {
-			$this->expectException( \ArgumentCountError::class );
-		}
+		$this->expectException( \ArgumentCountError::class );
 
 		$this->invokeMethod( $this->req, 'display_error_notice', [] );
 	}
@@ -157,6 +158,8 @@ class WP_Requirements_Test extends TestCase {
 	 * Test display_error_notice.
 	 *
 	 * @covers ::display_error_notice
+	 *
+	 * @return void
 	 */
 	public function test_display_error_notice_empty_format() {
 		$this->expectOutputString( '' );
@@ -168,43 +171,51 @@ class WP_Requirements_Test extends TestCase {
 	 * Test admin_notices_php_version_incompatible.
 	 *
 	 * @covers ::admin_notices_php_version_incompatible
+	 *
+	 * @return void
 	 */
 	public function test_admin_notices_php_version_incompatible() {
 		Functions\expect( '__' )->with( m::type( 'string' ), 'textdomain' )->atLeast()->once()->andReturn( 'translated' );
 		$this->req->shouldReceive( 'display_error_notice' )->once();
 
-		$this->assertNull( $this->req->admin_notices_php_version_incompatible() );
+		$this->assertNull( $this->req->admin_notices_php_version_incompatible() ); // @phpstan-ignore method.void
 	}
 
 	/**
 	 * Test admin_notices_mbstring_incompatible.
 	 *
 	 * @covers ::admin_notices_mbstring_incompatible
+	 *
+	 * @return void
 	 */
 	public function test_admin_notices_mbstring_incompatible() {
 		Functions\expect( '__' )->with( m::type( 'string' ), 'textdomain' )->atLeast()->once()->andReturn( 'translated' );
 		$this->req->shouldReceive( 'display_error_notice' )->once();
 
-		$this->assertNull( $this->req->admin_notices_mbstring_incompatible() );
+		$this->assertNull( $this->req->admin_notices_mbstring_incompatible() ); // @phpstan-ignore method.void
 	}
 
 	/**
 	 * Test admin_notices_charset_incompatible.
 	 *
 	 * @covers ::admin_notices_charset_incompatible
+	 *
+	 * @return void
 	 */
 	public function test_admin_notices_charset_incompatible() {
 		Functions\expect( '__' )->with( m::type( 'string' ), 'textdomain' )->atLeast()->once()->andReturn( 'translated' );
 		Functions\expect( 'get_bloginfo' )->with( 'charset' )->once()->andReturn( '8859-1' );
 		$this->req->shouldReceive( 'display_error_notice' )->once();
 
-		$this->assertNull( $this->req->admin_notices_charset_incompatible() );
+		$this->assertNull( $this->req->admin_notices_charset_incompatible() ); // @phpstan-ignore method.void
 	}
 
 	/**
 	 * Test check_php_support.
 	 *
 	 * @covers ::check_php_support
+	 *
+	 * @return void
 	 */
 	public function test_check_php_support() {
 		// Fake PHP version check.
@@ -218,7 +229,7 @@ class WP_Requirements_Test extends TestCase {
 	/**
 	 * Provides data for testing check_utf8_support.
 	 *
-	 * @return array
+	 * @return array<array{0:string,1:bool}>
 	 */
 	public function provide_check_utf8_support_data() {
 		return [
@@ -238,6 +249,8 @@ class WP_Requirements_Test extends TestCase {
 	 *
 	 * @param string $charset  The blog charset.
 	 * @param bool   $expected The expected result.
+	 *
+	 * @return void
 	 */
 	public function test_check_utf8_support( $charset, $expected ) {
 		Functions\expect( 'get_bloginfo' )->with( 'charset' )->once()->andReturn( $charset );
@@ -249,6 +262,8 @@ class WP_Requirements_Test extends TestCase {
 	 * Test check_utf8_support.
 	 *
 	 * @covers ::check_multibyte_support
+	 *
+	 * @return void
 	 */
 	public function test_check_multibyte_support() {
 		// This will be true because mbstring is a requirement for running the test suite.
@@ -258,7 +273,7 @@ class WP_Requirements_Test extends TestCase {
 	/**
 	 * Provides data for testing check.
 	 *
-	 * @return array
+	 * @return array<int, bool[]>
 	 */
 	public function provide_check_data() {
 		return [
@@ -289,6 +304,8 @@ class WP_Requirements_Test extends TestCase {
 	 * @param  bool $charset     Charset check flag.
 	 * @param  bool $admin       Result of is_admin().
 	 * @param  bool $expected    Expected result.
+	 *
+	 * @return void
 	 */
 	public function test_check( $php_version, $multibyte, $charset, $admin, $expected ) {
 		Functions\expect( 'is_admin' )->zeroOrMoreTimes()->andReturn( $admin );
@@ -318,11 +335,13 @@ class WP_Requirements_Test extends TestCase {
 	 * Test deactivate_plugin.
 	 *
 	 * @covers ::deactivate_plugin
+	 *
+	 * @return void
 	 */
 	public function test_deactivate_plugin() {
 		Functions\expect( 'plugin_basename' )->with( 'plugin/plugin.php' )->once()->andReturn( 'plugin' );
 		Functions\expect( 'deactivate_plugins' )->with( 'plugin' )->once();
 
-		$this->assertNull( $this->req->deactivate_plugin() );
+		$this->assertNull( $this->req->deactivate_plugin() ); // @phpstan-ignore method.void
 	}
 }

@@ -26,6 +26,15 @@ class ReusableVideoBlock {
 	 * @return void
 	 */
 	public function register() {
+		add_action( 'init', array( $this, 'registerBlockType' ) );
+	}
+
+	/**
+	 * Register the block type
+	 *
+	 * @return void
+	 */
+	public function registerBlockType() {
 		register_block_type(
 			"presto-player/$this->name",
 			array(

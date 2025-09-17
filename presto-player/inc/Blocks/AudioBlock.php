@@ -1,4 +1,9 @@
 <?php
+/**
+ * Audio Block.
+ *
+ * @package PrestoPlayer\Blocks
+ */
 
 namespace PrestoPlayer\Blocks;
 
@@ -6,32 +11,27 @@ use PrestoPlayer\Attachment;
 use PrestoPlayer\Models\CurrentUser;
 use PrestoPlayer\Support\Block;
 
+/**
+ * Audio Block.
+ */
 class AudioBlock extends Block {
 
 	/**
-	 * Block name
+	 * Block name.
 	 *
 	 * @var string
 	 */
 	protected $name = 'audio';
 
 	/**
-	 * Translated block title
-	 */
-	protected $title;
-
-	public function __construct( bool $isPremium = false, $version = 1 ) {
-		parent::__construct( $isPremium, $version );
-		$this->title = __( 'Audio', 'presto-player' );
-	}
-
-	/**
-	 * Bail if user cannot access video
+	 * Bail if user cannot access video.
 	 *
-	 * @return void
+	 * @param array  $attributes Block attributes.
+	 * @param string $content Block content.
+	 * @return bool
 	 */
 	public function middleware( $attributes, $content ) {
-		// if private and user cannot access video, don't load
+		// If private and user cannot access video, don't load.
 		if ( ! empty( $attributes['visibility'] ) && 'private' === $attributes['visibility'] ) {
 			if ( empty( $attributes['id'] ) ) {
 				return false;
@@ -47,7 +47,9 @@ class AudioBlock extends Block {
 	/**
 	 * Add curtain styles.
 	 *
-	 * @return void
+	 * @param array $attributes Attributes.
+	 * @param array $default_config Default config.
+	 * @return array
 	 */
 	public function sanitizeAttributes( $attributes, $default_config ) {
 

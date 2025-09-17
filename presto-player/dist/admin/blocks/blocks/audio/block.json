@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "presto-player/audio",
-  "title": "Presto Audio",
+  "title": "Audio",
   "category": "presto",
-  "description": "A audio player wrapper.",
+  "description": "An audio player wrapper.",
   "keywords": [
     "audio"
   ],

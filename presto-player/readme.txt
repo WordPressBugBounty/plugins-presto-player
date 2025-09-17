@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.8
-Stable tag: 4.0.1
+Stable tag: 4.0.2
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -155,6 +155,10 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.0.2 =
+* Fix: Fullscreen mode not working on Safari in some instances.
+* Fix: PHP notices related to translations loading before init hook.
 
 = 4.0.1 =
 * Fix: Improved error handling for popup image trigger block transformations

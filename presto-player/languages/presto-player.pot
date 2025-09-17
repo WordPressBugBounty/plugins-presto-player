@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-11T15:23:17+00:00\n"
+"POT-Creation-Date: 2025-09-17T18:56:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: admin/analytics/components/DataTable.js:34
 #: admin/ui/Table.js:14
@@ -94,10 +94,12 @@ msgid "Total Views"
 msgstr ""
 
 #: admin/analytics/components/TotalViewsGraph.js:120
+#, js-format
 msgid "%d Unique Views"
 msgstr ""
 
 #: admin/analytics/components/TotalWatchGraph.js:116
+#, js-format
 msgid "%s average watch time"
 msgstr ""
 
@@ -159,10 +161,12 @@ msgid "View Profile"
 msgstr ""
 
 #: admin/analytics/util.js:10
+#, js-format
 msgid "%d hours"
 msgstr ""
 
 #: admin/analytics/util.js:13
+#, js-format
 msgid "%d minutes"
 msgstr ""
 
@@ -171,6 +175,7 @@ msgid "and"
 msgstr ""
 
 #: admin/analytics/util.js:19
+#, js-format
 msgid "%d seconds"
 msgstr ""
 
@@ -188,7 +193,7 @@ msgstr ""
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:62
 #: admin/blocks/shared/BlockInspectorControls.js:64
 #: admin/blocks/shared/chapters/ChaptersPanel.js:6
-#: Services/Translation.php:69
+#: Services/Translation.php:98
 msgid "Chapters"
 msgstr ""
 
@@ -256,6 +261,7 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:143
 #: admin/blocks/shared/settings/index.js:249
+#, js-format
 msgid "The current poster image url is %s"
 msgstr ""
 
@@ -288,6 +294,7 @@ msgstr ""
 #. translators: %s: Label of the video text track e.g: "French subtitles"
 #: admin/blocks/blocks/audio/AudioTranscription.js:61
 #: admin/blocks/shared/tracks/TracksEditor.js:73
+#, js-format
 msgid "Edit %s"
 msgstr ""
 
@@ -363,8 +370,6 @@ msgid "Upload"
 msgstr ""
 
 #: admin/blocks/blocks/audio/HostedAudioPlaceholder.js:58
-#: admin/blocks/blocks/audio/index.js:54
-#: admin/blocks/blocks/audio/index.js:62
 msgid "Presto Audio"
 msgstr ""
 
@@ -394,19 +399,11 @@ msgstr ""
 msgid "Private audio uses php to stream your audio. Keep in mind this will use up disk space and bandwidth so it may not be an appropriate choice for some hosts."
 msgstr ""
 
-#: admin/blocks/blocks/audio/index.js:56
-msgid "A audio player wrapper."
-msgstr ""
-
-#: admin/blocks/blocks/audio/index.js:63
-msgid "Presto self-hosted audio block."
-msgstr ""
-
-#: admin/blocks/blocks/audio/index.js:70
+#: admin/blocks/blocks/audio/index.js:57
 msgid "Presto Private Audio"
 msgstr ""
 
-#: admin/blocks/blocks/audio/index.js:88
+#: admin/blocks/blocks/audio/index.js:75
 msgid "Private self-hosted audio block."
 msgstr ""
 
@@ -479,27 +476,6 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/edit.js:358
 msgid "Add or select a Bunny.net video"
-msgstr ""
-
-#: admin/blocks/blocks/bunny/index.js:34
-#: admin/blocks/blocks/bunny/index.js:42
-msgid "Presto Bunny.net Video"
-msgstr ""
-
-#: admin/blocks/blocks/bunny/index.js:36
-msgid "Serve video through Bunny.net CDN."
-msgstr ""
-
-#: admin/blocks/blocks/bunny/index.js:43
-msgid "Serve public video through Bunny.net CDN."
-msgstr ""
-
-#: admin/blocks/blocks/bunny/index.js:51
-msgid "Presto Bunny.net Private Video"
-msgstr ""
-
-#: admin/blocks/blocks/bunny/index.js:66
-msgid "Serve private, secure video through Bunny.net CDN."
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:62
@@ -706,13 +682,11 @@ msgid "Upgrade"
 msgstr ""
 
 #: admin/blocks/blocks/hosted/HostedPlaceholder.js:64
-#: admin/blocks/blocks/hosted/index.js:34
+#: admin/blocks/blocks/hosted/index.js:23
 msgid "Presto Private Video"
 msgstr ""
 
 #: admin/blocks/blocks/hosted/HostedPlaceholder.js:65
-#: admin/blocks/blocks/hosted/index.js:18
-#: admin/blocks/blocks/hosted/index.js:26
 #: Integrations/Elementor/VideoWidget.php:63
 msgid "Presto Video"
 msgstr ""
@@ -737,12 +711,7 @@ msgstr ""
 msgid "Private videos use php to stream your video. Keep in mind this will use up disk space and bandwidth so it may not be an appropriate choice for some hosts."
 msgstr ""
 
-#: admin/blocks/blocks/hosted/index.js:20
-#: admin/blocks/blocks/hosted/index.js:27
-msgid "Presto Self-hosted video block."
-msgstr ""
-
-#: admin/blocks/blocks/hosted/index.js:52
+#: admin/blocks/blocks/hosted/index.js:41
 msgid "Private video self-hosted block."
 msgstr ""
 
@@ -788,7 +757,7 @@ msgid "General"
 msgstr ""
 
 #: admin/blocks/blocks/playlist-list-item/edit.js:40
-#: Services/Translation.php:82
+#: Services/Translation.php:114
 msgid "Duration"
 msgstr ""
 
@@ -954,7 +923,6 @@ msgid "Media Hub Item"
 msgstr ""
 
 #: admin/blocks/blocks/vimeo/edit.js:94
-#: admin/blocks/blocks/vimeo/index.js:25
 msgid "Presto Vimeo Video"
 msgstr ""
 
@@ -966,12 +934,7 @@ msgstr ""
 msgid "Vimeo URL"
 msgstr ""
 
-#: admin/blocks/blocks/vimeo/index.js:27
-msgid "A vimeo video wrapped in an awesome player."
-msgstr ""
-
 #: admin/blocks/blocks/youtube/edit.js:94
-#: admin/blocks/blocks/youtube/index.js:26
 msgid "Presto Youtube Video"
 msgstr ""
 
@@ -982,10 +945,6 @@ msgstr ""
 #: admin/blocks/blocks/youtube/edit.js:96
 #: admin/blocks/shared/LinkPlaceholder.js:40
 msgid "Youtube URL"
-msgstr ""
-
-#: admin/blocks/blocks/youtube/index.js:28
-msgid "A youtube video wrapped in an awesome player."
 msgstr ""
 
 #: admin/blocks/hooks/apply-popup-button-trigger-ui.js:46
@@ -1123,7 +1082,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Behavior.js:84
 #: admin/blocks/shared/presets/Behavior.js:139
-#: Services/Translation.php:99
+#: Services/Translation.php:131
 msgid "Loop"
 msgstr ""
 
@@ -1197,7 +1156,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Controls.js:87
 #: admin/blocks/shared/presets/Controls.js:87
-#: Services/Translation.php:83
+#: Services/Translation.php:115
 msgid "Volume"
 msgstr ""
 
@@ -1208,7 +1167,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Controls.js:97
 #: admin/blocks/shared/presets/Controls.js:97
-#: Services/Translation.php:96
+#: Services/Translation.php:128
 msgid "Speed"
 msgstr ""
 
@@ -1362,13 +1321,13 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Preview.js:102
 #: admin/blocks/shared/Preview.js:67
 #: admin/blocks/shared/Preview.js:103
-#: Services/Translation.php:65
+#: Services/Translation.php:94
 msgid "Skip"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preview.js:67
 #: admin/blocks/shared/Preview.js:69
-#: Services/Translation.php:67
+#: Services/Translation.php:96
 msgid "Email address"
 msgstr ""
 
@@ -1436,6 +1395,7 @@ msgstr ""
 #. translators: %s: poster image URL.
 #: admin/blocks/shared/branding/index.js:103
 #: admin/settings/components/Media.js:57
+#, js-format
 msgid "The current logo image url is %s"
 msgstr ""
 
@@ -1466,7 +1426,7 @@ msgid "Add Chapter"
 msgstr ""
 
 #: admin/blocks/shared/components/ColorPopup.js:62
-#: Services/Translation.php:103
+#: Services/Translation.php:135
 msgid "Reset"
 msgstr ""
 
@@ -1537,15 +1497,11 @@ msgid "YouTube"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:47
-#: Blocks/VimeoBlock.php:23
 #: Integrations/Elementor/VideoWidget.php:151
-#: Services/VideoPostType.php:526
 msgid "Vimeo"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:54
-#: Blocks/AudioBlock.php:25
-#: Services/VideoPostType.php:525
 msgid "Audio"
 msgstr ""
 
@@ -1697,7 +1653,7 @@ msgstr ""
 #: admin/blocks/shared/presets/ActionBar.js:138
 #: admin/blocks/shared/presets/CTA.js:117
 #: admin/blocks/shared/presets/Email.js:93
-#: Services/Translation.php:100
+#: Services/Translation.php:132
 msgid "Start"
 msgstr ""
 
@@ -1710,7 +1666,7 @@ msgstr ""
 #: admin/blocks/shared/presets/ActionBar.js:146
 #: admin/blocks/shared/presets/CTA.js:125
 #: admin/blocks/shared/presets/Email.js:101
-#: Services/Translation.php:101
+#: Services/Translation.php:133
 msgid "End"
 msgstr ""
 
@@ -1818,8 +1774,6 @@ msgid "On Video End"
 msgstr ""
 
 #: admin/blocks/shared/presets/Behavior.js:155
-#: Blocks/YouTubeBlock.php:26
-#: Services/VideoPostType.php:527
 msgid "Youtube"
 msgstr ""
 
@@ -1862,7 +1816,7 @@ msgstr ""
 #: admin/blocks/shared/presets/Controls.js:133
 #: admin/blocks/shared/tracks/TracksEditor.js:85
 #: admin/blocks/shared/tracks/TracksEditor.js:198
-#: Services/Translation.php:92
+#: Services/Translation.php:124
 #: parts/captions.php:3
 msgid "Captions"
 msgstr ""
@@ -2118,7 +2072,7 @@ msgstr ""
 #: admin/blocks/shared/presets/Style.js:48
 #: Seeds/AudioPresetSeeder.php:35
 #: Seeds/PresetSeeder.php:36
-#: Services/Translation.php:14
+#: Services/Translation.php:160
 msgid "Default"
 msgstr ""
 
@@ -2260,6 +2214,7 @@ msgid "Select overlay image"
 msgstr ""
 
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:72
+#, js-format
 msgid "The current overlay image url is %s"
 msgstr ""
 
@@ -2734,7 +2689,6 @@ msgid "Installed and connected"
 msgstr ""
 
 #: admin/settings/pages/parts/integration/FluentCRM.js:30
-#: Models/LicensedProduct.php:137
 msgid "Deactivated"
 msgstr ""
 
@@ -2801,6 +2755,7 @@ msgid "Add Header"
 msgstr ""
 
 #: admin/settings/pages/parts/Webhooks/index.js:34
+#, js-format
 msgid "%d connected"
 msgstr ""
 
@@ -2921,6 +2876,7 @@ msgid "Back"
 msgstr ""
 
 #: admin/ui/Pagination.js:40
+#, js-format
 msgid "Showing %1s to %2s of %3s"
 msgstr ""
 
@@ -2930,12 +2886,12 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/block.json
 msgctxt "block title"
-msgid "Presto Audio"
+msgid "Audio"
 msgstr ""
 
 #: admin/blocks/blocks/audio/block.json
 msgctxt "block description"
-msgid "A audio player wrapper."
+msgid "An audio player wrapper."
 msgstr ""
 
 #: admin/blocks/blocks/audio/block.json
@@ -2956,7 +2912,7 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/block.json
 msgctxt "block title"
-msgid "Presto Bunny.net Video"
+msgid "Bunny.net"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/block.json
@@ -2996,12 +2952,12 @@ msgstr ""
 
 #: admin/blocks/blocks/hosted/block.json
 msgctxt "block title"
-msgid "Presto Video"
+msgid "Self-hosted"
 msgstr ""
 
 #: admin/blocks/blocks/hosted/block.json
 msgctxt "block description"
-msgid "Presto Self-hosted video block."
+msgid "Self-hosted video block."
 msgstr ""
 
 #: admin/blocks/blocks/hosted/block.json
@@ -3125,7 +3081,7 @@ msgstr ""
 
 #: admin/blocks/blocks/vimeo/block.json
 msgctxt "block title"
-msgid "Presto Vimeo Video"
+msgid "Vimeo"
 msgstr ""
 
 #: admin/blocks/blocks/vimeo/block.json
@@ -3135,7 +3091,7 @@ msgstr ""
 
 #: admin/blocks/blocks/youtube/block.json
 msgctxt "block title"
-msgid "Presto Youtube"
+msgid "YouTube"
 msgstr ""
 
 #: admin/blocks/blocks/youtube/block.json
@@ -3144,6 +3100,7 @@ msgid "Presto YouTube block."
 msgstr ""
 
 #: Attachment.php:131
+#, php-format
 msgid "The video files in the %s folder are not currently protected due to your site running on NGINX."
 msgstr ""
 
@@ -3162,6 +3119,7 @@ msgid "Dismiss Notice"
 msgstr ""
 
 #: Attachment.php:252
+#, php-format
 msgid "Sorry %1$s! Access to this video is not allowed. An administrator will be informed."
 msgstr ""
 
@@ -3176,11 +3134,6 @@ msgstr ""
 #: Blocks/PopupTriggerBlock.php:62
 #: Services/Blocks/PopupTriggerService.php:84
 msgid "Open Presto Popup dialog"
-msgstr ""
-
-#: Blocks/SelfHostedBlock.php:25
-#: Services/VideoPostType.php:524
-msgid "Self-hosted"
 msgstr ""
 
 #: Files.php:203
@@ -3200,7 +3153,7 @@ msgstr ""
 
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:76
 #: Services/Menu.php:52
-#: Services/Translation.php:93
+#: Services/Translation.php:125
 msgid "Settings"
 msgstr ""
 
@@ -3277,6 +3230,7 @@ msgstr ""
 
 #. translators: placeholders: 1. Lesson or Topic label, 2. span for counter.
 #: Integrations/LearnDash/LearnDash.php:219
+#, php-format
 msgctxt "placeholders: 1. Lesson or Topic label, 2. span for counter"
 msgid "<p class=\"ld-video-delay-message\">%1$s will auto complete in %2$s seconds</p>"
 msgstr ""
@@ -3293,10 +3247,6 @@ msgstr ""
 msgid "The presto video in this post will be used for video progression."
 msgstr ""
 
-#: Models/LicensedProduct.php:90
-msgid "Activated"
-msgstr ""
-
 #: Models/Model.php:630
 msgid "You must first create or save this model to update it."
 msgstr ""
@@ -3311,6 +3261,7 @@ msgstr ""
 
 #. translators: 1: plugin name 2: WordPress update documentation URL
 #: Requirements.php:65
+#, php-format
 msgid "The activated plugin %1$s requires WordPress 5.6 or higher. Please update WordPress."
 msgstr ""
 
@@ -3321,24 +3272,23 @@ msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:63
 #: Seeds/PresetSeeder.php:182
-#: Services/Translation.php:16
+#: Services/Translation.php:162
 msgid "Simple"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:90
 #: Seeds/PresetSeeder.php:227
-#: Services/Translation.php:17
+#: Services/Translation.php:163
 msgid "Minimal"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:117
 #: Seeds/PresetSeeder.php:82
-#: Services/Translation.php:15
+#: Services/Translation.php:161
 msgid "Course"
 msgstr ""
 
 #: Seeds/PresetSeeder.php:128
-#: Services/Translation.php:18
 msgid "Youtube Optimized"
 msgstr ""
 
@@ -3346,23 +3296,23 @@ msgstr ""
 msgid "Subscribe to our channel"
 msgstr ""
 
-#: Services/AdminNotices.php:46
+#: Services/AdminNotices.php:64
 msgid "Thanks a ton for choosing Presto Player! We are hard at work adding more features to help you harness the power of videos."
 msgstr ""
 
-#: Services/AdminNotices.php:47
+#: Services/AdminNotices.php:65
 msgid "Could you please do us a BIG favor and give us a 5-star rating on WordPress? It really boosts the motivation of our team."
 msgstr ""
 
-#: Services/AdminNotices.php:49
+#: Services/AdminNotices.php:67
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: Services/AdminNotices.php:51
+#: Services/AdminNotices.php:69
 msgid "Nope, maybe later"
 msgstr ""
 
-#: Services/AdminNotices.php:52
+#: Services/AdminNotices.php:70
 msgid "I already did"
 msgstr ""
 
@@ -3467,19 +3417,6 @@ msgstr ""
 msgid "Presto"
 msgstr ""
 
-#: Services/License/AutoUpdate.php:95
-msgid "An error occour when try to identify the pluguin."
-msgstr ""
-
-#: Services/License/AutoUpdate.php:95
-#: Services/License/AutoUpdate.php:111
-msgid "Try again"
-msgstr ""
-
-#: Services/License/AutoUpdate.php:111
-msgid "An Unexpected HTTP Error occurred during the API request."
-msgstr ""
-
 #: Services/Menu.php:51
 msgid "Presto Player Settings"
 msgstr ""
@@ -3489,6 +3426,7 @@ msgid "Please update your Presto Player Pro plugin for compatibility with the Pr
 msgstr ""
 
 #: Services/ProCompatibility.php:38
+#, php-format
 msgid "The recommended minimum pro version is <b>%s</b>."
 msgstr ""
 
@@ -3541,155 +3479,165 @@ msgstr ""
 msgid "Playlist"
 msgstr ""
 
-#: Services/Translation.php:45
+#: Services/Translation.php:62
 msgid "Subscribe To Our YouTube Channel"
 msgstr ""
 
-#: Services/Translation.php:66
+#: Services/Translation.php:95
 msgid "Rewatch"
 msgstr ""
 
-#: Services/Translation.php:68
+#: Services/Translation.php:97
 msgid "Enter your email to play this episode."
 msgstr ""
 
-#: Services/Translation.php:70
+#: Services/Translation.php:99
 msgid "Show Chapters"
 msgstr ""
 
-#: Services/Translation.php:71
+#: Services/Translation.php:100
 msgid "Hide Chapters"
 msgstr ""
 
-#: Services/Translation.php:72
+#: Services/Translation.php:101
 msgid "Restart"
 msgstr ""
 
-#: Services/Translation.php:73
+#. translators: %1ss: Number of seconds to rewind
+#: Services/Translation.php:103
+#, php-format
 msgid "Rewind %1ss"
 msgstr ""
 
-#: Services/Translation.php:74
+#: Services/Translation.php:104
 msgid "Play"
 msgstr ""
 
-#: Services/Translation.php:75
+#: Services/Translation.php:105
 msgid "Pause"
 msgstr ""
 
-#: Services/Translation.php:76
+#. translators: %1ss: Number of seconds to fast forward
+#: Services/Translation.php:107
+#, php-format
 msgid "Forward %1ss"
 msgstr ""
 
-#: Services/Translation.php:77
+#: Services/Translation.php:108
 msgid "Seek"
 msgstr ""
 
-#: Services/Translation.php:78
+#. translators: %1$1s: Current time, %2$2s: Total duration
+#: Services/Translation.php:110
+#, php-format
 msgid "%1$1s of %2$2s"
 msgstr ""
 
-#: Services/Translation.php:79
+#: Services/Translation.php:111
 msgid "Played"
 msgstr ""
 
-#: Services/Translation.php:80
+#: Services/Translation.php:112
 msgid "Buffered"
 msgstr ""
 
-#: Services/Translation.php:81
+#: Services/Translation.php:113
 msgid "Current time"
 msgstr ""
 
-#: Services/Translation.php:84
+#: Services/Translation.php:116
 msgid "Mute"
 msgstr ""
 
-#: Services/Translation.php:85
+#: Services/Translation.php:117
 msgid "Unmute"
 msgstr ""
 
-#: Services/Translation.php:86
+#: Services/Translation.php:118
 msgid "Enable captions"
 msgstr ""
 
-#: Services/Translation.php:87
+#: Services/Translation.php:119
 msgid "Disable captions"
 msgstr ""
 
-#: Services/Translation.php:88
+#: Services/Translation.php:120
 msgid "Download"
 msgstr ""
 
-#: Services/Translation.php:89
+#: Services/Translation.php:121
 msgid "Enter fullscreen"
 msgstr ""
 
-#: Services/Translation.php:90
+#: Services/Translation.php:122
 msgid "Exit fullscreen"
 msgstr ""
 
-#: Services/Translation.php:91
+#: Services/Translation.php:123
 msgid "Player for {title}"
 msgstr ""
 
-#: Services/Translation.php:94
+#: Services/Translation.php:126
 msgid "PIP"
 msgstr ""
 
-#: Services/Translation.php:95
+#: Services/Translation.php:127
 msgid "Go back to previous menu"
 msgstr ""
 
-#: Services/Translation.php:97
+#: Services/Translation.php:129
 msgid "Normal"
 msgstr ""
 
-#: Services/Translation.php:98
+#: Services/Translation.php:130
 msgid "Quality"
 msgstr ""
 
-#: Services/Translation.php:102
+#: Services/Translation.php:134
 msgid "All"
 msgstr ""
 
-#: Services/Translation.php:104
+#: Services/Translation.php:136
 msgid "Disabled"
 msgstr ""
 
-#: Services/Translation.php:105
+#: Services/Translation.php:137
 msgid "Enabled"
 msgstr ""
 
-#: Services/Translation.php:106
+#: Services/Translation.php:138
 msgid "Ad"
 msgstr ""
 
-#: Services/Translation.php:108
+#: Services/Translation.php:140
 msgid "4K"
 msgstr ""
 
-#: Services/Translation.php:109
-#: Services/Translation.php:110
-#: Services/Translation.php:111
+#: Services/Translation.php:141
+#: Services/Translation.php:142
+#: Services/Translation.php:143
 msgid "HD"
 msgstr ""
 
-#: Services/Translation.php:112
-#: Services/Translation.php:113
+#: Services/Translation.php:144
+#: Services/Translation.php:145
 msgid "SD"
 msgstr ""
 
-#: Services/Translation.php:115
+#: Services/Translation.php:147
 msgid "AUTO"
 msgstr ""
 
-#: Services/Translation.php:116
+#: Services/Translation.php:148
 msgid "Up Next"
 msgstr ""
 
-#: Services/Translation.php:117
+#: Services/Translation.php:149
 msgid "Start Over"
+msgstr ""
+
+#: Services/Translation.php:164
+msgid "YouTube Optimized"
 msgstr ""
 
 #: Services/VideoPostType.php:129
@@ -3802,11 +3750,8 @@ msgid "Media updated."
 msgstr ""
 
 #: Services/VideoPostType.php:434
+#, php-format
 msgid "Show all %s"
-msgstr ""
-
-#: Services/VideoPostType.php:528
-msgid "Bunny"
 msgstr ""
 
 #: Support/Utility.php:63
@@ -3815,6 +3760,7 @@ msgstr ""
 
 #. translators: %s: Time duration in hour or hours.
 #: Support/Utility.php:104
+#, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
@@ -3822,6 +3768,7 @@ msgstr[1] ""
 
 #. translators: %s: Time duration in minute or minutes.
 #: Support/Utility.php:110
+#, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
@@ -3829,6 +3776,7 @@ msgstr[1] ""
 
 #. translators: %s: Time duration in second or seconds.
 #: Support/Utility.php:116
+#, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
 msgstr[0] ""
