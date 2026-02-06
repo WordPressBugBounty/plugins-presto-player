@@ -51,7 +51,7 @@ use PrestoPlayer\Models\ReusableVideo;
                 </a>
             </div> -->
         </header>
-        <main class="pp-video" id="post-<?php the_ID(); ?>" style="<?php esc_attr_e($video_width_style) ?>">
+        <main class="pp-video" id="post-<?php the_ID(); ?>" style="<?php echo esc_attr($video_width_style) ?>">
             <?php the_content(); ?>
         </main>
     </div>

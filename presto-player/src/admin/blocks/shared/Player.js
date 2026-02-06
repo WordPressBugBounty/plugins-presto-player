@@ -24,7 +24,6 @@ export default (props) => {
   const ref = useRef();
   const {
     previewThumbnail,
-    preview,
     chapters,
     poster,
     mutedOverlay,
@@ -48,10 +47,6 @@ export default (props) => {
     ref.current.isAdmin = true;
     ref.current.preload = preload;
     ref.current.preset = JSON.stringify(preset);
-    ref.current.bunny = {
-      thumbnail: previewThumbnail,
-      preview,
-    };
     ref.current.youtube = {
       channelId: youtube?.channel_id,
     };
@@ -71,7 +66,7 @@ export default (props) => {
     ref.current.branding = JSON.stringify(branding);
     ref.current.chapters = JSON.stringify(chapters);
     ref.current.blockAttributes = attributes;
-    ref.current.poster = poster;
+    ref.current.poster = poster || previewThumbnail;
     ref.current.provider = type === "audio" ? "audio" : getProvider(src);
     ref.current.mediaTitle = title;
   }, [

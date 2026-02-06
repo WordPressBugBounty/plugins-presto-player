@@ -76,6 +76,40 @@ class VideoPostType {
 		add_filter( 'rest_prepare_' . $this->post_type, array( $this, 'addTitleField' ), 10, 3 );
 
 		add_action( 'transition_post_status', array( $this, 'set_post_title' ), 10, 3 );
+
+		add_filter( 'posts_where', array( $this, 'exclude_disabled_media_from_search' ), 10, 2 );
+	}
+
+	/**
+	 * Filter the WHERE clause to exclude pp_video_block posts with instant video page disabled.
+	 *
+	 * @param  string    $where The WHERE clause of the query.
+	 * @param  \WP_Query $query The WP_Query instance.
+	 * @return string Modified WHERE clause.
+	 */
+	public function exclude_disabled_media_from_search( $where, $query ) {
+		global $wpdb;
+
+		// Only apply to main search queries on the frontend.
+		if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
+			// Exclude pp_video_block posts that don't have instant video pages enabled.
+			$where .= $wpdb->prepare(
+				" AND (
+					{$wpdb->posts}.post_type != %s
+					OR EXISTS (
+						SELECT 1 FROM {$wpdb->postmeta}
+						WHERE {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID
+						AND {$wpdb->postmeta}.meta_key = %s
+						AND {$wpdb->postmeta}.meta_value = %s
+					)
+				)",
+				$this->post_type,
+				'presto_player_instant_video_pages_enabled',
+				'1'
+			);
+		}
+
+		return $where;
 	}
 
 	/**
@@ -347,10 +381,10 @@ class VideoPostType {
 			$this->post_type,
 			array(
 				'labels'            => array(
-					'name'          => _x( 'Media Tags', 'post type general name' ),
-					'singular_name' => _x( 'Media Tag', 'post type singular name' ),
-					'search_items'  => _x( 'Search Media Tags', 'admin menu' ),
-					'popular_items' => _x( 'Popular Media Tags', 'add new on admin bar' ),
+					'name'          => _x( 'Media Tags', 'post type general name', 'presto-player' ),
+					'singular_name' => _x( 'Media Tag', 'post type singular name', 'presto-player' ),
+					'search_items'  => _x( 'Search Media Tags', 'admin menu', 'presto-player' ),
+					'popular_items' => _x( 'Popular Media Tags', 'add new on admin bar', 'presto-player' ),
 				),
 				'label'             => __( 'Tag', 'presto-player' ),
 				'public'            => false,
@@ -431,7 +465,7 @@ class VideoPostType {
 
 		wp_dropdown_categories(
 			array(
-				'show_option_all' => sprintf( __( 'Show all %s', 'textdomain' ), $info_taxonomy->label ),
+				'show_option_all' => sprintf( __( 'Show all %s', 'presto-player' ), $info_taxonomy->label ),
 				'taxonomy'        => $taxonomy,
 				'name'            => $taxonomy,
 				'orderby'         => 'name',
@@ -538,6 +572,10 @@ class VideoPostType {
 			return;
 		}
 		if ( $this->post_type !== $post->post_type ) {
+			return;
+		}
+		// If this is a search request, don't redirect to 404.
+		if ( is_search() ) {
 			return;
 		}
 		if ( current_user_can( 'edit_post', $post->ID ) ) {

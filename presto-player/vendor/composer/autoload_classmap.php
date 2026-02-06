@@ -246,6 +246,7 @@ return array(
     'PrestoPlayer\\Services\\Compatibility' => $baseDir . '/inc/Services/Compatibility.php',
     'PrestoPlayer\\Services\\Menu' => $baseDir . '/inc/Services/Menu.php',
     'PrestoPlayer\\Services\\Migrations' => $baseDir . '/inc/Services/Migrations.php',
+    'PrestoPlayer\\Services\\NpsSurvey' => $baseDir . '/inc/Services/NpsSurvey.php',
     'PrestoPlayer\\Services\\Player' => $baseDir . '/inc/Services/Player.php',
     'PrestoPlayer\\Services\\PreloadService' => $baseDir . '/inc/Services/PreloadService.php',
     'PrestoPlayer\\Services\\ProCompatibility' => $baseDir . '/inc/Services/ProCompatibility.php',

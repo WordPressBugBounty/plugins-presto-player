@@ -1,5 +1,6 @@
 const { Modal, Button } = wp.components;
 const { dispatch, useSelect } = wp.data;
+import { __ } from "@wordpress/i18n";
 import ProBadge from "@/admin/blocks/shared/components/ProBadge";
 
 export default function () {
@@ -12,13 +13,13 @@ export default function () {
   });
 
   return open ? (
-    <Modal title={"Pro Feature"} onRequestClose={closeModal}>
+    <Modal title={__("Pro Feature", "presto-player")} onRequestClose={closeModal}>
       <h2>
-        Unlock Presto Player <ProBadge />
+        {__("Unlock Presto Player", "presto-player")} <ProBadge />
       </h2>
-      <p>Get this feature and more with the Pro version of Presto Player!</p>
+      <p>{__("Get this feature and more with the Pro version of Presto Player!", "presto-player")}</p>
       <Button href="https://prestoplayer.com" target="_blank" isPrimary>
-        Learn More
+        {__("Learn More", "presto-player")}
       </Button>
     </Modal>
   ) : (

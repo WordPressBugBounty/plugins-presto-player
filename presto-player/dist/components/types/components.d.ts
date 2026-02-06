@@ -45,10 +45,8 @@ export namespace Components {
         "playsinline": boolean;
         "poster": string;
         "preload": string;
-        "previewUrl": string;
         "provider": string;
         "src": string;
-        "thumbnail": string;
         "tracks": { label: string; src: string; srcLang: string }[];
         "videoAttributes": object;
     }
@@ -175,10 +173,6 @@ export namespace Components {
           * @default {}
          */
         "branding": any;
-        /**
-          * @default {}
-         */
-        "bunny": any;
         /**
           * @default []
          */
@@ -981,10 +975,8 @@ declare namespace LocalJSX {
         "playsinline"?: boolean;
         "poster"?: string;
         "preload"?: string;
-        "previewUrl"?: string;
         "provider"?: string;
         "src"?: string;
-        "thumbnail"?: string;
         "tracks"?: { label: string; src: string; srcLang: string }[];
         "videoAttributes"?: object;
     }
@@ -1131,10 +1123,6 @@ declare namespace LocalJSX {
           * @default {}
          */
         "branding"?: any;
-        /**
-          * @default {}
-         */
-        "bunny"?: any;
         /**
           * @default []
          */

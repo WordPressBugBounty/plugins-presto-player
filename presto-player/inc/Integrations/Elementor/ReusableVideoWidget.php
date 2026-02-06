@@ -123,9 +123,9 @@ class ReusableVideoWidget extends Widget_Base {
 		$this->add_control(
 			'edit_video',
 			array(
-				'label'     => __( 'Edit Media', 'plugin-name' ),
+				'label'     => __( 'Edit Media', 'presto-player' ),
 				'type'      => \Elementor\Controls_Manager::BUTTON,
-				'text'      => __( 'Edit', 'plugin-domain' ),
+				'text'      => __( 'Edit', 'presto-player' ),
 				'event'     => 'presto:video:edit',
 				'condition' => array(
 					'video_block!' => '-1',
@@ -136,11 +136,11 @@ class ReusableVideoWidget extends Widget_Base {
 		$this->add_control(
 			'create_video',
 			array(
-				'label'     => __( 'Create Media', 'plugin-name' ),
+				'label'     => __( 'Create Media', 'presto-player' ),
 				'separator' => 'before',
 				'classes'   => 'testclass',
 				'type'      => \Elementor\Controls_Manager::BUTTON,
-				'text'      => __( 'Create', 'plugin-domain' ),
+				'text'      => __( 'Create', 'presto-player' ),
 				'event'     => 'presto:video:create',
 			)
 		);

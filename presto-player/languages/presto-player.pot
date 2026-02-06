@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-17T18:56:58+00:00\n"
+"POT-Creation-Date: 2026-02-03T12:39:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -135,7 +135,9 @@ msgid "Upgrade to Pro and get video insights like plays, watch-time, and drop of
 msgstr ""
 
 #: admin/analytics/pages/AnalyticsUpgrade.js:25
+#: admin/blocks/shared/ProUpgradeModal.js:22
 #: admin/settings/components/Disabled.js:29
+#: admin/settings/pages/Integrations.js:272
 #: admin/settings/pages/Performance.js:67
 msgid "Learn More"
 msgstr ""
@@ -238,7 +240,7 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:135
 #: admin/blocks/shared/audioPresets/Behavior.js:80
-#: admin/blocks/shared/branding/index.js:91
+#: admin/blocks/shared/branding/index.js:86
 #: admin/blocks/shared/presets/Behavior.js:135
 #: admin/blocks/shared/settings/index.js:241
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:64
@@ -252,7 +254,7 @@ msgstr ""
 #: admin/blocks/blocks/hosted/edit.js:213
 #: admin/blocks/blocks/vimeo/edit.js:119
 #: admin/blocks/blocks/youtube/edit.js:119
-#: admin/blocks/shared/branding/index.js:92
+#: admin/blocks/shared/branding/index.js:87
 #: admin/blocks/shared/settings/index.js:242
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:65
 #: admin/settings/components/Media.js:49
@@ -271,7 +273,7 @@ msgid "There is no poster image currently selected"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:157
-#: admin/blocks/shared/branding/index.js:113
+#: admin/blocks/shared/branding/index.js:108
 #: admin/blocks/shared/settings/index.js:263
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:86
 #: admin/settings/components/Media.js:64
@@ -346,7 +348,7 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:160
 #: admin/blocks/shared/tracks/TracksEditor.js:172
-#: Blocks/PopupMediaBlock.php:96
+#: Blocks/PopupMediaBlock.php:118
 msgid "Close"
 msgstr ""
 
@@ -616,7 +618,7 @@ msgid "Upload New Video"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:125
-#: Services/Shortcodes.php:231
+#: Services/Shortcodes.php:232
 msgid "Videos"
 msgstr ""
 
@@ -932,6 +934,10 @@ msgstr ""
 
 #: admin/blocks/blocks/vimeo/edit.js:96
 msgid "Vimeo URL"
+msgstr ""
+
+#: admin/blocks/blocks/with-player-edit.js:111
+msgid "Remove this video?"
 msgstr ""
 
 #: admin/blocks/blocks/youtube/edit.js:94
@@ -1380,40 +1386,40 @@ msgstr ""
 msgid "Video Preset"
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:56
+#: admin/blocks/shared/branding/index.js:51
 msgid "Here you can select the global player branding This will apply to all players on the site."
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:69
+#: admin/blocks/shared/branding/index.js:64
 msgid "Logo Overlay"
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:74
+#: admin/blocks/shared/branding/index.js:69
 msgid "Select logo overlay image"
 msgstr ""
 
 #. translators: %s: poster image URL.
-#: admin/blocks/shared/branding/index.js:103
+#: admin/blocks/shared/branding/index.js:98
 #: admin/settings/components/Media.js:57
 #, js-format
 msgid "The current logo image url is %s"
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:106
+#: admin/blocks/shared/branding/index.js:101
 #: admin/settings/components/Media.js:60
 msgid "There is no logo image currently selected"
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:121
+#: admin/blocks/shared/branding/index.js:116
 #: admin/settings/pages/General.js:177
 msgid "Logo Max Width"
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:152
+#: admin/blocks/shared/branding/index.js:147
 msgid "Reset Color"
 msgstr ""
 
-#: admin/blocks/shared/branding/index.js:158
+#: admin/blocks/shared/branding/index.js:153
 msgid "Save Branding"
 msgstr ""
 
@@ -1486,7 +1492,7 @@ msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:33
 #: Integrations/Elementor/VideoWidget.php:139
-#: Services/Shortcodes.php:232
+#: Services/Shortcodes.php:233
 msgid "Video"
 msgstr ""
 
@@ -1834,8 +1840,7 @@ msgid "Click Here"
 msgstr ""
 
 #: admin/blocks/shared/presets/CTA.js:82
-#: admin/blocks/shared/presets/Email.js:58
-msgid "Show an email collection form and message over your player."
+msgid "Show a call to action message and button over your player."
 msgstr ""
 
 #: admin/blocks/shared/presets/CTA.js:147
@@ -1933,6 +1938,10 @@ msgstr ""
 msgid "Business"
 msgstr ""
 
+#: admin/blocks/shared/presets/Email.js:58
+msgid "Show an email collection form and message over your player."
+msgstr ""
+
 #: admin/blocks/shared/presets/Email.js:122
 msgid "You already have a Call To Action set display at the same time."
 msgstr ""
@@ -1994,7 +2003,7 @@ msgid "Choose an audience"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/MailchimpConfig.js:75
-#: Services/VideoPostType.php:355
+#: Services/VideoPostType.php:389
 msgid "Tag"
 msgstr ""
 
@@ -2104,6 +2113,22 @@ msgstr ""
 msgid "Opacity percentage of the watermark."
 msgstr ""
 
+#: admin/blocks/shared/ProUpgradeModal.js:16
+#: admin/settings/pages/General.js:34
+#: admin/settings/pages/Integrations.js:69
+msgid "Pro Feature"
+msgstr ""
+
+#: admin/blocks/shared/ProUpgradeModal.js:18
+msgid "Unlock Presto Player"
+msgstr ""
+
+#: admin/blocks/shared/ProUpgradeModal.js:20
+#: admin/settings/pages/General.js:36
+#: admin/settings/pages/Integrations.js:71
+msgid "Get this feature and more with the Pro version of Presto Player!"
+msgstr ""
+
 #: admin/blocks/shared/ProvidersPlaceholder/components/Separator.js:23
 msgid "or"
 msgstr ""
@@ -2111,6 +2136,7 @@ msgstr ""
 #: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:66
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:16
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:17
+#: Services/AdminNotices.php:200
 #: Services/Menu.php:17
 #: Services/Menu.php:18
 msgid "Presto Player"
@@ -2337,19 +2363,9 @@ msgstr ""
 msgid "Webhook"
 msgstr ""
 
-#: admin/settings/pages/General.js:34
-#: admin/settings/pages/Integrations.js:69
-msgid "Pro Feature"
-msgstr ""
-
 #: admin/settings/pages/General.js:35
 #: admin/settings/pages/Integrations.js:70
 msgid "Unlock Presto Player Pro"
-msgstr ""
-
-#: admin/settings/pages/General.js:36
-#: admin/settings/pages/Integrations.js:71
-msgid "Get this feature and more with the Pro version of Presto Player!"
 msgstr ""
 
 #: admin/settings/pages/General.js:147
@@ -2369,7 +2385,7 @@ msgid "Logo"
 msgstr ""
 
 #: admin/settings/pages/General.js:193
-#: Services/VideoPostType.php:376
+#: Services/VideoPostType.php:410
 msgid "Media Hub"
 msgstr ""
 
@@ -2867,11 +2883,22 @@ msgstr ""
 msgid "Instant Video Page"
 msgstr ""
 
+#: admin/toolbar/index.js:96
+msgid "Published"
+msgstr ""
+
+#: admin/toolbar/index.js:97
+#: single-presto-media.php:42
+msgid "Unpublished"
+msgstr ""
+
 #: admin/toolbar/index.js:117
 msgid "An instant video page gives you an instant shareable page for your media."
 msgstr ""
 
 #: admin/ui/Menu.js:120
+#: lib/nps-survey/dist/main.js:1
+#: lib/nps-survey/dist/main.js:4
 msgid "Back"
 msgstr ""
 
@@ -3112,22 +3139,22 @@ msgstr ""
 msgid "If you have already added the rule, you may safely dismiss this notice"
 msgstr ""
 
-#: Attachment.php:145
+#: Attachment.php:146
 #: Services/ProCompatibility.php:50
 #: Services/ReusableVideos.php:46
 msgid "Dismiss Notice"
 msgstr ""
 
-#: Attachment.php:252
+#: Attachment.php:253
 #, php-format
 msgid "Sorry %1$s! Access to this video is not allowed. An administrator will be informed."
 msgstr ""
 
-#: Attachment.php:255
+#: Attachment.php:256
 msgid "Forbidden"
 msgstr ""
 
-#: Blocks/PopupMediaBlock.php:53
+#: Blocks/PopupMediaBlock.php:75
 msgid "Presto Popup"
 msgstr ""
 
@@ -3188,7 +3215,7 @@ msgid "Please choose media above before selecting dynamic URL override."
 msgstr ""
 
 #: Integrations/Elementor/ReusableVideoWidget.php:126
-#: Services/VideoPostType.php:374
+#: Services/VideoPostType.php:408
 msgid "Edit Media"
 msgstr ""
 
@@ -3220,7 +3247,7 @@ msgid "Muted Preview"
 msgstr ""
 
 #: Integrations/Elementor/VideoWidget.php:297
-#: Services/VideoPostType.php:127
+#: Services/VideoPostType.php:161
 msgid "Poster"
 msgstr ""
 
@@ -3245,6 +3272,15 @@ msgstr ""
 
 #: Integrations/LearnDash/LearnDash.php:375
 msgid "The presto video in this post will be used for video progression."
+msgstr ""
+
+#: lib/nps-survey/classes/nps-survey-script.php:277
+msgid "Sorry, you are not allowed to do that."
+msgstr ""
+
+#: lib/nps-survey/classes/nps-survey-script.php:331
+#: lib/nps-survey/classes/nps-survey-script.php:449
+msgid "Nonce verification failed."
 msgstr ""
 
 #: Models/Model.php:630
@@ -3296,24 +3332,56 @@ msgstr ""
 msgid "Subscribe to our channel"
 msgstr ""
 
-#: Services/AdminNotices.php:64
+#: Services/AdminNotices.php:82
 msgid "Thanks a ton for choosing Presto Player! We are hard at work adding more features to help you harness the power of videos."
 msgstr ""
 
-#: Services/AdminNotices.php:65
+#: Services/AdminNotices.php:83
 msgid "Could you please do us a BIG favor and give us a 5-star rating on WordPress? It really boosts the motivation of our team."
 msgstr ""
 
-#: Services/AdminNotices.php:67
+#: Services/AdminNotices.php:85
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: Services/AdminNotices.php:69
+#: Services/AdminNotices.php:87
 msgid "Nope, maybe later"
 msgstr ""
 
-#: Services/AdminNotices.php:70
+#: Services/AdminNotices.php:88
 msgid "I already did"
+msgstr ""
+
+#: Services/AdminNotices.php:201
+msgid "Quick Question!"
+msgstr ""
+
+#: Services/AdminNotices.php:202
+msgid "How would you rate Presto Player? Love it, hate it, or somewhere in between? Your honest answer helps us understand how we're doing."
+msgstr ""
+
+#: Services/AdminNotices.php:203
+msgid "Hate it!"
+msgstr ""
+
+#: Services/AdminNotices.php:204
+msgid "Love it!"
+msgstr ""
+
+#: Services/AdminNotices.php:207
+msgid "Thanks a lot for your feedback! 😍"
+msgstr ""
+
+#: Services/AdminNotices.php:208
+msgid "Thanks for being part of the Presto Player community! Got feedback or suggestions? We'd love to hear it."
+msgstr ""
+
+#: Services/AdminNotices.php:211
+msgid "Thank you for your feedback"
+msgstr ""
+
+#: Services/AdminNotices.php:212
+msgid "We value your input. How can we improve your experience?"
 msgstr ""
 
 #: Services/API/RestAudioPresetsController.php:128
@@ -3475,7 +3543,7 @@ msgstr ""
 msgid "Set the default for media hub sync setting."
 msgstr ""
 
-#: Services/Shortcodes.php:230
+#: Services/Shortcodes.php:231
 msgid "Playlist"
 msgstr ""
 
@@ -3640,126 +3708,126 @@ msgstr ""
 msgid "YouTube Optimized"
 msgstr ""
 
-#: Services/VideoPostType.php:129
+#: Services/VideoPostType.php:163
 msgid "Shortcode"
 msgstr ""
 
-#: Services/VideoPostType.php:288
+#: Services/VideoPostType.php:322
 msgid "Enter a title..."
 msgstr ""
 
-#: Services/VideoPostType.php:350
+#: Services/VideoPostType.php:384
 msgctxt "post type general name"
 msgid "Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:351
+#: Services/VideoPostType.php:385
 msgctxt "post type singular name"
 msgid "Media Tag"
 msgstr ""
 
-#: Services/VideoPostType.php:352
+#: Services/VideoPostType.php:386
 msgctxt "admin menu"
 msgid "Search Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:353
+#: Services/VideoPostType.php:387
 msgctxt "add new on admin bar"
 msgid "Popular Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:367
+#: Services/VideoPostType.php:401
 msgctxt "post type general name"
 msgid "Media Hub"
 msgstr ""
 
-#: Services/VideoPostType.php:368
+#: Services/VideoPostType.php:402
 msgctxt "post type singular name"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:369
+#: Services/VideoPostType.php:403
 msgctxt "admin menu"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:370
+#: Services/VideoPostType.php:404
 msgctxt "add new on admin bar"
 msgid "Presto Media"
 msgstr ""
 
-#: Services/VideoPostType.php:371
+#: Services/VideoPostType.php:405
 msgctxt "Media"
 msgid "Add New"
 msgstr ""
 
-#: Services/VideoPostType.php:372
+#: Services/VideoPostType.php:406
 msgid "Add New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:373
+#: Services/VideoPostType.php:407
 msgid "New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:375
+#: Services/VideoPostType.php:409
 msgid "View Media"
 msgstr ""
 
-#: Services/VideoPostType.php:377
+#: Services/VideoPostType.php:411
 msgid "Search Media"
 msgstr ""
 
-#: Services/VideoPostType.php:378
+#: Services/VideoPostType.php:412
 msgid "No Media found."
 msgstr ""
 
-#: Services/VideoPostType.php:379
+#: Services/VideoPostType.php:413
 msgid "No Media found in Trash."
 msgstr ""
 
-#: Services/VideoPostType.php:380
+#: Services/VideoPostType.php:414
 msgid "Filter Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:381
+#: Services/VideoPostType.php:415
 msgid "Media list navigation"
 msgstr ""
 
-#: Services/VideoPostType.php:382
+#: Services/VideoPostType.php:416
 msgid "Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:383
+#: Services/VideoPostType.php:417
 msgid "Media published."
 msgstr ""
 
-#: Services/VideoPostType.php:384
+#: Services/VideoPostType.php:418
 msgid "Media published privately."
 msgstr ""
 
-#: Services/VideoPostType.php:385
+#: Services/VideoPostType.php:419
 msgid "Media reverted to draft."
 msgstr ""
 
-#: Services/VideoPostType.php:386
+#: Services/VideoPostType.php:420
 msgid "Media scheduled."
 msgstr ""
 
-#: Services/VideoPostType.php:387
+#: Services/VideoPostType.php:421
 msgid "Media updated."
 msgstr ""
 
-#: Services/VideoPostType.php:434
+#: Services/VideoPostType.php:468
 #, php-format
 msgid "Show all %s"
 msgstr ""
 
-#: Support/Utility.php:63
+#: Support/Utility.php:76
 msgid "0 seconds"
 msgstr ""
 
 #. translators: %s: Time duration in hour or hours.
-#: Support/Utility.php:104
+#: Support/Utility.php:117
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
@@ -3767,7 +3835,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Time duration in minute or minutes.
-#: Support/Utility.php:110
+#: Support/Utility.php:123
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
@@ -3775,15 +3843,49 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Time duration in second or seconds.
-#: Support/Utility.php:116
+#: Support/Utility.php:129
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: single-presto-media.php:42
-msgid "Unpublished"
+#: lib/nps-survey/dist/main.js:1
+msgid "Very unlikely"
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:1
+msgid "Very likely"
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:1
+msgid "Privacy Policy"
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:1
+msgid "Please share at least 50 characters so we can better understand what needs improvement and make things better for you and other users."
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:1
+msgid "characters (minimum)"
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:1
+msgid "Submit"
+msgstr ""
+
+#. translators: %s: `Privacy Policy` text with link
+#: lib/nps-survey/dist/main.js:4
+#, js-format
+msgid "By submitting, you agree to our %s"
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:4
+msgid "I already did!"
+msgstr ""
+
+#: lib/nps-survey/dist/main.js:4
+msgid "Rate the Plugin"
 msgstr ""
 
 #: unauthorized.php:3

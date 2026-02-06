@@ -1,5 +1,5 @@
 import { EventEmitter } from '../../../stencil-public-runtime';
-import { ActionBarConfig, presetAttributes, BunnyConfig, DynamicOverlay, i18nConfig, PrestoConfig, SearchBarConfig, prestoBranding, prestoChapters, blockAttributes, YoutubeConfig } from '../../../interfaces';
+import { ActionBarConfig, presetAttributes, DynamicOverlay, i18nConfig, PrestoConfig, SearchBarConfig, prestoBranding, prestoChapters, blockAttributes, YoutubeConfig } from '../../../interfaces';
 export declare class PrestoPlayer {
     iconUrl: string;
     src: string;
@@ -58,9 +58,6 @@ export declare class PrestoPlayer {
     private _actionBar;
     get actionBar(): ActionBarConfig;
     set actionBar(value: string | ActionBarConfig);
-    private _bunny;
-    get bunny(): BunnyConfig;
-    set bunny(value: string | BunnyConfig);
     private _i18n;
     get i18n(): i18nConfig;
     set i18n(value: string | i18nConfig);

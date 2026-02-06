@@ -51,6 +51,7 @@ return array(
 		\PrestoPlayer\Integrations\Lifter\Lifter::class,
 
 		// Services.
+		\PrestoPlayer\Services\NpsSurvey::class,
 		\PrestoPlayer\Services\Migrations::class,
 		\PrestoPlayer\Services\Translation::class,
 		\PrestoPlayer\Services\Player::class,

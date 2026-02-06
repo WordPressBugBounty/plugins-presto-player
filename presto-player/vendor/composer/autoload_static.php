@@ -4,50 +4,50 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf0d4df1d358f3bff79b6ed90bd0bf6af
+class ComposerStaticInit1b407c3834b07495a7f11072b586870e
 {
     public static $files = array (
         'b506a6b9998b6104a0eae10a34d50f61' => __DIR__ . '/../..' . '/inc/support.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'T' =>
         array (
             'TypistTech\\Imposter\\Plugin\\' => 27,
             'TypistTech\\Imposter\\' => 20,
         ),
-        'P' => 
+        'P' =>
         array (
             'PrestoPlayer\\' => 13,
         ),
-        'D' => 
+        'D' =>
         array (
             'Dice\\' => 5,
         ),
-        'C' => 
+        'C' =>
         array (
             'Composer\\Installers\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'TypistTech\\Imposter\\Plugin\\' => 
+        'TypistTech\\Imposter\\Plugin\\' =>
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter-plugin/src',
         ),
-        'TypistTech\\Imposter\\' => 
+        'TypistTech\\Imposter\\' =>
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter/src',
         ),
-        'PrestoPlayer\\' => 
+        'PrestoPlayer\\' =>
         array (
             0 => __DIR__ . '/../..' . '/inc',
         ),
-        'Dice\\' => 
+        'Dice\\' =>
         array (
             0 => __DIR__ . '/..' . '/level-2/dice',
         ),
-        'Composer\\Installers\\' => 
+        'Composer\\Installers\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
@@ -294,6 +294,7 @@ class ComposerStaticInitf0d4df1d358f3bff79b6ed90bd0bf6af
         'PrestoPlayer\\Services\\Compatibility' => __DIR__ . '/../..' . '/inc/Services/Compatibility.php',
         'PrestoPlayer\\Services\\Menu' => __DIR__ . '/../..' . '/inc/Services/Menu.php',
         'PrestoPlayer\\Services\\Migrations' => __DIR__ . '/../..' . '/inc/Services/Migrations.php',
+        'PrestoPlayer\\Services\\NpsSurvey' => __DIR__ . '/../..' . '/inc/Services/NpsSurvey.php',
         'PrestoPlayer\\Services\\Player' => __DIR__ . '/../..' . '/inc/Services/Player.php',
         'PrestoPlayer\\Services\\PreloadService' => __DIR__ . '/../..' . '/inc/Services/PreloadService.php',
         'PrestoPlayer\\Services\\ProCompatibility' => __DIR__ . '/../..' . '/inc/Services/ProCompatibility.php',
@@ -360,9 +361,9 @@ class ComposerStaticInitf0d4df1d358f3bff79b6ed90bd0bf6af
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf0d4df1d358f3bff79b6ed90bd0bf6af::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf0d4df1d358f3bff79b6ed90bd0bf6af::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitf0d4df1d358f3bff79b6ed90bd0bf6af::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1b407c3834b07495a7f11072b586870e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1b407c3834b07495a7f11072b586870e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1b407c3834b07495a7f11072b586870e::$classMap;
 
         }, null, ClassLoader::class);
     }

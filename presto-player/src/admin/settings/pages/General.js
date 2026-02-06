@@ -381,7 +381,7 @@ export default () => {
         )}
       >
         <ToggleControl
-          label={__("Remove data on uninstall")}
+          label={__("Remove data on uninstall", "presto-player")}
           help={__("This removes all data on uninstall.", "presto-player")}
           className="presto-player__setting--uninstall"
           checked={uninstall?.uninstall_data}

@@ -17,11 +17,6 @@ declare global {
         };
     }
 }
-export interface BunnyConfig extends Object {
-    hostname: string;
-    thumbnail: string;
-    preview: string;
-}
 export interface i18nConfig extends Object {
     startOver?: string;
     upNext?: string;

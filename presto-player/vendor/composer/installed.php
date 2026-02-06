@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'course/player',
-        'pretty_version' => 'v4.0.2',
-        'version' => '4.0.2.0',
-        'reference' => 'd4527e4e8caa727650791764b9a8033169f084bd',
+        'pretty_version' => 'v4.0.8',
+        'version' => '4.0.8.0',
+        'reference' => '727ceb82c267945a6b3caa104f90695784f8034c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,6 +19,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'brainstormforce/nps-survey' => array(
+            'pretty_version' => '1.0.16',
+            'version' => '1.0.16.0',
+            'reference' => 'bdabfacea1abd84feca540999a8231232fbc7cf9',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../inc/lib/nps-survey',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'composer/installers' => array(
             'pretty_version' => 'v2.3.0',
             'version' => '2.3.0.0',
@@ -29,9 +38,9 @@
             'dev_requirement' => false,
         ),
         'course/player' => array(
-            'pretty_version' => 'v4.0.2',
-            'version' => '4.0.2.0',
-            'reference' => 'd4527e4e8caa727650791764b9a8033169f084bd',
+            'pretty_version' => 'v4.0.8',
+            'version' => '4.0.8.0',
+            'reference' => '727ceb82c267945a6b3caa104f90695784f8034c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

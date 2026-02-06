@@ -80,7 +80,7 @@ class Module extends \FLBuilderModule {
 						'fields' => array(
 							'video_select_ajax' => array(
 								'type'    => 'raw',
-								'label'   => __( 'Select Media Hub Item', 'fl-builder' ),
+								'label'   => __( 'Select Media Hub Item', 'presto-player' ),
 								'content' => self::dynamic_dropdown(),
 							),
 							'video_id'          => array(

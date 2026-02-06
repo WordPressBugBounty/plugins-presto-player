@@ -93,8 +93,8 @@ const EditApp = () => {
               label={__("Visibility", "presto-player")}
               selected={customMeta ? "public" : "private"}
               options={[
-                { label: "Published", value: "public" },
-                { label: "Unpublished", value: "private" },
+                { label: __("Published", "presto-player"), value: "public" },
+                { label: __("Unpublished", "presto-player"), value: "private" },
               ]}
               onChange={onCustomMetaChange}
               css={css`

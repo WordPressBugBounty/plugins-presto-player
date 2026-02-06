@@ -1,4 +1,4 @@
-const { __, sprintf } = wp.i18n;
+import { __, sprintf } from "@wordpress/i18n";
 const { Card, CardBody } = wp.components;
 const { useState, useEffect, useRef } = wp.element;
 

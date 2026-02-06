@@ -103,8 +103,8 @@ class ReusableVideo {
 		$args = wp_parse_args(
 			$args,
 			array(
-				'post_type' => $this->post_type,
-				'per_page'  => -1,
+				'post_type'      => $this->post_type,
+				'posts_per_page' => -1,
 			)
 		);
 
@@ -119,7 +119,7 @@ class ReusableVideo {
 	 * @return ReusableVideo|bool
 	 */
 	public function first( $args = array() ) {
-		$fetched = $this->fetch( wp_parse_args( $args, array( 'per_page' => 1 ) ) );
+		$fetched = $this->fetch( wp_parse_args( $args, array( 'posts_per_page' => 1 ) ) );
 		return ! empty( $fetched[0] ) ? new static( $fetched[0] ) : false;
 	}
 

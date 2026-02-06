@@ -21,6 +21,7 @@ class PopupMediaBlock {
 		}
 
 		add_action( 'init', array( $this, 'register_block' ) );
+		add_filter( 'enqueue_empty_block_content_assets', array( $this, 'enqueue_empty_block_content_assets' ), 10, 2 );
 	}
 
 	/**
@@ -33,6 +34,27 @@ class PopupMediaBlock {
 				'render_callback' => array( $this, 'render_block' ),
 			)
 		);
+	}
+
+	/**
+	 * Filters whether to enqueue assets for a block which has no rendered content.
+	 *
+	 * In WordPress 6.9+, assets enqueued by a block are dequeued again if the block
+	 * ultimately renders no content. The popup media block renders its overlay markup
+	 * in the footer for accessibility reasons, so its main render callback returns
+	 * empty content. Opt this block out so its styles and scripts are preserved.
+	 *
+	 * @param bool   $enqueue    Whether to enqueue assets.
+	 * @param string $block_name Block name.
+	 *
+	 * @return bool
+	 */
+	public function enqueue_empty_block_content_assets( $enqueue, $block_name ) {
+		if ( 'presto-player/popup-media' === $block_name ) {
+			return true;
+		}
+
+		return $enqueue;
 	}
 
 	/**

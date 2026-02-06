@@ -1,4 +1,4 @@
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 import { Button, BaseControl } from "@wordpress/components";
 import { MediaUpload } from "@wordpress/media-utils";
 import classNames from "classnames";

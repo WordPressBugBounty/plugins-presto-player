@@ -138,6 +138,7 @@ class Attachment {
 					array(
 						'presto_action' => 'dismiss_notices',
 						'presto_notice' => $notice_name,
+						'_wpnonce'      => wp_create_nonce( 'presto-dismiss-notice' ),
 					)
 				)
 			);

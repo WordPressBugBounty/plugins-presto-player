@@ -9,11 +9,28 @@ namespace PrestoPlayer\Services;
 
 use Astra_Notices;
 use PrestoPlayer\Models\Video;
+use PrestoPlayer\Support\Utility;
 
-/**
- * Admin Notices.
- */
+	/**
+	 * Admin Notices.
+	 */
 class AdminNotices {
+
+	/**
+	 * NPS Survey dismiss timespan constant.
+	 * Survey can be dismissed for 2 weeks before showing again.
+	 *
+	 * @var int
+	 */
+	const NPS_SURVEY_DISMISS_TIMESPAN = 2 * WEEK_IN_SECONDS;
+
+	/**
+	 * Ratings notice display delay constant.
+	 * Notice displays after 7 days (604800 seconds).
+	 *
+	 * @var int
+	 */
+	const RATINGS_NOTICE_DISPLAY_DELAY = 604800; // 7 days in seconds.
 
 	/**
 	 * Register the admin notices.
@@ -23,6 +40,7 @@ class AdminNotices {
 	public function register() {
 		add_action( 'admin_init', array( $this, 'dismiss' ) );
 		add_action( 'init', array( $this, 'displayRatingsNotice' ) );
+		add_action( 'admin_footer', array( $this, 'show_nps_notice' ), 999 );
 	}
 
 	/**
@@ -71,7 +89,7 @@ class AdminNotices {
 				),
 				'show_if'                    => $this->maybeDisplayRatingsNotice(),
 				'repeat-notice-after'        => MONTH_IN_SECONDS,
-				'display-notice-after'       => 604800, // Display notice after 7 days.
+				'display-notice-after'       => self::RATINGS_NOTICE_DISPLAY_DELAY,
 				'priority'                   => 18,
 				'display-with-other-notices' => false,
 			)
@@ -145,5 +163,59 @@ class AdminNotices {
 
 		// Notice is dismissed.
 		update_option( 'presto_player_dismissed_notice_' . sanitize_text_field( $notice ), 1 );
+	}
+
+	/**
+	 * Render Presto Player NPS Survey notice.
+	 *
+	 * @return void
+	 * @since 4.0.8
+	 */
+	public function show_nps_notice() {
+		if ( ! class_exists( 'Nps_Survey' ) ) {
+			return;
+		}
+
+		if ( ! Utility::isPrestoPlayerPage() ) {
+			return;
+		}
+
+		// Don't load NPS at all when show_if would be false (no videos).
+		// Avoids enqueuing NPS scripts/styles and outputting the survey div.
+		if ( $this->getVideosCount() <= 0 ) {
+			return;
+		}
+
+		\Nps_Survey::show_nps_notice(
+			'nps-survey-presto-player',
+			array(
+				'show_if'          => $this->getVideosCount() > 0,
+				'dismiss_timespan' => self::NPS_SURVEY_DISMISS_TIMESPAN,
+				'display_after'    => 0,
+				'plugin_slug'      => 'presto-player',
+				'show_on_screens'  => Utility::PRESTO_PLAYER_SCREENS,
+				'message'          => array(
+					// Step 1 - Rating input.
+					'logo'                  => esc_url( PRESTO_PLAYER_PLUGIN_URL . 'img/presto-player-icon-color.png' ),
+					'plugin_name'           => __( 'Presto Player', 'presto-player' ),
+					'nps_rating_title'      => __( 'Quick Question!', 'presto-player' ),
+					'nps_rating_message'    => __( 'How would you rate Presto Player? Love it, hate it, or somewhere in between? Your honest answer helps us understand how we\'re doing.', 'presto-player' ),
+					'rating_min_label'      => __( 'Hate it!', 'presto-player' ),
+					'rating_max_label'      => __( 'Love it!', 'presto-player' ),
+
+					// Step 2A - (rating 8-10).
+					'feedback_title'        => __( 'Thanks a lot for your feedback! 😍', 'presto-player' ),
+					'feedback_content'      => __( 'Thanks for being part of the Presto Player community! Got feedback or suggestions? We\'d love to hear it.', 'presto-player' ),
+
+					// Step 2B - (rating 0-7).
+					'plugin_rating_title'   => __( 'Thank you for your feedback', 'presto-player' ),
+					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'presto-player' ),
+				),
+				'allow_review'     => false,
+				'show_overlay'     => false,
+			)
+		);
+
+		wp_add_inline_style( 'nps-survey-style', '[data-id="nps-survey-presto-player"] img { width: 1.3rem !important; }' );
 	}
 }

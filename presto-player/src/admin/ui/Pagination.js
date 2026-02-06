@@ -1,4 +1,4 @@
-const { __ } = wp.i18n;
+import { __, sprintf } from "@wordpress/i18n";
 const { Card, CardBody, Flex, FlexBlock, Button, ButtonGroup } = wp.components;
 const { useState, useEffect } = wp.element;
 

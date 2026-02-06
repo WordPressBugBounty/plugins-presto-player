@@ -1,4 +1,4 @@
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 import VideoBranding from "@/admin/blocks/shared/branding";
 import {
   Button,

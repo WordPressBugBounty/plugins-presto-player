@@ -1,14 +1,9 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const {
-  ColorPicker,
-  Button,
-  withNotices,
-  BaseControl,
-  RangeControl,
-} = wp.components;
+import { __, sprintf } from "@wordpress/i18n";
+const { ColorPicker, Button, withNotices, BaseControl, RangeControl } =
+  wp.components;
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { useInstanceId } = wp.compose;
 const { useState } = wp.element;

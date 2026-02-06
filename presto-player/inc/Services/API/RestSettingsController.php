@@ -124,7 +124,7 @@ class RestSettingsController extends \WP_REST_Settings_Controller {
 		if ( preg_match( '#</?\w+#', $css ) ) {
 			return new \WP_Error(
 				'rest_custom_css_illegal_markup',
-				__( 'Markup is not allowed in CSS.', 'gutenberg' ),
+				__( 'Markup is not allowed in CSS.', 'presto-player' ),
 				array( 'status' => 400 )
 			);
 		}

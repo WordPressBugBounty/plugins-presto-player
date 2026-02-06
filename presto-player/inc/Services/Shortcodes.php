@@ -74,6 +74,7 @@ class Shortcodes {
 				'overlays'                       => array(),
 				'muted_autoplay_preview'         => false,
 				'muted_autoplay_caption_preview' => false,
+				'ratio'                          => 'original',
 			),
 			$atts
 		);
@@ -266,6 +267,7 @@ class Shortcodes {
 				'overlays'                       => array(),
 				'muted_autoplay_preview'         => false,
 				'muted_autoplay_caption_preview' => false,
+				'ratio'                          => 'original',
 			),
 			$atts
 		);

@@ -3,6 +3,7 @@
  */
 const { createHigherOrderComponent } = wp.compose;
 const { useEffect, useState } = wp.element;
+const { __ } = wp.i18n;
 import { usePrevious } from "@/admin/blocks/util";
 import apiFetch from "@/shared/services/fetch";
 
@@ -107,7 +108,7 @@ export default () =>
       };
 
       function onRemoveSrc() {
-        let r = confirm("Remove this video?");
+        let r = confirm(__("Remove this video?", "presto-player"));
         if (r) {
           setAttributes({
             src: "",

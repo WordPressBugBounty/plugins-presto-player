@@ -14,6 +14,19 @@ namespace PrestoPlayer\Support;
 class Utility {
 
 	/**
+	 * Presto Player admin page screen IDs.
+	 *
+	 * @var array
+	 */
+	const PRESTO_PLAYER_SCREENS = array(
+		'edit-pp_video_block',                       // Media-hub page.
+		'edit-pp_email_submission',                  // Email Submissions list/edit page.
+		'presto-player_page_presto-analytics',       // Analytics page.
+		'presto-player_page_presto-player-settings', // Settings page (includes email tab in Integrations).
+		'presto-player_page_presto_license',         // License page.
+	);
+
+	/**
 	 * Sanitize CSS input.
 	 *
 	 * @param string $css CSS to sanitize.
@@ -277,5 +290,18 @@ class Utility {
 			}
 		);
 		return $return;
+	}
+
+	/**
+	 * Check if the current admin page is a Presto Player page.
+	 *
+	 * @return bool True if on a Presto Player page, false otherwise.
+	 */
+	public static function isPrestoPlayerPage() {
+		$current_screen = get_current_screen();
+		if ( ! $current_screen ) {
+			return false;
+		}
+		return in_array( $current_screen->id, self::PRESTO_PLAYER_SCREENS, true );
 	}
 }

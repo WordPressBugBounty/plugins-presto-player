@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 // import { __, sprintf } from '@wordpress/i18n';
-const { __, sprintf } = wp.i18n;
+import { __, sprintf } from "@wordpress/i18n";
 const {
   NavigableMenu,
   MenuItem,

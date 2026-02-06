@@ -512,7 +512,7 @@ class Scripts {
 			trailingslashit( PRESTO_PLAYER_PLUGIN_URL ) . 'dist/presto-player-popup.js',
 			$assets['dependencies'],
 			$assets['version'],
-			true
+			array( 'in_footer' => true )
 		);
 	}
 }

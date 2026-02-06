@@ -52,7 +52,7 @@ export default ({ title, description, children, disabled, hideSaveButton }) => {
         {!hideSaveButton ? (
           <CardFooter isShady>
             <div>
-              <SaveButton onSave={onSave}>{__("Update Settings")}</SaveButton>
+              <SaveButton onSave={onSave}>{__("Update Settings", "presto-player")}</SaveButton>
             </div>
           </CardFooter>
         ) : (

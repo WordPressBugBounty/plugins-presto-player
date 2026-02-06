@@ -269,7 +269,7 @@ export default () => {
               ),
               type: "cta",
               button: {
-                text: "Learn More",
+                text: __("Learn More", "presto-player"),
                 link: "https://prestoplayer.com/secure-video-with-bunny-net",
                 target: "_blank",
               },

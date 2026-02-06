@@ -80,7 +80,7 @@ function CTA({ state, updateState, className }) {
         <ToggleControl
           label={__("Enable", "presto-player")}
           help={__(
-            "Show an email collection form and message over your player.",
+            "Show a call to action message and button over your player.",
             "presto-player"
           )}
           onChange={(enabled) => {
