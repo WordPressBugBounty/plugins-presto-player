@@ -36,7 +36,7 @@ class RestSettingsController extends \WP_REST_Settings_Controller {
 		$rest_options = array();
 
 		foreach ( get_registered_settings() as $name => $args ) {
-			if ( ! in_array( $name, array( 'presto_player_branding', 'presto_player_youtube', 'presto_player_presets', 'presto_player_audio_presets', 'presto_player_instant_video_width', 'presto_player_media_hub_sync_default' ) ) ) {
+			if ( ! in_array( $name, array( 'presto_player_branding', 'presto_player_youtube', 'presto_player_presets', 'presto_player_audio_presets', 'presto_player_instant_video_width', 'presto_player_media_hub_sync_default', 'presto-player_usage_optin' ) ) ) {
 				continue;
 			}
 

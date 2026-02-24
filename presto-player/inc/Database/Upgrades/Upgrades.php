@@ -10,6 +10,7 @@ class Upgrades {
 		if ( Plugin::isPro() ) {
 			( new VisitsUpgrade() )->run();
 			( new TransientsUpgrade() )->run();
+			( new BunnyWebhookUpgrade() )->run();
 		}
 	}
 }

@@ -56,6 +56,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
 
       const [mediaPopup, setMediaPopup] = useState("");
       const [loading, setLoading] = useState(false);
+      const [transcribeLanguages, setTranscribeLanguages] = useState([]);
 
       // What setup screen should we show
       const [setup, setSetup] = useState("");
@@ -110,6 +111,12 @@ export default compose([withPlayerData(), withPlayerEdit()])(
           preset: defaultPreset?.id,
           ...(media?.thumbnail ? { thumbnail: media.thumbnail } : {}),
           ...(media?.preview ? { preview: media.preview } : {}),
+          // Add tracks from Bunny.net captions (transcriptions)
+          ...(media?.tracks &&
+          Array.isArray(media.tracks) &&
+          media.tracks.length > 0
+            ? { tracks: media.tracks }
+            : {}),
         });
 
         // create video
@@ -209,6 +216,61 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       useEffect(() => {
         setThumbnail();
       }, [thumbnail]);
+
+      // Fetch tracks from Bunny transcription service when video id or visibility changes
+      useEffect(() => {
+        if (!id) {
+          return;
+        }
+
+        // Fetch tracks from REST API
+        const fetchTracks = async () => {
+          try {
+            // First, fetch the video data to get the Bunny.net GUID
+            const videoData = await wp.apiFetch({
+              path: `presto-player/v1/videos/${id}`,
+            });
+
+            const bunnyGuid = videoData?.external_id;
+            if (!bunnyGuid) {
+              return;
+            }
+
+            const videoType = visibility === "private" ? "private" : "public";
+            const captionsEndpoint =
+              prestoPlayerAdmin?.transcriptionEndpoints?.captions;
+            const response = await wp.apiFetch({
+              path: wp.url.addQueryArgs(captionsEndpoint, {
+                guid: bunnyGuid,
+                type: videoType,
+              }),
+            });
+
+            if (
+              response?.tracks &&
+              Array.isArray(response.tracks) &&
+              response.tracks.length > 0
+            ) {
+              // Merge with same logic as PHP: preserve user-added tracks, drop existing Bunny tracks, append fresh Bunny captions
+              const existingTracks = Array.isArray(tracks) ? tracks : [];
+
+              // Filter out existing Bunny tracks (keep only user-added tracks)
+              const userTracks = existingTracks.filter(
+                (track) => (track.source ?? "") !== "bunny"
+              );
+
+              // Merge user tracks with fresh Bunny captions
+              const mergedTracks = [...userTracks, ...response.tracks];
+
+              setAttributes({ tracks: mergedTracks });
+            }
+          } catch (error) {
+            console.error("Error fetching tracks:", error);
+          }
+        };
+
+        fetchTracks();
+      }, [id, visibility]);
 
       const placeholderButtons = () => {
         return (
@@ -408,6 +470,10 @@ export default compose([withPlayerData(), withPlayerEdit()])(
               onChange={(newTracks) => {
                 setAttributes({ tracks: newTracks });
               }}
+              transcribeLanguages={transcribeLanguages}
+              onTranscribeLanguagesChange={setTranscribeLanguages}
+              videoId={id}
+              videoType={visibility === "private" ? "private" : "public"}
             />
             <Toolbar>
               <Button onClick={() => onRemoveSrc()}>

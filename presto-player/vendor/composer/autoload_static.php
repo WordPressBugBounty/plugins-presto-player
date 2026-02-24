@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1b407c3834b07495a7f11072b586870e
+class ComposerStaticInit32262ea86cc67ee75bfd7135a3b689cb
 {
     public static $files = array (
         'b506a6b9998b6104a0eae10a34d50f61' => __DIR__ . '/../..' . '/inc/support.php',
@@ -232,6 +232,7 @@ class ComposerStaticInit1b407c3834b07495a7f11072b586870e
         'PrestoPlayer\\Database\\Migrations' => __DIR__ . '/../..' . '/inc/Database/Migrations.php',
         'PrestoPlayer\\Database\\Presets' => __DIR__ . '/../..' . '/inc/Database/Presets.php',
         'PrestoPlayer\\Database\\Table' => __DIR__ . '/../..' . '/inc/Database/Table.php',
+        'PrestoPlayer\\Database\\Upgrades\\BunnyWebhookUpgrade' => __DIR__ . '/../..' . '/inc/Database/Upgrades/BunnyWebhookUpgrade.php',
         'PrestoPlayer\\Database\\Upgrades\\PerformanceUpgrade' => __DIR__ . '/../..' . '/inc/Database/Upgrades/PerformanceUpgrade.php',
         'PrestoPlayer\\Database\\Upgrades\\TransientsUpgrade' => __DIR__ . '/../..' . '/inc/Database/Upgrades/TransientsUpgrade.php',
         'PrestoPlayer\\Database\\Upgrades\\Upgrades' => __DIR__ . '/../..' . '/inc/Database/Upgrades/Upgrades.php',
@@ -305,6 +306,7 @@ class ComposerStaticInit1b407c3834b07495a7f11072b586870e
         'PrestoPlayer\\Services\\Shortcodes' => __DIR__ . '/../..' . '/inc/Services/Shortcodes.php',
         'PrestoPlayer\\Services\\Streamer' => __DIR__ . '/../..' . '/inc/Services/Streamer.php',
         'PrestoPlayer\\Services\\Translation' => __DIR__ . '/../..' . '/inc/Services/Translation.php',
+        'PrestoPlayer\\Services\\Usage' => __DIR__ . '/../..' . '/inc/Services/Usage.php',
         'PrestoPlayer\\Services\\VideoPostType' => __DIR__ . '/../..' . '/inc/Services/VideoPostType.php',
         'PrestoPlayer\\Support\\Block' => __DIR__ . '/../..' . '/inc/Support/Block.php',
         'PrestoPlayer\\Support\\BlockFinder' => __DIR__ . '/../..' . '/inc/Support/BlockFinder.php',
@@ -361,9 +363,9 @@ class ComposerStaticInit1b407c3834b07495a7f11072b586870e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1b407c3834b07495a7f11072b586870e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1b407c3834b07495a7f11072b586870e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit1b407c3834b07495a7f11072b586870e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit32262ea86cc67ee75bfd7135a3b689cb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit32262ea86cc67ee75bfd7135a3b689cb::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit32262ea86cc67ee75bfd7135a3b689cb::$classMap;
 
         }, null, ClassLoader::class);
     }

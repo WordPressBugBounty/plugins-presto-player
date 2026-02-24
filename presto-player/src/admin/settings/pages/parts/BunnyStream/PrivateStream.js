@@ -8,6 +8,7 @@ export default () => {
     "site",
     "presto_player_bunny_stream_private"
   );
+
   const updateStream = (data) => {
     setStream({
       ...(stream || {}),

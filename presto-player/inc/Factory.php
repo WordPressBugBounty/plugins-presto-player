@@ -10,6 +10,7 @@ use PrestoPlayer\Services\Scripts;
 use PrestoPlayer\Services\BunnyCDN;
 use PrestoPlayer\Services\Settings;
 use PrestoPlayer\Services\AdminNotices;
+use PrestoPlayer\Services\Usage;
 
 class Factory {
 
@@ -38,6 +39,7 @@ class Factory {
 			Visits::class         => self::SHARED,
 			ReusableVideos::class => self::SHARED,
 			AdminNotices::class   => self::SHARED,
+			Usage::class          => self::SHARED,
 
 			Settings::class       => array(
 				'constructParams' => array(

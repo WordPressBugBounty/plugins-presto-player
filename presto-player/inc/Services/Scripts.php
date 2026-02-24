@@ -13,6 +13,7 @@ namespace PrestoPlayer\Services;
 use PrestoPlayer\Plugin;
 use PrestoPlayer\Models\Block;
 use PrestoPlayer\Models\Setting;
+use PrestoPlayer\Pro\Services\API\RestBunnyTranscriptionController;
 
 /**
  * Scripts class for handling script and style registration and enqueuing.
@@ -270,28 +271,40 @@ class Scripts {
 
 		wp_localize_script( 'surecart/blocks/admin', 'scIcons', array( 'path' => esc_url_raw( plugin_dir_url( PRESTO_PLAYER_PLUGIN_FILE ) . 'dist/icon-assets' ) ) );
 
+		// Get transcription endpoints if available (Pro feature).
+		$transcription_endpoints = array();
+		if ( class_exists( RestBunnyTranscriptionController::class ) ) {
+			$transcription_endpoints = array(
+				'captions'      => RestBunnyTranscriptionController::get_captions_path(),
+				'transcribe'    => RestBunnyTranscriptionController::get_transcribe_path(),
+				'deleteCaption' => RestBunnyTranscriptionController::get_delete_caption_path(),
+				'clearCache'    => RestBunnyTranscriptionController::get_clear_cache_path(),
+			);
+		}
+
 		wp_localize_script(
 			'surecart/blocks/admin',
 			'prestoPlayerAdmin',
 			apply_filters(
 				'presto_player_admin_block_script_options',
 				array(
-					'root'                => esc_url_raw( get_rest_url() ),
-					'nonce'               => wp_create_nonce( 'wp_rest' ),
-					'logged_in'           => is_user_logged_in(),
-					'ajaxurl'             => admin_url( 'admin-ajax.php' ),
-					'wp_max_upload_size'  => wp_max_upload_size(),
-					'isAdmin'             => is_admin(),
-					'proVersion'          => Plugin::proVersion(),
-					'isPremium'           => Plugin::isPro(),
-					'isSetup'             => array(
+					'root'                   => esc_url_raw( get_rest_url() ),
+					'nonce'                  => wp_create_nonce( 'wp_rest' ),
+					'logged_in'              => is_user_logged_in(),
+					'ajaxurl'                => admin_url( 'admin-ajax.php' ),
+					'wp_max_upload_size'     => wp_max_upload_size(),
+					'isAdmin'                => is_admin(),
+					'proVersion'             => Plugin::proVersion(),
+					'isPremium'              => Plugin::isPro(),
+					'isSetup'                => array(
 						'bunny' => false,
 					),
-					'wpVersionString'     => 'wp/v2/',
-					'prestoVersionString' => 'presto-player/v1/',
-					'defaults'            => array(
+					'wpVersionString'        => 'wp/v2/',
+					'prestoVersionString'    => 'presto-player/v1/',
+					'defaults'               => array(
 						'color' => Setting::getDefaultColor(),
 					),
+					'transcriptionEndpoints' => $transcription_endpoints,
 				)
 			)
 		);

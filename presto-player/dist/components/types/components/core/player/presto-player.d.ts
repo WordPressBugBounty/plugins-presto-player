@@ -14,7 +14,6 @@ export declare class PrestoPlayer {
     currentTime: number;
     mediaTitle: string;
     classes: string;
-    videoAttributes: object;
     audioAttributes: object;
     markers: any;
     automations: boolean;

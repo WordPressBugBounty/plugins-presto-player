@@ -1,10 +1,18 @@
 <?php
+/**
+ * Plugin settings registration.
+ *
+ * @package presto-player
+ */
 
 namespace PrestoPlayer\Services;
 
 use PrestoPlayer\Plugin;
 use PrestoPlayer\Models\Setting;
 
+/**
+ * Settings service.
+ */
 class Settings {
 
 	/**
@@ -17,6 +25,31 @@ class Settings {
 		add_action( 'rest_api_init', array( $this, 'registerSettings' ) );
 	}
 
+	/**
+	 * Sanitize usage tracking value to 'yes' or 'no'.
+	 *
+	 * @param mixed $value Input value. Accepts 'yes', 'no', boolean, or truthy/falsy values.
+	 * @return string 'yes' or 'no'
+	 */
+	public function sanitize_usage_tracking( $value ) {
+		if ( 'yes' === $value || 'no' === $value ) {
+			return $value;
+		}
+		if ( ! is_scalar( $value ) ) {
+			return 'no';
+		}
+		$bool = filter_var( $value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE );
+		if ( null === $bool ) {
+			$bool = (bool) $value;
+		}
+		return $bool ? 'yes' : 'no';
+	}
+
+	/**
+	 * Register plugin settings for WP Settings API / REST.
+	 *
+	 * @return void
+	 */
 	public function registerSettings() {
 		/**
 		 * Analytics settings
@@ -298,8 +331,38 @@ class Settings {
 				'default'      => true,
 			)
 		);
+
+		/**
+		 * Usage tracking setting.
+		 *
+		 * Stored as 'yes' or 'no'. Single source of truth for usage analytics opt-in.
+		 */
+		\register_setting(
+			'presto_player',
+			'presto-player_usage_optin',
+			array(
+				'type'              => 'string',
+				'description'       => __( 'Usage tracking opt-in.', 'presto-player' ),
+				'sanitize_callback' => array( $this, 'sanitize_usage_tracking' ),
+				'show_in_rest'      => array(
+					'name'   => 'presto-player_usage_optin',
+					'type'   => 'string',
+					'schema' => array(
+						'type'    => 'string',
+						'enum'    => array( 'yes', 'no' ),
+						'default' => 'no',
+					),
+				),
+				'default'           => 'no',
+			)
+		);
 	}
 
+	/**
+	 * Render settings page container.
+	 *
+	 * @return void
+	 */
 	public static function template() {
 		?>
 		<?php do_action( 'presto_player_settings_header' ); ?>

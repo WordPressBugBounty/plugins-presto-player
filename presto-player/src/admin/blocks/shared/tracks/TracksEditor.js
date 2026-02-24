@@ -1,8 +1,10 @@
 /**
  * WordPress dependencies
  */
+/** @jsx jsx */
 // import { __, sprintf } from '@wordpress/i18n';
-import { __, sprintf } from "@wordpress/i18n";
+const { __, sprintf } = wp.i18n;
+import { css, jsx, Global } from "@emotion/core";
 const {
   NavigableMenu,
   MenuItem,
@@ -11,16 +13,15 @@ const {
   ToolbarGroup,
   ToolbarButton,
   Dropdown,
-  SVG,
-  Rect,
-  Path,
   Button,
   TextControl,
-  SelectControl,
+  Icon,
+  Modal,
 } = wp.components;
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { useSelect } = wp.data;
-const { useState } = wp.element;
+const { useState, useRef } = wp.element;
+import TranscriptionLanguageSelect from "../components/TranscriptionLanguageSelect";
 
 const ALLOWED_TYPES = ["text/vtt"];
 
@@ -63,8 +64,16 @@ function TrackList({ tracks, onEditPress }) {
         <div
           key={index}
           className="block-library-video-tracks-editor__track-list-track"
+          css={css`
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          `}
         >
-          <span>{track.label} </span>
+          <span>
+            {track.label}
+            {track.srcLang ? ` (${track.srcLang})` : ""}
+          </span>
           <Button
             isTertiary
             onClick={() => onEditPress(index)}
@@ -90,7 +99,13 @@ function TrackList({ tracks, onEditPress }) {
   );
 }
 
-function SingleTrackEditor({ track, onChange, onClose, onRemove }) {
+function SingleTrackEditor({
+  track,
+  onChange,
+  onClose,
+  onRemove,
+  isBunnyNet = false,
+}) {
   const { src = "", label = "", srcLang = "", kind = DEFAULT_KIND } = track;
   const fileName = src.startsWith("blob:")
     ? ""
@@ -118,6 +133,7 @@ function SingleTrackEditor({ track, onChange, onClose, onRemove }) {
             label={__("Label", "presto-player")}
             value={label}
             help={__("Title of track", "presto-player")}
+            disabled={isBunnyNet}
           />
           <TextControl
             onChange={(newSrcLang) =>
@@ -129,6 +145,7 @@ function SingleTrackEditor({ track, onChange, onClose, onRemove }) {
             label={__("Source language", "presto-player")}
             value={srcLang}
             help={__("Language tag (en, fr, etc.)", "presto-player")}
+            disabled={isBunnyNet}
           />
         </div>
         {/* <SelectControl
@@ -146,7 +163,13 @@ function SingleTrackEditor({ track, onChange, onClose, onRemove }) {
             });
           }}
         /> */}
-        <div className="block-library-video-tracks-editor__single-track-editor-buttons-container">
+        <div
+          className="block-library-video-tracks-editor__single-track-editor-buttons-container"
+          css={css`
+            display: flex;
+            gap: 8px;
+          `}
+        >
           <Button
             isSecondary
             onClick={() => {
@@ -180,113 +203,552 @@ function SingleTrackEditor({ track, onChange, onClose, onRemove }) {
   );
 }
 
-export default function TracksEditor({ tracks = [], onChange }) {
+export default function TracksEditor({
+  tracks = [],
+  onChange,
+  transcribeLanguages = [],
+  onTranscribeLanguagesChange,
+  videoId,
+  videoType = "public",
+}) {
   const mediaUpload = useSelect((select) => {
     return select("core/block-editor").getSettings().mediaUpload;
   }, []);
   const [trackBeingEdited, setTrackBeingEdited] = useState(null);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const [trackToRemove, setTrackToRemove] = useState(null);
+  const [isDeletingTrack, setIsDeletingTrack] = useState(false);
+  const [showTranscribeConfirm, setShowTranscribeConfirm] = useState(false);
+  const [transcribeSuccess, setTranscribeSuccess] = useState(false);
+  const [transcribeError, setTranscribeError] = useState(false);
+  const dropdownOnCloseRef = useRef(null);
+
+  /**
+   * Check if a track is from Bunny.net stream library
+   * Uses explicit source flag set by server-side code for robust detection
+   */
+  const isBunnyNetCaption = (track) => {
+    if (!track || !track.source) {
+      return false;
+    }
+    return track.source === "bunny";
+  };
+
+  /**
+   * Delete a caption from Bunny.net stream library
+   */
+  const deleteBunnyNetCaption = async (track) => {
+    if (!videoId || !track) {
+      return;
+    }
+
+    try {
+      // First, fetch the video data to get the Bunny.net GUID
+      const videoData = await wp.apiFetch({
+        path: `presto-player/v1/videos/${videoId}`,
+      });
+
+      const bunnyGuid = videoData?.external_id;
+      if (!bunnyGuid) {
+        console.warn(
+          "Could not find Bunny.net video GUID for caption deletion"
+        );
+        return;
+      }
+
+      // Get the language code from the track
+      const language =
+        track.srcLang || track.src?.match(/\/captions\/([^/]+)\.vtt/)?.[1];
+      if (!language) {
+        console.warn("Could not determine language code for caption deletion");
+        return;
+      }
+
+      // Delete the caption from Bunny.net
+      const deleteCaptionBase =
+        prestoPlayerAdmin?.transcriptionEndpoints?.deleteCaption;
+      const deletePath = `${deleteCaptionBase}/${bunnyGuid}/${language}`;
+      await wp.apiFetch({
+        path: wp.url.addQueryArgs(deletePath, {
+          type: videoType,
+        }),
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.error("Error deleting caption from Bunny.net:", error);
+      // Show error notice
+      wp.data
+        .dispatch("core/notices")
+        .createNotice(
+          "error",
+          __(
+            "Failed to delete caption from Bunny.net. Please try again.",
+            "presto-player"
+          ),
+          {
+            type: "snackbar",
+            isDismissible: true,
+          }
+        );
+    }
+  };
+
+  /**
+   * Handle track removal - show confirmation dialog if Bunny.net caption
+   */
+  const handleTrackRemove = (trackIndex) => {
+    const track = tracks[trackIndex];
+
+    // Close the editor first to prevent accessing undefined track
+    setTrackBeingEdited(null);
+
+    // If it's a Bunny.net caption, show confirmation dialog
+    if (isBunnyNetCaption(track)) {
+      setTrackToRemove({ track, index: trackIndex });
+    } else {
+      // For non-Bunny.net tracks, remove directly
+      onChange(tracks.filter((_track, index) => index !== trackIndex));
+    }
+  };
+
+  /**
+   * Confirm track removal - delete from Bunny.net if applicable
+   */
+  const confirmTrackRemove = async () => {
+    if (!trackToRemove || isDeletingTrack) {
+      return;
+    }
+
+    const { track, index } = trackToRemove;
+
+    setIsDeletingTrack(true);
+    try {
+      // If it's a Bunny.net caption, delete it first
+      if (isBunnyNetCaption(track)) {
+        await deleteBunnyNetCaption(track);
+      }
+
+      // Remove from tracks array
+      onChange(tracks.filter((_track, i) => i !== index));
+
+      // Close the dialog
+      setTrackToRemove(null);
+    } finally {
+      setIsDeletingTrack(false);
+    }
+  };
+
+  /**
+   * Handle Bunny.net caption generation confirmation
+   */
+  const handleTranscribe = async () => {
+    if (!videoId || !transcribeLanguages.length) {
+      return;
+    }
+
+    setIsTranscribing(true);
+    try {
+      const videoData = await wp.apiFetch({
+        path: `presto-player/v1/videos/${videoId}`,
+      });
+      const bunnyGuid = videoData?.external_id;
+      if (!bunnyGuid) {
+        throw new Error("Could not find Bunny.net video GUID");
+      }
+      const transcribeEndpoint =
+        prestoPlayerAdmin?.transcriptionEndpoints?.transcribe;
+      await wp.apiFetch({
+        path: transcribeEndpoint,
+        method: "POST",
+        data: {
+          guid: bunnyGuid,
+          type: videoType,
+          targetLanguages: transcribeLanguages,
+        },
+      });
+      setTranscribeSuccess(true);
+    } catch (error) {
+      const rawErrorMessage =
+        error?.message ||
+        __("Failed to generate captions. Please try again.", "presto-player");
+      console.error("Bunny transcription API error:", {
+        message: rawErrorMessage,
+        error: error,
+      });
+      setTranscribeError(true);
+    } finally {
+      setIsTranscribing(false);
+    }
+  };
+
+  /**
+   * Get the appropriate modal title based on current state
+   */
+  const getTranscribeModalTitle = () => {
+    if (transcribeSuccess) {
+      return __("Caption Generation Started!", "presto-player");
+    }
+    if (transcribeError) {
+      return __("Caption Generation Failed", "presto-player");
+    }
+    return __("Caption Generation Charges", "presto-player");
+  };
 
   if (!mediaUpload) {
     return null;
   }
   return (
-    <Dropdown
-      contentClassName="block-library-video-tracks-editor"
-      renderToggle={({ isOpen, onToggle }) => (
-        <ToolbarGroup>
-          <ToolbarButton
-            label={__("Captions", "presto-player")}
-            showTooltip
-            aria-expanded={isOpen}
-            aria-haspopup="true"
-            onClick={onToggle}
-            icon={captionIcon}
+    <>
+      {trackToRemove && (
+        <>
+          <Global
+            styles={css`
+              .presto-player__modal-confirm-overlay {
+                z-index: 1000001 !important;
+              }
+              .presto-player__modal-confirm-overlay .components-modal__frame {
+                z-index: 1000002 !important;
+              }
+            `}
           />
-        </ToolbarGroup>
-      )}
-      renderContent={({}) => {
-        if (trackBeingEdited !== null) {
-          return (
-            <SingleTrackEditor
-              track={tracks[trackBeingEdited]}
-              onChange={(newTrack) => {
-                const newTracks = [...tracks];
-                newTracks[trackBeingEdited] = newTrack;
-                onChange(newTracks);
-              }}
-              onClose={() => setTrackBeingEdited(null)}
-              onRemove={() => {
-                onChange(
-                  tracks.filter((_track, index) => index !== trackBeingEdited)
-                );
-                setTrackBeingEdited(null);
-              }}
-            />
-          );
-        }
-        return (
-          <>
-            <NavigableMenu>
-              <TrackList tracks={tracks} onEditPress={setTrackBeingEdited} />
-              <MenuGroup
-                className="block-library-video-tracks-editor__add-tracks-container"
-                label={__("Add caption languages", "presto-player")}
+          <Modal
+            className="presto-player__modal-confirm"
+            overlayClassName="presto-player__modal-confirm-overlay"
+            title={__("Remove Caption Track", "presto-player")}
+            onRequestClose={() => setTrackToRemove(null)}
+            css={css`
+              max-width: 400px;
+            `}
+          >
+            <p>
+              {__(
+                "Removing this caption track will also delete it from the Bunny.net Stream Library. This action cannot be undone.",
+                "presto-player"
+              )}
+            </p>
+            <div
+              css={css`
+                display: flex;
+                justify-content: flex-end;
+                gap: 8px;
+                margin-top: 16px;
+              `}
+            >
+              <Button
+                onClick={() => setTrackToRemove(null)}
+                disabled={isDeletingTrack}
               >
-                <MediaUpload
-                  onSelect={({ url }) => {
-                    const trackIndex = tracks.length;
-                    onChange([...tracks, { src: url }]);
-                    setTrackBeingEdited(trackIndex);
-                  }}
-                  allowedTypes={ALLOWED_TYPES}
-                  render={({ open }) => (
-                    <MenuItem icon={"media"} onClick={open}>
-                      {__("Open Media Library", "presto-player")}
-                    </MenuItem>
+                {__("Cancel", "presto-player")}
+              </Button>
+              <Button
+                isDestructive
+                onClick={confirmTrackRemove}
+                isBusy={isDeletingTrack}
+                disabled={isDeletingTrack}
+              >
+                {__("Remove Track", "presto-player")}
+              </Button>
+            </div>
+          </Modal>
+        </>
+      )}
+      {showTranscribeConfirm && (
+        <>
+          <Global
+            styles={css`
+              .presto-player__modal-transcribe-overlay {
+                z-index: 1000001 !important;
+              }
+              .presto-player__modal-transcribe-overlay
+                .components-modal__frame {
+                z-index: 1000002 !important;
+              }
+            `}
+          />
+          <Modal
+            className="presto-player__modal-transcribe"
+            overlayClassName="presto-player__modal-transcribe-overlay"
+            title={getTranscribeModalTitle()}
+            onRequestClose={() => {
+              setShowTranscribeConfirm(false);
+              setTranscribeSuccess(false);
+              setTranscribeError(false);
+              dropdownOnCloseRef.current?.();
+            }}
+            css={css`
+              max-width: 450px;
+            `}
+          >
+            {transcribeSuccess ? (
+              <>
+                <p>
+                  {__(
+                    "Captions are being generated and will automatically appear on the player when ready. Depending on the length of the video, it may take few minutes. Please check back later.",
+                    "presto-player"
                   )}
-                />
-                <MediaUploadCheck>
-                  <FormFileUpload
-                    onChange={(event) => {
-                      const files = event.target.files;
-                      const trackIndex = tracks.length;
-                      mediaUpload({
-                        allowedTypes: ALLOWED_TYPES,
-                        filesList: files,
-                        onFileChange: ([{ url }]) => {
-                          const newTracks = [...tracks];
-                          if (!newTracks[trackIndex]) {
-                            newTracks[trackIndex] = {};
-                          }
-                          newTracks[trackIndex] = {
-                            ...tracks[trackIndex],
-                            src: url,
-                          };
-                          onChange(newTracks);
-                          setTrackBeingEdited(trackIndex);
-                        },
-                      });
+                </p>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 8px;
+                    margin-top: 16px;
+                  `}
+                >
+                  <Button
+                    isPrimary
+                    onClick={() => {
+                      setShowTranscribeConfirm(false);
+                      setTranscribeSuccess(false);
+                      dropdownOnCloseRef.current?.();
                     }}
-                    accept=".vtt,text/vtt"
-                    render={({ openFileDialog }) => {
-                      return (
-                        <MenuItem
-                          icon={"upload"}
+                  >
+                    {__("Close", "presto-player")}
+                  </Button>
+                </div>
+              </>
+            ) : transcribeError ? (
+              <>
+                <p>
+                  {__(
+                    "We couldn't process your caption generation request. Please try again. If the issue persists, please re-upload the video to Bunny.net Stream Library or contact support@prestomade.com.",
+                    "presto-player"
+                  )}
+                </p>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 8px;
+                    margin-top: 16px;
+                  `}
+                >
+                  <Button
+                    onClick={() => {
+                      setShowTranscribeConfirm(false);
+                      setTranscribeError(false);
+                      dropdownOnCloseRef.current?.();
+                    }}
+                  >
+                    {__("Cancel", "presto-player")}
+                  </Button>
+                  <Button
+                    isPrimary
+                    onClick={() => {
+                      setTranscribeError(false);
+                      handleTranscribe();
+                    }}
+                  >
+                    {__("Try Again", "presto-player")}
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>
+                  {__(
+                    "This will automatically generate captions for the selected languages. You will be charged $0.10 per minute for each language from your Bunny.net account balance.",
+                    "presto-player"
+                  )}
+                </p>
+                <p
+                  css={css`
+                    margin-top: 8px;
+                  `}
+                >
+                  <a
+                    href="https://docs.bunny.net/docs/stream-pricing#transcribing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    css={css`
+                      color: var(--wp-admin-theme-color, #007cba);
+                      text-decoration: underline;
+                      &:hover {
+                        color: var(--wp-admin-theme-color-darker-10, #006ba1);
+                      }
+                    `}
+                  >
+                    {__("View Bunny.net pricing details", "presto-player")} →
+                  </a>
+                </p>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 8px;
+                    margin-top: 16px;
+                  `}
+                >
+                  <Button
+                    onClick={() => {
+                      setShowTranscribeConfirm(false);
+                      setTranscribeSuccess(false);
+                      setTranscribeError(false);
+                      dropdownOnCloseRef.current?.();
+                    }}
+                    disabled={isTranscribing}
+                  >
+                    {__("Cancel", "presto-player")}
+                  </Button>
+                  <Button
+                    isPrimary
+                    onClick={handleTranscribe}
+                    isBusy={isTranscribing}
+                    disabled={isTranscribing}
+                  >
+                    {__("Confirm & Generate", "presto-player")}
+                  </Button>
+                </div>
+              </>
+            )}
+          </Modal>
+        </>
+      )}
+      <Dropdown
+        contentClassName="block-library-video-tracks-editor"
+        renderToggle={({ isOpen, onToggle }) => (
+          <ToolbarGroup>
+            <ToolbarButton
+              label={__("Captions", "presto-player")}
+              showTooltip
+              aria-expanded={isOpen}
+              aria-haspopup="true"
+              onClick={onToggle}
+              icon={captionIcon}
+            />
+          </ToolbarGroup>
+        )}
+        renderContent={({ onClose: closeDropdown }) => {
+          dropdownOnCloseRef.current = closeDropdown;
+          if (trackBeingEdited !== null && tracks[trackBeingEdited]) {
+            const currentTrack = tracks[trackBeingEdited];
+            return (
+              <SingleTrackEditor
+                track={currentTrack}
+                onChange={(newTrack) => {
+                  const newTracks = [...tracks];
+                  newTracks[trackBeingEdited] = newTrack;
+                  onChange(newTracks);
+                }}
+                onClose={() => setTrackBeingEdited(null)}
+                onRemove={() => {
+                  handleTrackRemove(trackBeingEdited);
+                }}
+                isBunnyNet={isBunnyNetCaption(currentTrack)}
+              />
+            );
+          }
+          return (
+            <>
+              <NavigableMenu>
+                <TrackList tracks={tracks} onEditPress={setTrackBeingEdited} />
+                <MenuGroup
+                  className="block-library-video-tracks-editor__add-tracks-container"
+                  label={__("Add caption languages", "presto-player")}
+                >
+                  <MediaUpload
+                    onSelect={({ url }) => {
+                      const trackIndex = tracks.length;
+                      onChange([...tracks, { src: url }]);
+                      setTrackBeingEdited(trackIndex);
+                    }}
+                    allowedTypes={ALLOWED_TYPES}
+                    render={({ open }) => (
+                      <MenuItem icon={"media"} onClick={open}>
+                        {__("Open Media Library", "presto-player")}
+                      </MenuItem>
+                    )}
+                  />
+                  <MediaUploadCheck>
+                    <FormFileUpload
+                      onChange={(event) => {
+                        const files = event.target.files;
+                        const trackIndex = tracks.length;
+                        mediaUpload({
+                          allowedTypes: ALLOWED_TYPES,
+                          filesList: files,
+                          onFileChange: ([{ url }]) => {
+                            const newTracks = [...tracks];
+                            if (!newTracks[trackIndex]) {
+                              newTracks[trackIndex] = {};
+                            }
+                            newTracks[trackIndex] = {
+                              ...tracks[trackIndex],
+                              src: url,
+                            };
+                            onChange(newTracks);
+                            setTrackBeingEdited(trackIndex);
+                          },
+                        });
+                      }}
+                      accept=".vtt,text/vtt"
+                      render={({ openFileDialog }) => {
+                        return (
+                          <MenuItem
+                            icon={"upload"}
+                            onClick={() => {
+                              openFileDialog();
+                            }}
+                          >
+                            {__("Upload", "presto-player")}
+                          </MenuItem>
+                        );
+                      }}
+                    />
+                  </MediaUploadCheck>
+                </MenuGroup>
+
+                {/* Automatic Caption Settings - Only show for Bunny.net videos */}
+                {onTranscribeLanguagesChange && (
+                  <MenuGroup
+                    className="block-library-video-tracks-editor__transcription-container"
+                    label={__("Automatic Captions", "presto-player")}
+                    css={css`
+                      .components-menu-group__label {
+                        padding: 0;
+                      }
+                    `}
+                  >
+                    <div style={{ padding: "6px 12px" }}>
+                      <TranscriptionLanguageSelect
+                        value={transcribeLanguages}
+                        onChange={onTranscribeLanguagesChange}
+                        showWarning={true}
+                      />
+                      <div
+                        style={{
+                          marginTop: "12px",
+                          display: "flex",
+                          gap: "8px",
+                        }}
+                      >
+                        <Button
+                          isPrimary
+                          disabled={
+                            !transcribeLanguages ||
+                            transcribeLanguages.length === 0 ||
+                            isTranscribing ||
+                            !videoId
+                          }
+                          isBusy={isTranscribing}
                           onClick={() => {
-                            openFileDialog();
+                            if (!videoId || !transcribeLanguages.length) {
+                              return;
+                            }
+                            setShowTranscribeConfirm(true);
                           }}
                         >
-                          {__("Upload", "presto-player")}
-                        </MenuItem>
-                      );
-                    }}
-                  />
-                </MediaUploadCheck>
-              </MenuGroup>
-            </NavigableMenu>
-          </>
-        );
-      }}
-    />
+                          {__("Generate", "presto-player")}
+                        </Button>
+                      </div>
+                    </div>
+                  </MenuGroup>
+                )}
+              </NavigableMenu>
+            </>
+          );
+        }}
+      />
+    </>
   );
 }

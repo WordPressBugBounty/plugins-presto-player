@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.9
-Stable tag: 4.0.8
+Stable tag: 4.1.0
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -155,6 +155,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.1.0 =
+* New: Automatic caption generation with BunnyCDN.
 
 = 4.0.8 =
 * Improvement: Introduced a new NPS feedback survey.

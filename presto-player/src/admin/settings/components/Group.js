@@ -6,7 +6,14 @@ import { store as noticesStore } from "@wordpress/notices";
 import Disabled from "./Disabled";
 import useSave from "../../../hooks/useSave";
 
-export default ({ title, description, children, disabled, hideSaveButton }) => {
+export default ({
+  title,
+  description,
+  children,
+  disabled,
+  hideSaveButton,
+  saveDisabled,
+}) => {
   const { save } = useSave();
   const { createSuccessNotice, createErrorNotice } = useDispatch(noticesStore);
 
@@ -14,6 +21,9 @@ export default ({ title, description, children, disabled, hideSaveButton }) => {
    * Form is submitted.
    */
   const onSave = async () => {
+    if (saveDisabled) {
+      return;
+    }
     try {
       await save();
       createSuccessNotice(__("Settings Updated", "presto-player"), {

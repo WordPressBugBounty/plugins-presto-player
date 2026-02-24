@@ -12,6 +12,6 @@ export declare class PrestoVideo {
     }[];
     playsinline: boolean;
     provider: string;
-    videoAttributes: object;
+    crossorigin: string;
     render(): any;
 }

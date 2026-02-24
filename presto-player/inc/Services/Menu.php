@@ -3,6 +3,8 @@
 namespace PrestoPlayer\Services;
 
 use PrestoPlayer\Plugin;
+use PrestoPlayer\Pro\Services\API\RestBunnyTranscriptionController;
+use PrestoPlayer\Pro\Services\API\RestBunnyWebhookController;
 
 class Menu {
 
@@ -83,23 +85,41 @@ class Menu {
 			wp_set_script_translations( 'surecart/settings/admin', 'presto-player' );
 		}
 
+		// Get transcription endpoints if available (Pro feature).
+		$transcription_endpoints = array();
+		if ( class_exists( RestBunnyTranscriptionController::class ) ) {
+			$transcription_endpoints = array(
+				'captions'      => RestBunnyTranscriptionController::get_captions_path(),
+				'transcribe'    => RestBunnyTranscriptionController::get_transcribe_path(),
+				'deleteCaption' => RestBunnyTranscriptionController::get_delete_caption_path(),
+				'clearCache'    => RestBunnyTranscriptionController::get_clear_cache_path(),
+			);
+		}
+
+		// Get webhook endpoints if available (Pro feature).
+		if ( class_exists( RestBunnyWebhookController::class ) ) {
+			$transcription_endpoints['webhookUrl']      = RestBunnyWebhookController::get_webhook_url_path();
+			$transcription_endpoints['registerWebhook'] = RestBunnyWebhookController::get_register_webhook_path();
+		}
+
 		wp_localize_script(
 			'surecart/settings/admin',
 			'prestoPlayer',
 			apply_filters(
 				'presto-settings-js-options',
 				array(
-					'root'                => esc_url_raw( get_rest_url() ),
-					'nonce'               => wp_create_nonce( 'wp_rest' ),
-					'proVersion'          => Plugin::proVersion(),
-					'isSetup'             => array(
+					'root'                   => esc_url_raw( get_rest_url() ),
+					'nonce'                  => wp_create_nonce( 'wp_rest' ),
+					'proVersion'             => Plugin::proVersion(),
+					'isSetup'                => array(
 						'bunny' => false,
 					),
-					'isPremium'           => Plugin::isPro(),
-					'ajaxurl'             => admin_url( 'admin-ajax.php' ),
-					'wpVersionString'     => 'wp/v2/',
-					'prestoVersionString' => 'presto-player/v1/',
-					'debug'               => defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG,
+					'isPremium'              => Plugin::isPro(),
+					'ajaxurl'                => admin_url( 'admin-ajax.php' ),
+					'wpVersionString'        => 'wp/v2/',
+					'prestoVersionString'    => 'presto-player/v1/',
+					'debug'                  => defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG,
+					'transcriptionEndpoints' => $transcription_endpoints,
 				)
 			)
 		);

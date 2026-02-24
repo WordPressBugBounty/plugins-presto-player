@@ -296,6 +296,16 @@ class ReusableVideo {
 	}
 
 	/**
+	 * Get the count of published video posts.
+	 *
+	 * @return int
+	 */
+	public function getTotalPublished() {
+		$counts = wp_count_posts( $this->post_type );
+		return isset( $counts->publish ) ? (int) $counts->publish : 0;
+	}
+
+	/**
 	 * Check if instant video page is enabled
 	 *
 	 * @return bool

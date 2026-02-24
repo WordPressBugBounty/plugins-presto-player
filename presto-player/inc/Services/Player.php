@@ -60,7 +60,7 @@ class Player implements Service {
 		$visit_time = isset( $_POST['visit_time'] ) ? (int) $_POST['visit_time'] : false;
 
 		/**
-		 * Progress event, sends video id and percent progress
+		 * Progress event, sends video id and percent progress.
 		 */
 		do_action( 'presto_player_progress', $id, $percent, $visit_time );
 

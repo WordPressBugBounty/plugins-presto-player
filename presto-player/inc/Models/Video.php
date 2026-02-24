@@ -210,4 +210,26 @@ class Video extends Model {
 		}
 		return false;
 	}
+
+	/**
+	 * Get external_id (GUID) from database by video ID or src.
+	 *
+	 * @param string $src      The video source URL (optional).
+	 * @return string The external_id (GUID) or empty string if not found.
+	 */
+	public function getExternalId( $src = '' ) {
+		// If external_id is already set, return it.
+		if ( isset( $this->external_id ) ) {
+			return $this->external_id;
+		}
+
+		// If video_id is not set, return empty string.
+		if ( empty( $src ) ) {
+			return '';
+		}
+
+		// Find the video by id and return the external_id.
+		$video = $this->findWhere( array( 'src' => $src ) );
+		return $video->external_id ?? '';
+	}
 }

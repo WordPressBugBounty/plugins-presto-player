@@ -63,6 +63,7 @@ return array(
 		\PrestoPlayer\Services\VideoPostType::class,
 		\PrestoPlayer\Services\ReusableVideos::class,
 		\PrestoPlayer\Services\AdminNotices::class,
+		\PrestoPlayer\Services\Usage::class,
 		\PrestoPlayer\Services\ProCompatibility::class,
 		\PrestoPlayer\Services\Compatibility::class,
 		\PrestoPlayer\Services\AjaxActions::class,
