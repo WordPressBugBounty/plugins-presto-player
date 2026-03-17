@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-24T09:45:48+00:00\n"
+"POT-Creation-Date: 2026-03-17T10:02:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -2022,7 +2022,7 @@ msgid "Choose an audience"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/MailchimpConfig.js:75
-#: Services/VideoPostType.php:389
+#: Services/VideoPostType.php:391
 msgid "Tag"
 msgstr ""
 
@@ -2471,7 +2471,7 @@ msgid "Logo"
 msgstr ""
 
 #: admin/settings/pages/General.js:193
-#: Services/VideoPostType.php:410
+#: Services/VideoPostType.php:412
 msgid "Media Hub"
 msgstr ""
 
@@ -3404,7 +3404,7 @@ msgid "Please choose media above before selecting dynamic URL override."
 msgstr ""
 
 #: Integrations/Elementor/ReusableVideoWidget.php:126
-#: Services/VideoPostType.php:408
+#: Services/VideoPostType.php:410
 msgid "Edit Media"
 msgstr ""
 
@@ -3588,11 +3588,11 @@ msgstr ""
 msgid "Nonce verification failed."
 msgstr ""
 
-#: Models/Model.php:630
+#: Models/Model.php:666
 msgid "You must first create or save this model to update it."
 msgstr ""
 
-#: Models/Model.php:652
+#: Models/Model.php:688
 msgid "There was an issue updating the model."
 msgstr ""
 
@@ -4025,112 +4025,112 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
-#: Services/VideoPostType.php:322
+#: Services/VideoPostType.php:324
 msgid "Enter a title..."
 msgstr ""
 
-#: Services/VideoPostType.php:384
+#: Services/VideoPostType.php:386
 msgctxt "post type general name"
 msgid "Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:385
+#: Services/VideoPostType.php:387
 msgctxt "post type singular name"
 msgid "Media Tag"
 msgstr ""
 
-#: Services/VideoPostType.php:386
+#: Services/VideoPostType.php:388
 msgctxt "admin menu"
 msgid "Search Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:387
+#: Services/VideoPostType.php:389
 msgctxt "add new on admin bar"
 msgid "Popular Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:401
+#: Services/VideoPostType.php:403
 msgctxt "post type general name"
 msgid "Media Hub"
 msgstr ""
 
-#: Services/VideoPostType.php:402
+#: Services/VideoPostType.php:404
 msgctxt "post type singular name"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:403
+#: Services/VideoPostType.php:405
 msgctxt "admin menu"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:404
+#: Services/VideoPostType.php:406
 msgctxt "add new on admin bar"
 msgid "Presto Media"
 msgstr ""
 
-#: Services/VideoPostType.php:405
+#: Services/VideoPostType.php:407
 msgctxt "Media"
 msgid "Add New"
 msgstr ""
 
-#: Services/VideoPostType.php:406
+#: Services/VideoPostType.php:408
 msgid "Add New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:407
+#: Services/VideoPostType.php:409
 msgid "New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:409
+#: Services/VideoPostType.php:411
 msgid "View Media"
 msgstr ""
 
-#: Services/VideoPostType.php:411
+#: Services/VideoPostType.php:413
 msgid "Search Media"
 msgstr ""
 
-#: Services/VideoPostType.php:412
+#: Services/VideoPostType.php:414
 msgid "No Media found."
 msgstr ""
 
-#: Services/VideoPostType.php:413
+#: Services/VideoPostType.php:415
 msgid "No Media found in Trash."
 msgstr ""
 
-#: Services/VideoPostType.php:414
+#: Services/VideoPostType.php:416
 msgid "Filter Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:415
+#: Services/VideoPostType.php:417
 msgid "Media list navigation"
 msgstr ""
 
-#: Services/VideoPostType.php:416
+#: Services/VideoPostType.php:418
 msgid "Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:417
+#: Services/VideoPostType.php:419
 msgid "Media published."
 msgstr ""
 
-#: Services/VideoPostType.php:418
+#: Services/VideoPostType.php:420
 msgid "Media published privately."
 msgstr ""
 
-#: Services/VideoPostType.php:419
+#: Services/VideoPostType.php:421
 msgid "Media reverted to draft."
 msgstr ""
 
-#: Services/VideoPostType.php:420
+#: Services/VideoPostType.php:422
 msgid "Media scheduled."
 msgstr ""
 
-#: Services/VideoPostType.php:421
+#: Services/VideoPostType.php:423
 msgid "Media updated."
 msgstr ""
 
-#: Services/VideoPostType.php:468
+#: Services/VideoPostType.php:471
 #, php-format
 msgid "Show all %s"
 msgstr ""

@@ -7,7 +7,8 @@ use PrestoPlayer\Attachment;
 use PrestoPlayer\Controller;
 use PrestoPlayer\Support\Block;
 use PrestoPlayer\Services\Scripts;
-use PrestoPlayer\Services\BunnyCDN;
+// Disabled: PrestoPlayer\Services\BunnyCDN class does not exist. Kept for reference.
+// use PrestoPlayer\Services\BunnyCDN;
 use PrestoPlayer\Services\Settings;
 use PrestoPlayer\Services\AdminNotices;
 use PrestoPlayer\Services\Usage;
@@ -35,7 +36,8 @@ class Factory {
 	 */
 	public function getRules() {
 		return array(
-			BunnyCDN::class       => self::SHARED,
+			// Disabled: BunnyCDN service class does not exist; this was a stale reference.
+			// BunnyCDN::class       => self::SHARED,
 			Visits::class         => self::SHARED,
 			ReusableVideos::class => self::SHARED,
 			AdminNotices::class   => self::SHARED,

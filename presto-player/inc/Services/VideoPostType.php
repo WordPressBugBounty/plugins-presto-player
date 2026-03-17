@@ -233,9 +233,11 @@ class VideoPostType {
 		$tags = get_the_terms( $post_ID, 'pp_video_tag' );
 		if ( is_array( $tags ) ) {
 			foreach ( $tags as $key => $tag ) {
-				$tags[ $key ] = '<a href="?post_type=pp_video_block&pp_video_tag=' . $tag->term_id . '">' . $tag->name . '</a>';
+				// Escape tag name to prevent XSS, use esc_url and absint for defense-in-depth.
+				$tags[ $key ] = '<a href="' . esc_url( '?post_type=pp_video_block&pp_video_tag=' . absint( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
 			}
-			echo implode( ', ', $tags );
+			// Each tag link is already individually escaped above.
+			echo wp_kses_post( implode( ', ', $tags ) );
 		}
 		return ob_get_clean();
 	}
@@ -460,9 +462,10 @@ class VideoPostType {
 			return;
 		}
 
-		$selected      = isset( $_GET[ $taxonomy ] ) ? $_GET[ $taxonomy ] : '';
+		$selected      = isset( $_GET[ $taxonomy ] ) ? absint( $_GET[ $taxonomy ] ) : '';
 		$info_taxonomy = get_taxonomy( $taxonomy );
 
+		ob_start();
 		wp_dropdown_categories(
 			array(
 				'show_option_all' => sprintf( __( 'Show all %s', 'presto-player' ), $info_taxonomy->label ),
@@ -474,6 +477,21 @@ class VideoPostType {
 				'hide_empty'      => true,
 			)
 		);
+		$dropdown = ob_get_clean();
+
+		$allowed_html = array(
+			'select' => array(
+				'name'  => true,
+				'id'    => true,
+				'class' => true,
+			),
+			'option' => array(
+				'class'    => true,
+				'value'    => true,
+				'selected' => true,
+			),
+		);
+		echo wp_kses( $dropdown, $allowed_html );
 	}
 
 	/**

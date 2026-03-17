@@ -40,8 +40,8 @@ class LearnDash implements Service {
 
 		ob_start();
 		?>
-		data-video-cookie-key="<?php echo $data['cookieKey']; ?>"
-		data-video-progression="<?php echo $data['videoProgress']; ?>"
+		data-video-cookie-key="<?php echo esc_attr( $data['cookieKey'] ); ?>"
+		data-video-progression="<?php echo esc_attr( $data['videoProgress'] ); ?>"
 		data-video-provider="presto"
 		<?php
 		echo ob_get_clean();

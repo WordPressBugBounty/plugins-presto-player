@@ -1,7 +1,17 @@
-<?php
+<?php // phpcs:ignoreFile -- Third-party BunnyCDN SDK library; WPCS enforcement would require full rewrite.
 
 namespace PrestoPlayer\Libraries;
 
+/**
+ * Third-party BunnyCDN SDK library.
+ *
+ * NOTE: This file is NOT actively used — no code in either the free (Presto Player)
+ * or pro (Presto Player Pro) plugin instantiates or calls this class.
+ * It is kept here for future reference only.
+ *
+ * @see https://github.com/prestomade/presto-player/issues/898
+ * @see https://github.com/prestomade/presto-player/issues/899
+ */
 class BunnyCDN {
 
 	private $api_key_account;
@@ -1214,9 +1224,9 @@ class BunnyCDN {
 
 		$file = $api_call['data'];
 
-		header( 'Content-type: application/octet-stream' );
-		header( "Content-Disposition: attachment; filename=$file_name" );
-		// will force to download...
+		$safe_name = str_replace( '"', '', sanitize_file_name( $file_name ) );
+		header( 'Content-Type: application/octet-stream' );
+		header( 'Content-Disposition: attachment; filename="' . $safe_name . '"' );
 		echo $file;
 	}
 
@@ -1297,65 +1307,54 @@ class BunnyCDN {
 	// --->storage > end
 
 	public function DownloadFile( $file_url = '', $oupt_file_name = '' ) {
-		// this is a fast way to download a file
-		// remove any query string data
-		if ( isset( $oupt_file_name ) ) {
-			$file_name = $oupt_file_name;
+		$parsed = wp_parse_url( $file_url );
+		if ( empty( $parsed['scheme'] ) || ! in_array( $parsed['scheme'], array( 'http', 'https' ), true ) ) {
+			wp_die( 'Invalid file URL.', 'Error', array( 'response' => 400 ) );
 		}
-		if ( empty( $oupt_file_name ) ) {
+
+		if ( ! empty( $oupt_file_name ) ) {
+			$file_name = $oupt_file_name;
+		} else {
 			$file_name = preg_replace( '/\?.*/', '', basename( $file_url ) );
+		}
+
+		$safe_name = str_replace( '"', '', sanitize_file_name( $file_name ) );
+
+		$response = wp_safe_remote_get( $file_url, array( 'timeout' => 60 ) );
+		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+			wp_die( 'Download failed.', 'Error', array( 'response' => 500 ) );
 		}
 
 		header( 'Content-Type: application/octet-stream' );
 		header( 'Content-Transfer-Encoding: Binary' );
-		header( "Content-disposition: attachment; filename=$file_name" );
-		readfile( $file_url );
+		header( 'Content-Disposition: attachment; filename="' . $safe_name . '"' );
+		echo wp_remote_retrieve_body( $response );
+		exit;
 	}
 
 
 	public function DownloadFile1( $file_url ) {
-		/*
-			this is a slow way to download a file
-			will allow you to download a remote file from any server that is accessible
-		*/
-
-		$filename = $file_url;
-		$filedata = @file_get_contents( $filename );
-
-		// SUCCESS
-		if ( $filedata ) {
-			// GET A NAME FOR THE FILE
-			// remove any query string data
-			$basename = preg_replace( '/\?.*/', '', basename( $file_url ) );
-			// $basename = basename($filename);
-
-			// THESE HEADERS ARE USED ON ALL BROWSERS
-			header( 'Content-Type: application-x/force-download' );
-			header( "Content-Disposition: attachment; filename=$basename" );
-			header( 'Content-length: ' . (string) ( strlen( $filedata ) ) );
-			header( 'Expires: ' . gmdate( 'D, d M Y H:i:s', mktime( date( 'H' ) + 2, date( 'i' ), date( 's' ), date( 'm' ), date( 'd' ), date( 'Y' ) ) ) . ' GMT' );
-			header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' );
-
-			// THIS HEADER MUST BE OMITTED FOR IE 6+
-			if ( false === strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE ' ) ) {
-				header( 'Cache-Control: no-cache, must-revalidate' );
-			}
-
-			// THIS IS THE LAST HEADER
-			header( 'Pragma: no-cache' );
-
-			// FLUSH THE HEADERS TO THE BROWSER
-			flush();
-
-			// CAPTURE THE FILE IN THE OUTPUT BUFFERS - WILL BE FLUSHED AT SCRIPT END
-			ob_start();
-			echo $filedata;
+		$parsed = wp_parse_url( $file_url );
+		if ( empty( $parsed['scheme'] ) || ! in_array( $parsed['scheme'], array( 'http', 'https' ), true ) ) {
+			wp_die( 'Invalid file URL.', 'Error', array( 'response' => 400 ) );
 		}
 
-		// FAILURE
-		else {
-			die( "ERROR: UNABLE TO OPEN $filename" );
+		$response = wp_safe_remote_get( $file_url, array( 'timeout' => 60 ) );
+		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+			wp_die( 'Download failed.', 'Error', array( 'response' => 500 ) );
 		}
+
+		$filedata = wp_remote_retrieve_body( $response );
+		$basename = str_replace( '"', '', sanitize_file_name( preg_replace( '/\?.*/', '', basename( $file_url ) ) ) );
+
+		header( 'Content-Type: application/octet-stream' );
+		header( 'Content-Disposition: attachment; filename="' . $basename . '"' );
+		header( 'Content-Length: ' . strlen( $filedata ) );
+		header( 'Cache-Control: no-cache, must-revalidate' );
+		header( 'Pragma: no-cache' );
+
+		echo $filedata;
+		exit;
 	}
 
 	public function Logs( $zone_id = '', $log_date = '' ) {
