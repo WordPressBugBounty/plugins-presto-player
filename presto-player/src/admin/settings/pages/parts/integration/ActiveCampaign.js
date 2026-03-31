@@ -46,7 +46,7 @@ export default compose([
 
     return (
       <Integration
-        title={__("ActiveCampaign")}
+        title={"ActiveCampaign"}
         connected={setting?.connected}
         onConnect={onConnect}
         onDisconnect={onDisconnect}

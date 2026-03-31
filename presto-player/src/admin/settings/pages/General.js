@@ -297,7 +297,7 @@ export default () => {
 
           {!!analytics?.enable && (
             <ToggleControl
-              label={__("Auto-Purge Data (recommended)")}
+              label={__("Auto-Purge Data (recommended)", "presto-player")}
               help={__(
                 "Automatically purge data older than 90 days.",
                 "presto-player"

@@ -50,7 +50,7 @@ export default compose([withIntegration({ name: "presto_player_mailchimp" })])(
     };
     return (
       <Integration
-        title={__("Mailchimp")}
+        title={"Mailchimp"}
         connected={connected}
         onDisconnect={onDisconnect}
         onConnect={onConnect}

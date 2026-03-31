@@ -51,7 +51,7 @@ export default compose([withIntegration({ name: "presto_player_mailerlite" })])(
 
     return (
       <Integration
-        title={__("Mailerlite")}
+        title={"MailerLite"}
         connected={connected}
         onDisconnect={onDisconnect}
         onConnect={onConnect}

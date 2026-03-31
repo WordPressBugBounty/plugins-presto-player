@@ -103,17 +103,17 @@
         },
         {
             "name": "brainstormforce/nps-survey",
-            "version": "1.0.16",
-            "version_normalized": "1.0.16.0",
+            "version": "1.0.21",
+            "version_normalized": "1.0.21.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/nps-survey.git",
-                "reference": "bdabfacea1abd84feca540999a8231232fbc7cf9"
+                "reference": "5a20f0a05e3ecd11a611e49ff27145932a924a52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/bdabfacea1abd84feca540999a8231232fbc7cf9",
-                "reference": "bdabfacea1abd84feca540999a8231232fbc7cf9",
+                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/5a20f0a05e3ecd11a611e49ff27145932a924a52",
+                "reference": "5a20f0a05e3ecd11a611e49ff27145932a924a52",
                 "shasum": ""
             },
             "require-dev": {
@@ -128,7 +128,7 @@
                 "szepeviktor/phpstan-wordpress": "^1.1",
                 "wp-coding-standards/wpcs": "^2.2"
             },
-            "time": "2026-01-20T05:25:34+00:00",
+            "time": "2026-03-24T05:29:05+00:00",
             "type": "wordpress-plugin",
             "installation-source": "dist",
             "scripts": {
@@ -159,7 +159,7 @@
             },
             "description": "NPS Survey Plugin",
             "support": {
-                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.16",
+                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.21",
                 "issues": "https://github.com/brainstormforce/nps-survey/issues"
             },
             "install-path": "../../inc/lib/nps-survey"

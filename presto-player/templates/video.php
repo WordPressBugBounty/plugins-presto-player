@@ -33,7 +33,8 @@
 		provider-video-id="<?php echo esc_attr( $data['provider_video_id'] ?? '' ); ?>"
 		video-id="<?php echo esc_attr( $data['id'] ?? 0 ); ?>"
 		<?php echo $data['preset']['lazy_load_youtube'] ? 'lazy-load-youtube' : ''; ?>
-		<?php echo $data['playsInline'] ? 'playsinline' : ''; ?> 
+		video-attributes='<?php echo esc_attr( wp_json_encode( ! empty( $data['videoAttributes'] ) ? $data['videoAttributes'] : new stdClass() ) ); ?>'
+		<?php echo $data['playsInline'] ? 'playsinline' : ''; ?>
 		<?php echo $data['autoplay'] ? 'autoplay' : ''; ?>
 		<?php do_action( 'presto_player/templates/player_tag', $data ); ?>>
 		<?php

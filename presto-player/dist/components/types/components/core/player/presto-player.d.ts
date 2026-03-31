@@ -15,6 +15,9 @@ export declare class PrestoPlayer {
     mediaTitle: string;
     classes: string;
     audioAttributes: object;
+    private _videoAttributes;
+    get videoAttributes(): object;
+    set videoAttributes(value: string | object);
     markers: any;
     automations: boolean;
     providerVideoId: string;

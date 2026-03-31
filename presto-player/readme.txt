@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.9
-Stable tag: 4.1.1
+Stable tag: 4.1.2
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -155,6 +155,17 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.1.2 =
+* New: Added filters to disable or modify video SEO schema output.
+* Improvement: Updated NPS Survey library to v1.0.21.
+* Fix: Resolved fatal error with Korean locale caused by invalid format specifiers in player labels.
+* Fix: Made playlist 'Next' button label translatable and fixed 'Up Nexts' typo.
+* Fix: Resolved PHP deprecation warning in CSS sanitization.
+* Fix: Fixed undefined array key error in reusable video block.
+* Fix: Restored filterable video attributes on video components.
+* Fix: Added missing text domain for untranslatable strings.
+* Fix: Fixed _load_textdomain_just_in_time notice on WordPress 6.7+ by deferring analytics setup.
 
 = 4.1.1 =
 * Security: Multiple security hardening improvements.

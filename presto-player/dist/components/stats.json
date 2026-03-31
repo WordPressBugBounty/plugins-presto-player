@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-17T10:02:49",
+  "timestamp": "2026-03-31T10:29:25",
   "compiler": {
     "name": "node",
     "version": "20.20.1"
@@ -305,14 +305,14 @@
           "./dist/cjs/cache-cues-ps1fLLit.js.map",
           "./dist/cjs/fittext-D3xDjTej.js",
           "./dist/cjs/fittext-D3xDjTej.js.map",
-          "./dist/cjs/hls-D1wRtG_V.js",
-          "./dist/cjs/hls-D1wRtG_V.js.map",
+          "./dist/cjs/hls-Cn5DCj5Y.js",
+          "./dist/cjs/hls-Cn5DCj5Y.js.map",
           "./dist/cjs/index-Dlg6qIxM.js",
           "./dist/cjs/index-Dlg6qIxM.js.map",
           "./dist/cjs/index.cjs.js",
           "./dist/cjs/index.cjs.js.map",
-          "./dist/cjs/learndash-BG2K209i.js",
-          "./dist/cjs/learndash-BG2K209i.js.map",
+          "./dist/cjs/learndash-C-0rIjJl.js",
+          "./dist/cjs/learndash-C-0rIjJl.js.map",
           "./dist/cjs/lifter-CW8zJnxZ.js",
           "./dist/cjs/lifter-CW8zJnxZ.js.map",
           "./dist/cjs/loader.cjs.js",
@@ -329,8 +329,8 @@
           "./dist/cjs/presto-player-button.cjs.entry.js.map",
           "./dist/cjs/presto-player-skeleton.cjs.entry.js",
           "./dist/cjs/presto-player-skeleton.cjs.entry.js.map",
-          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-CUmXrtdK.js",
-          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-CUmXrtdK.js.map",
+          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Cciys8kd.js",
+          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Cciys8kd.js.map",
           "./dist/cjs/presto-player_4.cjs.entry.js",
           "./dist/cjs/presto-player_4.cjs.entry.js.map",
           "./dist/cjs/presto-playlist.cjs.entry.js",
@@ -355,14 +355,14 @@
           "./dist/esm/cache-cues-D8o-F2Bu.js.map",
           "./dist/esm/fittext-kmLX7jv_.js",
           "./dist/esm/fittext-kmLX7jv_.js.map",
-          "./dist/esm/hls-KpBXKXGo.js",
-          "./dist/esm/hls-KpBXKXGo.js.map",
+          "./dist/esm/hls-amsftNo8.js",
+          "./dist/esm/hls-amsftNo8.js.map",
           "./dist/esm/index-BxRAfMA5.js",
           "./dist/esm/index-BxRAfMA5.js.map",
           "./dist/esm/index.js",
           "./dist/esm/index.js.map",
-          "./dist/esm/learndash-DMSfFdyU.js",
-          "./dist/esm/learndash-DMSfFdyU.js.map",
+          "./dist/esm/learndash-C2rKwZO0.js",
+          "./dist/esm/learndash-C2rKwZO0.js.map",
           "./dist/esm/lifter-DcYtxwW6.js",
           "./dist/esm/lifter-DcYtxwW6.js.map",
           "./dist/esm/loader.js",
@@ -379,8 +379,8 @@
           "./dist/esm/presto-player-button.entry.js.map",
           "./dist/esm/presto-player-skeleton.entry.js",
           "./dist/esm/presto-player-skeleton.entry.js.map",
-          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-D_mj4Q87.js",
-          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-D_mj4Q87.js.map",
+          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DXO43U2f.js",
+          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DXO43U2f.js.map",
           "./dist/esm/presto-player_4.entry.js",
           "./dist/esm/presto-player_4.entry.js.map",
           "./dist/esm/presto-playlist.entry.js",
@@ -407,6 +407,8 @@
           "./dist/web-components/index.esm.js.map",
           "./dist/web-components/p-0c2a6cd3.entry.js",
           "./dist/web-components/p-0c2a6cd3.entry.js.map",
+          "./dist/web-components/p-1610cee0.entry.js",
+          "./dist/web-components/p-1610cee0.entry.js.map",
           "./dist/web-components/p-193f0db1.entry.js",
           "./dist/web-components/p-193f0db1.entry.js.map",
           "./dist/web-components/p-22488b76.entry.js",
@@ -415,24 +417,22 @@
           "./dist/web-components/p-29dbc9bb.entry.js.map",
           "./dist/web-components/p-345e2989.entry.js",
           "./dist/web-components/p-345e2989.entry.js.map",
-          "./dist/web-components/p-46e521d7.entry.js",
-          "./dist/web-components/p-46e521d7.entry.js.map",
           "./dist/web-components/p-4f0eb72c.entry.js",
           "./dist/web-components/p-4f0eb72c.entry.js.map",
           "./dist/web-components/p-8c965b5b.entry.js",
           "./dist/web-components/p-8c965b5b.entry.js.map",
           "./dist/web-components/p-8e99834a.entry.js",
           "./dist/web-components/p-8e99834a.entry.js.map",
-          "./dist/web-components/p-BCq6BbmG.js",
-          "./dist/web-components/p-BCq6BbmG.js.map",
-          "./dist/web-components/p-Bf9XWZYF.js",
-          "./dist/web-components/p-Bf9XWZYF.js.map",
           "./dist/web-components/p-BxRAfMA5.js",
           "./dist/web-components/p-BxRAfMA5.js.map",
-          "./dist/web-components/p-CNtoEcTJ.js",
-          "./dist/web-components/p-CNtoEcTJ.js.map",
+          "./dist/web-components/p-CIMycCB4.js",
+          "./dist/web-components/p-CIMycCB4.js.map",
+          "./dist/web-components/p-CliI3pyn.js",
+          "./dist/web-components/p-CliI3pyn.js.map",
           "./dist/web-components/p-D8o-F2Bu.js",
           "./dist/web-components/p-D8o-F2Bu.js.map",
+          "./dist/web-components/p-DQq8ceiN.js",
+          "./dist/web-components/p-DQq8ceiN.js.map",
           "./dist/web-components/p-DcYtxwW6.js",
           "./dist/web-components/p-DcYtxwW6.js.map",
           "./dist/web-components/p-DwzUTbbs.js",
@@ -441,12 +441,12 @@
           "./dist/web-components/p-EuTDjLsB.js.map",
           "./dist/web-components/p-G840BFTB.js",
           "./dist/web-components/p-G840BFTB.js.map",
-          "./dist/web-components/p-b2683696.entry.js",
-          "./dist/web-components/p-b2683696.entry.js.map",
-          "./dist/web-components/p-c1d094d8.entry.js",
-          "./dist/web-components/p-c1d094d8.entry.js.map",
+          "./dist/web-components/p-a271b9fb.entry.js",
+          "./dist/web-components/p-a271b9fb.entry.js.map",
           "./dist/web-components/p-db54b491.entry.js",
           "./dist/web-components/p-db54b491.entry.js.map",
+          "./dist/web-components/p-e6ea643f.entry.js",
+          "./dist/web-components/p-e6ea643f.entry.js.map",
           "./dist/web-components/p-fH7ZDDmI.js",
           "./dist/web-components/p-fH7ZDDmI.js.map",
           "./dist/web-components/web-components.esm.js",
@@ -455,6 +455,8 @@
           "./www/build/index.esm.js.map",
           "./www/build/p-0c2a6cd3.entry.js",
           "./www/build/p-0c2a6cd3.entry.js.map",
+          "./www/build/p-1610cee0.entry.js",
+          "./www/build/p-1610cee0.entry.js.map",
           "./www/build/p-193f0db1.entry.js",
           "./www/build/p-193f0db1.entry.js.map",
           "./www/build/p-22488b76.entry.js",
@@ -463,24 +465,22 @@
           "./www/build/p-29dbc9bb.entry.js.map",
           "./www/build/p-345e2989.entry.js",
           "./www/build/p-345e2989.entry.js.map",
-          "./www/build/p-46e521d7.entry.js",
-          "./www/build/p-46e521d7.entry.js.map",
           "./www/build/p-4f0eb72c.entry.js",
           "./www/build/p-4f0eb72c.entry.js.map",
           "./www/build/p-8c965b5b.entry.js",
           "./www/build/p-8c965b5b.entry.js.map",
           "./www/build/p-8e99834a.entry.js",
           "./www/build/p-8e99834a.entry.js.map",
-          "./www/build/p-BCq6BbmG.js",
-          "./www/build/p-BCq6BbmG.js.map",
-          "./www/build/p-Bf9XWZYF.js",
-          "./www/build/p-Bf9XWZYF.js.map",
           "./www/build/p-BxRAfMA5.js",
           "./www/build/p-BxRAfMA5.js.map",
-          "./www/build/p-CNtoEcTJ.js",
-          "./www/build/p-CNtoEcTJ.js.map",
+          "./www/build/p-CIMycCB4.js",
+          "./www/build/p-CIMycCB4.js.map",
+          "./www/build/p-CliI3pyn.js",
+          "./www/build/p-CliI3pyn.js.map",
           "./www/build/p-D8o-F2Bu.js",
           "./www/build/p-D8o-F2Bu.js.map",
+          "./www/build/p-DQq8ceiN.js",
+          "./www/build/p-DQq8ceiN.js.map",
           "./www/build/p-DcYtxwW6.js",
           "./www/build/p-DcYtxwW6.js.map",
           "./www/build/p-DwzUTbbs.js",
@@ -489,12 +489,12 @@
           "./www/build/p-EuTDjLsB.js.map",
           "./www/build/p-G840BFTB.js",
           "./www/build/p-G840BFTB.js.map",
-          "./www/build/p-b2683696.entry.js",
-          "./www/build/p-b2683696.entry.js.map",
-          "./www/build/p-c1d094d8.entry.js",
-          "./www/build/p-c1d094d8.entry.js.map",
+          "./www/build/p-a271b9fb.entry.js",
+          "./www/build/p-a271b9fb.entry.js.map",
           "./www/build/p-db54b491.entry.js",
           "./www/build/p-db54b491.entry.js.map",
+          "./www/build/p-e6ea643f.entry.js",
+          "./www/build/p-e6ea643f.entry.js.map",
           "./www/build/p-fH7ZDDmI.js",
           "./www/build/p-fH7ZDDmI.js.map",
           "./www/build/web-components.esm.js",
@@ -594,12 +594,12 @@
         "components": [
           "presto-video"
         ],
-        "bundleId": "p-46e521d7",
-        "fileName": "p-46e521d7.entry.js",
+        "bundleId": "p-e6ea643f",
+        "fileName": "p-e6ea643f.entry.js",
         "imports": [
           "p-BxRAfMA5.js"
         ],
-        "originalByteSize": 1287
+        "originalByteSize": 1268
       },
       {
         "key": "presto-search-bar-ui.entry",
@@ -673,15 +673,15 @@
           "presto-vimeo",
           "presto-youtube"
         ],
-        "bundleId": "p-b2683696",
-        "fileName": "p-b2683696.entry.js",
+        "bundleId": "p-1610cee0",
+        "fileName": "p-1610cee0.entry.js",
         "imports": [
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-G840BFTB.js",
           "p-D8o-F2Bu.js"
         ],
-        "originalByteSize": 70257
+        "originalByteSize": 70201
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -691,10 +691,10 @@
           "presto-playlist-overlay",
           "presto-playlist-ui"
         ],
-        "bundleId": "p-c1d094d8",
-        "fileName": "p-c1d094d8.entry.js",
+        "bundleId": "p-a271b9fb",
+        "fileName": "p-a271b9fb.entry.js",
         "imports": [
-          "p-BCq6BbmG.js",
+          "p-CliI3pyn.js",
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-D8o-F2Bu.js"
@@ -775,7 +775,7 @@
         "imports": [
           "index-BxRAfMA5.js"
         ],
-        "originalByteSize": 1287
+        "originalByteSize": 1268
       },
       {
         "key": "presto-search-bar-ui.entry",
@@ -857,7 +857,7 @@
           "fittext-kmLX7jv_.js",
           "cache-cues-D8o-F2Bu.js"
         ],
-        "originalByteSize": 70275
+        "originalByteSize": 70219
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -870,7 +870,7 @@
         "bundleId": "presto-player_4",
         "fileName": "presto-player_4.entry.js",
         "imports": [
-          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-D_mj4Q87.js",
+          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DXO43U2f.js",
           "index-BxRAfMA5.js",
           "util-EuTDjLsB.js",
           "cache-cues-D8o-F2Bu.js"
@@ -953,7 +953,7 @@
         "imports": [
           "index-Dlg6qIxM.js"
         ],
-        "originalByteSize": 1306
+        "originalByteSize": 1287
       },
       {
         "key": "presto-search-bar-ui.entry",
@@ -1035,7 +1035,7 @@
           "fittext-D3xDjTej.js",
           "cache-cues-ps1fLLit.js"
         ],
-        "originalByteSize": 70852
+        "originalByteSize": 70796
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -1048,7 +1048,7 @@
         "bundleId": "presto-player_4.cjs",
         "fileName": "presto-player_4.cjs.entry.js",
         "imports": [
-          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-CUmXrtdK.js",
+          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Cciys8kd.js",
           "index-Dlg6qIxM.js",
           "util-DccLYcrM.js",
           "cache-cues-ps1fLLit.js"
@@ -2002,6 +2002,27 @@
           "complexType": {
             "original": "string",
             "resolved": "string",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": ""
+          },
+          "internal": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "videoAttributes",
+          "type": "unknown",
+          "attribute": "video-attributes",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "complexType": {
+            "original": "object",
+            "resolved": "object",
             "references": {}
           },
           "docs": {
@@ -4961,6 +4982,33 @@
           "setter": false
         },
         {
+          "name": "videoAttributes",
+          "type": "any",
+          "attribute": "video-attributes",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "{}",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "docs": {
+            "tags": [
+              {
+                "name": "default",
+                "text": "{}"
+              }
+            ],
+            "text": ""
+          },
+          "internal": false,
+          "getter": true,
+          "setter": true
+        },
+        {
           "name": "markers",
           "type": "any",
           "attribute": "markers",
@@ -6981,16 +7029,16 @@
           "setter": false
         },
         {
-          "name": "crossorigin",
-          "type": "string",
-          "attribute": "crossorigin",
+          "name": "videoAttributes",
+          "type": "unknown",
+          "attribute": "video-attributes",
           "reflect": false,
           "mutable": false,
           "required": false,
           "optional": false,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "object",
+            "resolved": "object",
             "references": {}
           },
           "docs": {
@@ -8827,6 +8875,33 @@
               "setter": false
             },
             {
+              "name": "videoAttributes",
+              "type": "any",
+              "attribute": "video-attributes",
+              "reflect": false,
+              "mutable": false,
+              "required": false,
+              "optional": false,
+              "defaultValue": "{}",
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "docs": {
+                "tags": [
+                  {
+                    "name": "default",
+                    "text": "{}"
+                  }
+                ],
+                "text": ""
+              },
+              "internal": false,
+              "getter": true,
+              "setter": true
+            },
+            {
               "name": "markers",
               "type": "any",
               "attribute": "markers",
@@ -9893,6 +9968,7 @@
             "preload",
             "playsinline",
             "tracks",
+            "videoAttributes",
             "mediaTitle",
             "audioAttributes",
             "direction",
@@ -11795,6 +11871,27 @@
               "internal": false,
               "getter": false,
               "setter": false
+            },
+            {
+              "name": "videoAttributes",
+              "type": "unknown",
+              "attribute": "video-attributes",
+              "reflect": false,
+              "mutable": false,
+              "required": false,
+              "optional": false,
+              "complexType": {
+                "original": "object",
+                "resolved": "object",
+                "references": {}
+              },
+              "docs": {
+                "tags": [],
+                "text": ""
+              },
+              "internal": false,
+              "getter": false,
+              "setter": false
             }
           ],
           "virtualProperties": [],
@@ -11870,7 +11967,7 @@
             "playsinline",
             "src",
             "tracks",
-            "crossorigin"
+            "videoAttributes"
           ],
           "htmlTagNames": [
             "presto-video"
@@ -16431,16 +16528,16 @@
               "setter": false
             },
             {
-              "name": "crossorigin",
-              "type": "string",
-              "attribute": "crossorigin",
+              "name": "videoAttributes",
+              "type": "unknown",
+              "attribute": "video-attributes",
               "reflect": false,
               "mutable": false,
               "required": false,
               "optional": false,
               "complexType": {
-                "original": "string",
-                "resolved": "string",
+                "original": "object",
+                "resolved": "object",
                 "references": {}
               },
               "docs": {
@@ -16517,15 +16614,15 @@
           "hasState": false,
           "hasStyle": true,
           "hasVdomAttribute": true,
-          "hasVdomXlink": false,
+          "hasVdomXlink": true,
           "hasVdomClass": true,
           "hasVdomFunctional": false,
           "hasVdomKey": true,
-          "hasVdomListener": false,
+          "hasVdomListener": true,
           "hasVdomPropOrAttr": true,
           "hasVdomRef": true,
           "hasVdomRender": true,
-          "hasVdomStyle": false,
+          "hasVdomStyle": true,
           "hasVdomText": true,
           "hasWatchCallback": false,
           "isPlain": false,
@@ -16538,7 +16635,6 @@
             "preload",
             "data-poster",
             "playsinline",
-            "crossorigin",
             "src",
             "kind",
             "label",
@@ -17096,7 +17192,7 @@
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-player": [
-      "p-BCq6BbmG.js",
+      "p-CliI3pyn.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
@@ -17116,19 +17212,19 @@
       "p-EuTDjLsB.js"
     ],
     "sc-presto-playlist-item": [
-      "p-BCq6BbmG.js",
+      "p-CliI3pyn.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-playlist-overlay": [
-      "p-BCq6BbmG.js",
+      "p-CliI3pyn.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-playlist-ui": [
-      "p-BCq6BbmG.js",
+      "p-CliI3pyn.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"

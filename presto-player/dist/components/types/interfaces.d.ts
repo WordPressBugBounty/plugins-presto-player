@@ -21,6 +21,7 @@ export interface i18nConfig extends Object {
     startOver?: string;
     upNext?: string;
     rewatch: string;
+    next?: string;
     emailPlaceholder?: string;
     skip?: string;
     emailDefaultHeadline?: string;

@@ -99,15 +99,15 @@ class Translation implements Service {
 			'show_chapters'        => __( 'Show Chapters', 'presto-player' ),
 			'hide_chapters'        => __( 'Hide Chapters', 'presto-player' ),
 			'restart'              => __( 'Restart', 'presto-player' ),
-			/* translators: %1ss: Number of seconds to rewind */
-			'rewind'               => sprintf( __( 'Rewind %1ss', 'presto-player' ), '{seektime}' ),
+			/* translators: {seektime} is replaced with the number of seconds, e.g. "Rewind 10s" */
+			'rewind'               => __( 'Rewind {seektime}s', 'presto-player' ),
 			'play'                 => __( 'Play', 'presto-player' ),
 			'pause'                => __( 'Pause', 'presto-player' ),
-			/* translators: %1ss: Number of seconds to fast forward */
-			'fastForward'          => sprintf( __( 'Forward %1ss', 'presto-player' ), '{seektime}' ),
+			/* translators: {seektime} is replaced with the number of seconds, e.g. "Forward 10s" */
+			'fastForward'          => __( 'Forward {seektime}s', 'presto-player' ),
 			'seek'                 => __( 'Seek', 'presto-player' ),
-			/* translators: %1$1s: Current time, %2$2s: Total duration */
-			'seekLabel'            => sprintf( __( '%1$1s of %2$2s', 'presto-player' ), '{currentTime}', '{duration}' ),
+			/* translators: {currentTime} = current playback time, {duration} = total video length */
+			'seekLabel'            => __( '{currentTime} of {duration}', 'presto-player' ),
 			'played'               => __( 'Played', 'presto-player' ),
 			'buffered'             => __( 'Buffered', 'presto-player' ),
 			'currentTime'          => __( 'Current time', 'presto-player' ),
@@ -145,6 +145,7 @@ class Translation implements Service {
 				480  => __( 'SD', 'presto-player' ),
 			),
 			'auto'                 => __( 'AUTO', 'presto-player' ),
+			'next'                 => __( 'Next', 'presto-player' ),
 			'upNext'               => __( 'Up Next', 'presto-player' ),
 			'startOver'            => __( 'Start Over', 'presto-player' ),
 		);

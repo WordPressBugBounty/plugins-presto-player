@@ -33,6 +33,7 @@ class Utility {
 	 * @return string Sanitized CSS.
 	 */
 	public static function sanitizeCSS( $css ) {
+		$css = $css ?? '';
 		return preg_match( '#</?\w+#', $css ) ? '' : $css;
 	}
 
@@ -158,9 +159,9 @@ class Utility {
 	 * @return array
 	 */
 	public static function arrayInsert( $array, $pairs, $key, $position = 'after' ) {
-		$key_pos = array_search( $key, array_keys( $array ) );
+		$key_pos = array_search( $key, array_keys( $array ), true );
 
-		if ( 'after' == $position ) {
+		if ( 'after' === $position ) {
 			++$key_pos;
 		}
 

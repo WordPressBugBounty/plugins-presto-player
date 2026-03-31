@@ -35,7 +35,7 @@ export default compose([withIntegration({ name: "presto_player_fluentcrm" })])(
 
     return (
       <Integration
-        title={__("FluentCRM")}
+        title={"FluentCRM"}
         connected={connected}
         onConnect={onConnect}
         onDisconnect={onDisconnect}

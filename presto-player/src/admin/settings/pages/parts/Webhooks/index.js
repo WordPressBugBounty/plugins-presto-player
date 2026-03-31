@@ -31,7 +31,7 @@ export default () => {
             <FlexBlock>{__("Webhooks", "presto-player")}</FlexBlock>
             {!!webhooks?.length && (
               <Button isSmall isPrimary style={{ marginRight: "30px" }}>
-                {sprintf(__("%d connected"), webhooks?.length)}
+                {sprintf(__("%d connected", "presto-player"), webhooks?.length)}
               </Button>
             )}
           </Flex>

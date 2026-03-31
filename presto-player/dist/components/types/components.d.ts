@@ -48,6 +48,7 @@ export namespace Components {
         "provider": string;
         "src": string;
         "tracks": { label: string; src: string; srcLang: string }[];
+        "videoAttributes": object;
     }
     interface PrestoBusinessSkin {
     }
@@ -270,6 +271,10 @@ export namespace Components {
          */
         "tracks": any;
         "type": string;
+        /**
+          * @default {}
+         */
+        "videoAttributes": any;
         "videoId": number;
         /**
           * @default {}
@@ -421,7 +426,6 @@ export namespace Components {
     }
     interface PrestoVideo {
         "autoplay": boolean;
-        "crossorigin": string;
         "getRef"?: (elm?: HTMLVideoElement) => void;
         "player": any;
         "playsinline": boolean;
@@ -430,6 +434,7 @@ export namespace Components {
         "provider": string;
         "src": string;
         "tracks": { label: string; src: string; srcLang: string }[];
+        "videoAttributes": object;
     }
     interface PrestoVideoCurtainUi {
         /**
@@ -976,6 +981,7 @@ declare namespace LocalJSX {
         "provider"?: string;
         "src"?: string;
         "tracks"?: { label: string; src: string; srcLang: string }[];
+        "videoAttributes"?: object;
     }
     interface PrestoBusinessSkin {
     }
@@ -1176,6 +1182,10 @@ declare namespace LocalJSX {
          */
         "tracks"?: any;
         "type"?: string;
+        /**
+          * @default {}
+         */
+        "videoAttributes"?: any;
         "videoId"?: number;
         /**
           * @default {}
@@ -1367,7 +1377,6 @@ declare namespace LocalJSX {
     }
     interface PrestoVideo {
         "autoplay"?: boolean;
-        "crossorigin"?: string;
         "getRef"?: (elm?: HTMLVideoElement) => void;
         "player"?: any;
         "playsinline"?: boolean;
@@ -1376,6 +1385,7 @@ declare namespace LocalJSX {
         "provider"?: string;
         "src"?: string;
         "tracks"?: { label: string; src: string; srcLang: string }[];
+        "videoAttributes"?: object;
     }
     interface PrestoVideoCurtainUi {
         /**

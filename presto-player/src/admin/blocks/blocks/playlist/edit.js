@@ -168,7 +168,7 @@ export default ({ attributes, setAttributes, clientId }) => {
           settings={[
             {
               colorValue: highlightColor,
-              label: __("Highlight Color"),
+              label: __("Highlight Color", "presto-player"),
               onColorChange: (highlightColor) =>
                 setAttributes({ highlightColor }),
               resetAllFilter: () =>

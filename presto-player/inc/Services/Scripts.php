@@ -73,12 +73,12 @@ class Scripts {
 		global $post_type;
 
 		// must be on learndash page.
-		if ( ! in_array( $post_type, array( 'sfwd-lessons', 'sfwd-topic' ) ) ) {
+		if ( ! in_array( $post_type, array( 'sfwd-lessons', 'sfwd-topic' ), true ) ) {
 			return;
 		}
 
 		// must be on new post page.
-		if ( ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) ) {
+		if ( ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ), true ) ) {
 			return;
 		}
 
@@ -178,6 +178,7 @@ class Scripts {
 					'debug'               => defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG,
 					'debug_navigator'     => defined( 'PRESTO_DEBUG_NAVIGATOR' ) && PRESTO_DEBUG_NAVIGATOR,
 					'i18n'                => Translation::geti18n(),
+					'trackViews'          => apply_filters( 'presto_player_daily_views_enabled', true ),
 				)
 			)
 		);

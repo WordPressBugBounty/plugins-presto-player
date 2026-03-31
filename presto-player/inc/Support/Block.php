@@ -265,6 +265,7 @@ class Block {
 				'chapters'        => ! empty( $attributes['chapters'] ) ? $attributes['chapters'] : array(),
 				'overlays'        => DynamicData::replaceItems( ! empty( $attributes['overlays'] ) ? $attributes['overlays'] : array(), 'text' ),
 				'blockAttributes' => $attributes,
+				'videoAttributes' => array(),
 				'provider'        => $this->name,
 				'analytics'       => Setting::get( 'analytics', 'enable', false ),
 				'automations'     => Setting::get( 'performance', 'automations', true ),
@@ -311,7 +312,8 @@ class Block {
 	/**
 	 * Gets the preset.
 	 *
-	 * @param  integer $id Preset ID.
+	 * @param  integer $id         Preset ID.
+	 * @param  array   $attributes Block attributes.
 	 * @return \PrestoPlayer\Models\Preset
 	 */
 	public function getPreset( $id, $attributes = array() ) {
@@ -587,6 +589,10 @@ class Block {
 	 */
 	public function getSchema( $data ) {
 
+		if ( ! apply_filters( 'presto_player_video_schema_enabled', true, $data ) ) {
+			return false;
+		}
+
 		if ( isset( $data ) && empty( $data['id'] ) ) {
 			return false;
 		}
@@ -612,15 +618,19 @@ class Block {
 
 		$video = new Video( (int) $data['id'] );
 
-		return array(
-			// required.
-			'@context'     => 'https://schema.org',
-			'@type'        => 'VideoObject',
-			'name'         => wp_kses_post( $title ),
-			'thumbnailUrl' => esc_url( $poster ),
-			'uploadDate'   => wp_date( 'c', strtotime( $video->getCreatedAt() ) ),
-			// recommended.
-			'contentUrl'   => esc_url( $data['src'] ?? '' ),
+		return apply_filters(
+			'presto_player_video_schema',
+			array(
+				// required.
+				'@context'     => 'https://schema.org',
+				'@type'        => 'VideoObject',
+				'name'         => wp_kses_post( $title ),
+				'thumbnailUrl' => esc_url( $poster ),
+				'uploadDate'   => wp_date( 'c', strtotime( $video->getCreatedAt() ) ),
+				// recommended.
+				'contentUrl'   => esc_url( $data['src'] ?? '' ),
+			),
+			$data
 		);
 	}
 
@@ -659,7 +669,7 @@ class Block {
 	 */
 	public function iframeFallback( $data ) {
 		// must be vimeo or youtube.
-		if ( in_array( $data['provider'], array( 'youtube', 'vimeo' ) ) ) {
+		if ( in_array( $data['provider'], array( 'youtube', 'vimeo' ), true ) ) {
 			add_filter( 'presto_player/scripts/load_iframe_fallback', '__return_true' );
 		}
 	}
@@ -691,7 +701,7 @@ class Block {
 			ob_start();
 			?>
 
-			<?php if ( in_array( $this->name, array( 'self-hosted', 'bunny' ) ) && ! empty( $atts['src'] ) ) { ?>
+			<?php if ( in_array( $this->name, array( 'self-hosted', 'bunny' ), true ) && ! empty( $atts['src'] ) ) { ?>
 				<video controls preload="none">
 					<source src="<?php echo esc_url( $atts['src'] ); ?>" />
 				</video>

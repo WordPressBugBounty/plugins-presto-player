@@ -52,7 +52,7 @@ class ReusableVideoBlock {
 	 */
 	public function html( $attributes ) {
 		// create reusable video block instance.
-		$block = new ReusableVideo( $attributes['id'] );
+		$block = new ReusableVideo( $attributes['id'] ?? '' );
 
 		// avoid override here, so that inner block id is not replaced.
 		unset( $attributes['id'] );
