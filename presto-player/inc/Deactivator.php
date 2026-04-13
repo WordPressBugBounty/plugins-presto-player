@@ -89,6 +89,13 @@ class Deactivator {
 
 		// Daily views KPI tracking.
 		delete_transient( Usage::DAILY_VIEWS_OPTION );
+		delete_transient( 'presto_player_state_events_checked' );
+
+		// BSF Analytics event tracking.
+		delete_option( 'presto_player_tracked_version' );
+		// BSF Analytics library prefixes options with the product slug (hyphenated).
+		delete_option( 'presto-player_usage_events_pending' );
+		delete_option( 'presto-player_usage_events_pushed' );
 
 		// Delete all reusable videos.
 		$videos     = new ReusableVideo();

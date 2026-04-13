@@ -65,12 +65,6 @@ export default () => {
     });
   };
 
-  const [usageTracking, setUsageTracking] = useEntityProp(
-    "root",
-    "site",
-    "presto-player_usage_optin"
-  );
-
   const disabled = () => {
     if (prestoPlayer?.isPremium) {
       return false;
@@ -394,34 +388,6 @@ export default () => {
         ) : (
           bunnySettings()
         )}
-
-        <Group
-          title={__("Contribute to Presto Player", "presto-player")}
-          description={__(
-            "Help us improve Presto Player by sharing non-sensitive usage data.",
-            "presto-player"
-          )}
-        >
-          <ToggleControl
-            className="presto-player__setting--usage-tracking"
-            label={__("Contribute to Presto Player", "presto-player")}
-            help={
-              <div>
-                {__(
-                  "Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. ",
-                  "presto-player"
-                )}{" "}
-                <ExternalLink href="https://prestoplayer.com/share-usage-data/">
-                  {__("Learn More", "presto-player")}
-                </ExternalLink>
-              </div>
-            }
-            checked={usageTracking === "yes" || usageTracking === true}
-            onChange={(enabled) =>
-              setUsageTracking(enabled ? "yes" : "no")
-            }
-          />
-        </Group>
       </Page>
     </>
   );

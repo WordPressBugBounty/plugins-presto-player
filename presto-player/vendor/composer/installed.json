@@ -50,26 +50,28 @@
         },
         {
             "name": "brainstormforce/bsf-analytics",
-            "version": "1.1.17",
-            "version_normalized": "1.1.17.0",
+            "version": "1.1.24",
+            "version_normalized": "1.1.24.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/bsf-analytics.git",
-                "reference": "283ad3198224d671ab427c1fbd3ff894480e628e"
+                "reference": "32bee98831416cf813de903eb74f5ddf52176479"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/283ad3198224d671ab427c1fbd3ff894480e628e",
-                "reference": "283ad3198224d671ab427c1fbd3ff894480e628e",
+                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/32bee98831416cf813de903eb74f5ddf52176479",
+                "reference": "32bee98831416cf813de903eb74f5ddf52176479",
                 "shasum": ""
             },
             "require-dev": {
+                "10up/wp_mock": "^1.0",
                 "brainmaestro/composer-git-hooks": "^2.6",
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
                 "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "phpunit/phpunit": "^9.6",
                 "wp-coding-standards/wpcs": "2.2.1"
             },
-            "time": "2026-01-29T06:12:17+00:00",
+            "time": "2026-04-08T15:12:28+00:00",
             "type": "wordpress-plugin",
             "extra": {
                 "hooks": {
@@ -87,6 +89,9 @@
                 "lint": [
                     "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
                 ],
+                "test": [
+                    "phpunit"
+                ],
                 "post-install-cmd": [
                     "vendor/bin/cghooks add --ignore-lock"
                 ],
@@ -96,7 +101,7 @@
             },
             "description": "Library to gather non sensitive analytics data to enhance bsf products.",
             "support": {
-                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.17",
+                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.24",
                 "issues": "https://github.com/brainstormforce/bsf-analytics/issues"
             },
             "install-path": "../../inc/lib/bsf-analytics"

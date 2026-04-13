@@ -744,7 +744,7 @@ class VideoPostType {
 	 *
 	 * @return string The filtered title, either the original title or the video's title if the original is empty.
 	 */
-	public function filterVideoTitle( $title, $post_id ) {
+	public function filterVideoTitle( $title, $post_id = 0 ) {
 		if ( get_post_type( $post_id ) !== $this->post_type ) {
 			return $title;
 		}

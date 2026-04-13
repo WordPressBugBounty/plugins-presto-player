@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'course/player',
-        'pretty_version' => 'v4.1.2',
-        'version' => '4.1.2.0',
-        'reference' => 'f8a47a51bd707ce89811dab217f9670cc5f3b9d7',
+        'pretty_version' => 'v4.1.3',
+        'version' => '4.1.3.0',
+        'reference' => 'd6fcaa8858ec6c16fad1b9bd4d0334b46f770dd7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'brainstormforce/bsf-analytics' => array(
-            'pretty_version' => '1.1.17',
-            'version' => '1.1.17.0',
-            'reference' => '283ad3198224d671ab427c1fbd3ff894480e628e',
+            'pretty_version' => '1.1.24',
+            'version' => '1.1.24.0',
+            'reference' => '32bee98831416cf813de903eb74f5ddf52176479',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../inc/lib/bsf-analytics',
             'aliases' => array(),
@@ -47,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'course/player' => array(
-            'pretty_version' => 'v4.1.2',
-            'version' => '4.1.2.0',
-            'reference' => 'f8a47a51bd707ce89811dab217f9670cc5f3b9d7',
+            'pretty_version' => 'v4.1.3',
+            'version' => '4.1.3.0',
+            'reference' => 'd6fcaa8858ec6c16fad1b9bd4d0334b46f770dd7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

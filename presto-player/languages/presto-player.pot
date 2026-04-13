@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-31T10:29:09+00:00\n"
+"POT-Creation-Date: 2026-04-13T11:30:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -44,7 +44,7 @@ msgstr ""
 #: admin/blocks/shared/tracks/TracksEditor.js:591
 #: admin/settings/components/Integration.js:117
 #: admin/settings/components/ToggleControl.js:56
-#: admin/settings/pages/Integrations.js:256
+#: admin/settings/pages/Integrations.js:250
 msgid "Cancel"
 msgstr ""
 
@@ -141,14 +141,14 @@ msgstr ""
 #: admin/analytics/pages/AnalyticsUpgrade.js:25
 #: admin/blocks/shared/ProUpgradeModal.js:22
 #: admin/settings/components/Disabled.js:29
-#: admin/settings/pages/Integrations.js:387
-#: admin/settings/pages/Integrations.js:415
+#: admin/settings/pages/General.js:418
+#: admin/settings/pages/Integrations.js:381
 #: admin/settings/pages/Performance.js:67
 msgid "Learn More"
 msgstr ""
 
 #: admin/analytics/pages/Dashboard.js:33
-#: admin/settings/pages/General.js:282
+#: admin/settings/pages/General.js:289
 #: Services/Menu.php:30
 #: Services/Menu.php:31
 msgid "Analytics"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/APIPlaceholder.js:42
 #: admin/blocks/blocks/bunny/edit.js:385
-#: admin/settings/pages/Integrations.js:380
+#: admin/settings/pages/Integrations.js:374
 msgid "Bunny.net Video"
 msgstr ""
 
@@ -738,13 +738,13 @@ msgstr ""
 #: admin/blocks/blocks/media-hub/edit.js:122
 #: admin/blocks/blocks/popup/edit.js:146
 #: admin/blocks/blocks/reusable-display/edit.js:198
-#: admin/settings/pages/General.js:220
+#: admin/settings/pages/General.js:227
 msgid "Synced"
 msgstr ""
 
 #: admin/blocks/blocks/media-hub/edit.js:123
 #: admin/blocks/blocks/popup/edit.js:147
-#: admin/settings/pages/General.js:221
+#: admin/settings/pages/General.js:228
 msgid "Not synced"
 msgstr ""
 
@@ -761,7 +761,7 @@ msgstr ""
 #: admin/blocks/blocks/playlist-list-item/edit.js:31
 #: admin/blocks/blocks/playlist/edit.js:209
 #: admin/settings/app.js:94
-#: admin/settings/pages/General.js:146
+#: admin/settings/pages/General.js:153
 msgid "General"
 msgstr ""
 
@@ -1223,7 +1223,7 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Edit.js:216
 #: admin/blocks/shared/presets/Edit.js:229
 #: admin/blocks/shared/presets/Email.js:53
-#: admin/settings/pages/Integrations.js:356
+#: admin/settings/pages/Integrations.js:350
 msgid "Email Capture"
 msgstr ""
 
@@ -1334,6 +1334,7 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Preview.js:102
 #: admin/blocks/shared/Preview.js:67
 #: admin/blocks/shared/Preview.js:103
+#: lib/bsf-analytics/class-bsf-analytics.php:322
 #: Services/Translation.php:94
 msgid "Skip"
 msgstr ""
@@ -1418,7 +1419,7 @@ msgid "There is no logo image currently selected"
 msgstr ""
 
 #: admin/blocks/shared/branding/index.js:116
-#: admin/settings/pages/General.js:177
+#: admin/settings/pages/General.js:184
 msgid "Logo Max Width"
 msgstr ""
 
@@ -1461,7 +1462,7 @@ msgid "Search..."
 msgstr ""
 
 #: admin/blocks/shared/components/ProBadge.js:5
-#: admin/settings/pages/General.js:164
+#: admin/settings/pages/General.js:171
 msgid "Pro"
 msgstr ""
 
@@ -1516,7 +1517,7 @@ msgid "Video"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:40
-#: admin/settings/pages/Integrations.js:321
+#: admin/settings/pages/Integrations.js:315
 #: Integrations/Elementor/VideoWidget.php:150
 msgid "YouTube"
 msgstr ""
@@ -1660,9 +1661,9 @@ msgstr ""
 #: admin/blocks/shared/presets/Email.js:57
 #: admin/blocks/shared/presets/Search.js:52
 #: admin/blocks/shared/presets/Watermark.js:57
-#: admin/settings/pages/General.js:292
-#: admin/settings/pages/Integrations.js:265
-#: admin/settings/pages/Integrations.js:287
+#: admin/settings/pages/General.js:299
+#: admin/settings/pages/Integrations.js:259
+#: admin/settings/pages/Integrations.js:281
 msgid "Enable"
 msgstr ""
 
@@ -2046,7 +2047,7 @@ msgid "Youtube Channel ID"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/YoutubeChannelId.js:72
-#: admin/settings/pages/Integrations.js:344
+#: admin/settings/pages/Integrations.js:338
 msgid "Find my channel id"
 msgstr ""
 
@@ -2134,8 +2135,8 @@ msgid "Opacity percentage of the watermark."
 msgstr ""
 
 #: admin/blocks/shared/ProUpgradeModal.js:16
-#: admin/settings/pages/General.js:34
-#: admin/settings/pages/Integrations.js:79
+#: admin/settings/pages/General.js:35
+#: admin/settings/pages/Integrations.js:73
 msgid "Pro Feature"
 msgstr ""
 
@@ -2144,8 +2145,8 @@ msgid "Unlock Presto Player"
 msgstr ""
 
 #: admin/blocks/shared/ProUpgradeModal.js:20
-#: admin/settings/pages/General.js:36
-#: admin/settings/pages/Integrations.js:81
+#: admin/settings/pages/General.js:37
+#: admin/settings/pages/Integrations.js:75
 msgid "Get this feature and more with the Pro version of Presto Player!"
 msgstr ""
 
@@ -2297,7 +2298,7 @@ msgid "Caption Generation Failed"
 msgstr ""
 
 #: admin/blocks/shared/tracks/TracksEditor.js:394
-#: admin/settings/pages/Integrations.js:221
+#: admin/settings/pages/Integrations.js:215
 msgid "Caption Generation Charges"
 msgstr ""
 
@@ -2330,7 +2331,7 @@ msgid "This will automatically generate captions for the selected languages. You
 msgstr ""
 
 #: admin/blocks/shared/tracks/TracksEditor.js:571
-#: admin/settings/pages/Integrations.js:241
+#: admin/settings/pages/Integrations.js:235
 msgid "View Bunny.net pricing details"
 msgstr ""
 
@@ -2343,7 +2344,7 @@ msgid "Add caption languages"
 msgstr ""
 
 #: admin/blocks/shared/tracks/TracksEditor.js:705
-#: admin/settings/pages/Integrations.js:169
+#: admin/settings/pages/Integrations.js:163
 msgid "Automatic Captions"
 msgstr ""
 
@@ -2390,7 +2391,7 @@ msgid "Settings Updated"
 msgstr ""
 
 #: admin/settings/app.js:103
-#: admin/settings/pages/Integrations.js:271
+#: admin/settings/pages/Integrations.js:265
 msgid "Integrations"
 msgstr ""
 
@@ -2438,7 +2439,7 @@ msgid "Okay"
 msgstr ""
 
 #: admin/settings/entities.js:9
-#: admin/settings/pages/General.js:317
+#: admin/settings/pages/General.js:324
 msgid "Presets"
 msgstr ""
 
@@ -2450,232 +2451,231 @@ msgstr ""
 msgid "Webhook"
 msgstr ""
 
-#: admin/settings/pages/General.js:35
-#: admin/settings/pages/Integrations.js:80
+#: admin/settings/pages/General.js:36
+#: admin/settings/pages/Integrations.js:74
 msgid "Unlock Presto Player Pro"
 msgstr ""
 
-#: admin/settings/pages/General.js:147
+#: admin/settings/pages/General.js:154
 msgid "Branding, analytics and uninstall data."
 msgstr ""
 
-#: admin/settings/pages/General.js:153
+#: admin/settings/pages/General.js:160
 msgid "Branding"
 msgstr ""
 
-#: admin/settings/pages/General.js:154
+#: admin/settings/pages/General.js:161
 msgid "Global player branding options"
 msgstr ""
 
-#: admin/settings/pages/General.js:161
+#: admin/settings/pages/General.js:168
 msgid "Logo"
 msgstr ""
 
-#: admin/settings/pages/General.js:193
+#: admin/settings/pages/General.js:200
 #: Services/VideoPostType.php:412
 msgid "Media Hub"
 msgstr ""
 
-#: admin/settings/pages/General.js:194
+#: admin/settings/pages/General.js:201
 msgid "Manage the Media Hub settings."
 msgstr ""
 
-#: admin/settings/pages/General.js:197
+#: admin/settings/pages/General.js:204
 msgid "Default Sync Behavior"
 msgstr ""
 
-#: admin/settings/pages/General.js:198
+#: admin/settings/pages/General.js:205
 msgid "Choose the default sync behavior of Presto Player blocks with the Media Hub."
 msgstr ""
 
-#: admin/settings/pages/General.js:249
+#: admin/settings/pages/General.js:256
 msgid "Sync blocks to media hub."
 msgstr ""
 
-#: admin/settings/pages/General.js:260
+#: admin/settings/pages/General.js:267
 msgid "Don't sync blocks to media hub."
 msgstr ""
 
-#: admin/settings/pages/General.js:268
+#: admin/settings/pages/General.js:275
 msgid "Instant Video Page Width"
 msgstr ""
 
-#: admin/settings/pages/General.js:274
+#: admin/settings/pages/General.js:281
 msgid "Customize the video player width on the instant video page."
 msgstr ""
 
-#: admin/settings/pages/General.js:284
-#: admin/settings/pages/Integrations.js:279
+#: admin/settings/pages/General.js:291
+#: admin/settings/pages/Integrations.js:273
 msgid "Analytics settings for media plays, watch times and more."
 msgstr ""
 
-#: admin/settings/pages/General.js:293
+#: admin/settings/pages/General.js:300
 msgid "Enable view analytics for your media."
 msgstr ""
 
-#: admin/settings/pages/General.js:300
+#: admin/settings/pages/General.js:307
 msgid "Auto-Purge Data (recommended)"
 msgstr ""
 
-#: admin/settings/pages/General.js:301
+#: admin/settings/pages/General.js:308
 msgid "Automatically purge data older than 90 days."
 msgstr ""
 
-#: admin/settings/pages/General.js:319
+#: admin/settings/pages/General.js:326
 msgid "Media presets settings."
 msgstr ""
 
-#: admin/settings/pages/General.js:325
+#: admin/settings/pages/General.js:332
 msgid "Select default preset for video."
 msgstr ""
 
-#: admin/settings/pages/General.js:345
+#: admin/settings/pages/General.js:352
 msgid "Select default preset for audio."
 msgstr ""
 
-#: admin/settings/pages/General.js:363
+#: admin/settings/pages/General.js:370
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/settings/pages/General.js:364
+#: admin/settings/pages/General.js:371
 msgid "Quickly add custom css to the player web component."
 msgstr ""
 
-#: admin/settings/pages/General.js:377
+#: admin/settings/pages/General.js:384
 msgid "Uninstall Options"
 msgstr ""
 
-#: admin/settings/pages/General.js:378
+#: admin/settings/pages/General.js:385
 msgid "Options to remove data on uninstall."
 msgstr ""
 
-#: admin/settings/pages/General.js:384
+#: admin/settings/pages/General.js:391
 msgid "Remove data on uninstall"
 msgstr ""
 
-#: admin/settings/pages/General.js:385
+#: admin/settings/pages/General.js:392
 msgid "This removes all data on uninstall."
 msgstr ""
 
-#: admin/settings/pages/General.js:391
+#: admin/settings/pages/General.js:398
 msgid "Caution: Data Loss. Are you sure you want to remove all the data from this plugin? This is irreversible!"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:114
+#: admin/settings/pages/General.js:410
+msgid "Contribute"
+msgstr ""
+
+#: admin/settings/pages/General.js:413
+msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions."
+msgstr ""
+
+#: admin/settings/pages/General.js:425
+msgid "Help shape the future of Presto Player"
+msgstr ""
+
+#: admin/settings/pages/Integrations.js:108
 msgid "Bunny.net Settings"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:115
+#: admin/settings/pages/Integrations.js:109
 msgid "Modify bunny.net settings."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:121
+#: admin/settings/pages/Integrations.js:115
 msgid "Initial Quality Level"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:122
+#: admin/settings/pages/Integrations.js:116
 msgid "You can set the default quality start level for all streams (i.e. 240, 360, 480, 720, 1080, etc). Set this lower to prevent initial buffering if your users have slow connections. Set this higher to start with a higher quality stream."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:137
+#: admin/settings/pages/Integrations.js:131
 msgid "Disable Classic Bunny.net Storage"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:138
+#: admin/settings/pages/Integrations.js:132
 msgid "This will disable Bunny.net classic storage in your block UI."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:151
+#: admin/settings/pages/Integrations.js:145
 msgid "Edit Bunny.net Settings"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:152
+#: admin/settings/pages/Integrations.js:146
 msgid "Edit Bunny.net connection settings. Only edit this if you know what you're doing."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:177
+#: admin/settings/pages/Integrations.js:171
 msgid "Detects speech and generates captions for new videos. Includes the option to translate into 50+ languages."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:186
+#: admin/settings/pages/Integrations.js:180
 msgid "Enable Automatic Caption Generation"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:187
+#: admin/settings/pages/Integrations.js:181
 msgid "Enable auto-captioning for every video uploaded to your Bunny.net Stream Library. Captions publish automatically and are visible on the player once processing is completed. Translations can be managed at any time. Simply select the CC icon in the player block toolbar within the editor to generate additional languages."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:226
+#: admin/settings/pages/Integrations.js:220
 msgid "This will automatically generate captions for every video you upload, unlocking automatic captions and translations. You will be charged $0.10 per minute for each language from your Bunny.net account balance."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:272
+#: admin/settings/pages/Integrations.js:266
 msgid "Third party integrations and connections."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:278
+#: admin/settings/pages/Integrations.js:272
 msgid "Google Analytics"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:288
+#: admin/settings/pages/Integrations.js:282
 msgid "Send analytics events to your Google Analytics account."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:298
+#: admin/settings/pages/Integrations.js:292
 msgid "Use existing on-page tag?"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:299
+#: admin/settings/pages/Integrations.js:293
 msgid "Should we use an existing google analytics (v4) tag? If not, we'll output one for you."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:310
+#: admin/settings/pages/Integrations.js:304
 msgid "Measurement ID"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:311
+#: admin/settings/pages/Integrations.js:305
 msgid "Enter a Google Analytics Measurement ID, which can be found on your analytics admin page."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:322
+#: admin/settings/pages/Integrations.js:316
 msgid "Settings for YouTube videos."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:326
+#: admin/settings/pages/Integrations.js:320
 msgid "Privacy-Enhanced Mode"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:327
+#: admin/settings/pages/Integrations.js:321
 msgid "Embed YouTube videos without using cookies that track viewing behaviour."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:336
+#: admin/settings/pages/Integrations.js:330
 msgid "Channel ID"
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:339
+#: admin/settings/pages/Integrations.js:333
 msgid "Enter the ID of your channel to enable Youtube Subscribe button functionality."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:357
+#: admin/settings/pages/Integrations.js:351
 msgid "Integrate Presto Player with an email provider for email capture."
 msgstr ""
 
-#: admin/settings/pages/Integrations.js:381
+#: admin/settings/pages/Integrations.js:375
 msgid "To get started with Bunny.net, add a Bunny.net video to your page."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:399
-#: admin/settings/pages/Integrations.js:407
-msgid "Contribute to Presto Player"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:400
-msgid "Help us improve Presto Player by sharing non-sensitive usage data."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:410
-msgid "Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. "
 msgstr ""
 
 #: admin/settings/pages/parts/BunnyClassic/index.js:29
@@ -2855,7 +2855,7 @@ msgid "Public Stream CDN Hostname"
 msgstr ""
 
 #: admin/settings/pages/parts/EmailExport.js:60
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:313
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:306
 msgid "Other"
 msgstr ""
 
@@ -3448,43 +3448,39 @@ msgstr ""
 msgid "The presto video in this post will be used for video progression."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:242
+#: lib/bsf-analytics/class-bsf-analytics.php:270
 #, php-format
-msgid "Help us improve %1$s and our other products!<br><br>With your permission, we'd like to collect <strong>non-sensitive information</strong> from your website — like your PHP version and which features you use — so we can fix bugs faster, make smarter decisions, and build features that actually matter to you. <em>No personal info. Ever.</em>"
+msgid "<strong>Help shape the future of %1$s.</strong><br><br>Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:249
+#: lib/bsf-analytics/class-bsf-analytics.php:277
 msgid "This will be applicable for all sites from the network."
 msgstr ""
 
 #. translators: %s usage doc link
-#: lib/bsf-analytics/class-bsf-analytics.php:273
-msgid " Know More."
+#: lib/bsf-analytics/class-bsf-analytics.php:301
+msgid "Learn more."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:283
-msgid "Yes! Allow it"
+#: lib/bsf-analytics/class-bsf-analytics.php:311
+msgid "Happy to help!"
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:294
-msgid "No Thanks"
-msgstr ""
-
-#: lib/bsf-analytics/class-bsf-analytics.php:462
+#: lib/bsf-analytics/class-bsf-analytics.php:500
 msgid "Usage Tracking"
 msgstr ""
 
 #. translators: %s Product title
-#: lib/bsf-analytics/class-bsf-analytics.php:507
+#: lib/bsf-analytics/class-bsf-analytics.php:545
 #, php-format
-msgid "Allow %s products to track non-sensitive usage tracking data."
+msgid "Help improve %s by sharing non-sensitive usage data — like PHP version and features used."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:510
+#: lib/bsf-analytics/class-bsf-analytics.php:548
 msgid " This will be applicable for all sites from the network."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:515
+#: lib/bsf-analytics/class-bsf-analytics.php:553
 msgid "Learn More."
 msgstr ""
 
@@ -3493,7 +3489,7 @@ msgid "Oops! Something went wrong. Please refresh the page and try again."
 msgstr ""
 
 #: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
-#: Services/Usage.php:117
+#: Services/Usage.php:164
 msgid "Quick Feedback"
 msgstr ""
 
@@ -3501,66 +3497,66 @@ msgstr ""
 msgid "If you have a moment, please share why you are deactivating the plugin."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:112
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:105
 msgid "Icon"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:139
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:314
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:132
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:307
 msgid "Please tell us more details."
 msgstr ""
 
 #. translators: %1$s: link html start, %2$s: link html end
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:148
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:141
 #, php-format
 msgid "Need help from our experts? %1$sClick here to contact us.%2$s"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:159
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:152
 msgid "Submit & Deactivate"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:160
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:153
 msgid "Skip & Deactivate"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:229
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:222
 msgid "Sorry, you are not allowed to do this operation."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:242
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:235
 msgid "Nonce validation failed"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:289
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:282
 msgid "This is a temporary deactivation for testing."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:290
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:283
 msgid "How can we assist you?"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:295
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:288
 msgid "The plugin isn't working properly."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:296
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:289
 msgid "Please tell us more about what went wrong?"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:301
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:294
 msgid "I found a better alternative plugin."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:302
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:295
 msgid "Could you please specify which plugin?"
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:307
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:300
 msgid "It's missing a specific feature."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:308
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:301
 msgid "Please tell us more about the feature."
 msgstr ""
 
@@ -3999,7 +3995,7 @@ msgstr ""
 msgid "YouTube Optimized"
 msgstr ""
 
-#: Services/Usage.php:119
+#: Services/Usage.php:166
 msgid "If you have a moment, please share why you are deactivating Presto Player:"
 msgstr ""
 

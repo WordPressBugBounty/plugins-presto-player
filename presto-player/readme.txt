@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 6.9
-Stable tag: 4.1.2
+Stable tag: 4.1.3
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -155,6 +155,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.1.3 =
+* Fix: Prevented fatal error when third-party plugins call the_title filter without a post ID argument.
 
 = 4.1.2 =
 * New: Added filters to disable or modify video SEO schema output.
