@@ -82,8 +82,10 @@ function AudioBlockInspectorControl({ attributes, setAttributes }) {
         <PanelRow>
           <SelectControl
             label={
-              <Flex>
-                <div>{__("Performance Preference", "presto-player")}</div>
+              <Flex justify="flex-start" align="center" gap={1}>
+                <div style={{ whiteSpace: "nowrap" }}>
+                  {__("Performance Preference", "presto-player")}
+                </div>
                 <a
                   href="https://prestoplayer.com/docs/performance-preferences-explained"
                   target="_blank"

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-13T11:30:16+00:00\n"
+"POT-Creation-Date: 2026-05-18T11:48:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -214,82 +214,82 @@ msgstr ""
 msgid "Autoplay"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:86
-#: admin/blocks/shared/settings/index.js:186
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:87
+#: admin/blocks/shared/settings/index.js:187
 msgid "Performance Preference"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:102
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:104
 msgid "Audio Playback Speed"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:106
-#: admin/blocks/shared/settings/index.js:213
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:108
+#: admin/blocks/shared/settings/index.js:215
 msgid "Page Load Speed"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:110
-#: admin/blocks/shared/settings/index.js:217
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:112
+#: admin/blocks/shared/settings/index.js:219
 msgid "Page Load Speed (Extreme)"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:121
-#: admin/blocks/shared/settings/index.js:227
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:123
+#: admin/blocks/shared/settings/index.js:229
 msgid "Poster image"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:124
-#: admin/blocks/shared/settings/index.js:230
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:126
+#: admin/blocks/shared/settings/index.js:232
 msgid "Select poster image"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:135
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:137
 #: admin/blocks/shared/audioPresets/Behavior.js:80
 #: admin/blocks/shared/branding/index.js:86
 #: admin/blocks/shared/presets/Behavior.js:135
-#: admin/blocks/shared/settings/index.js:241
+#: admin/blocks/shared/settings/index.js:243
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:64
 #: admin/settings/components/Media.js:48
 msgid "Select"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:136
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:138
 #: admin/blocks/blocks/audio/edit.js:128
 #: admin/blocks/blocks/bunny/edit.js:480
 #: admin/blocks/blocks/hosted/edit.js:213
 #: admin/blocks/blocks/vimeo/edit.js:119
 #: admin/blocks/blocks/youtube/edit.js:119
 #: admin/blocks/shared/branding/index.js:87
-#: admin/blocks/shared/settings/index.js:242
+#: admin/blocks/shared/settings/index.js:244
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:65
 #: admin/settings/components/Media.js:49
 msgid "Replace"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:143
-#: admin/blocks/shared/settings/index.js:249
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:145
+#: admin/blocks/shared/settings/index.js:251
 #, js-format
 msgid "The current poster image url is %s"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:146
-#: admin/blocks/shared/settings/index.js:252
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:148
+#: admin/blocks/shared/settings/index.js:254
 msgid "There is no poster image currently selected"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:157
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:159
 #: admin/blocks/shared/branding/index.js:108
-#: admin/blocks/shared/settings/index.js:263
+#: admin/blocks/shared/settings/index.js:265
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:86
 #: admin/settings/components/Media.js:64
 msgid "Remove"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:166
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:168
 msgid "Audio Preset"
 msgstr ""
 
-#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:173
+#: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:175
 #: admin/blocks/shared/BlockInspectorControls.js:96
 msgid "Global Player Branding"
 msgstr ""
@@ -625,7 +625,7 @@ msgid "Upload New Video"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:125
-#: Services/Shortcodes.php:232
+#: Services/Shortcodes.php:237
 msgid "Videos"
 msgstr ""
 
@@ -956,7 +956,7 @@ msgid "Enter Youtube Video URL"
 msgstr ""
 
 #: admin/blocks/blocks/youtube/edit.js:96
-#: admin/blocks/shared/LinkPlaceholder.js:40
+#: admin/blocks/shared/LinkPlaceholder.js:44
 msgid "Youtube URL"
 msgstr ""
 
@@ -1334,7 +1334,7 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Preview.js:102
 #: admin/blocks/shared/Preview.js:67
 #: admin/blocks/shared/Preview.js:103
-#: lib/bsf-analytics/class-bsf-analytics.php:322
+#: lib/bsf-analytics/class-bsf-analytics.php:325
 #: Services/Translation.php:94
 msgid "Skip"
 msgstr ""
@@ -1498,7 +1498,7 @@ msgstr ""
 msgid "Enter video URL"
 msgstr ""
 
-#: admin/blocks/shared/LinkPlaceholder.js:47
+#: admin/blocks/shared/LinkPlaceholder.js:52
 msgid "Add Video"
 msgstr ""
 
@@ -1512,7 +1512,7 @@ msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:33
 #: Integrations/Elementor/VideoWidget.php:139
-#: Services/Shortcodes.php:233
+#: Services/Shortcodes.php:238
 msgid "Video"
 msgstr ""
 
@@ -2208,47 +2208,47 @@ msgstr ""
 msgid "On mobile browsers, play the video on the page instead of opening it up fullscreen."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:201
+#: admin/blocks/shared/settings/index.js:203
 msgid "A poster image is recommended for this setting."
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:209
+#: admin/blocks/shared/settings/index.js:211
 msgid "Video Playback Speed"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:272
+#: admin/blocks/shared/settings/index.js:274
 msgid "Aspect Ratio"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:278
+#: admin/blocks/shared/settings/index.js:280
 msgid "Original"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:279
+#: admin/blocks/shared/settings/index.js:281
 msgid "Square - 1:1"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:280
+#: admin/blocks/shared/settings/index.js:282
 msgid "Standard - 4:3"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:281
+#: admin/blocks/shared/settings/index.js:283
 msgid "Portrait - 3:4"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:282
+#: admin/blocks/shared/settings/index.js:284
 msgid "Classic - 3:2"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:285
+#: admin/blocks/shared/settings/index.js:287
 msgid "Classic Portrait - 2:3"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:287
+#: admin/blocks/shared/settings/index.js:289
 msgid "Wide - 16:9"
 msgstr ""
 
-#: admin/blocks/shared/settings/index.js:288
+#: admin/blocks/shared/settings/index.js:290
 msgid "Tall - 9:16"
 msgstr ""
 
@@ -3448,39 +3448,39 @@ msgstr ""
 msgid "The presto video in this post will be used for video progression."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:270
+#: lib/bsf-analytics/class-bsf-analytics.php:273
 #, php-format
 msgid "<strong>Help shape the future of %1$s.</strong><br><br>Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:277
+#: lib/bsf-analytics/class-bsf-analytics.php:280
 msgid "This will be applicable for all sites from the network."
 msgstr ""
 
 #. translators: %s usage doc link
-#: lib/bsf-analytics/class-bsf-analytics.php:301
+#: lib/bsf-analytics/class-bsf-analytics.php:304
 msgid "Learn more."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:311
+#: lib/bsf-analytics/class-bsf-analytics.php:314
 msgid "Happy to help!"
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:500
+#: lib/bsf-analytics/class-bsf-analytics.php:503
 msgid "Usage Tracking"
 msgstr ""
 
 #. translators: %s Product title
-#: lib/bsf-analytics/class-bsf-analytics.php:545
+#: lib/bsf-analytics/class-bsf-analytics.php:548
 #, php-format
 msgid "Help improve %s by sharing non-sensitive usage data — like PHP version and features used."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:548
+#: lib/bsf-analytics/class-bsf-analytics.php:551
 msgid " This will be applicable for all sites from the network."
 msgstr ""
 
-#: lib/bsf-analytics/class-bsf-analytics.php:553
+#: lib/bsf-analytics/class-bsf-analytics.php:556
 msgid "Learn More."
 msgstr ""
 
@@ -3833,7 +3833,7 @@ msgstr ""
 msgid "Usage tracking opt-in."
 msgstr ""
 
-#: Services/Shortcodes.php:231
+#: Services/Shortcodes.php:236
 msgid "Playlist"
 msgstr ""
 

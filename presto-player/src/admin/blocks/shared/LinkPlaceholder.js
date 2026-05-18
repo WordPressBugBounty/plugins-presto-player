@@ -32,7 +32,11 @@ export default function ({
           onSelectURL(state.url);
         }}
       >
-        <Flex style={{ width: "100%", maxWidth: "400px" }}>
+        <Flex
+          align="flex-end"
+          gap={2}
+          style={{ width: "100%", maxWidth: "400px" }}
+        >
           <FlexBlock>
             <TextControl
               type="url"
@@ -40,10 +44,11 @@ export default function ({
               placeholder={placeholder || __("Youtube URL", "presto-player")}
               value={state.url}
               onChange={(url) => setState({ url })}
+              __nextHasNoMarginBottom
             />
           </FlexBlock>
           <FlexItem>
-            <Button isPrimary style={{ marginBottom: "8px" }} type="submit">
+            <Button isPrimary type="submit">
               {__("Add Video", "presto-player")}
             </Button>
           </FlexItem>

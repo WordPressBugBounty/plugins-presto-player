@@ -1,4 +1,9 @@
 <?php
+/**
+ * Reusable Video Model.
+ *
+ * @package PrestoPlayer\Models
+ */
 
 namespace PrestoPlayer\Models;
 
@@ -42,6 +47,8 @@ class ReusableVideo {
 	 */
 	public function __construct( $id = 0 ) {
 		$this->post = \get_post( $id );
+		// TODO: remove this no-op return; kept temporarily to avoid changing constructor contract in a patch release.
+		// phpcs:ignore Universal.CodeAnalysis.ConstructorDestructorReturn.ReturnValueFound
 		return $this;
 	}
 
@@ -142,6 +149,26 @@ class ReusableVideo {
 	}
 
 	/**
+	 * Get the WordPress post status of the underlying Media Hub item.
+	 *
+	 * Returns the raw post_status string (e.g. `publish`, `private`, `draft`)
+	 * when the loaded post is a Media Hub item, or null when the post is
+	 * missing or of a different type. Callers decide policy from the value;
+	 * this method is intentionally data-only.
+	 *
+	 * @return string|null
+	 */
+	public function getMediaHubPostVisibility() {
+		if ( ! $this->post ) {
+			return null;
+		}
+		if ( $this->post_type !== $this->post->post_type ) {
+			return null;
+		}
+		return $this->post->post_status;
+	}
+
+	/**
 	 * Get attributes from the block
 	 *
 	 * @param array $overrides Attributes to override.
@@ -154,10 +181,10 @@ class ReusableVideo {
 			return '';
 		}
 
-		// allow overriding attributes
+		// Allow overriding attributes.
 		$block['attrs'] = wp_parse_args( $overrides, (array) $block['attrs'] );
 
-		// maybe switch provider depending on url
+		// Maybe switch provider depending on url.
 		if ( ! empty( $overrides ) ) {
 			$block = $this->maybeSwitchProvider( $block );
 		}
@@ -196,10 +223,10 @@ class ReusableVideo {
 			return '';
 		}
 
-		// allow overriding attributes
+		// Allow overriding attributes.
 		$block['attrs'] = wp_parse_args( $overrides, (array) $block['attrs'] );
 
-		// maybe switch provider depending on url
+		// Maybe switch provider depending on url.
 		$block = $this->maybeSwitchProvider( $block );
 
 		// remove attachment_id if the src changes.

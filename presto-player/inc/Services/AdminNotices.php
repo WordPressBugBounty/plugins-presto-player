@@ -7,7 +7,7 @@
 
 namespace PrestoPlayer\Services;
 
-use Astra_Notices;
+use BSF_Admin_Notices;
 use PrestoPlayer\Models\Video;
 use PrestoPlayer\Support\Utility;
 
@@ -49,10 +49,10 @@ class AdminNotices {
 	 * @return void
 	 */
 	public function displayRatingsNotice() {
-		require_once PRESTO_PLAYER_PLUGIN_DIR . 'vendor/brainstormforce/astra-notices/class-astra-notices.php';
+		require_once PRESTO_PLAYER_PLUGIN_DIR . 'vendor/brainstormforce/astra-notices/class-bsf-admin-notices.php';
 		$image_path = PRESTO_PLAYER_PLUGIN_URL . 'img/presto-player-icon-color.png';
 
-		Astra_Notices::add_notice(
+		BSF_Admin_Notices::add_notice(
 			array(
 				'id'                         => 'presto-player-rating',
 				'type'                       => '',

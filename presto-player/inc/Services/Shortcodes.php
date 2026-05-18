@@ -15,6 +15,7 @@ use PrestoPlayer\Blocks\YouTubeBlock;
 use PrestoPlayer\Blocks\SelfHostedBlock;
 use PrestoPlayer\Models\ReusableVideo;
 use PrestoPlayer\Services\ReusableVideos;
+use PrestoPlayer\Support\Block;
 use PrestoPlayer\Pro\Blocks\BunnyCDNBlock;
 use PrestoPlayer\Plugin;
 
@@ -81,6 +82,10 @@ class Shortcodes {
 
 		// could not find source but ID is present.
 		if ( ! $atts['src'] && ! $atts['custom_field'] && $atts['id'] ) {
+			$fallback = $this->maybeUnauthorizedFallback( $atts['id'] );
+			if ( false !== $fallback ) {
+				return $fallback;
+			}
 			return ReusableVideos::getBlock( $atts['id'] );
 		}
 
@@ -513,6 +518,50 @@ class Shortcodes {
 		}
 
 		return $items;
+	}
+
+	/**
+	 * Pre-render gate for the player shortcode.
+	 *
+	 * The shortcode `[presto_player id=X]` renders the underlying Media Hub
+	 * post directly via ReusableVideos::getBlock(). That bypasses the
+	 * normal singular-post visibility check WordPress applies when you
+	 * visit the Media Hub permalink — so a Media Hub item set to Private
+	 * was leaking through the shortcode.
+	 *
+	 * This method short-circuits the shortcode with the standard
+	 * "Please login for access" curtain whenever the referenced
+	 * pp_video_block post is non-public AND the current user cannot read
+	 * it. We defer to current_user_can( 'read_post', $id ) so WP's
+	 * map_meta_cap chain stays in charge — site owners and capability
+	 * plugins (membership, LMS) keep full control without us inventing
+	 * a parallel filter.
+	 *
+	 * @param int|string $id Media Hub post ID supplied to the shortcode.
+	 * @return string|false  Curtain HTML to short-circuit, or false to continue.
+	 */
+	public function maybeUnauthorizedFallback( $id ) {
+		$reusable   = new ReusableVideo( (int) $id );
+		$visibility = $reusable->getMediaHubPostVisibility();
+
+		// Not a Media Hub post — let the normal flow handle it.
+		if ( null === $visibility ) {
+			return false;
+		}
+
+		// Public statuses (publish) are viewable by anyone — fast path.
+		$status_obj = get_post_status_object( $visibility );
+		if ( $status_obj && $status_obj->public ) {
+			return false;
+		}
+
+		// Non-public status — defer to WP's standard post-visibility check
+		// so admins/editors and capability plugins still pass through.
+		if ( current_user_can( 'read_post', $reusable->post->ID ) ) {
+			return false;
+		}
+
+		return ( new Block() )->getFallbackHTMLForUnauthorizeAccess();
 	}
 
 	/**
