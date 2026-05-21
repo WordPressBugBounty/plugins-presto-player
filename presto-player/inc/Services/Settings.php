@@ -7,8 +7,9 @@
 
 namespace PrestoPlayer\Services;
 
-use PrestoPlayer\Plugin;
 use PrestoPlayer\Models\Setting;
+use PrestoPlayer\Plugin;
+use PrestoPlayer\Support\Utility;
 
 /**
  * Settings service.
@@ -21,8 +22,98 @@ class Settings {
 	 * @return void
 	 */
 	public function register() {
-		add_action( 'admin_init', array( $this, 'registerSettings' ) );
-		add_action( 'rest_api_init', array( $this, 'registerSettings' ) );
+		// `init` covers admin, REST, front-end, AJAX, and cron in one shot — the
+		// previous admin_init + rest_api_init pair double-registered on every
+		// admin REST request and missed cron/front-end contexts entirely.
+		add_action( 'init', array( $this, 'registerSettings' ) );
+
+		// Default to "synced" when the option has never been stored. Covers the
+		// window before register_setting()'s default is wired up by admin_init /
+		// rest_api_init.
+		add_filter(
+			'default_option_presto_player_media_hub_sync_default',
+			function ( $default_value, $option, $passed_default ) {
+				if ( $passed_default ) {
+					return $default_value;
+				}
+				return true;
+			},
+			10,
+			3
+		);
+
+		// $wpdb writes option values via a `%s` placeholder, so PHP `false` lands
+		// in wp_options as ''. That '' then fails the `type: boolean` REST schema
+		// check and WP_REST_Settings_Controller swaps it out for `null` — which
+		// the dashboard hook falls back to the `true` default, silently overriding
+		// "Not Synced" on every page load. Unmarshal '' → false here so the
+		// round-trip through the schema preserves user intent. Direction matters:
+		// coercing '' → true (as an earlier fix did) masks legitimately saved
+		// false values behind update_option()'s no-change short-circuit.
+		add_filter(
+			'option_presto_player_media_hub_sync_default',
+			function ( $value ) {
+				return '' === $value ? false : $value;
+			}
+		);
+	}
+
+	/**
+	 * Sanitize the branding option array before storage.
+	 *
+	 * Single choke-point for every save path: WP core's `/wp/v2/settings`,
+	 * the plugin's `presto-player/v1/settings`, and any direct
+	 * `update_option('presto_player_branding', ...)` from PHP all route
+	 * through `sanitize_option`, which invokes this callback. Per-property
+	 * `sanitize_callback` entries on a nested object schema are silently
+	 * ignored by core REST (only `type`/`minimum`/`maximum`/`format` run),
+	 * so anything mission-critical lives here.
+	 *
+	 * Responsibilities:
+	 *   - Strip HTML markup from `player_css` (defense in depth — the
+	 *     render pipeline also runs `Utility::sanitizeCSS`).
+	 *   - Constrain `logo` to http(s) URLs (blocks `data:` SVGs and
+	 *     similar schemes that core's `esc_url_raw` would otherwise pass).
+	 *   - Clamp `logo_width` to [1, 400] integers.
+	 *   - Coerce `color` to a valid hex value, falling back to the brand
+	 *     default when invalid (avoids the schema-validated `null` that
+	 *     the REST round-trip would otherwise produce).
+	 *   - Enforce the Pro gate on `logo` / `logo_width` so a non-Pro admin
+	 *     can't bypass the UI gate via a direct REST call.
+	 *
+	 * @param mixed $value Raw value posted to the REST/admin form.
+	 * @return array Sanitized branding option.
+	 */
+	public function sanitizeBranding( $value ) {
+		if ( ! is_array( $value ) ) {
+			return array();
+		}
+
+		if ( array_key_exists( 'player_css', $value ) && is_string( $value['player_css'] ) ) {
+			$value['player_css'] = Utility::sanitizeCSS( $value['player_css'] );
+		}
+
+		if ( array_key_exists( 'logo', $value ) ) {
+			$value['logo'] = is_string( $value['logo'] )
+				? esc_url_raw( $value['logo'], array( 'http', 'https' ) )
+				: '';
+		}
+
+		if ( array_key_exists( 'logo_width', $value ) ) {
+			$width               = (int) $value['logo_width'];
+			$value['logo_width'] = max( 1, min( 400, $width ) );
+		}
+
+		if ( array_key_exists( 'color', $value ) ) {
+			$hex            = is_string( $value['color'] ) ? sanitize_hex_color( $value['color'] ) : null;
+			$value['color'] = $hex ?? Setting::getDefaultColor();
+		}
+
+		if ( ! Plugin::isPro() ) {
+			unset( $value['logo'], $value['logo_width'] );
+		}
+
+		return $value;
 	}
 
 	/**
@@ -64,7 +155,8 @@ class Settings {
 					'name'   => 'presto_player_analytics',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'enable'     => array(
 								'type' => 'boolean',
 							),
@@ -88,24 +180,30 @@ class Settings {
 			'presto_player',
 			'presto_player_branding',
 			array(
-				'type'         => 'object',
-				'description'  => __( 'Branding settings.', 'presto-player' ),
-				'show_in_rest' => array(
+				'type'              => 'object',
+				'description'       => __( 'Branding settings.', 'presto-player' ),
+				'sanitize_callback' => array( $this, 'sanitizeBranding' ),
+				'show_in_rest'      => array(
 					'name'   => 'presto_player_branding',
 					'type'   => 'object',
+					// Per-property `sanitize_callback` entries inside an object
+					// schema are NOT invoked by core's REST controller — only
+					// the type/minimum/maximum/format checks are. Everything
+					// else is done in `sanitizeBranding` below so it actually
+					// runs for every save path.
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'logo'       => array(
-								'type'              => 'string',
-								'sanitize_callback' => 'esc_url_raw',
+								'type' => 'string',
 							),
 							'logo_width' => array(
-								'type'              => 'number',
-								'sanitize_callback' => 'intval',
+								'type'    => 'integer',
+								'minimum' => 1,
+								'maximum' => 400,
 							),
 							'color'      => array(
-								'type'              => 'string',
-								'sanitize_callback' => 'sanitize_hex_color',
+								'type' => 'string',
 							),
 							'player_css' => array(
 								'type' => 'string',
@@ -113,7 +211,7 @@ class Settings {
 						),
 					),
 				),
-				'default'      => array(
+				'default'           => array(
 					'logo'       => '',
 					'logo_width' => 150,
 					'color'      => Setting::getDefaultColor(),
@@ -132,7 +230,8 @@ class Settings {
 					'name'   => 'presto_player_performance',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'module_enabled' => array(
 								'type' => 'boolean',
 							),
@@ -162,7 +261,8 @@ class Settings {
 					'name'   => 'presto_player_uninstall',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'uninstall_data' => array(
 								'type' => 'boolean',
 							),
@@ -188,7 +288,8 @@ class Settings {
 					'name'   => 'presto_player_google_analytics',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'enable'           => array(
 								'type' => 'boolean',
 							),
@@ -222,7 +323,8 @@ class Settings {
 					'name'   => 'presto_player_presets',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'default_player_preset' => array(
 								'type'              => 'integer',
 								'sanitize_callback' => 'intval',
@@ -246,7 +348,8 @@ class Settings {
 					'name'   => 'presto_player_audio_presets',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'default_player_preset' => array(
 								'type'              => 'integer',
 								'sanitize_callback' => 'intval',
@@ -273,7 +376,8 @@ class Settings {
 					'name'   => 'presto_player_youtube',
 					'type'   => 'object',
 					'schema' => array(
-						'properties' => array(
+						'additionalProperties' => false,
+						'properties'           => array(
 							'nocookie'   => array(
 								'type' => 'boolean',
 							),
@@ -318,9 +422,15 @@ class Settings {
 			'presto_player',
 			'presto_player_media_hub_sync_default',
 			array(
-				'type'         => 'boolean',
-				'description'  => __( 'Set the default for media hub sync setting.', 'presto-player' ),
-				'show_in_rest' => array(
+				'type'              => 'boolean',
+				'description'       => __( 'Set the default for media hub sync setting.', 'presto-player' ),
+				'sanitize_callback' => function ( $value ) {
+					if ( null === $value || '' === $value ) {
+						return true;
+					}
+					return rest_sanitize_boolean( $value );
+				},
+				'show_in_rest'      => array(
 					'name'   => 'presto_player_media_hub_sync_default',
 					'type'   => 'boolean',
 					'schema' => array(
@@ -328,7 +438,7 @@ class Settings {
 						'default' => true,
 					),
 				),
-				'default'      => true,
+				'default'           => true,
 			)
 		);
 
@@ -356,23 +466,5 @@ class Settings {
 				'default'           => 'no',
 			)
 		);
-	}
-
-	/**
-	 * Render settings page container.
-	 *
-	 * @return void
-	 */
-	public static function template() {
-		?>
-		<?php do_action( 'presto_player_settings_header' ); ?>
-		<div class="presto-player-dashboard__header">
-			<img class="presto-player-dashboard__logo" src="<?php echo esc_url( PRESTO_PLAYER_PLUGIN_URL . '/img/logo.svg' ); ?>" />
-			<div class="presto-player-dashboard__version">v<?php echo esc_html( Plugin::version() ); ?></div>
-		</div>
-		<div id="presto-settings-page"></div>
-		<?php wp_auth_check_html(); ?>
-		<?php do_action( 'presto_player_settings_footer' ); ?>
-		<?php
 	}
 }

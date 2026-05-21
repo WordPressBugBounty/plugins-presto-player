@@ -52,9 +52,6 @@
   padding-right: 15px;
   height: fit-content;
   min-height: 175px;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
 }
 .playlist__info--inner .playlist__list {
   gap: var(--presto-playlist-gap, 10px);
@@ -64,13 +61,22 @@
 .playlist__info--inner::-webkit-scrollbar {
   width: 6px;
 }
+.playlist__info--inner {
+  /* Track */
+}
 .playlist__info--inner::-webkit-scrollbar-track {
   background: #ddd;
   border-radius: 5px;
 }
+.playlist__info--inner {
+  /* Handle */
+}
 .playlist__info--inner::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 5px;
+}
+.playlist__info--inner {
+  /* Handle on hover */
 }
 .playlist__info--inner::-webkit-scrollbar-thumb:hover {
   background: #aaa;

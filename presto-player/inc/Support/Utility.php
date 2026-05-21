@@ -19,22 +19,47 @@ class Utility {
 	 * @var array
 	 */
 	const PRESTO_PLAYER_SCREENS = array(
-		'edit-pp_video_block',                       // Media-hub page.
-		'edit-pp_email_submission',                  // Email Submissions list/edit page.
-		'presto-player_page_presto-analytics',       // Analytics page.
-		'presto-player_page_presto-player-settings', // Settings page (includes email tab in Integrations).
-		'presto-player_page_presto_license',         // License page.
+		'toplevel_page_presto-dashboard',  // Main dashboard (React SPA).
+		'edit-pp_video_block',             // Media-hub page.
+		'edit-pp_email_submission',        // Email Submissions list/edit page.
 	);
 
 	/**
+	 * Detect whether a string contains an HTML tag (`<word` or `</word`).
+	 *
+	 * Centralized so the save-time and render-time CSS sanitizers stay in lock-step.
+	 *
+	 * @param string $value String to inspect.
+	 * @return bool
+	 */
+	public static function hasHtmlMarkup( $value ) {
+		if ( ! is_string( $value ) || '' === $value ) {
+			return false;
+		}
+		return (bool) preg_match( '#</?\w+#', $value );
+	}
+
+	/**
 	 * Sanitize CSS input.
+	 *
+	 * Strips HTML tags rather than wiping the value, so a single stray `<`
+	 * in a legitimate selector doesn't blank the user's entire stylesheet.
+	 * The remaining CSS still runs through `wp_kses_post()` + `esc_attr()` at
+	 * render time (see `Support\Block::getCSS()`), so this is defense in depth.
 	 *
 	 * @param string $css CSS to sanitize.
 	 * @return string Sanitized CSS.
 	 */
 	public static function sanitizeCSS( $css ) {
 		$css = $css ?? '';
-		return preg_match( '#</?\w+#', $css ) ? '' : $css;
+		if ( ! self::hasHtmlMarkup( $css ) ) {
+			return $css;
+		}
+		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( 'Presto Player: HTML markup stripped from custom player CSS.' );
+		}
+		return wp_strip_all_tags( $css );
 	}
 
 	/**

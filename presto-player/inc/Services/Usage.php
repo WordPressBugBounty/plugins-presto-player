@@ -63,6 +63,16 @@ class Usage implements Service {
 	 */
 	const KPI_RETENTION_DAYS = 2;
 
+	/**
+	 * Option key for the pending events queue.
+	 *
+	 * Must match the key BSF_Analytics_Events builds internally:
+	 * {slug}_usage_events_pending where slug is 'presto-player'.
+	 *
+	 * @var string
+	 */
+	const EVENTS_PENDING_OPTION = 'presto-player_usage_events_pending';
+
 	// -------------------------------------------------------------------------
 	// Properties
 	// -------------------------------------------------------------------------
@@ -97,6 +107,9 @@ class Usage implements Service {
 		add_action( 'wp_ajax_presto_player_daily_views', array( $this, 'handle_daily_views' ) );
 		add_action( 'wp_ajax_nopriv_presto_player_daily_views', array( $this, 'handle_daily_views' ) );
 
+		// Learn progress fires from REST context (not admin), so register before the is_admin() gate.
+		add_action( 'presto_player_learn_progress_saved', array( $this, 'track_learn_chapter_progress' ) );
+
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -127,11 +140,18 @@ class Usage implements Service {
 	 * @return \BSF_Analytics_Events|null
 	 */
 	public static function events() {
-		if ( ! class_exists( 'BSF_Analytics_Events' ) ) {
-			return null;
-		}
-
 		if ( null === self::$events ) {
+			if ( ! class_exists( 'BSF_Analytics_Events' ) ) {
+				$events_file = PRESTO_PLAYER_PLUGIN_DIR . 'inc/lib/bsf-analytics/class-bsf-analytics-events.php';
+				if ( file_exists( $events_file ) ) {
+					require_once $events_file;
+				}
+			}
+
+			if ( ! class_exists( 'BSF_Analytics_Events' ) ) {
+				return null;
+			}
+
 			self::$events = new \BSF_Analytics_Events( 'presto-player' );
 		}
 		return self::$events;
@@ -336,6 +356,53 @@ class Usage implements Service {
 	}
 
 	/**
+	 * Track learn chapter progress as a re-trackable event.
+	 *
+	 * Builds per-chapter completion status from the saved progress and
+	 * fires a single event whose properties show each chapter as
+	 * 'completed' or 'pending'. The event value is 'completed' only
+	 * when every chapter is done.
+	 *
+	 * @param array $saved_progress Full progress array from user meta.
+	 * @return void
+	 */
+	public function track_learn_chapter_progress( $saved_progress ) {
+		if ( empty( $saved_progress ) || ! is_array( $saved_progress ) ) {
+			return;
+		}
+
+		if ( ! self::events() ) {
+			return;
+		}
+
+		$chapters = Learn::get_chapters_structure();
+		if ( empty( $chapters ) ) {
+			return;
+		}
+
+		$properties   = array();
+		$all_complete = true;
+
+		foreach ( $chapters as $chapter ) {
+			$chapter_id = isset( $chapter['id'] ) ? $chapter['id'] : '';
+			if ( empty( $chapter_id ) ) {
+				continue;
+			}
+
+			$is_done = Learn::is_chapter_complete( $chapter, $saved_progress );
+
+			$properties[ sanitize_key( $chapter_id ) ] = $is_done ? 'completed' : 'pending';
+			if ( ! $is_done ) {
+				$all_complete = false;
+			}
+		}
+
+		$event_value = $all_complete ? 'completed' : 'in_progress';
+
+		self::retrack_event( 'learn_chapter_progress', $event_value, $properties );
+	}
+
+	/**
 	 * Track plugin deactivation event.
 	 *
 	 * Called from register_deactivation_hook. The event is stored in the
@@ -510,7 +577,7 @@ class Usage implements Service {
 		);
 
 		// Media Hub items (published).
-		$media                            = new ReusableVideo();
+		$media                             = new ReusableVideo();
 		$counts['content_media_hub_count'] = (int) $media->getTotalPublished();
 
 		return $counts;
@@ -582,12 +649,12 @@ class Usage implements Service {
 	 */
 	private function get_integration_kpis(): array {
 		$integrations = array(
-			'integration_learndash'       => class_exists( 'SFWD_LMS' ),
-			'integration_tutor'           => function_exists( 'tutor' ),
-			'integration_lifter'          => function_exists( 'is_lifterlms' ),
-			'integration_elementor'       => did_action( 'elementor/loaded' ) > 0,
-			'integration_divi'            => defined( 'ET_BUILDER_VERSION' ),
-			'integration_beaver_builder'  => class_exists( 'FLBuilder' ),
+			'integration_learndash'      => class_exists( 'SFWD_LMS' ),
+			'integration_tutor'          => function_exists( 'tutor' ),
+			'integration_lifter'         => function_exists( 'is_lifterlms' ),
+			'integration_elementor'      => did_action( 'elementor/loaded' ) > 0,
+			'integration_divi'           => defined( 'ET_BUILDER_VERSION' ),
+			'integration_beaver_builder' => class_exists( 'FLBuilder' ),
 		);
 
 		$kpis  = array();
@@ -692,5 +759,63 @@ class Usage implements Service {
 			return (int) floor( ( time() - $install_time ) / DAY_IN_SECONDS );
 		}
 		return 0;
+	}
+
+	// -------------------------------------------------------------------------
+	// Re-trackable Event Helpers
+	// -------------------------------------------------------------------------
+
+	/**
+	 * Re-track an event: clear from both queues, then track fresh.
+	 *
+	 * Use for events whose payload changes over time (e.g. learn progress,
+	 * onboarding state) — each call replaces the previous entry so the
+	 * latest cumulative state is always what gets sent.
+	 *
+	 * @param string               $event_name  Event identifier.
+	 * @param string               $event_value Primary value.
+	 * @param array<string, mixed> $properties  Additional context.
+	 * @return void
+	 */
+	private static function retrack_event( $event_name, $event_value = '', $properties = array() ) {
+		self::clear_event( $event_name );
+
+		$events = self::events();
+		if ( $events ) {
+			$events->track( $event_name, $event_value, $properties );
+		}
+	}
+
+	/**
+	 * Remove an event from both pushed and pending queues without re-tracking.
+	 *
+	 * @param string $event_name Event identifier to clear.
+	 * @return void
+	 */
+	private static function clear_event( $event_name ) {
+		$events = self::events();
+		if ( ! $events ) {
+			return;
+		}
+
+		// Remove from pushed dedup list.
+		$events->flush_pushed( array( $event_name ) );
+
+		// Remove from pending queue (BSF_Analytics_Events has no API for this).
+		$pending = get_option( self::EVENTS_PENDING_OPTION, array() );
+		$pending = is_array( $pending ) ? $pending : array();
+		$pending = array_values(
+			array_filter(
+				$pending,
+				static function ( $event ) use ( $event_name ) {
+					// Keep malformed entries — only drop ones that explicitly match $event_name.
+					if ( ! is_array( $event ) || ! isset( $event['event_name'] ) ) {
+						return true;
+					}
+					return $event['event_name'] !== $event_name;
+				}
+			)
+		);
+		update_option( self::EVENTS_PENDING_OPTION, $pending );
 	}
 }

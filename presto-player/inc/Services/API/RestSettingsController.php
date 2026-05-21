@@ -1,7 +1,18 @@
 <?php
+/**
+ * REST controller overrides for plugin settings.
+ *
+ * @package PrestoPlayer
+ * @subpackage Services\API
+ */
 
 namespace PrestoPlayer\Services\API;
 
+use PrestoPlayer\Support\Utility;
+
+/**
+ * Customises core's settings REST controller to validate Presto Player options.
+ */
 class RestSettingsController extends \WP_REST_Settings_Controller {
 
 
@@ -22,7 +33,6 @@ class RestSettingsController extends \WP_REST_Settings_Controller {
 	 */
 	public function register() {
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
-		add_filter( 'rest_pre_update_setting', array( $this, 'validatePlayerBrandingCSS' ), 10, 3 );
 	}
 
 	/**
@@ -36,7 +46,7 @@ class RestSettingsController extends \WP_REST_Settings_Controller {
 		$rest_options = array();
 
 		foreach ( get_registered_settings() as $name => $args ) {
-			if ( ! in_array( $name, array( 'presto_player_branding', 'presto_player_youtube', 'presto_player_presets', 'presto_player_audio_presets', 'presto_player_instant_video_width', 'presto_player_media_hub_sync_default', 'presto-player_usage_optin' ) ) ) {
+			if ( ! in_array( $name, array( 'presto_player_branding', 'presto_player_youtube', 'presto_player_presets', 'presto_player_audio_presets', 'presto_player_instant_video_width', 'presto_player_media_hub_sync_default', 'presto_player_performance', 'presto-player_usage_optin' ) ) ) {
 				continue;
 			}
 
@@ -88,40 +98,42 @@ class RestSettingsController extends \WP_REST_Settings_Controller {
 	}
 
 	/**
-	 * Validate player branding css setting value before updating.
+	 * Reject invalid player_css before delegating the update to core.
 	 *
-	 * @param mixed           $value   The value of the setting.
-	 * @param string          $setting The setting name.
-	 * @param WP_REST_Request $request The request object.
+	 * The previous `rest_pre_update_setting` filter approach short-circuited with
+	 * `wp_die()`, which emits HTML and breaks `apiFetch`. Returning a `WP_Error`
+	 * from that filter also fails silently because core treats any truthy return
+	 * as "filter handled the update" and swallows the value with a 200 OK.
+	 * Overriding `update_item` is the only place we can return a JSON 400 the
+	 * client can act on.
 	 *
-	 * @return void
+	 * @param \WP_REST_Request $request Full data about the request.
+	 * @return \WP_REST_Response|\WP_Error
 	 */
-	public function validatePlayerBrandingCSS( $value, $setting, $request ) {
-		if ( 'presto_player_branding' !== $setting ) {
-			return $value;
-		}
-
-		if ( isset( $request['player_css'] ) && ! empty( $request['player_css'] ) ) {
-			$css_validation_result = $this->validateCustomCSS( $request['player_css'] );
+	public function update_item( $request ) {
+		$branding = $request->get_param( 'presto_player_branding' );
+		if ( is_array( $branding ) && array_key_exists( 'player_css', $branding ) ) {
+			$css_validation_result = $this->validateCustomCSS( $branding['player_css'] );
 			if ( is_wp_error( $css_validation_result ) ) {
-				wp_die( $css_validation_result, 400 );
+				return $css_validation_result;
 			}
 		}
 
-		return $value;
+		return parent::update_item( $request );
 	}
 
 	/**
-	 * Validate style.css as valid CSS.
+	 * Reject HTML markup inside the custom player CSS payload.
 	 *
-	 * Currently just checks for invalid markup.
+	 * Shares its detection with `Utility::hasHtmlMarkup` / `Utility::sanitizeCSS`
+	 * so the REST 400 path and the render-time strip stay in lock-step.
 	 *
-	 * @param string $css CSS to validate.
+	 * @param mixed $css CSS string from the request payload.
 	 *
-	 * @return true|WP_Error True if the input was validated, otherwise WP_Error.
+	 * @return true|\WP_Error True if the input is markup-free, otherwise WP_Error.
 	 */
 	protected function validateCustomCSS( $css ) {
-		if ( preg_match( '#</?\w+#', $css ) ) {
+		if ( Utility::hasHtmlMarkup( $css ) ) {
 			return new \WP_Error(
 				'rest_custom_css_illegal_markup',
 				__( 'Markup is not allowed in CSS.', 'presto-player' ),

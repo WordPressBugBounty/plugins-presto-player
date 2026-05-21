@@ -7,184 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-18T11:48:17+00:00\n"
+"POT-Creation-Date: 2026-05-21T03:53:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-
-#: admin/analytics/components/DataTable.js:34
-#: admin/ui/Table.js:14
-msgid "No data available."
-msgstr ""
-
-#: admin/analytics/components/DatePicker.js:22
-#: admin/blocks/shared/audio-placeholder.js:41
-#: admin/blocks/shared/components/ColorPopup.js:82
-#: admin/blocks/shared/placeholder.js:52
-msgid "Apply"
-msgstr ""
-
-#: admin/analytics/components/DatePicker.js:23
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:98
-#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:79
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:158
-#: admin/blocks/blocks/playlist-list/create.js:35
-#: admin/blocks/shared/audio-placeholder.js:140
-#: admin/blocks/shared/audio-placeholder.js:144
-#: admin/blocks/shared/audioPresets/Edit.js:340
-#: admin/blocks/shared/audioPresets/Preset.js:241
-#: admin/blocks/shared/components/ColorPopup.js:79
-#: admin/blocks/shared/overlays/Edit.js:205
-#: admin/blocks/shared/placeholder.js:151
-#: admin/blocks/shared/placeholder.js:155
-#: admin/blocks/shared/presets/Edit.js:369
-#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:99
-#: admin/blocks/shared/presets/Preset.js:241
-#: admin/blocks/shared/tracks/TracksEditor.js:441
-#: admin/blocks/shared/tracks/TracksEditor.js:533
-#: admin/blocks/shared/tracks/TracksEditor.js:591
-#: admin/settings/components/Integration.js:117
-#: admin/settings/components/ToggleControl.js:56
-#: admin/settings/pages/Integrations.js:250
-msgid "Cancel"
-msgstr ""
-
-#: admin/analytics/components/OverviewPanel.js:16
-msgid "Views"
-msgstr ""
-
-#: admin/analytics/components/OverviewPanel.js:20
-msgid "Watch Time"
-msgstr ""
-
-#: admin/analytics/components/TopUsers.js:49
-#: admin/analytics/components/TopVideos.js:50
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:97
-#: admin/blocks/shared/media/MediaPopup.js:108
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:72
-msgid "Name"
-msgstr ""
-
-#: admin/analytics/components/TopUsers.js:54
-#: admin/analytics/components/TopVideos.js:63
-msgid "Total View"
-msgstr ""
-
-#: admin/analytics/components/TopUsers.js:59
-#: admin/analytics/components/TopVideos.js:70
-msgid "Avg View Time"
-msgstr ""
-
-#: admin/analytics/components/TopUsers.js:72
-msgid "Top Users"
-msgstr ""
-
-#: admin/analytics/components/TopVideos.js:56
-#: admin/blocks/shared/components/SelectMediaDropdown.js:144
-#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:155
-#: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:113
-msgid "Untitled"
-msgstr ""
-
-#: admin/analytics/components/TopVideos.js:85
-msgid "View Details"
-msgstr ""
-
-#: admin/analytics/components/TopVideos.js:98
-msgid "Top Media"
-msgstr ""
-
-#: admin/analytics/components/TotalVideoViewsByUser.js:26
-msgid "Total Views"
-msgstr ""
-
-#: admin/analytics/components/TotalViewsGraph.js:120
-#, js-format
-msgid "%d Unique Views"
-msgstr ""
-
-#: admin/analytics/components/TotalWatchGraph.js:116
-#, js-format
-msgid "%s average watch time"
-msgstr ""
-
-#: admin/analytics/components/VideoAverageWatchTime.js:26
-#: admin/analytics/components/VideoAverageWatchTimeByUser.js:26
-msgid "Average Watch Time"
-msgstr ""
-
-#: admin/analytics/components/VideoAverageWatchTime.js:27
-#: admin/analytics/components/VideoAverageWatchTimeByUser.js:27
-#: admin/analytics/components/VideoTotalWatchTimeByUser.js:27
-msgid "seconds"
-msgstr ""
-
-#: admin/analytics/components/VideoTimeline.js:115
-msgid "Audience Retention"
-msgstr ""
-
-#: admin/analytics/components/VideoTotalWatchTimeByUser.js:26
-msgid "Total Watch Time"
-msgstr ""
-
-#: admin/analytics/components/VideoViews.js:27
-msgid "Unique Views"
-msgstr ""
-
-#: admin/analytics/pages/AnalyticsUpgrade.js:13
-msgid "Get detailed video insights."
-msgstr ""
-
-#: admin/analytics/pages/AnalyticsUpgrade.js:15
-msgid "Upgrade to Pro and get video insights like plays, watch-time, and drop off numbers."
-msgstr ""
-
-#: admin/analytics/pages/AnalyticsUpgrade.js:25
-#: admin/blocks/shared/ProUpgradeModal.js:22
-#: admin/settings/components/Disabled.js:29
-#: admin/settings/pages/General.js:418
-#: admin/settings/pages/Integrations.js:381
-#: admin/settings/pages/Performance.js:67
-msgid "Learn More"
-msgstr ""
-
-#: admin/analytics/pages/Dashboard.js:33
-#: admin/settings/pages/General.js:289
-#: Services/Menu.php:30
-#: Services/Menu.php:31
-msgid "Analytics"
-msgstr ""
-
-#: admin/analytics/pages/Dashboard.js:76
-msgid "Analytics are currently disabled. To collect analytics, turn them on in your settings page."
-msgstr ""
-
-#: admin/analytics/pages/User.js:66
-#: admin/analytics/pages/Video.js:149
-msgid "Back to Dashboard"
-msgstr ""
-
-#: admin/analytics/pages/User.js:117
-msgid "View Profile"
-msgstr ""
-
-#: admin/analytics/util.js:10
-#, js-format
-msgid "%d hours"
-msgstr ""
-
-#: admin/analytics/util.js:13
-#, js-format
-msgid "%d minutes"
-msgstr ""
-
-#: admin/analytics/util.js:16
-msgid "and"
-msgstr ""
-
-#: admin/analytics/util.js:19
-#, js-format
-msgid "%d seconds"
-msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:44
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:50
@@ -194,6 +19,7 @@ msgstr ""
 #: admin/blocks/blocks/playlist-list/create.js:17
 #: admin/blocks/blocks/playlist-list/create.js:19
 #: admin/blocks/shared/chapters/components/Chapter.js:37
+#: admin/dashboard/components/MediaHub/PostSettings.js:366
 msgid "Title"
 msgstr ""
 
@@ -249,7 +75,7 @@ msgstr ""
 #: admin/blocks/shared/presets/Behavior.js:135
 #: admin/blocks/shared/settings/index.js:243
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:64
-#: admin/settings/components/Media.js:48
+#: admin/dashboard/components/PostScheduleField.js:75
 msgid "Select"
 msgstr ""
 
@@ -262,7 +88,6 @@ msgstr ""
 #: admin/blocks/shared/branding/index.js:87
 #: admin/blocks/shared/settings/index.js:244
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:65
-#: admin/settings/components/Media.js:49
 msgid "Replace"
 msgstr ""
 
@@ -281,7 +106,6 @@ msgstr ""
 #: admin/blocks/shared/branding/index.js:108
 #: admin/blocks/shared/settings/index.js:265
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:86
-#: admin/settings/components/Media.js:64
 msgid "Remove"
 msgstr ""
 
@@ -307,6 +131,8 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:65
 #: admin/blocks/shared/tracks/TracksEditor.js:86
+#: admin/dashboard/components/MediaHub/MediaRow.js:242
+#: admin/dashboard/components/MediaHub/MediaRow.js:248
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:140
 #: Integrations/Elementor/ReusableVideoWidget.php:128
 msgid "Edit"
@@ -421,7 +247,6 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/APIPlaceholder.js:42
 #: admin/blocks/blocks/bunny/edit.js:385
-#: admin/settings/pages/Integrations.js:374
 msgid "Bunny.net Video"
 msgstr ""
 
@@ -434,7 +259,7 @@ msgid "Your Bunny.net API Key"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/APIPlaceholder.js:93
-#: admin/ui/Pagination.js:58
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:244
 #: Services/Translation.php:148
 msgid "Next"
 msgstr ""
@@ -504,8 +329,48 @@ msgid "This will also delete all videos inside of the collection."
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:95
-#: admin/settings/pages/parts/Webhooks/Webhook.js:95
+#: admin/dashboard/components/MediaHub/BulkActions.js:68
+#: admin/dashboard/pages/Emails.js:233
+#: admin/dashboard/pages/Emails.js:550
+#: admin/dashboard/pages/MediaHub.js:376
+#: admin/dashboard/pages/MediaHub.js:976
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:429
 msgid "Delete"
+msgstr ""
+
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:98
+#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:79
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:158
+#: admin/blocks/blocks/playlist-list/create.js:35
+#: admin/blocks/shared/audio-placeholder.js:140
+#: admin/blocks/shared/audio-placeholder.js:144
+#: admin/blocks/shared/audioPresets/Edit.js:340
+#: admin/blocks/shared/audioPresets/Preset.js:241
+#: admin/blocks/shared/components/ColorPopup.js:79
+#: admin/blocks/shared/overlays/Edit.js:205
+#: admin/blocks/shared/placeholder.js:151
+#: admin/blocks/shared/placeholder.js:155
+#: admin/blocks/shared/presets/Edit.js:369
+#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:99
+#: admin/blocks/shared/presets/Preset.js:241
+#: admin/blocks/shared/tracks/TracksEditor.js:441
+#: admin/blocks/shared/tracks/TracksEditor.js:533
+#: admin/blocks/shared/tracks/TracksEditor.js:591
+#: admin/dashboard/components/EngagementChart/ChartDateFilter.js:93
+#: admin/dashboard/components/MediaHub/BulkActions.js:77
+#: admin/dashboard/components/MediaHub/PostSettings.js:527
+#: admin/dashboard/components/Popup/ConfirmPopup.js:13
+#: admin/dashboard/components/Popup/EmailFormPopup.js:188
+#: admin/dashboard/pages/AnalyticsDetail.js:371
+#: admin/dashboard/pages/AnalyticsDetail.js:430
+#: admin/dashboard/pages/Emails.js:618
+#: admin/dashboard/pages/MediaHub.js:217
+#: admin/dashboard/pages/MediaHub.js:1155
+#: admin/dashboard/pages/settings/general/LicensePage.js:140
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:263
+#: admin/dashboard/pages/settings/shared/ConfirmDialog.js:59
+#: admin/dashboard/pages/UserAnalyticsDetail.js:193
+msgid "Cancel"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/collections/Collections.js:42
@@ -523,7 +388,8 @@ msgstr ""
 #: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:76
 #: admin/blocks/blocks/playlist-list-item/Placeholder.js:66
 #: admin/blocks/blocks/playlist-list/create.js:28
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:122
+#: admin/dashboard/components/MediaHub/PostSettings.js:185
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:273
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:136
 #: Integrations/Elementor/ReusableVideoWidget.php:143
 msgid "Create"
@@ -552,9 +418,16 @@ msgstr ""
 msgid "Public Stream Library"
 msgstr ""
 
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:97
+#: admin/blocks/shared/media/MediaPopup.js:108
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:190
+msgid "Name"
+msgstr ""
+
 #: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:105
 #: admin/blocks/shared/media/MediaPopup.js:116
 #: admin/blocks/shared/VisibilityEditor.js:46
+#: admin/dashboard/components/Popup/EmailFormPopup.js:171
 #: admin/toolbar/index.js:93
 msgid "Visibility"
 msgstr ""
@@ -574,7 +447,7 @@ msgid "Created"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:137
-#: admin/settings/components/Integration.js:96
+#: admin/dashboard/pages/MediaHub.js:214
 msgid "Are you sure?"
 msgstr ""
 
@@ -728,23 +601,20 @@ msgstr ""
 #: admin/blocks/blocks/playlist-list-item/Placeholder.js:43
 #: admin/blocks/shared/components/SelectMediaDropdown.js:96
 #: admin/blocks/shared/MediaProviders/index.js:90
-#: admin/settings/app.js:47
-#: admin/settings/components/Group.js:35
-#: admin/settings/pages/parts/EmailExport.js:39
-#: admin/settings/pages/parts/Webhooks/Webhook.js:63
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:187
 msgid "Something went wrong"
 msgstr ""
 
 #: admin/blocks/blocks/media-hub/edit.js:122
 #: admin/blocks/blocks/popup/edit.js:146
 #: admin/blocks/blocks/reusable-display/edit.js:198
-#: admin/settings/pages/General.js:227
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:132
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:138
 msgid "Synced"
 msgstr ""
 
 #: admin/blocks/blocks/media-hub/edit.js:123
 #: admin/blocks/blocks/popup/edit.js:147
-#: admin/settings/pages/General.js:228
 msgid "Not synced"
 msgstr ""
 
@@ -760,8 +630,7 @@ msgstr ""
 
 #: admin/blocks/blocks/playlist-list-item/edit.js:31
 #: admin/blocks/blocks/playlist/edit.js:209
-#: admin/settings/app.js:94
-#: admin/settings/pages/General.js:153
+#: admin/dashboard/pages/settings/config.js:164
 msgid "General"
 msgstr ""
 
@@ -790,6 +659,7 @@ msgstr ""
 #: admin/blocks/blocks/playlist-list/edit.js:21
 #: admin/blocks/shared/media/MediaPopup.js:268
 #: admin/blocks/shared/media/MediaPopupTemplate.js:22
+#: admin/dashboard/pages/MediaHub.js:892
 msgid "Add Media"
 msgstr ""
 
@@ -992,6 +862,7 @@ msgid "Edit Play Button"
 msgstr ""
 
 #: admin/blocks/plugins/reusable-videos/ShortcodeInput.js:8
+#: admin/dashboard/components/MediaHub/MediaRow.js:189
 msgid "Copied!"
 msgstr ""
 
@@ -1019,6 +890,15 @@ msgstr ""
 
 #: admin/blocks/shared/audio-placeholder.js:33
 msgid "Paste an mp3 URL"
+msgstr ""
+
+#: admin/blocks/shared/audio-placeholder.js:41
+#: admin/blocks/shared/components/ColorPopup.js:82
+#: admin/blocks/shared/placeholder.js:52
+#: admin/dashboard/components/EngagementChart/ChartDateFilter.js:92
+#: admin/dashboard/pages/AnalyticsDetail.js:429
+#: admin/dashboard/pages/UserAnalyticsDetail.js:192
+msgid "Apply"
 msgstr ""
 
 #: admin/blocks/shared/audio-placeholder.js:103
@@ -1206,8 +1086,8 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:189
 #: admin/blocks/shared/presets/Edit.js:202
-#: Models/AudioPreset.php:166
-#: Models/Preset.php:200
+#: Models/AudioPreset.php:188
+#: Models/Preset.php:222
 msgid "You must enter a name for the preset."
 msgstr ""
 
@@ -1223,7 +1103,9 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Edit.js:216
 #: admin/blocks/shared/presets/Edit.js:229
 #: admin/blocks/shared/presets/Email.js:53
-#: admin/settings/pages/Integrations.js:350
+#: admin/dashboard/pages/settings/config.js:128
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:312
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:318
 msgid "Email Capture"
 msgstr ""
 
@@ -1284,6 +1166,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:351
 #: admin/blocks/shared/presets/Edit.js:380
+#: Services/Learn.php:395
 msgid "Create Preset"
 msgstr ""
 
@@ -1322,6 +1205,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preset.js:234
 #: admin/blocks/shared/presets/Preset.js:234
+#: admin/dashboard/components/MediaHub/BulkActions.js:56
 msgid "Trash"
 msgstr ""
 
@@ -1334,6 +1218,9 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Preview.js:102
 #: admin/blocks/shared/Preview.js:67
 #: admin/blocks/shared/Preview.js:103
+#: admin/dashboard/components/Onboarding/Integrations.js:297
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:218
+#: admin/dashboard/components/Onboarding/UserInfo.js:158
 #: lib/bsf-analytics/class-bsf-analytics.php:325
 #: Services/Translation.php:94
 msgid "Skip"
@@ -1408,18 +1295,16 @@ msgstr ""
 
 #. translators: %s: poster image URL.
 #: admin/blocks/shared/branding/index.js:98
-#: admin/settings/components/Media.js:57
 #, js-format
 msgid "The current logo image url is %s"
 msgstr ""
 
 #: admin/blocks/shared/branding/index.js:101
-#: admin/settings/components/Media.js:60
 msgid "There is no logo image currently selected"
 msgstr ""
 
 #: admin/blocks/shared/branding/index.js:116
-#: admin/settings/pages/General.js:184
+#: admin/dashboard/pages/settings/general/BrandingPage.js:208
 msgid "Logo Max Width"
 msgstr ""
 
@@ -1462,7 +1347,10 @@ msgid "Search..."
 msgstr ""
 
 #: admin/blocks/shared/components/ProBadge.js:5
-#: admin/settings/pages/General.js:171
+#: admin/dashboard/components/Navbar.js:68
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:176
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:125
+#: admin/dashboard/pages/learn/StepItem.js:67
 msgid "Pro"
 msgstr ""
 
@@ -1470,16 +1358,33 @@ msgstr ""
 msgid "Create or select media"
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:94
-msgid "Languages"
+#: admin/blocks/shared/components/SelectMediaDropdown.js:144
+#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:155
+#: admin/dashboard/components/MediaHub/MediaRow.js:100
+#: admin/dashboard/components/TopPerformingMedia.js:44
+#: admin/dashboard/utils/transformers.js:18
+#: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:113
+msgid "Untitled"
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:112
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:80
 msgid "At least one language is required. Please select at least one language."
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:124
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:84
 msgid "Select one or more languages. Start typing to search."
+msgstr ""
+
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:97
+msgid "Search languages…"
+msgstr ""
+
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:100
+msgid "Languages"
+msgstr ""
+
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:101
+msgid "Select languages…"
 msgstr ""
 
 #: admin/blocks/shared/components/UrlSelect.js:75
@@ -1511,13 +1416,16 @@ msgid "Or drag a file here to upload."
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:33
+#: admin/dashboard/components/Emails/Table.js:199
 #: Integrations/Elementor/VideoWidget.php:139
 #: Services/Shortcodes.php:238
 msgid "Video"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:40
-#: admin/settings/pages/Integrations.js:315
+#: admin/dashboard/pages/settings/config.js:120
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:20
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:26
 #: Integrations/Elementor/VideoWidget.php:150
 msgid "YouTube"
 msgstr ""
@@ -1532,6 +1440,8 @@ msgid "Audio"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:61
+#: admin/dashboard/pages/settings/config.js:137
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:138
 msgid "Bunny.net"
 msgstr ""
 
@@ -1661,9 +1571,9 @@ msgstr ""
 #: admin/blocks/shared/presets/Email.js:57
 #: admin/blocks/shared/presets/Search.js:52
 #: admin/blocks/shared/presets/Watermark.js:57
-#: admin/settings/pages/General.js:299
-#: admin/settings/pages/Integrations.js:259
-#: admin/settings/pages/Integrations.js:281
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:71
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:460
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:48
 msgid "Enable"
 msgstr ""
 
@@ -1719,6 +1629,8 @@ msgstr ""
 
 #: admin/blocks/shared/presets/ActionBar.js:207
 #: admin/blocks/shared/presets/parts/ChooseProvider.js:18
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:10
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:19
 msgid "None"
 msgstr ""
 
@@ -2006,7 +1918,9 @@ msgid "Default list"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/ChooseProvider.js:56
-#: admin/settings/pages/parts/Webhooks/index.js:31
+#: admin/dashboard/pages/settings/config.js:145
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:367
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:373
 msgid "Webhooks"
 msgstr ""
 
@@ -2024,7 +1938,7 @@ msgid "Choose an audience"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/MailchimpConfig.js:75
-#: Services/VideoPostType.php:391
+#: Services/VideoPostType.php:431
 msgid "Tag"
 msgstr ""
 
@@ -2047,11 +1961,12 @@ msgid "Youtube Channel ID"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/YoutubeChannelId.js:72
-#: admin/settings/pages/Integrations.js:338
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:61
 msgid "Find my channel id"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/YoutubeChannelId.js:90
+#: admin/dashboard/pages/settings/shared/SettingsPageShell.js:38
 msgid "Save"
 msgstr ""
 
@@ -2134,20 +2049,20 @@ msgstr ""
 msgid "Opacity percentage of the watermark."
 msgstr ""
 
-#: admin/blocks/shared/ProUpgradeModal.js:16
-#: admin/settings/pages/General.js:35
-#: admin/settings/pages/Integrations.js:73
+#: admin/blocks/shared/ProUpgradeModal.js:21
+msgid "Activate your Pro license to unlock this feature."
+msgstr ""
+
+#: admin/blocks/shared/ProUpgradeModal.js:25
+msgid "Get this feature and more with the Pro version of Presto Player!"
+msgstr ""
+
+#: admin/blocks/shared/ProUpgradeModal.js:31
 msgid "Pro Feature"
 msgstr ""
 
-#: admin/blocks/shared/ProUpgradeModal.js:18
+#: admin/blocks/shared/ProUpgradeModal.js:33
 msgid "Unlock Presto Player"
-msgstr ""
-
-#: admin/blocks/shared/ProUpgradeModal.js:20
-#: admin/settings/pages/General.js:37
-#: admin/settings/pages/Integrations.js:75
-msgid "Get this feature and more with the Pro version of Presto Player!"
 msgstr ""
 
 #: admin/blocks/shared/ProvidersPlaceholder/components/Separator.js:23
@@ -2155,11 +2070,13 @@ msgid "or"
 msgstr ""
 
 #: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:66
+#: admin/dashboard/pages/Onboarding.js:79
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:16
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:17
-#: Services/AdminNotices.php:200
-#: Services/Menu.php:19
-#: Services/Menu.php:20
+#: Services/AdminNotices.php:285
+#: Services/License/License.php:236
+#: Services/Menu.php:43
+#: Services/Menu.php:44
 msgid "Presto Player"
 msgstr ""
 
@@ -2298,7 +2215,7 @@ msgid "Caption Generation Failed"
 msgstr ""
 
 #: admin/blocks/shared/tracks/TracksEditor.js:394
-#: admin/settings/pages/Integrations.js:215
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:455
 msgid "Caption Generation Charges"
 msgstr ""
 
@@ -2331,7 +2248,7 @@ msgid "This will automatically generate captions for the selected languages. You
 msgstr ""
 
 #: admin/blocks/shared/tracks/TracksEditor.js:571
-#: admin/settings/pages/Integrations.js:235
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:475
 msgid "View Bunny.net pricing details"
 msgstr ""
 
@@ -2344,7 +2261,7 @@ msgid "Add caption languages"
 msgstr ""
 
 #: admin/blocks/shared/tracks/TracksEditor.js:705
-#: admin/settings/pages/Integrations.js:163
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:408
 msgid "Automatic Captions"
 msgstr ""
 
@@ -2364,6 +2281,2407 @@ msgstr ""
 msgid "Must be logged in"
 msgstr ""
 
+#: admin/dashboard/components/ChartEmptyState.js:111
+msgid "No Stats Available"
+msgstr ""
+
+#: admin/dashboard/components/ChartEmptyState.js:112
+msgid "You'll find detailed insights here to help you monitor and manage your video performance."
+msgstr ""
+
+#: admin/dashboard/components/ChartEmptyState.js:136
+msgid "Unlock with Pro."
+msgstr ""
+
+#: admin/dashboard/components/charts/EngagementAreaChart.js:54
+#: admin/dashboard/components/EngagementChart/ChartKPI.js:16
+#: admin/dashboard/components/EngagementChart/ChartSummary.js:39
+#: admin/dashboard/components/EngagementChart/ChartTabs.js:33
+msgid "Watch Time"
+msgstr ""
+
+#: admin/dashboard/components/charts/EngagementAreaChart.js:55
+#: admin/dashboard/components/EngagementChart/ChartSummary.js:40
+#: admin/dashboard/components/EngagementChart/ChartTabs.js:28
+#: admin/dashboard/components/TopMedia.js:81
+#: admin/dashboard/components/TopPerformingMedia.js:27
+#: admin/dashboard/components/TopPerformingMedia.js:33
+#: admin/dashboard/components/TopUsers.js:46
+#: admin/dashboard/pages/UserAnalyticsDetail.js:216
+msgid "Views"
+msgstr ""
+
+#: admin/dashboard/components/charts/RetentionTooltip.js:62
+msgid "Viewers:"
+msgstr ""
+
+#: admin/dashboard/components/ChooseDate.js:103
+#: admin/dashboard/components/PostScheduleField.js:37
+msgid "Select date"
+msgstr ""
+
+#: admin/dashboard/components/ChooseDate.js:114
+#: admin/dashboard/components/ChooseDate.js:115
+msgid "Clear Date"
+msgstr ""
+
+#: admin/dashboard/components/ColorPicker.js:48
+#: admin/dashboard/components/ColorPicker.js:49
+#: admin/dashboard/components/ColorPicker.js:69
+msgid "Select Color"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:57
+#: admin/dashboard/pages/Emails.js:269
+#: admin/dashboard/pages/Emails.js:347
+#: admin/dashboard/pages/MediaHub.js:207
+#: admin/dashboard/pages/MediaHub.js:408
+msgid "Restore"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:62
+#: admin/dashboard/pages/Emails.js:348
+#: admin/dashboard/pages/MediaHub.js:202
+msgid "Delete Permanently"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:69
+#: admin/dashboard/components/MediaHub/MediaRow.js:259
+#: admin/dashboard/components/MediaHub/MediaRow.js:267
+#: admin/dashboard/components/MediaHub/PostSettings.js:339
+#: admin/dashboard/components/Popup/EmailFormPopup.js:132
+msgid "Post Settings"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:74
+#: admin/dashboard/components/MediaHub/BulkActions.js:53
+#: admin/dashboard/pages/Emails.js:200
+#: admin/dashboard/pages/Emails.js:346
+#: admin/dashboard/pages/MediaHub.js:197
+#: admin/dashboard/pages/MediaHub.js:344
+#: admin/dashboard/pages/MediaHub.js:954
+msgid "Move to Trash"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:109
+#: admin/dashboard/components/MediaHub/MediaRow.js:285
+msgid "More Options"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:192
+#: admin/dashboard/components/Onboarding/UserInfo.js:101
+#: admin/dashboard/components/Onboarding/UserInfo.js:102
+#: admin/dashboard/components/Popup/EmailFormPopup.js:145
+msgid "Email"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:195
+#: admin/dashboard/components/MediaHub/PostSettings.js:442
+#: admin/dashboard/components/Popup/EmailFormPopup.js:161
+#: admin/dashboard/pages/MediaHub.js:1032
+msgid "Status"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:201
+msgid "The video the viewer was watching when they submitted their email."
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:214
+msgid "Preset"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:216
+msgid "The player preset configured to collect this email submission."
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:231
+msgid "Date"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:245
+msgid "Actions"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:277
+msgid "No video"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:286
+msgid "No preset"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:305
+msgid "No emails found."
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:315
+#: admin/dashboard/components/RankedTable.js:205
+#: admin/dashboard/pages/MediaHub.js:1125
+msgid "of"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Table.js:318
+#: admin/dashboard/components/RankedTable.js:208
+#: admin/dashboard/pages/MediaHub.js:1128
+msgid "items"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:13
+msgid "All Status"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:14
+#: admin/dashboard/components/Emails/Utils.js:58
+msgid "Trashed"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:15
+#: admin/dashboard/components/Emails/Utils.js:56
+#: admin/dashboard/components/MediaHub/PostSettings.js:27
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:25
+#: admin/toolbar/index.js:96
+msgid "Published"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:16
+#: admin/dashboard/components/Emails/Utils.js:57
+#: admin/dashboard/components/MediaHub/BulkActions.js:44
+#: admin/dashboard/components/MediaHub/PostSettings.js:28
+#: admin/dashboard/components/MediaHub/PostSettings.js:36
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:28
+msgid "Draft"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:17
+#: admin/dashboard/components/Emails/Utils.js:59
+#: admin/dashboard/components/MediaHub/PostSettings.js:29
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:27
+msgid "Pending Review"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:18
+#: admin/dashboard/components/Emails/Utils.js:60
+#: admin/dashboard/components/MediaHub/PostSettings.js:502
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:33
+msgid "Private"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:19
+#: admin/dashboard/components/Emails/Utils.js:61
+#: admin/dashboard/components/MediaHub/PostSettings.js:30
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:26
+msgid "Scheduled"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:72
+msgid "Unknown"
+msgstr ""
+
+#: admin/dashboard/components/Emails/Utils.js:86
+#: admin/dashboard/components/Emails/Utils.js:90
+msgid "Just Now"
+msgstr ""
+
+#: admin/dashboard/components/EngagementChart/ChartDateFilter.js:67
+#: admin/dashboard/components/EngagementChart/ChartDateFilter.js:69
+#: admin/dashboard/pages/AnalyticsDetail.js:406
+#: admin/dashboard/pages/AnalyticsDetail.js:408
+#: admin/dashboard/pages/UserAnalyticsDetail.js:169
+#: admin/dashboard/pages/UserAnalyticsDetail.js:171
+msgid "Clear Filters"
+msgstr ""
+
+#: admin/dashboard/components/EngagementChart/ChartDateFilter.js:86
+#: admin/dashboard/pages/AnalyticsDetail.js:424
+#: admin/dashboard/pages/UserAnalyticsDetail.js:187
+msgid "Select Date Range"
+msgstr ""
+
+#: admin/dashboard/components/EngagementChart/ChartKPI.js:17
+msgid "Unique Views"
+msgstr ""
+
+#: admin/dashboard/components/EngagementChart/ChartSummary.js:44
+msgid "All Time Watch Time"
+msgstr ""
+
+#: admin/dashboard/components/EngagementChart/ChartSummary.js:45
+msgid "All Time Views"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:20
+#: admin/dashboard/components/ExtendPlugins.js:31
+#: admin/dashboard/components/ExtendPlugins.js:42
+#: admin/dashboard/components/ExtendPlugins.js:53
+#: admin/dashboard/components/ExtendPlugins.js:71
+msgid "Free"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:22
+#: admin/dashboard/components/ExtendPlugins.js:25
+msgid "SureForms"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:23
+msgid "Launch powerful forms in minutes!"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:33
+#: admin/dashboard/components/ExtendPlugins.js:36
+msgid "SureCart"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:34
+msgid "The new way to sell on WordPress."
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:44
+#: admin/dashboard/components/ExtendPlugins.js:47
+msgid "OttoKit"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:45
+msgid "Automate your WordPress setup."
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:55
+#: admin/dashboard/components/ExtendPlugins.js:61
+msgid "SureMembers"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:56
+msgid "Membership tiers and content protection."
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:75
+msgid "Powerful email marketing for"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:77
+msgid "SureMails"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:125
+#: admin/dashboard/components/WelcomeBanner.js:65
+#: admin/dashboard/pages/settings/general/ContributePage.js:66
+#: admin/dashboard/pages/settings/PerformancePage.js:73
+msgid "Learn More"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:142
+#: admin/dashboard/components/ExtendPlugins.js:178
+msgid "Another plugin operation is in progress. Please wait."
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:161
+msgid "Install & Activate"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:197
+#: admin/dashboard/pages/settings/general/LicensePage.js:109
+msgid "Activate"
+msgstr ""
+
+#: admin/dashboard/components/ExtendPlugins.js:209
+msgid "Activated"
+msgstr ""
+
+#. translators: %d: number, %s: item type (e.g. Posts, Emails)
+#: admin/dashboard/components/Filters.js:40
+#, js-format
+msgid "%d %s per page"
+msgstr ""
+
+#: admin/dashboard/components/Filters.js:49
+msgid "Filters: "
+msgstr ""
+
+#: admin/dashboard/components/Filters.js:67
+msgid "Clear filters"
+msgstr ""
+
+#: admin/dashboard/components/Filters.js:70
+msgid "Clear"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/BulkActions.js:21
+msgid "Bulk actions: "
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/BulkActions.js:23
+msgid "media selected"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/BulkActions.js:34
+#: admin/dashboard/pages/MediaHub.js:313
+msgid "Publish"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/BulkActions.js:65
+msgid "Delete permanently"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/MediaRow.js:149
+msgid "No tags"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/MediaRow.js:182
+msgid "No shortcode"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/MediaRow.js:190
+#: admin/dashboard/components/MediaHub/MediaRow.js:210
+msgid "Copy shortcode"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/MediaRow.js:223
+#: admin/dashboard/components/MediaHub/MediaRow.js:232
+msgid "View"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:256
+#, js-format
+msgid "Protected: %s"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:257
+#, js-format
+msgid "Private: %s"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:312
+#: admin/dashboard/hooks/useSimpleSettingsPage.js:29
+#: admin/dashboard/pages/settings/general/BrandingPage.js:95
+#: admin/dashboard/pages/settings/general/ContributePage.js:19
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:46
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:77
+#: admin/dashboard/pages/settings/general/PresetsPage.js:72
+#: admin/dashboard/pages/settings/general/UninstallPage.js:35
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:32
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:111
+msgid "Settings saved."
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:318
+msgid "An error occurred while saving the settings"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:369
+msgid "Enter title…"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:376
+msgid "Slug"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:378
+msgid "The URL-friendly version of the title. Used in the media page address."
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:390
+msgid "Enter slug…"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:402
+msgid "Search or create tags…"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:409
+msgid "Media Tags"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:410
+msgid "Select tags…"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:482
+msgid "Password"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:485
+msgid "Enter password…"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:491
+msgid "—OR—"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:504
+msgid "Hides this media from everyone except administrators. Overrides password protection."
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/PostSettings.js:540
+#: admin/dashboard/components/Popup/EmailFormPopup.js:190
+msgid "Save Settings"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/SearchBar.js:9
+#: admin/dashboard/pages/MediaHub.js:930
+msgid "Search media…"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:61
+#: admin/dashboard/components/Navbar.js:65
+#, js-format
+msgid "v%s"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:93
+msgid "Knowledge base"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:101
+msgid "Support ticket"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:111
+msgid "Video tutorials"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:172
+msgid "Core"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:210
+#: admin/dashboard/components/Navbar.js:215
+msgid "Unlicensed"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:238
+#: admin/dashboard/components/WhatsNew/index.js:11
+msgid "What's New?"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:8
+msgid "Use presets to keep a consistent player style across your site"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:9
+msgid "Add captions and chapters to improve accessibility and engagement"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:10
+msgid "Enable lazy loading in Settings → Performance for faster page loads"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:11
+msgid "Check the Analytics tab to track how your audience engages with videos"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:34
+msgid "You're All Set!"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:37
+msgid "Your video player is configured and ready to use. Add videos to any page or post using Presto Player blocks, or manage your video library from the Media Hub."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:46
+msgid "Quick Tips to Get the Most Out of Presto Player:"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:66
+#: admin/dashboard/components/Onboarding/Integrations.js:288
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:210
+#: admin/dashboard/components/Onboarding/UserInfo.js:150
+#: admin/ui/Menu.js:120
+#: lib/nps-survey/dist/main.js:1
+#: lib/nps-survey/dist/main.js:4
+msgid "Back"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:75
+msgid "Go to Dashboard"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Done.js:83
+msgid "Create Your First Video"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:26
+msgid "Active"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:28
+msgid "Activating…"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:29
+msgid "Inactive"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:30
+msgid "Installing…"
+msgstr ""
+
+#. translators: %s is the addon title
+#: admin/dashboard/components/Onboarding/Integrations.js:56
+#, js-format
+msgid "%s logo"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:224
+#: admin/dashboard/components/Onboarding/Integrations.js:237
+#: admin/dashboard/components/Onboarding/UserInfo.js:39
+msgid "Error!"
+msgstr ""
+
+#. translators: %s is the addon title
+#: admin/dashboard/components/Onboarding/Integrations.js:227
+#, js-format
+msgid "Failed to set up %s."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:239
+msgid "Failed to setup addons."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:252
+msgid "Integrations and features"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:255
+msgid "To help you get the most out of Presto Player, we recommend adding these powerful integrations:"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:312
+msgid "Setting up…"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Integrations.js:313
+#: admin/dashboard/components/Onboarding/UserInfo.js:168
+msgid "Continue"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:17
+msgid "YouTube, Vimeo & Self-hosted Videos"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:18
+msgid "Embed videos from all major sources with a fully customizable player."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:26
+msgid "Player Presets & Branding"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:27
+msgid "Customize controls, colors, and poster images. Save reusable presets across your site."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:35
+msgid "Page Builder & LMS Integrations"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:36
+msgid "Works with Elementor, Divi, Beaver Builder, LearnDash, TutorLMS, and LifterLMS."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:44
+msgid "Bunny.net Private Video Hosting"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:45
+msgid "CDN-powered hosting with HLS adaptive streaming, private URLs, and transcoding."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:53
+msgid "Video Analytics & Engagement Insights"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:54
+msgid "Track per-user views, watch time, and engagement. Includes Google Analytics."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:62
+msgid "Playlists & Video Chapters"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:63
+msgid "Netflix-style bingeable playlists and clickable timestamp markers."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:71
+msgid "And much more"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:72
+msgid "Popups, email capture, watermarks, CTAs, captions, and advanced playback."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:94
+#: admin/dashboard/hooks/useUpgradeCTA.js:37
+#: Services/License/License.php:219
+msgid "Activate License"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:95
+#: admin/dashboard/components/UpgradeToPro.js:57
+#: Services/Menu.php:118
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:97
+msgid "What's included with Presto Player"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:100
+msgid "Your Pro license is active — every feature below is ready to use."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:105
+msgid "Your Pro features are ready — activate your license to start using them."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:109
+msgid "A quick tour of everything you can do — included features are ready to use, and you can unlock the rest anytime."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:160
+msgid "Included"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:168
+msgid "Unlocked"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/PremiumFeatures.js:234
+#: admin/dashboard/components/WelcomeBanner.js:67
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:40
+msgid "Failed to save your information. Please try again."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:62
+msgid "Get the best start"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:65
+msgid "Get helpful updates, new features, and tips to make your website better, while helping us improve Presto Player."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:78
+#: admin/dashboard/components/Onboarding/UserInfo.js:79
+msgid "First Name"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:89
+#: admin/dashboard/components/Onboarding/UserInfo.js:90
+msgid "Last Name"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:118
+msgid "Get notified about updates, tips and new features. Plus help us improve by sharing how you use the plugin."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:129
+msgid "Learn more"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/UserInfo.js:167
+msgid "Saving..."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:11
+msgid "Embed YouTube, Vimeo, Bunny.net, self-hosted videos, and audio"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:12
+msgid "Customize controls, branding, and chapter markers"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:13
+msgid "Capture leads with opt-in gates and in-video CTAs"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:14
+msgid "Works with Gutenberg, Elementor, Divi, and major LMS plugins"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:36
+msgid "Welcome to Presto Player"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:40
+msgid "The Professional Video Player for WordPress."
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:48
+#: admin/dashboard/components/WelcomeBanner.js:82
+msgid "Play introduction video"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:60
+#: admin/dashboard/components/Onboarding/Welcome.js:111
+msgid "Presto Player Introduction"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:90
+msgid "Let's Get Started"
+msgstr ""
+
+#: admin/dashboard/components/Onboarding/Welcome.js:101
+#: admin/dashboard/components/VideoModal.js:48
+msgid "Esc"
+msgstr ""
+
+#: admin/dashboard/components/PageHeader.js:37
+msgid "Toggle filters"
+msgstr ""
+
+#: admin/dashboard/components/PluginRecommendations.js:24
+msgid "Extend your Community"
+msgstr ""
+
+#: admin/dashboard/components/Popup/ConfirmPopup.js:10
+msgid "Popup Title"
+msgstr ""
+
+#: admin/dashboard/components/Popup/ConfirmPopup.js:12
+#: admin/dashboard/pages/MediaHub.js:216
+#: admin/dashboard/pages/settings/shared/ConfirmDialog.js:68
+msgid "Confirm"
+msgstr ""
+
+#: admin/dashboard/components/Popup/ConfirmPopup.js:87
+msgid "Posts content under this space will be deleted permanently."
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopup.js:95
+msgid "Please enter an email address."
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopup.js:99
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopup.js:117
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:159
+msgid "Something went wrong."
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopup.js:148
+msgid "Enter email address…"
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopup.js:162
+msgid "Controls the publication state — Published (live), Pending Review (awaiting approval), or Draft (not live yet)."
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopup.js:172
+msgid "Controls who can access this submission — Public (everyone) or Private (admins only). Setting Private overrides the Status."
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:20
+msgid "AM"
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:21
+msgid "PM"
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:32
+msgid "Public"
+msgstr ""
+
+#: admin/dashboard/components/Popup/EmailFormPopupUtils.js:100
+#: admin/dashboard/components/PostScheduleField.js:42
+msgid "at"
+msgstr ""
+
+#: admin/dashboard/components/PostScheduleField.js:26
+msgid "Publish Date & Time"
+msgstr ""
+
+#: admin/dashboard/components/PostScheduleField.js:52
+msgid "Select time"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:18
+msgid "Guided Onboarding"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:25
+msgid "Help Center"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:31
+msgid "Open Support Ticket"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:37
+msgid "Leave Us a Review"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:60
+msgid "Quick Access"
+msgstr ""
+
+#: admin/dashboard/components/TopMedia.js:74
+#: admin/dashboard/components/TopPerformingMedia.js:82
+#: admin/dashboard/pages/MediaHub.js:1020
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:111
+#: Integrations/Elementor/ReusableVideoWidget.php:108
+msgid "Media"
+msgstr ""
+
+#: admin/dashboard/components/TopMedia.js:86
+#: admin/dashboard/components/TopUsers.js:52
+msgid "views"
+msgstr ""
+
+#: admin/dashboard/components/TopMedia.js:92
+#: admin/dashboard/components/TopUsers.js:58
+msgid "Avg View Time"
+msgstr ""
+
+#: admin/dashboard/components/TopMedia.js:109
+#: admin/dashboard/components/TopPerformingMedia.js:25
+msgid "Most Watched"
+msgstr ""
+
+#: admin/dashboard/components/TopMedia.js:126
+msgid "View Details"
+msgstr ""
+
+#: admin/dashboard/components/TopPerformingMedia.js:31
+#: admin/dashboard/components/TopUsers.js:76
+msgid "Most Engaged Viewers"
+msgstr ""
+
+#: admin/dashboard/components/TopPerformingMedia.js:46
+#: admin/dashboard/utils/transformers.js:37
+msgid "Unknown User"
+msgstr ""
+
+#: admin/dashboard/components/TopPerformingMedia.js:54
+msgid "What's Performing"
+msgstr ""
+
+#: admin/dashboard/components/TopPerformingMedia.js:83
+#: admin/dashboard/components/TopUsers.js:39
+msgid "Viewer"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeNotice.js:64
+#: Services/License/License.php:227
+msgid "Your Presto Player Pro license has expired. Please renew to restore Pro Features, Premium Support & Automatic Plugin Updates."
+msgstr ""
+
+#: admin/dashboard/components/UpgradeNotice.js:69
+msgid "Your Pro license isn't activated yet."
+msgstr ""
+
+#: admin/dashboard/components/UpgradeNotice.js:71
+msgid "Ready to go beyond free plan?"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeNotice.js:78
+#: Services/License/License.php:228
+msgid "Renew Now"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeNotice.js:105
+msgid "and unlock the full power of"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeNotice.js:117
+msgid "Dismiss upgrade notice"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:37
+msgid "Chapters & timestamps"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:38
+msgid "Overlays and CTAs"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:39
+msgid "Playlists"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:40
+msgid "Video popups"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:41
+msgid "Advanced playback"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:42
+msgid "Engagement insights"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:74
+msgid "Unlock Premium Features"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:80
+msgid "Power up your videos with Presto Player Pro"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:88
+msgid "Engage viewers, grow your audience, and convert with powerful video tools — all in one place."
+msgstr ""
+
+#: admin/dashboard/components/VideoModal.js:44
+msgid "Introduction video"
+msgstr ""
+
+#: admin/dashboard/components/VideoModal.js:56
+msgid "Close video (Esc)"
+msgstr ""
+
+#: admin/dashboard/components/VideoModal.js:63
+msgid "Presto Player introduction video"
+msgstr ""
+
+#: admin/dashboard/components/WelcomeBanner.js:25
+msgid "Welcome to Presto Player!"
+msgstr ""
+
+#: admin/dashboard/components/WelcomeBanner.js:28
+msgid "We're excited to help you create amazing video experience for your WordPress site. Presto Player makes it simple to add powerful, customizable video players that engage your audience."
+msgstr ""
+
+#: admin/dashboard/components/WelcomeBanner.js:49
+#: Integrations/Elementor/ReusableVideoWidget.php:139
+msgid "Create Media"
+msgstr ""
+
+#: admin/dashboard/hooks/useEngagementChartData.js:137
+#: admin/dashboard/hooks/useEngagementChartData.js:162
+msgid "Couldn't load views. Try refreshing the page."
+msgstr ""
+
+#: admin/dashboard/hooks/useEngagementChartData.js:144
+#: admin/dashboard/hooks/useEngagementChartData.js:166
+msgid "Couldn't load watch time. Try refreshing the page."
+msgstr ""
+
+#: admin/dashboard/hooks/useEngagementChartData.js:260
+msgid "Failed to load chart data. Please try again."
+msgstr ""
+
+#: admin/dashboard/hooks/useMediaLibrary.js:8
+msgid "Select Image"
+msgstr ""
+
+#: admin/dashboard/hooks/useMediaLibrary.js:10
+msgid "Set Image"
+msgstr ""
+
+#: admin/dashboard/hooks/useSimpleSettingsPage.js:33
+#: admin/dashboard/pages/settings/general/BrandingPage.js:99
+#: admin/dashboard/pages/settings/general/ContributePage.js:23
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:50
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:81
+#: admin/dashboard/pages/settings/general/PresetsPage.js:76
+#: admin/dashboard/pages/settings/general/UninstallPage.js:39
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:36
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:115
+msgid "Could not save settings."
+msgstr ""
+
+#: admin/dashboard/hooks/useUpgradeCTA.js:38
+msgid "Upgrade Now"
+msgstr ""
+
+#: admin/dashboard/hooks/useUserDetail.js:153
+msgid "User not found"
+msgstr ""
+
+#: admin/dashboard/hooks/useUserDetail.js:157
+msgid "Failed to load user details"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnChapters.js:77
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:135
+#: admin/dashboard/pages/learn/ChapterCard.js:55
+msgid "Learn how"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnChapters.js:89
+#, js-format
+msgid "%1$d of %2$d steps completed"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:75
+msgid "Mark as incomplete"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:76
+msgid "Mark as complete"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:154
+msgid "Set Up"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/components/learn-how/Checklist.js:16
+#, js-format
+msgid "Step %d:"
+msgstr ""
+
+#: admin/dashboard/lib/bsf-learn/useBsfLearn.js:73
+msgid "Failed to save progress. Please try again."
+msgstr ""
+
+#: admin/dashboard/pages/Analytics.js:23
+msgid "Analytics collection is turned off"
+msgstr ""
+
+#: admin/dashboard/pages/Analytics.js:26
+msgid "New views and watch-time data won't be recorded until you enable analytics."
+msgstr ""
+
+#: admin/dashboard/pages/Analytics.js:34
+msgid "Enable in Settings"
+msgstr ""
+
+#: admin/dashboard/pages/Analytics.js:95
+#: Services/Menu.php:83
+#: Services/Menu.php:84
+msgid "Analytics"
+msgstr ""
+
+#: admin/dashboard/pages/Analytics.js:106
+msgid "Couldn't load top media and viewers"
+msgstr ""
+
+#: admin/dashboard/pages/Analytics.js:110
+msgid "Try refreshing the page. If the problem persists, contact support."
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:193
+msgid "Media Detail"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:354
+msgid "Edit title"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:363
+msgid "Save title"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:390
+msgid "Rename media"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:462
+msgid "Unique views"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:464
+msgid "Each viewer is counted once, even if they watch the video multiple times."
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:477
+msgid "Average watch time"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:479
+msgid "Mean duration watched per view across all viewers in the selected date range."
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:493
+msgid "Audience Retention"
+msgstr ""
+
+#: admin/dashboard/pages/AnalyticsDetail.js:495
+msgid "Shows how many viewers watched each moment of the video. Drop-offs indicate where people stopped watching."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:72
+msgid "All dates"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:75
+msgid "January"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:76
+msgid "February"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:77
+msgid "March"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:78
+msgid "April"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:79
+msgid "May"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:80
+msgid "June"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:81
+msgid "July"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:82
+msgid "August"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:83
+msgid "September"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:84
+msgid "October"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:85
+msgid "November"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:86
+msgid "December"
+msgstr ""
+
+#. translators: %d is the number of deleted items
+#: admin/dashboard/pages/Emails.js:166
+#, js-format
+msgid "%d email submission(s) deleted successfully."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:175
+#: admin/dashboard/pages/Emails.js:252
+msgid "Failed to delete."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:195
+#: admin/dashboard/pages/MediaHub.js:339
+msgid "Move to Trash?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:196
+msgid "Are you sure you want to move this email submission to the trash?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:211
+#: admin/dashboard/pages/MediaHub.js:359
+msgid "Successfully trashed."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:216
+#: admin/dashboard/pages/MediaHub.js:363
+msgid "Failed to trash."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:228
+#: admin/dashboard/pages/MediaHub.js:371
+msgid "Delete?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:229
+msgid "Are you sure you want to delete this email submission? This action cannot be undone."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:244
+msgid "Email submission deleted successfully."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:264
+#: admin/dashboard/pages/MediaHub.js:403
+msgid "Restore?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:265
+msgid "Are you sure you want to restore this email submission?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:279
+#: admin/dashboard/pages/MediaHub.js:423
+msgid "Successfully restored."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:284
+#: admin/dashboard/pages/MediaHub.js:427
+msgid "Failed to restore."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:299
+msgid "Mark as Publish?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:300
+#: admin/dashboard/pages/MediaHub.js:277
+msgid "Save as Draft?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:302
+msgid "Are you sure you want to mark this email submission as published?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:306
+msgid "Are you sure you want to save this email submission as draft?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:311
+#: admin/dashboard/pages/Emails.js:345
+#: admin/dashboard/pages/MediaHub.js:192
+msgid "Mark as Publish"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:312
+#: admin/dashboard/pages/Emails.js:344
+#: admin/dashboard/pages/MediaHub.js:187
+#: admin/dashboard/pages/MediaHub.js:282
+msgid "Save as Draft"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:323
+#: admin/dashboard/pages/MediaHub.js:327
+msgid "Successfully published."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:324
+#: admin/dashboard/pages/MediaHub.js:296
+msgid "Successfully drafted."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:330
+#: admin/dashboard/pages/MediaHub.js:331
+msgid "Failed to publish."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:331
+#: admin/dashboard/pages/MediaHub.js:300
+msgid "Failed to draft."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:426
+msgid "Email updated."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:427
+msgid "Email added."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:431
+msgid "Failed to save."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:506
+msgid "Your email submissions will be displayed here."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:507
+msgid "Click \"Add New Submission\" to add a new email submission."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:511
+#: admin/dashboard/pages/Emails.js:529
+msgid "Add New Submission"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:521
+#: admin/dashboard/pages/Emails.js:567
+#: Services/Menu.php:91
+#: Services/Menu.php:92
+msgid "Emails"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:525
+msgid "Search emails…"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:538
+#: admin/dashboard/pages/MediaHub.js:965
+msgid "Delete Selected Items?"
+msgstr ""
+
+#. translators: %d is the number of items to delete
+#: admin/dashboard/pages/Emails.js:544
+#, js-format
+msgid "Are you sure you want to delete %d item(s)? This action cannot be undone."
+msgstr ""
+
+#: admin/dashboard/pages/Learn.js:8
+#: admin/dashboard/pages/learn/LearnPage.js:38
+#: Services/Menu.php:107
+#: Services/Menu.php:108
+msgid "Learn"
+msgstr ""
+
+#: admin/dashboard/pages/learn/LearnPage.js:41
+msgid "Follow these chapters to set up your video player and get the most out of Presto Player — learn how to add videos, brand the player, embed, track analytics, and unlock advanced features."
+msgstr ""
+
+#: admin/dashboard/pages/learn/LearnPage.js:61
+msgid "No learn chapters available yet."
+msgstr ""
+
+#: admin/dashboard/pages/learn/ScreenshotDialog.js:60
+msgid "Screenshot coming soon."
+msgstr ""
+
+#: admin/dashboard/pages/learn/SetupCompleteCard.js:9
+msgid "Celebration"
+msgstr ""
+
+#: admin/dashboard/pages/learn/SetupCompleteCard.js:17
+msgid "You've completed setup!"
+msgstr ""
+
+#: admin/dashboard/pages/learn/SetupCompleteCard.js:20
+msgid "Your video player is ready. Explore Pro features below to unlock analytics, email capture, and advanced integrations."
+msgstr ""
+
+#: admin/dashboard/pages/learn/StepItem.js:45
+msgid "Mark step incomplete"
+msgstr ""
+
+#: admin/dashboard/pages/learn/StepItem.js:46
+msgid "Mark step complete"
+msgstr ""
+
+#: admin/dashboard/pages/learn/StepItem.js:93
+msgid "Read documentation"
+msgstr ""
+
+#: admin/dashboard/pages/learn/StepItem.js:103
+msgid "View screenshot"
+msgstr ""
+
+#: admin/dashboard/pages/learn/useLearnProgress.js:33
+msgid "Failed to load learn chapters."
+msgstr ""
+
+#: admin/dashboard/pages/learn/useLearnProgress.js:83
+msgid "Could not update your progress. Please try again."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:182
+#: admin/dashboard/pages/MediaHub.js:268
+msgid "Duplicate"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:215
+msgid "Are you sure you want to proceed?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:263
+msgid "Duplicate?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:264
+msgid "Are you sure you want to duplicate this media?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:278
+msgid "Are you sure you want to mark this media as a draft?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:308
+msgid "Publish?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:309
+msgid "Are you sure you want to publish this media?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:340
+msgid "Are you sure you want to move this media to the trash?"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:372
+msgid "This will permanently delete this media. It cannot be recovered. To remove it temporarily instead, use Trash."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:390
+msgid "Media deleted successfully."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:395
+msgid "Failed to delete media."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:404
+msgid "Are you sure you want to restore this media?"
+msgstr ""
+
+#. translators: %d: number of media items deleted
+#: admin/dashboard/pages/MediaHub.js:507
+#, js-format
+msgid "%d media item deleted successfully."
+msgid_plural "%d media items deleted successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of media items that failed to delete
+#: admin/dashboard/pages/MediaHub.js:521
+#, js-format
+msgid "Failed to delete %d media item."
+msgid_plural "Failed to delete %d media items."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of media items moved to trash
+#: admin/dashboard/pages/MediaHub.js:570
+#, js-format
+msgid "%d media item moved to trash."
+msgid_plural "%d media items moved to trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of media items that failed to move to trash
+#: admin/dashboard/pages/MediaHub.js:584
+#, js-format
+msgid "Failed to trash %d media item."
+msgid_plural "Failed to trash %d media items."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of items updated, 2: new status (e.g. "publish")
+#: admin/dashboard/pages/MediaHub.js:625
+#, js-format
+msgid "%1$d item updated to %2$s."
+msgid_plural "%1$d items updated to %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of items that failed to update
+#: admin/dashboard/pages/MediaHub.js:640
+#, js-format
+msgid "Failed to update %d item."
+msgid_plural "Failed to update %d items."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/dashboard/pages/MediaHub.js:685
+msgid "All Tags"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:887
+msgid "Your media will be displayed here."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:888
+msgid "Click the \"Add Media\" button to create a new Media Hub item"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:926
+#: admin/dashboard/pages/settings/config.js:54
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:100
+#: Services/Menu.php:75
+#: Services/Menu.php:76
+#: Services/VideoPostType.php:452
+msgid "Media Hub"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:934
+#: Services/VideoPostType.php:449
+msgid "New Media"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:943
+msgid "Move Selected to Trash?"
+msgstr ""
+
+#. translators: %d: number of selected items being moved to trash
+#: admin/dashboard/pages/MediaHub.js:946
+#, js-format
+msgid "Are you sure you want to move %d item to the trash?"
+msgid_plural "Are you sure you want to move %d items to the trash?"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of selected items being permanently deleted
+#: admin/dashboard/pages/MediaHub.js:968
+#, js-format
+msgid "This will permanently delete %d item. It cannot be recovered. To remove it temporarily instead, use Trash."
+msgid_plural "This will permanently delete %d items. They cannot be recovered. To remove them temporarily instead, use Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/dashboard/pages/MediaHub.js:994
+msgid "Posts"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:1040
+msgid "Tags"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:1042
+msgid "Tags help organize and filter your media library."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:1059
+#: Services/VideoPostType.php:203
+msgid "Shortcode"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:1061
+msgid "Copy the shortcode to embed this media in any post, page, or widget."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:1078
+msgid "Published on"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:1115
+msgid "No media found."
+msgstr ""
+
+#: admin/dashboard/pages/Onboarding.js:107
+msgid "Exit Guided Setup"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:46
+#: admin/dashboard/pages/settings/general/BrandingPage.js:148
+msgid "Branding"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:62
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:50
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:59
+msgid "Video Analytics"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:70
+#: admin/dashboard/pages/settings/entities.js:9
+#: admin/dashboard/pages/settings/general/PresetsPage.js:95
+msgid "Presets"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:78
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:64
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:72
+msgid "Custom CSS"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:86
+#: admin/dashboard/pages/settings/general/UninstallPage.js:54
+msgid "Uninstall Options"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:94
+#: admin/dashboard/pages/settings/general/ContributePage.js:37
+msgid "Contribute"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:102
+#: admin/dashboard/pages/settings/general/LicensePage.js:75
+msgid "License"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:112
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:27
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:36
+msgid "Google Analytics"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:155
+#: admin/dashboard/pages/settings/config.js:166
+#: admin/dashboard/pages/settings/PerformancePage.js:35
+msgid "Performance"
+msgstr ""
+
+#: admin/dashboard/pages/settings/config.js:165
+msgid "Integrations"
+msgstr ""
+
+#: admin/dashboard/pages/settings/entities.js:16
+msgid "Audio Presets"
+msgstr ""
+
+#: admin/dashboard/pages/settings/entities.js:23
+msgid "Webhook"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:158
+msgid "Custom Branding"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:159
+msgid "Add your logo and personalize the player appearance."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:166
+msgid "Logo"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:175
+msgid "No image selected"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:176
+msgid "Choose a logo image"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:183
+msgid "Open media library to choose a logo"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:199
+msgid "Add a logo to display in the player."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:216
+msgid "Logo max width"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:243
+msgid "Set the maximum width of the logo in pixels."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:253
+msgid "Brand Color"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/BrandingPage.js:263
+msgid "Set the primary brand color for the player UI."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ContributePage.js:50
+msgid "Help shape the future of Presto Player."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ContributePage.js:56
+msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:73
+msgid "Style the player with custom CSS across your site."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:81
+msgid "Add custom CSS rules to fine-tune how your video player looks. Styles defined here apply globally to every Presto Player on your site."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:101
+msgid "Quick Info:"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:106
+msgid "Use your browser’s developer tools (right-click → Inspect) to find the exact selectors before writing rules."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/CustomCssPage.js:114
+msgid "Custom CSS loads after all default styles, so your rules override the player’s built-in styling without needing !important."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:32
+msgid "Please enter a license key."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:39
+msgid "License activated successfully."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:48
+msgid "Could not activate license."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:58
+msgid "License deactivated."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:64
+msgid "Could not deactivate license."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:70
+msgid "Your license is activated"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:71
+msgid "Paste your license key here"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:80
+msgid "License Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:100
+#: admin/dashboard/pages/settings/general/LicensePage.js:139
+msgid "Deactivate"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:114
+msgid "Enter the License Key you received when you purchased this product. If you lost the key, you can retrieve it from"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:126
+msgid "My Account"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:134
+msgid "Deactivate license?"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/LicensePage.js:135
+msgid "You will lose access to Pro features, automatic updates, and support on this site until you reactivate."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:111
+msgid "Default Sync Behavior"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:114
+msgid "When enabled, blocks stay linked to their Media Hub entry and automatically reflect any changes made there."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:133
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:141
+msgid "Not Synced"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:146
+msgid "Choose the default sync behavior of Presto Player blocks with the Media Hub."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:155
+msgid "Instant Video Page Width"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:185
+msgid "Customize the video player width on the instant video page."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:104
+msgid "Player Presets"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:105
+msgid "Set default presets for video and audio players."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:113
+msgid "Default Video Preset"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:114
+msgid "This preset will be automatically applied to every new video block you add."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:138
+#: admin/dashboard/pages/settings/general/PresetsPage.js:187
+msgid "Select a preset"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:153
+msgid "No presets available"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:162
+msgid "Default Audio Preset"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:163
+msgid "This preset will be automatically applied to every new audio block you add."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/PresetsPage.js:202
+msgid "No audio presets available"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/UninstallPage.js:67
+msgid "Remove data on uninstall"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/UninstallPage.js:68
+msgid "This removes all data on uninstall."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/UninstallPage.js:80
+msgid "Remove all data?"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/UninstallPage.js:81
+msgid "Caution: This will permanently remove all plugin data on uninstall. This action is irreversible."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/UninstallPage.js:85
+msgid "Yes, Remove Data"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:60
+msgid "Track video views, watch time, and engagement metrics."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:72
+msgid "Enable view analytics for your media."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:87
+msgid "Auto-Purge Data (recommended)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:89
+msgid "Analytics records older than 90 days are automatically deleted to keep your database lean. Disable only if you need long-term historical data."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:100
+msgid "Automatically purge data older than 90 days."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:101
+msgid "Please select at least one transcription language before saving."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:147
+msgid "Bunny.net Integration"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:148
+msgid "Serve secure, high-performance video through your Bunny.net account."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:156
+msgid "Streaming Defaults"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:157
+msgid "Default playback behavior for all Bunny.net streams."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:165
+msgid "Initial Quality Level"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:175
+msgid "Set the default quality start level for all streams (e.g. 240, 360, 480, 720, 1080)."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:189
+msgid "Disable Classic Bunny.net Storage"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:193
+msgid "This will disable Bunny.net classic storage in your block UI."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:204
+msgid "Connection Settings"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:205
+msgid "Manage your Bunny.net library credentials. Only edit if you know what you're doing."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:216
+msgid "Edit Connection Settings"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:217
+msgid "Toggle on to view and edit your Bunny.net library and storage credentials."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:227
+msgid "Bunny Stream (Public)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:231
+msgid "Public Stream Library ID"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:232
+msgid "Found in your Bunny Stream library settings."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:244
+msgid "Public Stream Library API Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:245
+msgid "API key from your Bunny Stream library settings."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:257
+msgid "Public Stream CDN Hostname"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:258
+msgid "Pull zone hostname for your public stream (e.g. your-library.b-cdn.net)."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:271
+msgid "Bunny Stream (Private)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:275
+msgid "Private Stream Library ID"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:276
+msgid "Found in your private Bunny Stream library settings."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:288
+msgid "Private Stream Library API Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:289
+msgid "API key from your private Bunny Stream library settings."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:301
+msgid "Private Stream CDN Hostname"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:302
+msgid "Pull zone hostname for your private stream."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:314
+msgid "Private Stream Token Authentication Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:315
+msgid "Used to sign secure video URLs. Found in your Bunny Stream library settings under \"Token Authentication\"."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:328
+msgid "Bunny.net Storage (Classic)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:329
+msgid "To change your API key, click \"Reconnect\" from a Bunny.net block."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:336
+msgid "Public ID"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:337
+msgid "Pull zone ID for your public Bunny.net storage zone."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:349
+msgid "Public Host Name"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:350
+msgid "CDN hostname for your public storage pull zone."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:362
+msgid "Private ID"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:363
+msgid "Pull zone ID for your private Bunny.net storage zone."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:375
+msgid "Private Host Name"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:376
+msgid "CDN hostname for your private storage pull zone."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:388
+msgid "Private URL Token Authentication Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:389
+msgid "Security key for URL signing in classic storage. Found in your Bunny CDN pull zone settings."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:409
+msgid "Detects speech and generates captions for new videos. Includes translation into 50+ languages."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:426
+msgid "Enable Automatic Caption Generation"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:430
+msgid "Enable auto-captioning for every video uploaded to your Bunny.net Stream Library. Translations can be managed from the player block toolbar."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:456
+msgid "This will automatically generate captions for every video you upload, unlocking automatic captions and translations. You will be charged $0.10 per minute for each language from your Bunny.net account balance."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:76
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:343
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:399
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:459
+msgid "Connected"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:91
+msgid "Disconnect"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:130
+msgid "Connect"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:208
+msgid "CSV Export"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:210
+msgid "Using a service not listed here? Export captured contacts to a CSV file and upload them manually."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:233
+msgid "Download CSV File"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:245
+msgid "Preparing…"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:246
+msgid "Export to CSV"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:300
+msgid "Success"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:302
+msgid "Request failed."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:319
+msgid "Capture viewer emails straight into your email marketing platform."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:327
+msgid "Find your API key in your Mailchimp account under Profile → Extras → API keys."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:352
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:408
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:468
+msgid "Disconnected"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:358
+msgid "Your Mailchimp API Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:362
+msgid "Generate this in Mailchimp under Profile → Extras → API keys."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:383
+msgid "Get your API key from MailerLite under Integrations → Developer API."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:414
+msgid "Your MailerLite API Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:418
+msgid "Generate this from MailerLite under Integrations → Developer API."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:439
+msgid "Find your account URL and API key in ActiveCampaign under Settings → Developer."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:475
+msgid "Account URL"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:479
+msgid "Your ActiveCampaign API URL, e.g. https://youraccountname.api-us1.com"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:499
+msgid "Your ActiveCampaign API Key"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:503
+msgid "Found in ActiveCampaign under Settings → Developer."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:525
+msgid "Install and activate the free FluentCRM plugin to capture emails directly into your self-hosted CRM."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:532
+msgid "Install FluentCRM Plugin"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:536
+msgid "Deactivate FluentCRM Plugin"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:546
+msgid "Installed and connected"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:555
+msgid "Deactivated"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:37
+msgid "Send media events directly to your Google Analytics account."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:49
+msgid "Send analytics events to your Google Analytics account."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:63
+msgid "Use existing on-page tag?"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:64
+msgid "Should we use an existing Google Analytics (v4) tag? If not, we'll output one for you."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:73
+msgid "Measurement ID"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:82
+msgid "Enter a Google Analytics Measurement ID, which can be found on your analytics admin page."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:56
+msgid "Headers"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:62
+msgid "Header Name"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:70
+msgid "Value"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:91
+msgid "Add Header"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:130
+msgid "Discard unsaved changes to this webhook?"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:140
+msgid "Name and URL are required."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:153
+msgid "Webhook updated."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:154
+msgid "Webhook created."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:183
+msgid "Edit Webhook"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:184
+msgid "Add Webhook"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:194
+msgid "Webhook feed name"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:201
+msgid "Request URL"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:210
+msgid "Webhook URL"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:217
+msgid "Request Method"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:240
+msgid "Email Name"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:248
+msgid "The name (key) of the email sent."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:272
+msgid "Update"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:288
+msgid "Untitled webhook"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:356
+msgid "Webhook deleted."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:360
+msgid "Could not delete webhook."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:374
+msgid "Connect captured emails to any external service via webhooks."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:382
+msgid "No webhooks yet. Create one to get started."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:406
+msgid "Create Webhook"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:424
+msgid "Delete webhook?"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/WebhooksPage.js:425
+msgid "This will permanently remove the webhook. This action cannot be undone."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:33
+msgid "Privacy-Enhanced Mode"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:34
+msgid "Embed YouTube videos without using cookies that track viewing behaviour."
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:42
+msgid "Channel ID"
+msgstr ""
+
+#: admin/dashboard/pages/settings/integrations/YouTubePage.js:49
+msgid "Enter the ID of your channel to enable YouTube Subscribe button functionality."
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:48
+msgid "Dynamically Load JavaScript"
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:49
+msgid "Dynamically load javascript modules on the page which can significantly reduce javascript size and increase performance."
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:60
+msgid "Please Note"
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:63
+msgid "You may need to exclude the player script from combining, as well as enable CORS requests for some CDNs."
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:88
+msgid "Enable Ajax Requests for Progress Integrations"
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:90
+msgid "Required for LMS, membership, and automation integrations to track video progress correctly. Disable only if you are not using any such integrations."
+msgstr ""
+
+#: admin/dashboard/pages/settings/PerformancePage.js:98
+msgid "Keep this on unless you do not plan on using automation, LMS or membership integrations."
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/SettingsPageShell.js:37
+msgid "Saving…"
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/SettingsPageShell.js:74
+msgid "Couldn't load settings"
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/SettingsPageShell.js:75
+msgid "We hit an error fetching your settings. Save is disabled until the load succeeds — please retry."
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/SettingsPageShell.js:80
+msgid "Retry"
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/UnsavedChangesDialog.js:33
+msgid "Unsaved changes"
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/UnsavedChangesDialog.js:36
+msgid "You have unsaved changes on this page. What would you like to do?"
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/UnsavedChangesDialog.js:49
+msgid "Discard Changes"
+msgstr ""
+
+#: admin/dashboard/pages/settings/shared/UnsavedChangesDialog.js:67
+msgid "Save & Continue"
+msgstr ""
+
+#: admin/dashboard/pages/UserAnalyticsDetail.js:150
+msgid "User Detail"
+msgstr ""
+
+#: admin/dashboard/pages/UserAnalyticsDetail.js:220
+msgid "Average Watch Time"
+msgstr ""
+
+#: admin/dashboard/pages/UserAnalyticsDetail.js:224
+msgid "Total Watch Time"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:47
+msgid "All Time"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:51
+msgid "Last 7 days"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:55
+msgid "Last 30 days"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:59
+msgid "Last 90 days"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:63
+msgid "Last 12 months"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:83
+msgid "Invalid Date"
+msgstr ""
+
+#: admin/dashboard/utils/dateUtils.js:87
+msgid "No Date"
+msgstr ""
+
+#. translators: %s: Plugin name
+#: admin/dashboard/utils/pluginUtils.js:30
+#, js-format
+msgid "%s Plugin Activated Successfully..!"
+msgstr ""
+
+#. translators: %s: Plugin name
+#: admin/dashboard/utils/pluginUtils.js:67
+#, js-format
+msgid "Installing %s plugin. Please wait.."
+msgstr ""
+
+#. translators: %s: Plugin name
+#: admin/dashboard/utils/pluginUtils.js:80
+#, js-format
+msgid "%s plugin Installed Successfully.."
+msgstr ""
+
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:208
 #: Integrations/Elementor/VideoWidget.php:245
 msgid "Video Options"
@@ -2378,6 +4696,7 @@ msgid "New Video"
 msgstr ""
 
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:216
+#: Services/Learn.php:212
 msgid "Create Video"
 msgstr ""
 
@@ -2385,680 +4704,8 @@ msgstr ""
 msgid "Please select media."
 msgstr ""
 
-#: admin/settings/app.js:41
-#: admin/settings/components/Group.js:29
-msgid "Settings Updated"
-msgstr ""
-
-#: admin/settings/app.js:103
-#: admin/settings/pages/Integrations.js:265
-msgid "Integrations"
-msgstr ""
-
-#: admin/settings/app.js:112
-#: admin/settings/pages/Performance.js:26
-#: admin/settings/pages/Performance.js:30
-msgid "Performance"
-msgstr ""
-
-#: admin/settings/app.js:118
-#: admin/settings/components/Group.js:65
-msgid "Update Settings"
-msgstr ""
-
-#: admin/settings/components/CustomCSS.js:41
-msgid "Error loading Code Editor..."
-msgstr ""
-
-#: admin/settings/components/Integration.js:37
-#: admin/settings/pages/parts/integration/ActiveCampaign.js:32
-#: admin/settings/pages/parts/integration/Mailchimp.js:37
-#: admin/settings/pages/parts/integration/MailerLite.js:37
-msgid "Connected"
-msgstr ""
-
-#: admin/settings/components/Integration.js:41
-msgid "Not Connected"
-msgstr ""
-
-#: admin/settings/components/Integration.js:68
-msgid "Connect"
-msgstr ""
-
-#: admin/settings/components/Integration.js:84
-#: admin/settings/components/Integration.js:114
-msgid "Disconnect"
-msgstr ""
-
-#: admin/settings/components/Integration.js:101
-msgid "Are you sure you want to disconnect this integration?"
-msgstr ""
-
-#: admin/settings/components/ToggleControl.js:53
-msgid "Okay"
-msgstr ""
-
-#: admin/settings/entities.js:9
-#: admin/settings/pages/General.js:324
-msgid "Presets"
-msgstr ""
-
-#: admin/settings/entities.js:16
-msgid "Audio Presets"
-msgstr ""
-
-#: admin/settings/entities.js:23
-msgid "Webhook"
-msgstr ""
-
-#: admin/settings/pages/General.js:36
-#: admin/settings/pages/Integrations.js:74
-msgid "Unlock Presto Player Pro"
-msgstr ""
-
-#: admin/settings/pages/General.js:154
-msgid "Branding, analytics and uninstall data."
-msgstr ""
-
-#: admin/settings/pages/General.js:160
-msgid "Branding"
-msgstr ""
-
-#: admin/settings/pages/General.js:161
-msgid "Global player branding options"
-msgstr ""
-
-#: admin/settings/pages/General.js:168
-msgid "Logo"
-msgstr ""
-
-#: admin/settings/pages/General.js:200
-#: Services/VideoPostType.php:412
-msgid "Media Hub"
-msgstr ""
-
-#: admin/settings/pages/General.js:201
-msgid "Manage the Media Hub settings."
-msgstr ""
-
-#: admin/settings/pages/General.js:204
-msgid "Default Sync Behavior"
-msgstr ""
-
-#: admin/settings/pages/General.js:205
-msgid "Choose the default sync behavior of Presto Player blocks with the Media Hub."
-msgstr ""
-
-#: admin/settings/pages/General.js:256
-msgid "Sync blocks to media hub."
-msgstr ""
-
-#: admin/settings/pages/General.js:267
-msgid "Don't sync blocks to media hub."
-msgstr ""
-
-#: admin/settings/pages/General.js:275
-msgid "Instant Video Page Width"
-msgstr ""
-
-#: admin/settings/pages/General.js:281
-msgid "Customize the video player width on the instant video page."
-msgstr ""
-
-#: admin/settings/pages/General.js:291
-#: admin/settings/pages/Integrations.js:273
-msgid "Analytics settings for media plays, watch times and more."
-msgstr ""
-
-#: admin/settings/pages/General.js:300
-msgid "Enable view analytics for your media."
-msgstr ""
-
-#: admin/settings/pages/General.js:307
-msgid "Auto-Purge Data (recommended)"
-msgstr ""
-
-#: admin/settings/pages/General.js:308
-msgid "Automatically purge data older than 90 days."
-msgstr ""
-
-#: admin/settings/pages/General.js:326
-msgid "Media presets settings."
-msgstr ""
-
-#: admin/settings/pages/General.js:332
-msgid "Select default preset for video."
-msgstr ""
-
-#: admin/settings/pages/General.js:352
-msgid "Select default preset for audio."
-msgstr ""
-
-#: admin/settings/pages/General.js:370
-msgid "Custom CSS"
-msgstr ""
-
-#: admin/settings/pages/General.js:371
-msgid "Quickly add custom css to the player web component."
-msgstr ""
-
-#: admin/settings/pages/General.js:384
-msgid "Uninstall Options"
-msgstr ""
-
-#: admin/settings/pages/General.js:385
-msgid "Options to remove data on uninstall."
-msgstr ""
-
-#: admin/settings/pages/General.js:391
-msgid "Remove data on uninstall"
-msgstr ""
-
-#: admin/settings/pages/General.js:392
-msgid "This removes all data on uninstall."
-msgstr ""
-
-#: admin/settings/pages/General.js:398
-msgid "Caution: Data Loss. Are you sure you want to remove all the data from this plugin? This is irreversible!"
-msgstr ""
-
-#: admin/settings/pages/General.js:410
-msgid "Contribute"
-msgstr ""
-
-#: admin/settings/pages/General.js:413
-msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions."
-msgstr ""
-
-#: admin/settings/pages/General.js:425
-msgid "Help shape the future of Presto Player"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:108
-msgid "Bunny.net Settings"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:109
-msgid "Modify bunny.net settings."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:115
-msgid "Initial Quality Level"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:116
-msgid "You can set the default quality start level for all streams (i.e. 240, 360, 480, 720, 1080, etc). Set this lower to prevent initial buffering if your users have slow connections. Set this higher to start with a higher quality stream."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:131
-msgid "Disable Classic Bunny.net Storage"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:132
-msgid "This will disable Bunny.net classic storage in your block UI."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:145
-msgid "Edit Bunny.net Settings"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:146
-msgid "Edit Bunny.net connection settings. Only edit this if you know what you're doing."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:171
-msgid "Detects speech and generates captions for new videos. Includes the option to translate into 50+ languages."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:180
-msgid "Enable Automatic Caption Generation"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:181
-msgid "Enable auto-captioning for every video uploaded to your Bunny.net Stream Library. Captions publish automatically and are visible on the player once processing is completed. Translations can be managed at any time. Simply select the CC icon in the player block toolbar within the editor to generate additional languages."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:220
-msgid "This will automatically generate captions for every video you upload, unlocking automatic captions and translations. You will be charged $0.10 per minute for each language from your Bunny.net account balance."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:266
-msgid "Third party integrations and connections."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:272
-msgid "Google Analytics"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:282
-msgid "Send analytics events to your Google Analytics account."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:292
-msgid "Use existing on-page tag?"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:293
-msgid "Should we use an existing google analytics (v4) tag? If not, we'll output one for you."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:304
-msgid "Measurement ID"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:305
-msgid "Enter a Google Analytics Measurement ID, which can be found on your analytics admin page."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:316
-msgid "Settings for YouTube videos."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:320
-msgid "Privacy-Enhanced Mode"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:321
-msgid "Embed YouTube videos without using cookies that track viewing behaviour."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:330
-msgid "Channel ID"
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:333
-msgid "Enter the ID of your channel to enable Youtube Subscribe button functionality."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:351
-msgid "Integrate Presto Player with an email provider for email capture."
-msgstr ""
-
-#: admin/settings/pages/Integrations.js:375
-msgid "To get started with Bunny.net, add a Bunny.net video to your page."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:29
-msgid "Bunny.net Storage (Classic)"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:32
-msgid "Note: To Change your API key, please click \"Reconnect\" from a bunny block."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:39
-msgid "Public ID"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:40
-msgid "The ID of the public pull zone to use."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:46
-msgid "Public Host Name"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:47
-msgid "The hostname to use for this pullzone."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:53
-msgid "Private ID"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:54
-msgid "The ID of the private pull zone to use."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:60
-msgid "Private Host Name"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:61
-msgid "The hostname to use for the private pullzone."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:70
-msgid "Private Url Token Authentication Key"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyClassic/index.js:71
-msgid "Update the security token used to sign private urls."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:93
-msgid "Webhook registration endpoint not available."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:125
-msgid "Webhook URL Registered"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:130
-msgid "Failed to register webhook."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:145
-msgid "Clear cache endpoint not available."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:156
-msgid "Caption cache cleared successfully."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:161
-msgid "Failed to clear caption cache."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:174
-msgid "Bunny.net Stream"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:180
-msgid "Webhook Settings"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:183
-msgid "Register the webhook URL with Bunny.net to automatically sync captions when automatic caption generation completes."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:189
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:82
-msgid "Webhook URL"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:194
-msgid "Loading..."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:195
-msgid "Enter webhook URL"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:197
-msgid "The webhook URL to register with Bunny.net. Leave empty to use the default generated URL."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:210
-msgid "Registering..."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:211
-msgid "Register Webhook"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:215
-msgid "Connect a Bunny.net library first to register the webhook."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:223
-msgid "Caption Cache"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:226
-msgid "Clear cached captions if they are not updating properly. Captions are normally refreshed automatically via webhooks."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:239
-msgid "Clearing..."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/index.js:240
-msgid "Clear Caption Cache"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:29
-msgid "Private Stream Library ID"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:30
-#: admin/settings/pages/parts/BunnyStream/PublicStream.js:26
-msgid "The ID of the video library to use."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:36
-msgid "Private Stream Library API Key"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:37
-#: admin/settings/pages/parts/BunnyStream/PublicStream.js:33
-msgid "The API key for the above video library for read/write access."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:48
-msgid "Private Stream CDN Hostname"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:49
-#: admin/settings/pages/parts/BunnyStream/PublicStream.js:45
-msgid "The public cdn hostname for the video library."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:58
-msgid "Private Stream Token Authentication Key"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PrivateStream.js:59
-msgid "The token authentication key used to sign private urls."
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PublicStream.js:25
-msgid "Public Stream Library ID"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PublicStream.js:32
-msgid "Public Stream Library API Key"
-msgstr ""
-
-#: admin/settings/pages/parts/BunnyStream/PublicStream.js:44
-msgid "Public Stream CDN Hostname"
-msgstr ""
-
-#: admin/settings/pages/parts/EmailExport.js:60
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:306
-msgid "Other"
-msgstr ""
-
-#: admin/settings/pages/parts/EmailExport.js:65
-msgid "Manual Export"
-msgstr ""
-
-#: admin/settings/pages/parts/EmailExport.js:67
-msgid "Using a service not listed here? You can export contacts and manually upload them to a service."
-msgstr ""
-
-#: admin/settings/pages/parts/EmailExport.js:90
-msgid "Download CSV File"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/ActiveCampaign.js:41
-#: admin/settings/pages/parts/integration/Mailchimp.js:46
-#: admin/settings/pages/parts/integration/MailerLite.js:46
-msgid "Disconnected"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/ActiveCampaign.js:80
-msgid "Your ActiveCampaign Url"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/ActiveCampaign.js:82
-#: admin/settings/pages/parts/integration/ActiveCampaign.js:91
-msgid "You can find this on your Settings > Developer page."
-msgstr ""
-
-#: admin/settings/pages/parts/integration/ActiveCampaign.js:90
-msgid "Your ActiveCampaign API key"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/FluentCRM.js:21
-msgid "Installed and connected"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/FluentCRM.js:30
-msgid "Deactivated"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/FluentCRM.js:42
-msgid "Install FluentCRM Plugin"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/FluentCRM.js:43
-msgid "Deactivate FluentCRM Plugin"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/FluentCRM.js:67
-msgid "Installed and connected!"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/Mailchimp.js:85
-msgid "Your Mailchimp API key"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/Mailchimp.js:88
-msgid "You can create a new key on your mailchimp account page."
-msgstr ""
-
-#: admin/settings/pages/parts/integration/Mailchimp.js:93
-#: admin/settings/pages/parts/integration/MailerLite.js:94
-msgid "Get My API Key"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/MailerLite.js:86
-msgid "Your MailerLite API key"
-msgstr ""
-
-#: admin/settings/pages/parts/integration/MailerLite.js:89
-msgid "You can create a new key on your MailerLite account page."
-msgstr ""
-
-#: admin/settings/pages/parts/integration/withIntegration.js:33
-#: admin/settings/util.js:24
-msgid "Success"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/Headers.js:44
-msgid "Header Name"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/Headers.js:49
-msgid "New Value"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/Headers.js:66
-msgid "Add Header"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/index.js:34
-#, js-format
-msgid "%d connected"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/index.js:55
-msgid "Create New WebHook"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:42
-msgid "Webhook updated"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:43
-msgid "Webhook created."
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:52
-msgid "Something went wrong."
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:64
-msgid "Edit Webhook"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:65
-msgid "Add A Webhook"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:73
-msgid "Webhook feed name"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:81
-msgid "Request URL"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:90
-msgid "Request Method"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:102
-msgid "Email Name"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:103
-msgid "The name (key) of the email sent."
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:111
-msgid "Headers"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/NewWebhook.js:121
-msgid "Update"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/Webhook.js:47
-msgid "Are you sure you want to delete this webhook?"
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/Webhook.js:57
-msgid "Webhook deleted."
-msgstr ""
-
-#: admin/settings/pages/parts/Webhooks/Webhook.js:78
-msgid "Untitled webhook"
-msgstr ""
-
-#: admin/settings/pages/Performance.js:27
-msgid "Player performance preferences."
-msgstr ""
-
-#: admin/settings/pages/Performance.js:31
-msgid "Performance options for player loading."
-msgstr ""
-
-#: admin/settings/pages/Performance.js:39
-msgid "Dynamically Load JavaScript"
-msgstr ""
-
-#: admin/settings/pages/Performance.js:40
-msgid "Dynamically load javascript modules on the page which can significantly reduce javascript size and increase performance."
-msgstr ""
-
-#: admin/settings/pages/Performance.js:59
-msgid "Please Note"
-msgstr ""
-
-#: admin/settings/pages/Performance.js:62
-msgid "You may need to exclude the player script from combining, as well as enable CORS requests for some CDNs."
-msgstr ""
-
-#: admin/settings/pages/Performance.js:76
-msgid "Enable Ajax Requests for Progress Integrations"
-msgstr ""
-
-#: admin/settings/pages/Performance.js:80
-msgid "Keep this on unless you do not plan on using automation, LMS or membership integrations."
-msgstr ""
-
-#: admin/settings/settings.js:65
-msgid "Settings saved."
-msgstr ""
-
 #: admin/toolbar/index.js:51
 msgid "Instant Video Page"
-msgstr ""
-
-#: admin/toolbar/index.js:96
-msgid "Published"
 msgstr ""
 
 #: admin/toolbar/index.js:97
@@ -3068,21 +4715,6 @@ msgstr ""
 
 #: admin/toolbar/index.js:117
 msgid "An instant video page gives you an instant shareable page for your media."
-msgstr ""
-
-#: admin/ui/Menu.js:120
-#: lib/nps-survey/dist/main.js:1
-#: lib/nps-survey/dist/main.js:4
-msgid "Back"
-msgstr ""
-
-#: admin/ui/Pagination.js:40
-#, js-format
-msgid "Showing %1s to %2s of %3s"
-msgstr ""
-
-#: admin/ui/Pagination.js:55
-msgid "Previous"
 msgstr ""
 
 #: admin/blocks/blocks/audio/block.json
@@ -3314,8 +4946,8 @@ msgid "If you have already added the rule, you may safely dismiss this notice"
 msgstr ""
 
 #: Attachment.php:146
-#: Services/ProCompatibility.php:50
-#: Services/ReusableVideos.php:46
+#: Services/ProCompatibility.php:95
+#: Services/ReusableVideos.php:60
 msgid "Dismiss Notice"
 msgstr ""
 
@@ -3353,18 +4985,14 @@ msgid "Presto Player Media"
 msgstr ""
 
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:76
-#: Services/Menu.php:54
+#: Services/Menu.php:99
+#: Services/Menu.php:100
 #: Services/Translation.php:125
 msgid "Settings"
 msgstr ""
 
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:83
 msgid "Select Media Hub Item"
-msgstr ""
-
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:111
-#: Integrations/Elementor/ReusableVideoWidget.php:108
-msgid "Media"
 msgstr ""
 
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:118
@@ -3389,12 +5017,8 @@ msgid "Please choose media above before selecting dynamic URL override."
 msgstr ""
 
 #: Integrations/Elementor/ReusableVideoWidget.php:126
-#: Services/VideoPostType.php:410
+#: Services/VideoPostType.php:450
 msgid "Edit Media"
-msgstr ""
-
-#: Integrations/Elementor/ReusableVideoWidget.php:139
-msgid "Create Media"
 msgstr ""
 
 #: Integrations/Elementor/ReusableVideoWidget.php:161
@@ -3421,7 +5045,7 @@ msgid "Muted Preview"
 msgstr ""
 
 #: Integrations/Elementor/VideoWidget.php:297
-#: Services/VideoPostType.php:161
+#: Services/VideoPostType.php:201
 msgid "Poster"
 msgstr ""
 
@@ -3489,7 +5113,7 @@ msgid "Oops! Something went wrong. Please refresh the page and try again."
 msgstr ""
 
 #: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
-#: Services/Usage.php:164
+#: Services/Usage.php:184
 msgid "Quick Feedback"
 msgstr ""
 
@@ -3560,6 +5184,10 @@ msgstr ""
 msgid "Please tell us more about the feature."
 msgstr ""
 
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:306
+msgid "Other"
+msgstr ""
+
 #: lib/nps-survey/classes/nps-survey-script.php:333
 msgid "Sorry, you are not allowed to do that."
 msgstr ""
@@ -3575,6 +5203,18 @@ msgstr ""
 
 #: Models/Model.php:688
 msgid "There was an issue updating the model."
+msgstr ""
+
+#: Models/ReusableVideo.php:372
+msgid "Invalid post ID."
+msgstr ""
+
+#: Models/ReusableVideo.php:393
+msgid "Failed to duplicate."
+msgstr ""
+
+#: Models/ReusableVideo.php:520
+msgid "Successfully duplicated."
 msgstr ""
 
 #: Models/Webhook.php:76
@@ -3618,61 +5258,61 @@ msgstr ""
 msgid "Subscribe to our channel"
 msgstr ""
 
-#: Services/AdminNotices.php:82
+#: Services/AdminNotices.php:143
 msgid "Thanks a ton for choosing Presto Player! We are hard at work adding more features to help you harness the power of videos."
 msgstr ""
 
-#: Services/AdminNotices.php:83
+#: Services/AdminNotices.php:144
 msgid "Could you please do us a BIG favor and give us a 5-star rating on WordPress? It really boosts the motivation of our team."
 msgstr ""
 
-#: Services/AdminNotices.php:85
+#: Services/AdminNotices.php:146
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: Services/AdminNotices.php:87
+#: Services/AdminNotices.php:148
 msgid "Nope, maybe later"
 msgstr ""
 
-#: Services/AdminNotices.php:88
+#: Services/AdminNotices.php:149
 msgid "I already did"
 msgstr ""
 
-#: Services/AdminNotices.php:201
+#: Services/AdminNotices.php:286
 msgid "Quick Question!"
 msgstr ""
 
-#: Services/AdminNotices.php:202
+#: Services/AdminNotices.php:287
 msgid "How would you rate Presto Player? Love it, hate it, or somewhere in between? Your honest answer helps us understand how we're doing."
 msgstr ""
 
-#: Services/AdminNotices.php:203
+#: Services/AdminNotices.php:288
 msgid "Hate it!"
 msgstr ""
 
-#: Services/AdminNotices.php:204
+#: Services/AdminNotices.php:289
 msgid "Love it!"
 msgstr ""
 
-#: Services/AdminNotices.php:207
+#: Services/AdminNotices.php:292
 msgid "Thanks a lot for your feedback! 😍"
 msgstr ""
 
-#: Services/AdminNotices.php:208
+#: Services/AdminNotices.php:293
 msgid "Thanks for being part of the Presto Player community! Got feedback or suggestions? We'd love to hear it."
 msgstr ""
 
-#: Services/AdminNotices.php:211
+#: Services/AdminNotices.php:296
 msgid "Thank you for your feedback"
 msgstr ""
 
-#: Services/AdminNotices.php:212
+#: Services/AdminNotices.php:297
 msgid "We value your input. How can we improve your experience?"
 msgstr ""
 
 #: Services/API/RestAudioPresetsController.php:128
 #: Services/API/RestPresetsController.php:126
-#: Services/API/RestVideosController.php:137
+#: Services/API/RestVideosController.php:149
 msgid "Unique identifier for the object."
 msgstr ""
 
@@ -3722,48 +5362,91 @@ msgstr ""
 msgid "This preset could not be trashed."
 msgstr ""
 
+#: Services/API/RestEmailSubmissionsController.php:354
+msgid "Invalid email address."
+msgstr ""
+
+#: Services/API/RestEmailSubmissionsController.php:404
+msgid "Email submission not found."
+msgstr ""
+
+#: Services/API/RestEmailSubmissionsController.php:457
+msgid "IDs are required."
+msgstr ""
+
+#. translators: %d: maximum number of IDs allowed per delete request
+#: Services/API/RestEmailSubmissionsController.php:464
+#, php-format
+msgid "Too many IDs in a single request. Maximum %d."
+msgstr ""
+
+#: Services/API/RestEmailSubmissionsController.php:594
+msgid "Presto Player Pro is required for email submissions."
+msgstr ""
+
+#: Services/API/RestLicenseController.php:92
+msgid "The license key to activate."
+msgstr ""
+
+#: Services/API/RestLicenseController.php:262
+#: Services/API/RestLicenseController.php:280
+msgid "Please update Presto Player Pro to manage your license."
+msgstr ""
+
+#: Services/API/RestLicenseController.php:314
+msgid "Presto Player Pro is required to manage your license."
+msgstr ""
+
+#: Services/API/RestMediaPostController.php:138
+msgid "Media not found."
+msgstr ""
+
 #: Services/API/RestPresetsController.php:157
 msgid "Style for the caption."
 msgstr ""
 
-#: Services/API/RestSettingsController.php:127
+#: Services/API/RestSettingsController.php:139
 msgid "Markup is not allowed in CSS."
 msgstr ""
 
-#: Services/API/RestVideosController.php:143
+#: Services/API/RestVideosController.php:155
 msgid "Title of the video."
 msgstr ""
 
-#: Services/API/RestVideosController.php:149
+#: Services/API/RestVideosController.php:161
 msgid "Slug for the video type (one of youtube, vimeo, attachment, link)"
 msgstr ""
 
-#: Services/API/RestVideosController.php:156
+#: Services/API/RestVideosController.php:168
 msgid "External unique id."
 msgstr ""
 
-#: Services/API/RestVideosController.php:162
+#: Services/API/RestVideosController.php:174
 msgid "The id of the attachment."
 msgstr ""
 
-#: Services/API/RestVideosController.php:166
+#: Services/API/RestVideosController.php:178
 msgid "The post the video is attached to."
 msgstr ""
 
-#: Services/API/RestVideosController.php:170
+#: Services/API/RestVideosController.php:182
 msgid "Video source url."
 msgstr ""
 
-#: Services/API/RestVideosController.php:223
+#: Services/API/RestVideosController.php:235
 msgid "Cannot create video."
 msgstr ""
 
-#: Services/API/RestVideosController.php:248
+#: Services/API/RestVideosController.php:260
 msgid "Cannot get video."
 msgstr ""
 
-#: Services/API/RestVideosController.php:304
+#: Services/API/RestVideosController.php:322
 msgid "Cannot update video."
+msgstr ""
+
+#: Services/API/RestVideosController.php:355
+msgid "Video not found."
 msgstr ""
 
 #: Services/Blocks.php:38
@@ -3771,65 +5454,535 @@ msgstr ""
 msgid "Presto"
 msgstr ""
 
-#: Services/Menu.php:53
-msgid "Presto Player Settings"
+#: Services/Learn.php:202
+msgid "Getting Started"
 msgstr ""
 
-#: Services/ProCompatibility.php:37
+#: Services/Learn.php:203
+msgid "Create your first video and learn the core Presto Player workflow."
+msgstr ""
+
+#: Services/Learn.php:208
+#: Services/Learn.php:218
+msgid "Add a Presto Player video block"
+msgstr ""
+
+#: Services/Learn.php:209
+msgid "Create a Presto Player video block in the block editor and embed your first video — from YouTube, Vimeo, or a self-hosted file."
+msgstr ""
+
+#: Services/Learn.php:223
+#: Services/Learn.php:233
+msgid "Choose your video source"
+msgstr ""
+
+#: Services/Learn.php:224
+msgid "Learn the difference between YouTube, Vimeo, self-hosted, and Bunny.net — pick the right source for your use case."
+msgstr ""
+
+#: Services/Learn.php:238
+#: Services/Learn.php:248
+msgid "Manage your Media Hub"
+msgstr ""
+
+#: Services/Learn.php:239
+msgid "Browse, search, and organize all your videos in one central library. The Media Hub is your video command center."
+msgstr ""
+
+#: Services/Learn.php:242
+msgid "Open Media Hub"
+msgstr ""
+
+#: Services/Learn.php:253
+#: Services/Learn.php:263
+msgid "Use shortcodes to embed anywhere"
+msgstr ""
+
+#: Services/Learn.php:254
+msgid "Copy a shortcode from the Media Hub to embed videos in widgets, classic editor, or any page builder that supports shortcodes."
+msgstr ""
+
+#: Services/Learn.php:257
+msgid "View Media Hub"
+msgstr ""
+
+#: Services/Learn.php:271
+msgid "Player Customization"
+msgstr ""
+
+#: Services/Learn.php:272
+msgid "Fine-tune how your videos look, feel, and behave."
+msgstr ""
+
+#: Services/Learn.php:277
+#: Services/Learn.php:287
+msgid "Customize player controls"
+msgstr ""
+
+#: Services/Learn.php:278
+msgid "Choose which controls are visible — play, progress, volume, speed, fullscreen, PiP, and more."
+msgstr ""
+
+#: Services/Learn.php:281
+#: Services/Learn.php:296
+msgid "Edit Preset"
+msgstr ""
+
+#: Services/Learn.php:292
+#: Services/Learn.php:302
+msgid "Configure playback behavior"
+msgstr ""
+
+#: Services/Learn.php:293
+msgid "Set autoplay, muted start, save position, play-in-viewport, and preload options per preset."
+msgstr ""
+
+#: Services/Learn.php:307
+msgid "Add captions & subtitles"
+msgstr ""
+
+#: Services/Learn.php:308
+msgid "Upload SRT/VTT caption files or enable auto-generated captions to make your videos accessible."
+msgstr ""
+
+#: Services/Learn.php:317
+msgid "Add captions and subtitles"
+msgstr ""
+
+#: Services/Learn.php:322
+#: Services/Learn.php:332
+msgid "Add chapters to videos"
+msgstr ""
+
+#: Services/Learn.php:323
+msgid "Create clickable chapter markers so viewers can jump to specific sections inside a video."
+msgstr ""
+
+#: Services/Learn.php:337
+#: Services/Learn.php:347
+msgid "Set up audio playback"
+msgstr ""
+
+#: Services/Learn.php:338
+msgid "Use the dedicated audio block for podcasts, music, or voice content — same preset system as video."
+msgstr ""
+
+#: Services/Learn.php:352
+#: Services/Learn.php:362
+msgid "Add custom CSS to the player"
+msgstr ""
+
+#: Services/Learn.php:353
+msgid "Inject custom CSS for advanced visual tweaks beyond the built-in branding options."
+msgstr ""
+
+#: Services/Learn.php:356
+msgid "Edit Custom CSS"
+msgstr ""
+
+#: Services/Learn.php:370
+msgid "Branding & Presets"
+msgstr ""
+
+#: Services/Learn.php:371
+msgid "Match the player to your brand and save reusable configurations."
+msgstr ""
+
+#: Services/Learn.php:376
+#: Services/Learn.php:386
+msgid "Set your brand color"
+msgstr ""
+
+#: Services/Learn.php:377
+msgid "Choose a color for the play button, progress bar, and interactive elements to match your site identity."
+msgstr ""
+
+#: Services/Learn.php:380
+msgid "Set Color"
+msgstr ""
+
+#: Services/Learn.php:391
+#: Services/Learn.php:401
+msgid "Create a video preset"
+msgstr ""
+
+#: Services/Learn.php:392
+msgid "Save a reusable preset with your preferred controls, autoplay, and style settings — apply it across multiple videos in one click."
+msgstr ""
+
+#: Services/Learn.php:406
+#: Services/Learn.php:416
+msgid "Add a logo watermark"
+msgstr ""
+
+#: Services/Learn.php:407
+msgid "Upload your logo to display as a clickable watermark on your videos — professional branding in one click."
+msgstr ""
+
+#: Services/Learn.php:410
+msgid "Upload Logo"
+msgstr ""
+
+#: Services/Learn.php:424
+msgid "Embedding & Page Builders"
+msgstr ""
+
+#: Services/Learn.php:425
+msgid "Place videos anywhere on your site — Gutenberg, Elementor, Divi, Beaver Builder, or shortcodes."
+msgstr ""
+
+#: Services/Learn.php:430
+#: Services/Learn.php:440
+msgid "Add a video in Gutenberg"
+msgstr ""
+
+#: Services/Learn.php:431
+msgid "Open the block editor, add a Presto Player block, select your video source, and publish."
+msgstr ""
+
+#: Services/Learn.php:434
+msgid "Add to Page"
+msgstr ""
+
+#: Services/Learn.php:445
+#: Services/Learn.php:455
+msgid "Add a video in Elementor"
+msgstr ""
+
+#: Services/Learn.php:446
+msgid "Use the Presto Player Elementor widget to embed videos in any Elementor layout or template."
+msgstr ""
+
+#: Services/Learn.php:460
+#: Services/Learn.php:470
+msgid "Add a video in Beaver Builder"
+msgstr ""
+
+#: Services/Learn.php:461
+msgid "Use the Presto Player module inside any Beaver Builder page or template."
+msgstr ""
+
+#: Services/Learn.php:475
+#: Services/Learn.php:485
+msgid "Use with the Classic Editor"
+msgstr ""
+
+#: Services/Learn.php:476
+msgid "Embed videos via shortcodes in the classic WordPress editor — paste the shortcode and publish."
+msgstr ""
+
+#: Services/Learn.php:490
+#: Services/Learn.php:500
+msgid "Create a video popup"
+msgstr ""
+
+#: Services/Learn.php:491
+msgid "Launch videos in a lightbox popup triggered by a button, image, or link — grab attention without leaving the page."
+msgstr ""
+
+#: Services/Learn.php:494
+msgid "Try Popups"
+msgstr ""
+
+#: Services/Learn.php:505
+#: Services/Learn.php:515
+msgid "Create a playlist"
+msgstr ""
+
+#: Services/Learn.php:506
+msgid "Group related videos into a sequential playlist — perfect for course modules, series, or curated content collections."
+msgstr ""
+
+#: Services/Learn.php:509
+msgid "Create Playlist"
+msgstr ""
+
+#: Services/Learn.php:523
+msgid "Analytics & Engagement"
+msgstr ""
+
+#: Services/Learn.php:524
+msgid "Track how your audience watches and turn viewers into leads."
+msgstr ""
+
+#: Services/Learn.php:529
+#: Services/Learn.php:539
+msgid "Enable analytics"
+msgstr ""
+
+#: Services/Learn.php:530
+msgid "Turn on view tracking to collect watch data — views, watch time, and engagement — for every video on your site."
+msgstr ""
+
+#: Services/Learn.php:533
+msgid "Enable Analytics"
+msgstr ""
+
+#: Services/Learn.php:544
+#: Services/Learn.php:554
+msgid "View video insights"
+msgstr ""
+
+#: Services/Learn.php:545
+msgid "See total views, average watch time, and engagement trends per video from the Analytics dashboard."
+msgstr ""
+
+#: Services/Learn.php:548
+#: Services/Learn.php:563
+msgid "View Analytics"
+msgstr ""
+
+#: Services/Learn.php:559
+#: Services/Learn.php:569
+msgid "Track per-user engagement"
+msgstr ""
+
+#: Services/Learn.php:560
+msgid "See exactly who watched what and for how long — powerful for course creators and membership sites."
+msgstr ""
+
+#: Services/Learn.php:574
+#: Services/Learn.php:584
+msgid "Set up email capture"
+msgstr ""
+
+#: Services/Learn.php:575
+msgid "Capture email addresses mid-video and sync subscribers with your email marketing tool automatically."
+msgstr ""
+
+#: Services/Learn.php:578
+msgid "Configure Email"
+msgstr ""
+
+#: Services/Learn.php:589
+#: Services/Learn.php:599
+msgid "Connect Google Analytics"
+msgstr ""
+
+#: Services/Learn.php:590
+msgid "Send video play events to your existing GA4 property for unified site-wide analytics tracking."
+msgstr ""
+
+#: Services/Learn.php:593
+msgid "Configure GA"
+msgstr ""
+
+#: Services/Learn.php:607
+msgid "Integrations & Advanced"
+msgstr ""
+
+#: Services/Learn.php:608
+msgid "Connect Presto Player with your LMS, CDN, CRM, and SEO tools."
+msgstr ""
+
+#: Services/Learn.php:613
+#: Services/Learn.php:623
+msgid "Connect Bunny.net for private hosting"
+msgstr ""
+
+#: Services/Learn.php:614
+msgid "Set up Bunny.net Stream for CDN-powered private video hosting with adaptive HLS streaming — fast, secure, global."
+msgstr ""
+
+#: Services/Learn.php:617
+msgid "Connect Bunny"
+msgstr ""
+
+#: Services/Learn.php:628
+#: Services/Learn.php:638
+msgid "Use the Bunny.net video library"
+msgstr ""
+
+#: Services/Learn.php:629
+msgid "Browse and embed videos directly from your Bunny.net library without leaving WordPress."
+msgstr ""
+
+#: Services/Learn.php:643
+#: Services/Learn.php:653
+msgid "Enable automatic captions"
+msgstr ""
+
+#: Services/Learn.php:644
+msgid "Let Bunny.net auto-transcribe your videos and generate caption files — hands-free accessibility."
+msgstr ""
+
+#: Services/Learn.php:658
+#: Services/Learn.php:668
+msgid "Integrate with LearnDash"
+msgstr ""
+
+#: Services/Learn.php:659
+msgid "Track video progress as course completion — students must watch to advance to the next lesson."
+msgstr ""
+
+#: Services/Learn.php:673
+#: Services/Learn.php:683
+msgid "Integrate with LifterLMS"
+msgstr ""
+
+#: Services/Learn.php:674
+msgid "Connect Presto Player with LifterLMS for video-based course progression and completion tracking."
+msgstr ""
+
+#: Services/Learn.php:688
+#: Services/Learn.php:698
+msgid "Integrate with TutorLMS"
+msgstr ""
+
+#: Services/Learn.php:689
+msgid "Use Presto Player as the video engine for TutorLMS courses — full progress tracking included."
+msgstr ""
+
+#: Services/Learn.php:703
+#: Services/Learn.php:713
+msgid "Connect Fluent CRM"
+msgstr ""
+
+#: Services/Learn.php:704
+msgid "Sync email captures and video engagement data with Fluent CRM for automated marketing workflows."
+msgstr ""
+
+#: Services/Learn.php:718
+#: Services/Learn.php:728
+msgid "Optimize video SEO with RankMath"
+msgstr ""
+
+#: Services/Learn.php:719
+msgid "Add structured video schema data to boost search visibility — works automatically with RankMath."
+msgstr ""
+
+#: Services/License/License.php:218
+msgid "Activate your Presto Player Pro license to unlock Pro features and receive automatic updates."
+msgstr ""
+
+#: Services/License/License.php:222
+msgid "Buy Subscription"
+msgstr ""
+
+#: Services/Menu.php:65
+#: Services/Menu.php:66
+msgid "Dashboard"
+msgstr ""
+
+#: Services/Menu.php:306
+msgid "Build Your Video Community with SureDash"
+msgstr ""
+
+#: Services/Menu.php:308
+msgid "Create a members-only space around your video content with courses, forums, and community features."
+msgstr ""
+
+#: Services/Menu.php:312
+msgid "Sell Video Content with SureCart"
+msgstr ""
+
+#: Services/Menu.php:314
+msgid "Accept payments for courses, memberships, and digital downloads directly from your site."
+msgstr ""
+
+#: Services/Menu.php:318
+msgid "Automate Your Video Workflows with OttoKit"
+msgstr ""
+
+#: Services/Menu.php:320
+msgid "Trigger actions when videos are watched, emails captured, or goals reached — no code needed."
+msgstr ""
+
+#: Services/Menu.php:324
+msgid "Keep Emails Out of Spam with SureMail"
+msgstr ""
+
+#: Services/Menu.php:326
+msgid "Ensure video notifications and email captures actually reach your audience's inbox."
+msgstr ""
+
+#: Services/PluginInstaller.php:111
+msgid "This plugin is not in the allowed list for this endpoint."
+msgstr ""
+
+#: Services/PluginInstaller.php:149
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: Services/PluginInstaller.php:206
+#: Services/PluginInstaller.php:236
+msgid "Plugin slug is required."
+msgstr ""
+
+#: Services/PluginInstaller.php:247
+msgid "Plugin is already installed."
+msgstr ""
+
+#. translators: %s: plugin slug
+#: Services/PluginInstaller.php:275
+#, php-format
+msgid "Plugin %s not found in repository."
+msgstr ""
+
+#: Services/PluginInstaller.php:294
+msgid "Plugin installation failed."
+msgstr ""
+
+#: Services/PluginInstaller.php:304
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: Services/ProCompatibility.php:73
 msgid "Please update your Presto Player Pro plugin for compatibility with the Presto Player core plugin. This ensures you have access to new features and updates."
 msgstr ""
 
-#: Services/ProCompatibility.php:38
+#. translators: %s: recommended Pro plugin version number
+#: Services/ProCompatibility.php:78
 #, php-format
-msgid "The recommended minimum pro version is <b>%s</b>."
+msgid "The recommended minimum pro version is %s."
 msgstr ""
 
-#: Services/ReusableVideos.php:33
+#: Services/ReusableVideos.php:46
 msgid "What is the media hub?"
 msgstr ""
 
-#: Services/ReusableVideos.php:34
+#: Services/ReusableVideos.php:47
 msgid "The media hub is a more flexible way to add media to your site. It allows you to save audio and videos which you can later use in any post or page on your site - either through the Block Editor, a page builder, or by using a shortcode or php function."
 msgstr ""
 
-#: Services/Settings.php:62
+#: Services/Settings.php:153
 msgid "Analytics settings."
 msgstr ""
 
-#: Services/Settings.php:92
+#: Services/Settings.php:184
 msgid "Branding settings."
 msgstr ""
 
-#: Services/Settings.php:130
+#: Services/Settings.php:228
 msgid "Performance settings."
 msgstr ""
 
-#: Services/Settings.php:160
+#: Services/Settings.php:259
 msgid "Uninstall settings."
 msgstr ""
 
-#: Services/Settings.php:186
+#: Services/Settings.php:286
 msgid "Google Analytics settings."
 msgstr ""
 
-#: Services/Settings.php:220
-#: Services/Settings.php:244
+#: Services/Settings.php:321
+#: Services/Settings.php:346
 msgid "Preset settings."
 msgstr ""
 
-#: Services/Settings.php:271
+#: Services/Settings.php:374
 msgid "Youtube settings."
 msgstr ""
 
-#: Services/Settings.php:301
+#: Services/Settings.php:405
 msgid "Instant video width."
 msgstr ""
 
-#: Services/Settings.php:322
+#: Services/Settings.php:426
 msgid "Set the default for media hub sync setting."
 msgstr ""
 
-#: Services/Settings.php:345
+#: Services/Settings.php:455
 msgid "Usage tracking opt-in."
 msgstr ""
 
@@ -3995,130 +6148,123 @@ msgstr ""
 msgid "YouTube Optimized"
 msgstr ""
 
-#: Services/Usage.php:166
+#: Services/Usage.php:186
 msgid "If you have a moment, please share why you are deactivating Presto Player:"
 msgstr ""
 
-#: Services/VideoPostType.php:163
-msgid "Shortcode"
-msgstr ""
-
-#: Services/VideoPostType.php:324
+#: Services/VideoPostType.php:364
 msgid "Enter a title..."
 msgstr ""
 
-#: Services/VideoPostType.php:386
+#: Services/VideoPostType.php:426
 msgctxt "post type general name"
 msgid "Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:387
+#: Services/VideoPostType.php:427
 msgctxt "post type singular name"
 msgid "Media Tag"
 msgstr ""
 
-#: Services/VideoPostType.php:388
+#: Services/VideoPostType.php:428
 msgctxt "admin menu"
 msgid "Search Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:389
+#: Services/VideoPostType.php:429
 msgctxt "add new on admin bar"
 msgid "Popular Media Tags"
 msgstr ""
 
-#: Services/VideoPostType.php:403
+#: Services/VideoPostType.php:443
 msgctxt "post type general name"
 msgid "Media Hub"
 msgstr ""
 
-#: Services/VideoPostType.php:404
+#: Services/VideoPostType.php:444
 msgctxt "post type singular name"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:405
+#: Services/VideoPostType.php:445
 msgctxt "admin menu"
 msgid "Media"
 msgstr ""
 
-#: Services/VideoPostType.php:406
+#: Services/VideoPostType.php:446
 msgctxt "add new on admin bar"
 msgid "Presto Media"
 msgstr ""
 
-#: Services/VideoPostType.php:407
+#: Services/VideoPostType.php:447
 msgctxt "Media"
 msgid "Add New"
 msgstr ""
 
-#: Services/VideoPostType.php:408
+#: Services/VideoPostType.php:448
 msgid "Add New Media"
 msgstr ""
 
-#: Services/VideoPostType.php:409
-msgid "New Media"
-msgstr ""
-
-#: Services/VideoPostType.php:411
+#: Services/VideoPostType.php:451
 msgid "View Media"
 msgstr ""
 
-#: Services/VideoPostType.php:413
+#: Services/VideoPostType.php:453
 msgid "Search Media"
 msgstr ""
 
-#: Services/VideoPostType.php:414
+#: Services/VideoPostType.php:454
 msgid "No Media found."
 msgstr ""
 
-#: Services/VideoPostType.php:415
+#: Services/VideoPostType.php:455
 msgid "No Media found in Trash."
 msgstr ""
 
-#: Services/VideoPostType.php:416
+#: Services/VideoPostType.php:456
 msgid "Filter Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:417
+#: Services/VideoPostType.php:457
 msgid "Media list navigation"
 msgstr ""
 
-#: Services/VideoPostType.php:418
+#: Services/VideoPostType.php:458
 msgid "Media list"
 msgstr ""
 
-#: Services/VideoPostType.php:419
+#: Services/VideoPostType.php:459
 msgid "Media published."
 msgstr ""
 
-#: Services/VideoPostType.php:420
+#: Services/VideoPostType.php:460
 msgid "Media published privately."
 msgstr ""
 
-#: Services/VideoPostType.php:421
+#: Services/VideoPostType.php:461
 msgid "Media reverted to draft."
 msgstr ""
 
-#: Services/VideoPostType.php:422
+#: Services/VideoPostType.php:462
 msgid "Media scheduled."
 msgstr ""
 
-#: Services/VideoPostType.php:423
+#: Services/VideoPostType.php:463
 msgid "Media updated."
 msgstr ""
 
-#: Services/VideoPostType.php:471
+#. translators: %s: taxonomy label
+#: Services/VideoPostType.php:513
 #, php-format
 msgid "Show all %s"
 msgstr ""
 
-#: Support/Utility.php:77
+#: Support/Utility.php:102
 msgid "0 seconds"
 msgstr ""
 
 #. translators: %s: Time duration in hour or hours.
-#: Support/Utility.php:118
+#: Support/Utility.php:143
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
@@ -4126,7 +6272,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Time duration in minute or minutes.
-#: Support/Utility.php:124
+#: Support/Utility.php:149
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
@@ -4134,7 +6280,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Time duration in second or seconds.
-#: Support/Utility.php:130
+#: Support/Utility.php:155
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"

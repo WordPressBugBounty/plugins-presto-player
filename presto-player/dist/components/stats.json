@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-18T11:48:36",
+  "timestamp": "2026-05-21T03:54:08",
   "compiler": {
     "name": "node",
     "version": "17.9.1"
@@ -305,14 +305,14 @@
           "./dist/cjs/cache-cues-ps1fLLit.js.map",
           "./dist/cjs/fittext-D3xDjTej.js",
           "./dist/cjs/fittext-D3xDjTej.js.map",
-          "./dist/cjs/hls-Cn5DCj5Y.js",
-          "./dist/cjs/hls-Cn5DCj5Y.js.map",
+          "./dist/cjs/hls-DwYQI7Fi.js",
+          "./dist/cjs/hls-DwYQI7Fi.js.map",
           "./dist/cjs/index-Dlg6qIxM.js",
           "./dist/cjs/index-Dlg6qIxM.js.map",
           "./dist/cjs/index.cjs.js",
           "./dist/cjs/index.cjs.js.map",
-          "./dist/cjs/learndash-C-0rIjJl.js",
-          "./dist/cjs/learndash-C-0rIjJl.js.map",
+          "./dist/cjs/learndash-B07pafRZ.js",
+          "./dist/cjs/learndash-B07pafRZ.js.map",
           "./dist/cjs/lifter-CW8zJnxZ.js",
           "./dist/cjs/lifter-CW8zJnxZ.js.map",
           "./dist/cjs/loader.cjs.js",
@@ -329,8 +329,8 @@
           "./dist/cjs/presto-player-button.cjs.entry.js.map",
           "./dist/cjs/presto-player-skeleton.cjs.entry.js",
           "./dist/cjs/presto-player-skeleton.cjs.entry.js.map",
-          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Cciys8kd.js",
-          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Cciys8kd.js.map",
+          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-B1cKGUBp.js",
+          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-B1cKGUBp.js.map",
           "./dist/cjs/presto-player_4.cjs.entry.js",
           "./dist/cjs/presto-player_4.cjs.entry.js.map",
           "./dist/cjs/presto-playlist.cjs.entry.js",
@@ -355,14 +355,14 @@
           "./dist/esm/cache-cues-D8o-F2Bu.js.map",
           "./dist/esm/fittext-kmLX7jv_.js",
           "./dist/esm/fittext-kmLX7jv_.js.map",
-          "./dist/esm/hls-amsftNo8.js",
-          "./dist/esm/hls-amsftNo8.js.map",
+          "./dist/esm/hls-BKafgY-Z.js",
+          "./dist/esm/hls-BKafgY-Z.js.map",
           "./dist/esm/index-BxRAfMA5.js",
           "./dist/esm/index-BxRAfMA5.js.map",
           "./dist/esm/index.js",
           "./dist/esm/index.js.map",
-          "./dist/esm/learndash-C2rKwZO0.js",
-          "./dist/esm/learndash-C2rKwZO0.js.map",
+          "./dist/esm/learndash-Dzyv4uMN.js",
+          "./dist/esm/learndash-Dzyv4uMN.js.map",
           "./dist/esm/lifter-DcYtxwW6.js",
           "./dist/esm/lifter-DcYtxwW6.js.map",
           "./dist/esm/loader.js",
@@ -379,8 +379,8 @@
           "./dist/esm/presto-player-button.entry.js.map",
           "./dist/esm/presto-player-skeleton.entry.js",
           "./dist/esm/presto-player-skeleton.entry.js.map",
-          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DXO43U2f.js",
-          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DXO43U2f.js.map",
+          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Q_-htWXs.js",
+          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Q_-htWXs.js.map",
           "./dist/esm/presto-player_4.entry.js",
           "./dist/esm/presto-player_4.entry.js.map",
           "./dist/esm/presto-playlist.entry.js",
@@ -409,12 +409,12 @@
           "./dist/web-components/p-0c2a6cd3.entry.js.map",
           "./dist/web-components/p-1610cee0.entry.js",
           "./dist/web-components/p-1610cee0.entry.js.map",
+          "./dist/web-components/p-1674b2b8.entry.js",
+          "./dist/web-components/p-1674b2b8.entry.js.map",
           "./dist/web-components/p-193f0db1.entry.js",
           "./dist/web-components/p-193f0db1.entry.js.map",
           "./dist/web-components/p-22488b76.entry.js",
           "./dist/web-components/p-22488b76.entry.js.map",
-          "./dist/web-components/p-29dbc9bb.entry.js",
-          "./dist/web-components/p-29dbc9bb.entry.js.map",
           "./dist/web-components/p-345e2989.entry.js",
           "./dist/web-components/p-345e2989.entry.js.map",
           "./dist/web-components/p-4f0eb72c.entry.js",
@@ -423,16 +423,16 @@
           "./dist/web-components/p-8c965b5b.entry.js.map",
           "./dist/web-components/p-8e99834a.entry.js",
           "./dist/web-components/p-8e99834a.entry.js.map",
+          "./dist/web-components/p-BWTk1vS0.js",
+          "./dist/web-components/p-BWTk1vS0.js.map",
+          "./dist/web-components/p-BmCUANNP.js",
+          "./dist/web-components/p-BmCUANNP.js.map",
           "./dist/web-components/p-BxRAfMA5.js",
           "./dist/web-components/p-BxRAfMA5.js.map",
-          "./dist/web-components/p-CIMycCB4.js",
-          "./dist/web-components/p-CIMycCB4.js.map",
-          "./dist/web-components/p-CliI3pyn.js",
-          "./dist/web-components/p-CliI3pyn.js.map",
           "./dist/web-components/p-D8o-F2Bu.js",
           "./dist/web-components/p-D8o-F2Bu.js.map",
-          "./dist/web-components/p-DQq8ceiN.js",
-          "./dist/web-components/p-DQq8ceiN.js.map",
+          "./dist/web-components/p-DIMs7KP-.js",
+          "./dist/web-components/p-DIMs7KP-.js.map",
           "./dist/web-components/p-DcYtxwW6.js",
           "./dist/web-components/p-DcYtxwW6.js.map",
           "./dist/web-components/p-DwzUTbbs.js",
@@ -441,10 +441,10 @@
           "./dist/web-components/p-EuTDjLsB.js.map",
           "./dist/web-components/p-G840BFTB.js",
           "./dist/web-components/p-G840BFTB.js.map",
-          "./dist/web-components/p-a271b9fb.entry.js",
-          "./dist/web-components/p-a271b9fb.entry.js.map",
           "./dist/web-components/p-db54b491.entry.js",
           "./dist/web-components/p-db54b491.entry.js.map",
+          "./dist/web-components/p-e50d85c8.entry.js",
+          "./dist/web-components/p-e50d85c8.entry.js.map",
           "./dist/web-components/p-e6ea643f.entry.js",
           "./dist/web-components/p-e6ea643f.entry.js.map",
           "./dist/web-components/p-fH7ZDDmI.js",
@@ -457,12 +457,12 @@
           "./www/build/p-0c2a6cd3.entry.js.map",
           "./www/build/p-1610cee0.entry.js",
           "./www/build/p-1610cee0.entry.js.map",
+          "./www/build/p-1674b2b8.entry.js",
+          "./www/build/p-1674b2b8.entry.js.map",
           "./www/build/p-193f0db1.entry.js",
           "./www/build/p-193f0db1.entry.js.map",
           "./www/build/p-22488b76.entry.js",
           "./www/build/p-22488b76.entry.js.map",
-          "./www/build/p-29dbc9bb.entry.js",
-          "./www/build/p-29dbc9bb.entry.js.map",
           "./www/build/p-345e2989.entry.js",
           "./www/build/p-345e2989.entry.js.map",
           "./www/build/p-4f0eb72c.entry.js",
@@ -471,16 +471,16 @@
           "./www/build/p-8c965b5b.entry.js.map",
           "./www/build/p-8e99834a.entry.js",
           "./www/build/p-8e99834a.entry.js.map",
+          "./www/build/p-BWTk1vS0.js",
+          "./www/build/p-BWTk1vS0.js.map",
+          "./www/build/p-BmCUANNP.js",
+          "./www/build/p-BmCUANNP.js.map",
           "./www/build/p-BxRAfMA5.js",
           "./www/build/p-BxRAfMA5.js.map",
-          "./www/build/p-CIMycCB4.js",
-          "./www/build/p-CIMycCB4.js.map",
-          "./www/build/p-CliI3pyn.js",
-          "./www/build/p-CliI3pyn.js.map",
           "./www/build/p-D8o-F2Bu.js",
           "./www/build/p-D8o-F2Bu.js.map",
-          "./www/build/p-DQq8ceiN.js",
-          "./www/build/p-DQq8ceiN.js.map",
+          "./www/build/p-DIMs7KP-.js",
+          "./www/build/p-DIMs7KP-.js.map",
           "./www/build/p-DcYtxwW6.js",
           "./www/build/p-DcYtxwW6.js.map",
           "./www/build/p-DwzUTbbs.js",
@@ -489,10 +489,10 @@
           "./www/build/p-EuTDjLsB.js.map",
           "./www/build/p-G840BFTB.js",
           "./www/build/p-G840BFTB.js.map",
-          "./www/build/p-a271b9fb.entry.js",
-          "./www/build/p-a271b9fb.entry.js.map",
           "./www/build/p-db54b491.entry.js",
           "./www/build/p-db54b491.entry.js.map",
+          "./www/build/p-e50d85c8.entry.js",
+          "./www/build/p-e50d85c8.entry.js.map",
           "./www/build/p-e6ea643f.entry.js",
           "./www/build/p-e6ea643f.entry.js.map",
           "./www/build/p-fH7ZDDmI.js",
@@ -644,13 +644,13 @@
           "presto-email-overlay-ui",
           "presto-player-spinner"
         ],
-        "bundleId": "p-29dbc9bb",
-        "fileName": "p-29dbc9bb.entry.js",
+        "bundleId": "p-e50d85c8",
+        "fileName": "p-e50d85c8.entry.js",
         "imports": [
           "p-BxRAfMA5.js",
           "p-G840BFTB.js"
         ],
-        "originalByteSize": 6349
+        "originalByteSize": 6355
       },
       {
         "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
@@ -691,10 +691,10 @@
           "presto-playlist-overlay",
           "presto-playlist-ui"
         ],
-        "bundleId": "p-a271b9fb",
-        "fileName": "p-a271b9fb.entry.js",
+        "bundleId": "p-1674b2b8",
+        "fileName": "p-1674b2b8.entry.js",
         "imports": [
-          "p-CliI3pyn.js",
+          "p-BWTk1vS0.js",
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-D8o-F2Bu.js"
@@ -826,7 +826,7 @@
           "index-BxRAfMA5.js",
           "fittext-kmLX7jv_.js"
         ],
-        "originalByteSize": 6355
+        "originalByteSize": 6361
       },
       {
         "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
@@ -870,7 +870,7 @@
         "bundleId": "presto-player_4",
         "fileName": "presto-player_4.entry.js",
         "imports": [
-          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DXO43U2f.js",
+          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Q_-htWXs.js",
           "index-BxRAfMA5.js",
           "util-EuTDjLsB.js",
           "cache-cues-D8o-F2Bu.js"
@@ -1004,7 +1004,7 @@
           "index-Dlg6qIxM.js",
           "fittext-D3xDjTej.js"
         ],
-        "originalByteSize": 6431
+        "originalByteSize": 6437
       },
       {
         "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
@@ -1048,7 +1048,7 @@
         "bundleId": "presto-player_4.cjs",
         "fileName": "presto-player_4.cjs.entry.js",
         "imports": [
-          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-Cciys8kd.js",
+          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-B1cKGUBp.js",
           "index-Dlg6qIxM.js",
           "util-DccLYcrM.js",
           "cache-cues-ps1fLLit.js"
@@ -17192,7 +17192,7 @@
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-player": [
-      "p-CliI3pyn.js",
+      "p-BWTk1vS0.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
@@ -17212,19 +17212,19 @@
       "p-EuTDjLsB.js"
     ],
     "sc-presto-playlist-item": [
-      "p-CliI3pyn.js",
+      "p-BWTk1vS0.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-playlist-overlay": [
-      "p-CliI3pyn.js",
+      "p-BWTk1vS0.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-playlist-ui": [
-      "p-CliI3pyn.js",
+      "p-BWTk1vS0.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"

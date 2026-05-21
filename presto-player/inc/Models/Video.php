@@ -1,10 +1,31 @@
 <?php
+/**
+ * Video model.
+ *
+ * @package PrestoPlayer
+ * @subpackage Models
+ */
 
 namespace PrestoPlayer\Models;
 
 use PrestoPlayer\Services\Blocks\VimeoBlockService;
 use PrestoPlayer\Services\Blocks\YoutubeBlockService;
 
+/**
+ * Represents a row in the presto_player_videos table.
+ *
+ * @property int    $id
+ * @property string $title
+ * @property string $type
+ * @property string $src
+ * @property string $external_id
+ * @property int    $attachment_id
+ * @property int    $post_id
+ * @property int    $created_by
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $deleted_at
+ */
 class Video extends Model {
 
 	/**
@@ -76,6 +97,14 @@ class Video extends Model {
 		'external_id',
 	);
 
+	/**
+	 * Hydrate the model from the given attributes.
+	 *
+	 * Auto-populates title and src from the attachment when an attachment_id is set.
+	 *
+	 * @param array $args Attribute values.
+	 * @return self
+	 */
 	public function set( $args ) {
 		parent::set( $args );
 
@@ -90,9 +119,10 @@ class Video extends Model {
 	}
 
 	/**
-	 * Get the videos embedded title from noembed.com
+	 * Get the video's embedded title from noembed.com.
 	 *
-	 * @return int Post ID
+	 * @param string $src Video source URL.
+	 * @return string|\WP_Error Embedded title, or WP_Error on HTTP failure.
 	 */
 	public function getEmbeddedTitle( $src = '' ) {
 		if ( empty( $src ) ) {
@@ -108,50 +138,50 @@ class Video extends Model {
 	}
 
 	/**
-	 * Maybe auto-create title if not set
+	 * Maybe auto-create title if not set.
 	 *
-	 * @param  array $args
+	 * @param array $args Video attributes.
 	 * @return array
 	 */
 	public function maybeAutoCreateTitle( $args ) {
-		// remotely get the title if not provided
-		if ( empty( $args['title'] ) && in_array( $args['type'], array( 'youtube', 'vimeo' ) ) ) {
+		// Remotely get the title if not provided.
+		if ( empty( $args['title'] ) && in_array( $args['type'], array( 'youtube', 'vimeo' ), true ) ) {
 			$title = $this->getEmbeddedTitle( $args['src'] );
 			if ( ! is_wp_error( $title ) && ! empty( $title ) ) {
 				$args['title'] = $title;
 			}
 		}
 
-		// fallback to url
+		// Fallback to url.
 		$args['title'] = empty( $args['title'] ) ? $args['src'] : $args['title'];
 
-		// return args.
+		// Return args.
 		return $args;
 	}
 
 	/**
-	 * Create a new video
+	 * Create a new video.
 	 *
-	 * @param  array $args
-	 * @return integer
+	 * @param array $args Video attributes.
+	 * @return int|\WP_Error
 	 */
 	public function create( $args = array() ) {
-		// required params
+		// Required params.
 		if ( empty( $args['external_id'] ) && empty( $args['attachment_id'] ) && empty( $args['src'] ) ) {
 			return new \WP_Error( 'invalid_parameters', 'You must enter an attachment_id, external_id or src.' );
 		}
 
 		$args = $this->maybeAutoCreateTitle( $args );
 
-		// create
+		// Create.
 		return parent::create( $args );
 	}
 
 	/**
-	 * Maybe auto-create title if not set
+	 * Update a video record.
 	 *
-	 * @param  array $args
-	 * @return void
+	 * @param array $args Video attributes.
+	 * @return int|false
 	 */
 	public function update( $args = array() ) {
 		if ( ! empty( $args['attachment_id'] ) && ! empty( $args['title'] ) ) {
@@ -195,9 +225,8 @@ class Video extends Model {
 	/**
 	 * Get the attachment post title.
 	 *
-	 * @param int $attachment_id Attachment ID
-	 *
-	 * @return string|false Title or false if not found
+	 * @param int $attachment_id Attachment ID.
+	 * @return string|false Title or false if not found.
 	 */
 	public function getAttachmentPostTitle( $attachment_id = null ) {
 		if ( empty( $attachment_id ) ) {

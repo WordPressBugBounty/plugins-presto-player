@@ -1,7 +1,19 @@
 <?php
+/**
+ * Preset model.
+ *
+ * @package PrestoPlayer\Models
+ */
 
 namespace PrestoPlayer\Models;
 
+/**
+ * Preset model for video presets stored in the presto_player_presets table.
+ *
+ * @property int    $id
+ * @property string $name
+ * @property string $slug
+ */
 class Preset extends Model {
 
 	/**
@@ -189,21 +201,31 @@ class Preset extends Model {
 	protected $queryable = array( 'slug' );
 
 	/**
-	 * Create a preset in the db
+	 * Get the preset name.
 	 *
-	 * @param  array $args
+	 * @return string
+	 */
+	public function getName() {
+		$name = $this->name;
+		return ! empty( $name ) ? (string) $name : '';
+	}
+
+	/**
+	 * Create a preset in the db.
+	 *
+	 * @param  array $args Preset data.
 	 * @return integer
 	 */
 	public function create( $args = array() ) {
-		// name is required
+		// Name is required.
 		if ( empty( $args['name'] ) ) {
 			return new \WP_Error( 'missing_parameter', __( 'You must enter a name for the preset.', 'presto-player' ) );
 		}
 
-		// generate slug on the fly
+		// Generate slug on the fly.
 		$args['slug'] = ! empty( $args['slug'] ) ? $args['slug'] : sanitize_title( $args['name'] );
 
-		// create
+		// Create.
 		return parent::create( $args );
 	}
 }

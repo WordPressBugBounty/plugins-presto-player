@@ -3,7 +3,7 @@ import {
   PrestoSearchBarUi,
 } from "@presto-player/components-react";
 import { getProvider } from "../util";
-import { useRef, useEffect } from "@wordpress/element";
+import { useRef, useLayoutEffect } from "@wordpress/element";
 import { useSelect } from "@wordpress/data";
 import { convertHex } from "../../../shared/util";
 
@@ -38,7 +38,7 @@ export default (props) => {
     };
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     ref.current.src = src;
     ref.current["data-css"] = playerCSS;
     ref.current.classes = classes;

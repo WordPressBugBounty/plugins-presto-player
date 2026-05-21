@@ -69,7 +69,7 @@ export default ({ options, updateEmailState }) => {
       <Flex>
         <Button
           target="_blank"
-          href="/wp-admin/edit.php?post_type=pp_video_block&page=presto-player-settings#/integrations"
+          href="/wp-admin/admin.php?page=presto-dashboard&tab=Settings&section=email-capture"
           isSecondary
           isSmall
         >

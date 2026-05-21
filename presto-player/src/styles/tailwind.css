@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component styles using @apply */
+@layer components {
+    .presto-button {
+        @apply px-4 py-2 bg-presto-500 text-white rounded-md hover:bg-presto-600 focus:outline-none focus:ring-2 focus:ring-presto-500 focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .presto-card {
+        @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+    }
+
+    .presto-input {
+        @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-presto-500 focus:border-presto-500;
+    }
+
+    .presto-label {
+        @apply block text-sm font-medium text-gray-700 mb-1;
+    }
+}
+
+/* Custom utility classes */
+@layer utilities {
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    }
+}

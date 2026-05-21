@@ -1,0 +1,156 @@
+// Variables
+$slate-600: #475569;
+$slate-500: #64748b;
+$slate-400: #94a3b8;
+$slate-300: #cbd5e1;
+$slate-200: #e2e8f0;
+$slate-100: #f1f5f9;
+$slate-50: #f8fafc;
+$background-blur-color: #11182780;
+$backdrop-blur: blur(8px);
+
+// Base page styles
+.toplevel_page_presto-dashboard {
+  background-color: #f8fafc;
+
+  // Chrome heights as CSS vars — consumed by shell min-height, sticky
+  // Navbar offset, and page-level layouts that need to fill the remaining
+  // viewport (e.g. Settings sidebar). Keeping chrome math centralized.
+  // WP admin bar is 32px desktop / 46px at ≤782px. Navbar is the Topbar
+  // component's max-h-14 (3.5rem).
+  --presto-admin-bar-h: 32px;
+  --presto-navbar-h: 3.5rem;
+
+  @media screen and (max-width: 782px) {
+    --presto-admin-bar-h: 46px;
+  }
+  #adminmenuwrap {
+    position: fixed;
+    top: var(--presto-admin-bar-h);
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: clip;
+  }
+  #wpcontent {
+    padding: 0 !important;
+  }
+
+  #wpbody-content {
+    padding-bottom: 0;
+    font-size: 14px;
+  }
+
+  .notice {
+    z-index: 99;
+  }
+
+  // Hide third-party notices — CSS fallback alongside PHP suppressForeignNotices().
+  // :not selectors preserve PP's own notices (id contains "presto").
+  #wpbody-content > .notice:not([id*="presto"]),
+  #wpbody-content > .updated:not([id*="presto"]),
+  #wpbody-content > .update-nag,
+  #wpbody-content > .astra-notices:not([id*="presto"]),
+  #wpbody-content > .elementor-message,
+  #fs-notice,
+  #ehe-admin-cb {
+    display: none !important;
+  }
+
+  #wpwrap {
+    background-color: #f8fafc;
+  }
+
+  #screen-meta-links,
+  #wpfooter {
+    display: none;
+  }
+}
+
+// Dashboard container — natural flow; the page scrolls, not the shell.
+// Using `min-height` (not `height`) means any imprecision in the viewport
+// math leaves harmless blank space instead of clipping content. Admin
+// notices, plugin update nags, and other WP chrome above the shell are
+// absorbed naturally because we don't claim a fixed viewport slice.
+#presto-admin-dashboard {
+  min-height: calc(100vh - var(--presto-admin-bar-h));
+  display: flex;
+  flex-direction: column;
+
+  // Scoped box-sizing reset. Tailwind preflight is disabled globally
+  // (tailwind.config.js → corePlugins.preflight: false) to avoid leaking
+  // into WP admin, so browser default `content-box` applies and any
+  // bordered card silently overflows its parent.
+  &,
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    opacity: 1;
+    color: #9ca3af;
+  }
+}
+
+// Force UI floating portals (tooltips, popovers, dropdowns) render at body level
+// via @floating-ui/react. Boost z-index so they sit above WP admin elements.
+body > [data-floating-ui-portal] {
+  z-index: 999999;
+}
+
+// Tooltip content must always sit above dialogs (z-999999) and any stacking context.
+[role="tooltip"] {
+  z-index: 9999999 !important;
+  max-width: 240px !important;
+}
+
+// Onboarding page — hide WP admin chrome for fullscreen wizard
+html:has(> body.presto-player-onboarding-page).wp-toolbar {
+  padding-top: 0 !important;
+  box-sizing: border-box;
+}
+
+body.presto-player-onboarding-page {
+  #wpcontent,
+  #wpbody {
+    padding: 0;
+    margin: 0;
+  }
+
+  #wpadminbar,
+  #adminmenuwrap,
+  #adminmenuback,
+  #adminmenumain,
+  #wpfooter {
+    display: none !important;
+  }
+
+  .notice,
+  .updated,
+  .error,
+  .update-nag {
+    display: none !important;
+  }
+
+  // Sticky topbar during onboarding
+  .presto-onboarding-topbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+// WhatsNew flyout
+.whats-new-rss-flyout.presto-player-whats-new-flyout.closed {
+  visibility: hidden;
+}
+
+// Skeletons one tone lighter across the dashboard. Force UI's <Skeleton />
+// hardcodes `bg-gray-200`; the custom skeleton in DashboardSkeleton uses the
+// same pair. Scoping by `.animate-pulse.bg-gray-200` so only loading
+// placeholders are affected, never genuine gray-200 backgrounds elsewhere.
+#presto-admin-dashboard .animate-pulse.bg-gray-200 {
+  background-color: #ebedef;
+}

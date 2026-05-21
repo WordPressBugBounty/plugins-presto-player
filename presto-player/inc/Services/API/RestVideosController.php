@@ -1,10 +1,22 @@
 <?php
+/**
+ * REST controller for the Presto Player videos table.
+ *
+ * @package PrestoPlayer
+ * @subpackage Services\API
+ */
 
 namespace PrestoPlayer\Services\API;
 
 use PrestoPlayer\Models\ReusableVideo;
 use PrestoPlayer\Models\Video;
+use WP_Error;
+use WP_REST_Request;
+use WP_REST_Response;
 
+/**
+ * REST controller exposing CRUD endpoints for Video models.
+ */
 class RestVideosController extends \WP_REST_Controller {
 
 	/**
@@ -43,7 +55,7 @@ class RestVideosController extends \WP_REST_Controller {
 	 * @return void
 	 */
 	public function register_routes() {
-		// create
+		// Create.
 		register_rest_route(
 			"{$this->namespace}/{$this->version}",
 			'/' . $this->base,
@@ -64,7 +76,7 @@ class RestVideosController extends \WP_REST_Controller {
 			)
 		);
 
-		// get item
+		// Get item.
 		register_rest_route(
 			"{$this->namespace}/{$this->version}",
 			'/' . $this->base . '/(?P<id>\d+)',
@@ -197,17 +209,17 @@ class RestVideosController extends \WP_REST_Controller {
 	public function create_item( $request ) {
 		$item = $this->prepare_item_for_database( $request );
 
-		// which video to first or create?
+		// Which video to first or create.
 		$where = array( 'src' => $item['src'] );
 
-		// if there's an external video id
+		// If there's an external video id.
 		if ( $item['external_id'] ) {
 			$where = array( 'external_id' => $item['external_id'] );
 		} elseif ( $item['attachment_id'] ) {
 			$where = array( 'attachment_id' => $item['attachment_id'] );
 		}
 
-		// create video
+		// Create video.
 		$video = new Video();
 		$video->updateOrCreate( $where, $item );
 
@@ -230,7 +242,7 @@ class RestVideosController extends \WP_REST_Controller {
 	 * @return WP_Error|WP_REST_Response
 	 */
 	public function get_item( $request ) {
-		// get video
+		// Get video.
 		$video = new Video( $request['id'] );
 		if ( ! $video->created_at ) {
 			return new \WP_Error( 'not_found', 'This video does not exist', 404 );
@@ -280,13 +292,19 @@ class RestVideosController extends \WP_REST_Controller {
 		return new \WP_REST_Response( $data, 200 );
 	}
 
+	/**
+	 * Update one item from the collection.
+	 *
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response
+	 */
 	public function update_item( $request ) {
 		$item = $this->prepare_item_for_database( $request );
 
 		$video   = new Video( $request['id'] );
 		$updated = $video->update( $item );
 
-		// bail early on error
+		// Bail early on error.
 		if ( is_wp_error( $updated ) ) {
 			return $updated;
 		}
@@ -316,13 +334,35 @@ class RestVideosController extends \WP_REST_Controller {
 	}
 
 	/**
-	 * Check if a given request has access to update a specific item
+	 * Check if a given request has access to update a specific item.
+	 *
+	 * Requires the author capability AND ownership of the video row
+	 * (or `edit_others_posts` for editors/admins). Without the ownership
+	 * gate, any Author could rewrite any other user's video row.
 	 *
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|bool
 	 */
 	public function update_item_permissions_check( $request ) {
-		return current_user_can( 'upload_files' );
+		if ( ! current_user_can( 'upload_files' ) ) {
+			return false;
+		}
+
+		$video = new Video( (int) $request['id'] );
+		if ( ! $video->created_at ) {
+			return new \WP_Error(
+				'rest_video_not_found',
+				__( 'Video not found.', 'presto-player' ),
+				array( 'status' => 404 )
+			);
+		}
+
+		$owner_id = (int) $video->created_by;
+		if ( $owner_id && get_current_user_id() === $owner_id ) {
+			return true;
+		}
+
+		return current_user_can( 'edit_others_posts' );
 	}
 
 	/**
@@ -349,7 +389,7 @@ class RestVideosController extends \WP_REST_Controller {
 	 * Prepare the item for create or update operation
 	 * Ensures we're only passing specific fields and double-checks sanitization
 	 *
-	 * @param WP_REST_Request $request Request object
+	 * @param WP_REST_Request $request Request object.
 	 * @return WP_Error|object $prepared_item
 	 */
 	protected function prepare_item_for_database( $request ) {
@@ -386,6 +426,7 @@ class RestVideosController extends \WP_REST_Controller {
 
 		return apply_filters( 'presto_player_rest_prepared_response_item', $prepared );
 	}
+
 
 	/**
 	 * Get the query params for collections

@@ -1,8 +1,6 @@
-import { FormTokenField } from "@wordpress/components";
+import { Select, Text } from "@bsf/force-ui";
 import { __ } from "@wordpress/i18n";
-import { css } from "@emotion/core";
 
-// Language options for AI captions
 export const TRANSCRIPTION_LANGUAGES = [
   { label: "Arabic", value: "ar" },
   { label: "Armenian", value: "hy" },
@@ -62,71 +60,62 @@ export const TRANSCRIPTION_LANGUAGES = [
   { label: "Welsh", value: "cy" },
 ];
 
-// Helper to get label from value
 export const getLanguageLabel = (value) => {
   const lang = TRANSCRIPTION_LANGUAGES.find((l) => l.value === value);
   return lang ? lang.label : value;
 };
 
-// Helper to get value from label
 export const getLanguageValue = (label) => {
   const lang = TRANSCRIPTION_LANGUAGES.find((l) => l.label === label);
   return lang ? lang.value : null;
 };
 
-// Multi-select component for AI caption languages
 const TranscriptionLanguageSelect = ({
   value = [],
   onChange,
   showWarning = false,
 }) => {
-  // Convert values (codes) to labels for display
-  const selectedLabels = value.map(getLanguageLabel);
-
-  // Get available suggestions (labels)
-  const suggestions = TRANSCRIPTION_LANGUAGES.map((l) => l.label);
-
   const hasNoLanguages = !value || value.length === 0;
+  const helpText = hasNoLanguages && showWarning
+    ? __(
+        "At least one language is required. Please select at least one language.",
+        "presto-player"
+      )
+    : __(
+        "Select one or more languages. Start typing to search.",
+        "presto-player"
+      );
 
   return (
-    <div className="presto-player__transcription-languages">
-      <FormTokenField
-        label={__("Languages", "presto-player")}
-        value={selectedLabels}
-        suggestions={suggestions}
-        onChange={(labels) => {
-          // Convert labels back to values (codes)
-          const values = labels.map(getLanguageValue).filter((v) => v !== null);
-          onChange(values);
-        }}
-        __experimentalExpandOnFocus={true}
-        __experimentalShowHowTo={false}
-      />
-      {hasNoLanguages && showWarning ? (
-        <p
-          className="components-base-control__help"
-          css={css`
-            color: #757575;
-          `}
-        >
-          {__(
-            "At least one language is required. Please select at least one language.",
-            "presto-player"
-          )}
-        </p>
-      ) : (
-        <p
-          className="components-base-control__help"
-          css={css`
-            color: #757575;
-          `}
-        >
-          {__(
-            "Select one or more languages. Start typing to search.",
-            "presto-player"
-          )}
-        </p>
-      )}
+    <div className="presto-player__transcription-languages flex flex-col gap-1">
+      <Select
+        multiple
+        combobox
+        size="md"
+        value={value}
+        onChange={onChange}
+        searchPlaceholder={__("Search languages…", "presto-player")}
+      >
+        <Select.Button
+          label={__("Languages", "presto-player")}
+          placeholder={__("Select languages…", "presto-player")}
+          render={(selected) =>
+            Array.isArray(selected)
+              ? selected.map(getLanguageLabel).join(", ")
+              : getLanguageLabel(selected)
+          }
+        />
+        <Select.Options>
+          {TRANSCRIPTION_LANGUAGES.map((option) => (
+            <Select.Option key={option.value} value={option.value}>
+              {option.label}
+            </Select.Option>
+          ))}
+        </Select.Options>
+      </Select>
+      <Text size="xs" className="text-text-tertiary">
+        {helpText}
+      </Text>
     </div>
   );
 };

@@ -67,12 +67,21 @@ return array(
 		\PrestoPlayer\Services\ProCompatibility::class,
 		\PrestoPlayer\Services\Compatibility::class,
 		\PrestoPlayer\Services\AjaxActions::class,
+		\PrestoPlayer\Services\PluginInstaller::class,
+		\PrestoPlayer\Services\Onboarding::class,
+		\PrestoPlayer\Services\Learn::class,
+
+		// License.
+		\PrestoPlayer\Services\License\License::class,
 
 		// API.
 		\PrestoPlayer\Services\API\RestPresetsController::class,
 		\PrestoPlayer\Services\API\RestAudioPresetsController::class,
 		\PrestoPlayer\Services\API\RestSettingsController::class,
 		\PrestoPlayer\Services\API\RestVideosController::class,
+		\PrestoPlayer\Services\API\RestMediaPostController::class,
+		\PrestoPlayer\Services\API\RestEmailSubmissionsController::class,
+		\PrestoPlayer\Services\API\RestLicenseController::class,
 	),
 
 	/*

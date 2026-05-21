@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'course/player',
-        'pretty_version' => 'v4.1.4',
-        'version' => '4.1.4.0',
-        'reference' => 'd99b978faa35f005c5df5303cea0699193b63701',
+        'pretty_version' => 'v4.2.0',
+        'version' => '4.2.0.0',
+        'reference' => 'aade530d0f38a5a9ce8f55906ac379d38e26d9eb',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'brainstormforce/astra-notices' => array(
-            'pretty_version' => '1.2.1',
-            'version' => '1.2.1.0',
-            'reference' => '79430df6cc3bf97efeb287989c1c4a848dbd8039',
+            'pretty_version' => '1.2.2',
+            'version' => '1.2.2.0',
+            'reference' => 'ca54944d8312f88d117b6c7e620d2906a8e12da5',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../brainstormforce/astra-notices',
             'aliases' => array(),
@@ -47,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'course/player' => array(
-            'pretty_version' => 'v4.1.4',
-            'version' => '4.1.4.0',
-            'reference' => 'd99b978faa35f005c5df5303cea0699193b63701',
+            'pretty_version' => 'v4.2.0',
+            'version' => '4.2.0.0',
+            'reference' => 'aade530d0f38a5a9ce8f55906ac379d38e26d9eb',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

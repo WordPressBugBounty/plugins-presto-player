@@ -21,12 +21,30 @@ class Plugin {
 	);
 
 	/**
-	 * Check if pro version is enabled.
+	 * Check if pro version is enabled AND licensed.
+	 *
+	 * In wp-env tests, defining `PRESTO_TESTSUITE` short-circuits the license
+	 * check so unrelated Pro feature tests don't have to seed license state.
+	 * To exercise the actual license-validity path inside a test, opt in via:
+	 *
+	 *     add_filter( 'presto_player_force_license_check', '__return_true' );
 	 *
 	 * @return bool
 	 */
 	protected function isPro() {
-		return defined( 'PRESTO_PLAYER_PRO_ENABLED' );
+		if ( ! defined( 'PRESTO_PLAYER_PRO_ENABLED' ) ) {
+			return false;
+		}
+
+		// Test-suite bypass; opt back in via `presto_player_force_license_check`.
+		if (
+			defined( 'PRESTO_TESTSUITE' ) && PRESTO_TESTSUITE
+			&& ! apply_filters( 'presto_player_force_license_check', false )
+		) {
+			return true;
+		}
+
+		return Services\License\License::isActive();
 	}
 
 	/**
@@ -102,6 +120,20 @@ class Plugin {
 
 		// Compare the pro version with the required version.
 		return version_compare( $pro_version, $required_versions, '>=' );
+	}
+
+	/**
+	 * Get the license status.
+	 *
+	 * @return string 'licensed' or 'unlicensed'
+	 */
+	protected function licenseStatus() {
+		if ( ! $this->isPro() || ! class_exists( '\PrestoPlayer\Pro\Plugin' ) ) {
+			return 'unlicensed';
+		}
+
+		$pro_plugin = new \PrestoPlayer\Pro\Plugin();
+		return $pro_plugin->hasLicense() ? 'licensed' : 'unlicensed';
 	}
 
 	/**

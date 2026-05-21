@@ -14,6 +14,7 @@ use PrestoPlayer\Plugin;
 use PrestoPlayer\Models\Block;
 use PrestoPlayer\Models\Setting;
 use PrestoPlayer\Pro\Services\API\RestBunnyTranscriptionController;
+use PrestoPlayer\Services\License\License;
 
 /**
  * Scripts class for handling script and style registration and enqueuing.
@@ -40,10 +41,6 @@ class Scripts {
 		// elementor editor scripts.
 		add_action( 'elementor/frontend/before_enqueue_scripts', array( $this, 'elementorPreviewScripts' ) );
 		add_action( 'elementor/frontend/before_enqueue_scripts', array( $this, 'blockAssets' ) );
-
-		// admin pages.
-		add_action( 'admin_print_scripts-presto-player_page_presto_license', array( $this, 'licenseScripts' ) );
-		add_action( 'presto_player_pro_register_license_page', array( $this, 'licenseScripts' ) );
 
 		add_action( 'after_setup_theme', array( $this, 'addAppearanceToolsSupport' ), 99999 );
 
@@ -173,6 +170,9 @@ class Scripts {
 					),
 					'proVersion'          => Plugin::proVersion(),
 					'isPremium'           => Plugin::isPro(),
+					'isProPluginActive'   => class_exists( '\PrestoPlayer\Pro\Plugin' ),
+					'hasLicenseKey'       => License::hasKey(),
+					'dashboardUrl'        => admin_url( 'admin.php?page=presto-dashboard' ),
 					'wpVersionString'     => 'wp/v2/',
 					'prestoVersionString' => 'presto-player/v1/',
 					'debug'               => defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG,
@@ -250,6 +250,9 @@ class Scripts {
 					'isAdmin'               => is_admin(),
 					'proVersion'            => Plugin::proVersion(),
 					'isPremium'             => Plugin::isPro(),
+					'isProPluginActive'     => class_exists( '\PrestoPlayer\Pro\Plugin' ),
+					'hasLicenseKey'         => License::hasKey(),
+					'dashboardUrl'          => admin_url( 'admin.php?page=presto-dashboard' ),
 					'hasRequiredProVersion' => array(
 						'popups' => Plugin::hasRequiredProVersion( 'popups' ),
 					),
@@ -447,29 +450,6 @@ class Scripts {
 					return;
 				}
 				$this->printFallbackScriptsAndStyles();
-			}
-		);
-	}
-
-	/**
-	 * Enqueue scripts for the license page.
-	 *
-	 * @param string $hook The current admin page.
-	 * @return void
-	 */
-	public function licenseScripts( $hook ) {
-		add_action(
-			"admin_print_scripts-{$hook}",
-			function () {
-				$assets = include trailingslashit( PRESTO_PLAYER_PLUGIN_DIR ) . 'dist/license.asset.php';
-				wp_enqueue_script(
-					'surecart/license/admin',
-					trailingslashit( PRESTO_PLAYER_PLUGIN_URL ) . 'dist/license.js',
-					array_merge( $assets['dependencies'] ),
-					$assets['version'],
-					true
-				);
-				wp_enqueue_style( 'surecart/license/admin', trailingslashit( PRESTO_PLAYER_PLUGIN_URL ) . 'dist/license.css', array(), $assets['version'] );
 			}
 		);
 	}

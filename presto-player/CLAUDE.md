@@ -8,6 +8,45 @@ Presto Player is a WordPress video player plugin (v4.1.0) that provides video ca
 
 **Requirements:** PHP 7.3+, WordPress 5.6+
 
+## Context7 — Always Look Up Docs Before Writing Code
+
+Before implementing any feature, always use Context7 (MCP) to look up the relevant library/framework documentation. This applies to **every tech stack** — not just WordPress. Use `resolve-library-id` to find the library, then `query-docs` to get current API details.
+
+**When to use:** Any time you're about to write code that uses a library, framework, or API — WordPress hooks, React components, CSS/Tailwind utilities, PHP functions, Stencil.js, or any dependency in the project.
+
+**Pre-resolved WordPress sources** (skip resolve step for these):
+- **WordPress API Reference** (`/websites/developer_wordpress_reference`) — functions, general API
+- **WordPress Classes** (`/websites/developer_wordpress_reference_classes`) — `WP_Query`, `WP_REST_*`, etc.
+- **WordPress Hooks** (`/websites/developer_wordpress_reference_hooks`) — actions & filters
+
+**For all other libraries** (React, Tailwind, Stencil, Force UI, HLS.js, Plyr, etc.), resolve the library ID first, then query the relevant docs before implementation.
+
+## Use Existing APIs First — Don't Reinvent What the Platform Provides
+
+Before implementing any feature, check whether WordPress, Gutenberg, or the library/framework you're working with already provides it. Custom code should only exist when the platform genuinely cannot do what's needed.
+
+**This applies to every layer of the stack:**
+
+**PHP / Backend:**
+1. **WP REST API** — `WP_REST_Posts_Controller` already handles CRUD for any post type with `show_in_rest`. Before writing a custom REST endpoint for updating post fields (title, slug, status, date, password, taxonomies, meta), check if `/wp/v2/{rest_base}/{id}` already supports it.
+2. **Core functions** — `wp_update_post()`, `wp_insert_post()`, `wp_set_post_terms()`, `update_post_meta()` etc. already handle sanitization, capability checks, and hooks. Don't rewrite what they do.
+
+**JavaScript / Gutenberg / Block Editor:**
+1. **`@wordpress/data` stores** — `core`, `core/editor`, `core/block-editor`, `core/notices` already expose selectors and actions for posts, blocks, settings, and UI state. Check existing stores before creating custom state management.
+2. **`@wordpress/api-fetch`** — Already handles nonces, error parsing, and middleware. Don't build custom fetch wrappers.
+3. **Block Editor APIs** — `registerBlockType`, `InspectorControls`, `useBlockProps`, `RichText`, `InnerBlocks` etc. already solve most block UI needs. Check the Block Editor Handbook before building custom solutions.
+4. **`@wordpress/components`** — For block editor UI (not dashboard), WordPress provides ready-made components. Don't rebuild what exists.
+
+**The test:** Before writing custom code, ask: "Does the platform already do this?" If your code is just wrapping or proxying a built-in API with minor additions, use the built-in API directly.
+
+## LSP — Prefer for Code Navigation
+
+When navigating code — finding definitions, references, implementations, or call chains — prefer the LSP tool over Grep/Glob for `.php`, `.ts`, `.js`, `.tsx`, and `.jsx` files. LSP provides accurate, type-aware results.
+
+**Use LSP for:** `goToDefinition`, `findReferences`, `hover` (type info), `documentSymbol` (list symbols in a file), `workspaceSymbol` (search symbols across workspace), `goToImplementation`, `incomingCalls`, `outgoingCalls`.
+
+**Fall back to Grep/Glob for:** text/string searches, pattern matching, file discovery, or when LSP returns no results.
+
 ## Development Commands
 
 ### Initial Setup
@@ -199,6 +238,44 @@ Each integration is a component that registers when its parent plugin is active.
 - PHP classes are namespaced: `PrestoPlayer\Services\Settings`
 - Imposter plugin isolates vendor dependencies under `PrestoPlayer\` namespace
 
+## Security Checklist
+
+Every REST endpoint, AJAX handler, form processor, or shortcode callback **must** pass these checks. Do not skip any — WordPress plugin reviewers and security auditors flag these as critical.
+
+### Authentication & Authorization
+- **Capability check:** `current_user_can( 'edit_posts' )` (or appropriate capability) before any state-changing operation
+- **Nonce verification:** `wp_verify_nonce()` for admin forms; REST API routes use `permission_callback` (never set to `__return_true` for write operations)
+- **REST permission_callback:** Every `register_rest_route()` must have a `permission_callback` — use `current_user_can()` checks, not blanket `__return_true`
+
+### Input Sanitization (before storage/use)
+- **Strings:** `sanitize_text_field()`, `sanitize_textarea_field()`, `sanitize_title()`
+- **URLs:** `esc_url_raw()` (for DB storage), `esc_url()` (for output)
+- **Integers:** `absint()`, `intval()`
+- **HTML content:** `wp_kses_post()` (allows safe HTML), `wp_kses()` (custom allowed tags)
+- **File paths:** `sanitize_file_name()`, validate against allowed directories
+- **Arrays/complex data:** Sanitize each element individually — never trust `$_POST` or `$_GET` raw
+- **REST requests:** Use `$request->get_param()` with sanitize/validate callbacks in the schema
+
+### Output Escaping (before rendering)
+- **HTML context:** `esc_html()`, `esc_html__()`
+- **Attribute context:** `esc_attr()`, `esc_attr__()`
+- **URL context:** `esc_url()`
+- **JavaScript context:** `esc_js()`, or better — use `wp_localize_script()` / `wp_add_inline_script()`
+- **CSS context:** `safecss_filter_attr()`
+
+### Database Queries
+- **Always use `$wpdb->prepare()`** for any query with dynamic values — no exceptions
+- **Never concatenate** user input into SQL strings
+- Prefer WordPress API functions (`get_post_meta()`, `WP_Query`) over raw queries when possible
+
+### Common Pitfalls to Avoid
+- Never use `$_GET`, `$_POST`, `$_REQUEST` directly — access via `WP_REST_Request`, `sanitize_*()`, or `wp_unslash()` + sanitize
+- Never use `extract()` — it creates variables from untrusted data
+- Never use code evaluation functions or `preg_replace()` with the `e` modifier
+- Never output unsanitized data in `wp_die()`, error messages, or admin notices
+- `update_option()` auto-serializes — don't `json_encode()` before storing unless you need JSON specifically
+- File uploads: validate MIME type with `wp_check_filetype()`, use `wp_handle_upload()` — never move files manually
+
 ## Testing Strategy
 
 **Test Locations:**
@@ -235,6 +312,10 @@ Each integration is a component that registers when its parent plugin is active.
 | `package.json` | Root workspace config |
 | `@presto-player/presto-player/package.json` | Workspace package config |
 | `composer.json` | PHP dependencies and autoload |
+
+## Verification
+
+After making any changes, always verify with Playwright browser testing (via MCP tools) before considering work complete. Build compiling alone does not guarantee correctness. Navigate to the relevant page and confirm changes render, function, and behave correctly — this applies to UI components, PHP backend changes, REST API responses, settings, and any other modification that affects the user-facing experience.
 
 ## Important Notes
 

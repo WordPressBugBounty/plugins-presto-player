@@ -6,13 +6,15 @@
 :host {
   position: relative;
   box-sizing: border-box;
+}
+:host *, :host *:before, :host *:after {
+  box-sizing: inherit;
+}
+:host {
   --track-color: #0d131e20;
   --indicator-color: var(--plyr-color-main);
   --stroke-width: 2px;
   display: inline-flex;
-}
-:host *, :host *:before, :host *:after {
-  box-sizing: inherit;
 }
 
 .spinner {

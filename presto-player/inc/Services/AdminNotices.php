@@ -33,6 +33,30 @@ class AdminNotices {
 	const RATINGS_NOTICE_DISPLAY_DELAY = 604800; // 7 days in seconds.
 
 	/**
+	 * Nonce action shared between the dismiss link generator and dismiss() handler.
+	 */
+	const DISMISS_NONCE_ACTION = 'presto-dismiss-notice';
+
+	/**
+	 * Exact notice keys allowed to be dismissed via ?presto_action=dismiss_notices.
+	 * Pairs with DISMISSABLE_NOTICE_PREFIXES for keys with a dynamic suffix.
+	 *
+	 * Allowlisting prevents an attacker (or a stray link) from polluting wp_options
+	 * with arbitrary `presto_player_dismissed_notice_<anything>` keys.
+	 */
+	const DISMISSABLE_NOTICES = array(
+		'nginx_rules',
+		'presto_player_reusable_notice',
+	);
+
+	/**
+	 * Allowed key prefixes; the suffix must match a digits-and-dots pattern (e.g. semver).
+	 */
+	const DISMISSABLE_NOTICE_PREFIXES = array(
+		'player_recommended_version_',
+	);
+
+	/**
 	 * Register the admin notices.
 	 *
 	 * @return void
@@ -41,6 +65,43 @@ class AdminNotices {
 		add_action( 'admin_init', array( $this, 'dismiss' ) );
 		add_action( 'init', array( $this, 'displayRatingsNotice' ) );
 		add_action( 'admin_footer', array( $this, 'show_nps_notice' ), 999 );
+		add_action( 'admin_head', array( $this, 'suppressForeignNotices' ) );
+	}
+
+	/**
+	 * Remove third-party admin notices on PP pages.
+	 *
+	 * Runs on admin_head (before admin_notices fires) so we can safely
+	 * unset non-PP callbacks directly from $wp_filter without re-add timing issues.
+	 */
+	public function suppressForeignNotices() {
+		if ( ! Utility::isPrestoPlayerPage() ) {
+			return;
+		}
+
+		global $wp_filter;
+
+		if ( ! isset( $wp_filter['admin_notices'] ) ) {
+			return;
+		}
+
+		foreach ( $wp_filter['admin_notices']->callbacks as $priority => $hooks ) {
+			foreach ( $hooks as $id => $hook ) {
+				$cb    = $hook['function'];
+				$class = null;
+
+				if ( is_array( $cb ) && is_object( $cb[0] ) ) {
+					$class = get_class( $cb[0] );
+				} elseif ( is_array( $cb ) && is_string( $cb[0] ) ) {
+					$class = $cb[0];
+				}
+
+				// Keep only PrestoPlayer\ namespace callbacks; unset everything else.
+				if ( ! $class || strncmp( $class, 'PrestoPlayer\\', 13 ) !== 0 ) {
+					unset( $wp_filter['admin_notices']->callbacks[ $priority ][ $id ] );
+				}
+			}
+		}
 	}
 
 	/**
@@ -145,24 +206,48 @@ class AdminNotices {
 	 * @return void
 	 */
 	public function dismiss() {
-		// Permissions check.
 		if ( ! current_user_can( 'install_plugins' ) ) {
 			return;
 		}
 
-		// Not our notices, bail.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- nonce verified below.
 		if ( ! isset( $_GET['presto_action'] ) || 'dismiss_notices' !== $_GET['presto_action'] ) {
 			return;
 		}
 
-		// Get notice.
-		$notice = ! empty( $_GET['presto_notice'] ) ? sanitize_text_field( $_GET['presto_notice'] ) : '';
-		if ( ! $notice ) {
+		$notice = ! empty( $_GET['presto_notice'] ) ? sanitize_text_field( wp_unslash( $_GET['presto_notice'] ) ) : '';
+		if ( ! $notice || ! self::is_dismissable_notice( $notice ) ) {
 			return;
 		}
 
-		// Notice is dismissed.
-		update_option( 'presto_player_dismissed_notice_' . sanitize_text_field( $notice ), 1 );
+		$nonce = isset( $_GET['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ) : '';
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
+		if ( ! wp_verify_nonce( $nonce, self::DISMISS_NONCE_ACTION ) ) {
+			return;
+		}
+
+		update_option( 'presto_player_dismissed_notice_' . $notice, 1 );
+	}
+
+	/**
+	 * Whether a notice key is in the allowlist of dismissable notices.
+	 *
+	 * @param string $notice Notice key (already sanitized).
+	 * @return bool
+	 */
+	private static function is_dismissable_notice( $notice ) {
+		if ( in_array( $notice, self::DISMISSABLE_NOTICES, true ) ) {
+			return true;
+		}
+		foreach ( self::DISMISSABLE_NOTICE_PREFIXES as $prefix ) {
+			if ( 0 === strncmp( $notice, $prefix, strlen( $prefix ) ) ) {
+				$suffix = substr( $notice, strlen( $prefix ) );
+				if ( '' !== $suffix && 1 === preg_match( '/^[0-9.]+$/', $suffix ) ) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
