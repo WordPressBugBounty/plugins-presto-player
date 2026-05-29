@@ -98,3 +98,58 @@ export function formatPublishDate( dateString ) {
 	const hour12 = hours % 12 || 12;
 	return `${ yyyy }/${ mm }/${ dd } at ${ hour12 }:${ minutes } ${ ampm }`;
 }
+
+/**
+ * Compute the next selection when the header bulk-select checkbox is
+ * toggled on a paginated table. Checking unions the current page's ids
+ * with the existing selection (so picks on other pages survive a page
+ * change); unchecking removes only the current page's ids.
+ *
+ * @param {Array<string|number>}         prev      - Currently selected ids.
+ * @param {Array<{ id: string|number }>} pageItems - Rows visible on the current page.
+ * @param {boolean}                      checked   - true to add, false to remove.
+ * @return {Array<string|number>} The next selected-ids array.
+ */
+export function togglePageSelection( prev, pageItems, checked ) {
+	const prevIds = prev || [];
+	const pageIds = ( pageItems || [] ).map( ( item ) => item.id );
+	if ( checked ) {
+		return Array.from( new Set( [ ...prevIds, ...pageIds ] ) );
+	}
+	return prevIds.filter( ( id ) => ! pageIds.includes( id ) );
+}
+
+/**
+ * Whether every row on the current page is in the selection. Empty page
+ * returns false so the header checkbox doesn't render checked when there
+ * is nothing on screen.
+ *
+ * @param {Array<{ id: string|number }>} pageItems
+ * @param {Array<string|number>}         selected
+ * @return {boolean}
+ */
+export function isPageFullySelected( pageItems, selected ) {
+	if ( ! pageItems?.length ) {
+		return false;
+	}
+	const selectedIds = selected || [];
+	return pageItems.every( ( item ) => selectedIds.includes( item.id ) );
+}
+
+/**
+ * Whether some — but not all — rows on the current page are in the
+ * selection. Drives the header checkbox's indeterminate state.
+ *
+ * @param {Array<{ id: string|number }>} pageItems
+ * @param {Array<string|number>}         selected
+ * @return {boolean}
+ */
+export function isPagePartiallySelected( pageItems, selected ) {
+	if ( ! pageItems?.length ) {
+		return false;
+	}
+	const selectedIds = selected || [];
+	const any = pageItems.some( ( item ) => selectedIds.includes( item.id ) );
+	const all = pageItems.every( ( item ) => selectedIds.includes( item.id ) );
+	return any && ! all;
+}

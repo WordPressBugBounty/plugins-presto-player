@@ -237,6 +237,7 @@ return array(
     'PrestoPlayer\\Services\\API\\RestAudioPresetsController' => $baseDir . '/inc/Services/API/RestAudioPresetsController.php',
     'PrestoPlayer\\Services\\API\\RestEmailSubmissionsController' => $baseDir . '/inc/Services/API/RestEmailSubmissionsController.php',
     'PrestoPlayer\\Services\\API\\RestLicenseController' => $baseDir . '/inc/Services/API/RestLicenseController.php',
+    'PrestoPlayer\\Services\\API\\RestMediaListController' => $baseDir . '/inc/Services/API/RestMediaListController.php',
     'PrestoPlayer\\Services\\API\\RestMediaPostController' => $baseDir . '/inc/Services/API/RestMediaPostController.php',
     'PrestoPlayer\\Services\\API\\RestPresetsController' => $baseDir . '/inc/Services/API/RestPresetsController.php',
     'PrestoPlayer\\Services\\API\\RestSettingsController' => $baseDir . '/inc/Services/API/RestSettingsController.php',

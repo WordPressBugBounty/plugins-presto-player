@@ -285,6 +285,7 @@ class ComposerStaticInitb92e9494a3fd3f06b5b1878cc9b08f00
         'PrestoPlayer\\Services\\API\\RestAudioPresetsController' => __DIR__ . '/../..' . '/inc/Services/API/RestAudioPresetsController.php',
         'PrestoPlayer\\Services\\API\\RestEmailSubmissionsController' => __DIR__ . '/../..' . '/inc/Services/API/RestEmailSubmissionsController.php',
         'PrestoPlayer\\Services\\API\\RestLicenseController' => __DIR__ . '/../..' . '/inc/Services/API/RestLicenseController.php',
+        'PrestoPlayer\\Services\\API\\RestMediaListController' => __DIR__ . '/../..' . '/inc/Services/API/RestMediaListController.php',
         'PrestoPlayer\\Services\\API\\RestMediaPostController' => __DIR__ . '/../..' . '/inc/Services/API/RestMediaPostController.php',
         'PrestoPlayer\\Services\\API\\RestPresetsController' => __DIR__ . '/../..' . '/inc/Services/API/RestPresetsController.php',
         'PrestoPlayer\\Services\\API\\RestSettingsController' => __DIR__ . '/../..' . '/inc/Services/API/RestSettingsController.php',

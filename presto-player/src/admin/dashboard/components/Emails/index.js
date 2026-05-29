@@ -8,4 +8,7 @@ export {
 	getBadge,
 	formatPublishDate,
 	TRUNCATE_LENGTH,
+	togglePageSelection,
+	isPageFullySelected,
+	isPagePartiallySelected,
 } from './Utils';

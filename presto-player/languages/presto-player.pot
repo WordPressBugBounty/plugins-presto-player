@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-21T03:53:50+00:00\n"
+"POT-Creation-Date: 2026-05-29T09:28:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -131,8 +131,8 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:65
 #: admin/blocks/shared/tracks/TracksEditor.js:86
-#: admin/dashboard/components/MediaHub/MediaRow.js:242
-#: admin/dashboard/components/MediaHub/MediaRow.js:248
+#: admin/dashboard/components/MediaHub/MediaRow.js:268
+#: admin/dashboard/components/MediaHub/MediaRow.js:274
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:140
 #: Integrations/Elementor/ReusableVideoWidget.php:128
 msgid "Edit"
@@ -329,11 +329,11 @@ msgid "This will also delete all videos inside of the collection."
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:95
-#: admin/dashboard/components/MediaHub/BulkActions.js:68
-#: admin/dashboard/pages/Emails.js:233
-#: admin/dashboard/pages/Emails.js:550
-#: admin/dashboard/pages/MediaHub.js:376
-#: admin/dashboard/pages/MediaHub.js:976
+#: admin/dashboard/components/MediaHub/BulkActions.js:69
+#: admin/dashboard/pages/Emails.js:332
+#: admin/dashboard/pages/Emails.js:679
+#: admin/dashboard/pages/MediaHub.js:416
+#: admin/dashboard/pages/MediaHub.js:899
 #: admin/dashboard/pages/settings/integrations/WebhooksPage.js:429
 msgid "Delete"
 msgstr ""
@@ -357,15 +357,15 @@ msgstr ""
 #: admin/blocks/shared/tracks/TracksEditor.js:533
 #: admin/blocks/shared/tracks/TracksEditor.js:591
 #: admin/dashboard/components/EngagementChart/ChartDateFilter.js:93
-#: admin/dashboard/components/MediaHub/BulkActions.js:77
+#: admin/dashboard/components/MediaHub/BulkActions.js:78
 #: admin/dashboard/components/MediaHub/PostSettings.js:527
 #: admin/dashboard/components/Popup/ConfirmPopup.js:13
 #: admin/dashboard/components/Popup/EmailFormPopup.js:188
 #: admin/dashboard/pages/AnalyticsDetail.js:371
 #: admin/dashboard/pages/AnalyticsDetail.js:430
-#: admin/dashboard/pages/Emails.js:618
-#: admin/dashboard/pages/MediaHub.js:217
-#: admin/dashboard/pages/MediaHub.js:1155
+#: admin/dashboard/pages/Emails.js:747
+#: admin/dashboard/pages/MediaHub.js:277
+#: admin/dashboard/pages/MediaHub.js:1104
 #: admin/dashboard/pages/settings/general/LicensePage.js:140
 #: admin/dashboard/pages/settings/integrations/WebhooksPage.js:263
 #: admin/dashboard/pages/settings/shared/ConfirmDialog.js:59
@@ -447,7 +447,7 @@ msgid "Created"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:137
-#: admin/dashboard/pages/MediaHub.js:214
+#: admin/dashboard/pages/MediaHub.js:274
 msgid "Are you sure?"
 msgstr ""
 
@@ -659,7 +659,7 @@ msgstr ""
 #: admin/blocks/blocks/playlist-list/edit.js:21
 #: admin/blocks/shared/media/MediaPopup.js:268
 #: admin/blocks/shared/media/MediaPopupTemplate.js:22
-#: admin/dashboard/pages/MediaHub.js:892
+#: admin/dashboard/pages/MediaHub.js:820
 msgid "Add Media"
 msgstr ""
 
@@ -862,7 +862,7 @@ msgid "Edit Play Button"
 msgstr ""
 
 #: admin/blocks/plugins/reusable-videos/ShortcodeInput.js:8
-#: admin/dashboard/components/MediaHub/MediaRow.js:189
+#: admin/dashboard/components/MediaHub/MediaRow.js:209
 msgid "Copied!"
 msgstr ""
 
@@ -1205,7 +1205,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preset.js:234
 #: admin/blocks/shared/presets/Preset.js:234
-#: admin/dashboard/components/MediaHub/BulkActions.js:56
+#: admin/dashboard/components/MediaHub/BulkActions.js:57
 msgid "Trash"
 msgstr ""
 
@@ -1360,7 +1360,7 @@ msgstr ""
 
 #: admin/blocks/shared/components/SelectMediaDropdown.js:144
 #: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:155
-#: admin/dashboard/components/MediaHub/MediaRow.js:100
+#: admin/dashboard/components/MediaHub/MediaRow.js:120
 #: admin/dashboard/components/TopPerformingMedia.js:44
 #: admin/dashboard/utils/transformers.js:18
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:113
@@ -1416,7 +1416,7 @@ msgid "Or drag a file here to upload."
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:33
-#: admin/dashboard/components/Emails/Table.js:199
+#: admin/dashboard/components/Emails/Table.js:203
 #: Integrations/Elementor/VideoWidget.php:139
 #: Services/Shortcodes.php:238
 msgid "Video"
@@ -2331,98 +2331,99 @@ msgstr ""
 msgid "Select Color"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:57
-#: admin/dashboard/pages/Emails.js:269
-#: admin/dashboard/pages/Emails.js:347
-#: admin/dashboard/pages/MediaHub.js:207
-#: admin/dashboard/pages/MediaHub.js:408
+#: admin/dashboard/components/Emails/Table.js:62
+#: admin/dashboard/pages/Emails.js:368
+#: admin/dashboard/pages/Emails.js:446
+#: admin/dashboard/pages/MediaHub.js:267
+#: admin/dashboard/pages/MediaHub.js:434
 msgid "Restore"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:62
-#: admin/dashboard/pages/Emails.js:348
-#: admin/dashboard/pages/MediaHub.js:202
+#: admin/dashboard/components/Emails/Table.js:67
+#: admin/dashboard/pages/Emails.js:447
+#: admin/dashboard/pages/MediaHub.js:262
 msgid "Delete Permanently"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:69
-#: admin/dashboard/components/MediaHub/MediaRow.js:259
-#: admin/dashboard/components/MediaHub/MediaRow.js:267
+#: admin/dashboard/components/Emails/Table.js:74
+#: admin/dashboard/components/MediaHub/MediaRow.js:285
+#: admin/dashboard/components/MediaHub/MediaRow.js:293
 #: admin/dashboard/components/MediaHub/PostSettings.js:339
 #: admin/dashboard/components/Popup/EmailFormPopup.js:132
 msgid "Post Settings"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:74
-#: admin/dashboard/components/MediaHub/BulkActions.js:53
-#: admin/dashboard/pages/Emails.js:200
-#: admin/dashboard/pages/Emails.js:346
-#: admin/dashboard/pages/MediaHub.js:197
-#: admin/dashboard/pages/MediaHub.js:344
-#: admin/dashboard/pages/MediaHub.js:954
+#: admin/dashboard/components/Emails/Table.js:79
+#: admin/dashboard/components/MediaHub/BulkActions.js:54
+#: admin/dashboard/pages/Emails.js:299
+#: admin/dashboard/pages/Emails.js:445
+#: admin/dashboard/pages/Emails.js:655
+#: admin/dashboard/pages/MediaHub.js:257
+#: admin/dashboard/pages/MediaHub.js:398
+#: admin/dashboard/pages/MediaHub.js:879
 msgid "Move to Trash"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:109
-#: admin/dashboard/components/MediaHub/MediaRow.js:285
+#: admin/dashboard/components/Emails/Table.js:114
+#: admin/dashboard/components/MediaHub/MediaRow.js:311
 msgid "More Options"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:192
+#: admin/dashboard/components/Emails/Table.js:196
 #: admin/dashboard/components/Onboarding/UserInfo.js:101
 #: admin/dashboard/components/Onboarding/UserInfo.js:102
 #: admin/dashboard/components/Popup/EmailFormPopup.js:145
 msgid "Email"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:195
+#: admin/dashboard/components/Emails/Table.js:199
 #: admin/dashboard/components/MediaHub/PostSettings.js:442
 #: admin/dashboard/components/Popup/EmailFormPopup.js:161
-#: admin/dashboard/pages/MediaHub.js:1032
+#: admin/dashboard/pages/MediaHub.js:967
 msgid "Status"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:201
+#: admin/dashboard/components/Emails/Table.js:205
 msgid "The video the viewer was watching when they submitted their email."
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:214
+#: admin/dashboard/components/Emails/Table.js:218
 msgid "Preset"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:216
+#: admin/dashboard/components/Emails/Table.js:220
 msgid "The player preset configured to collect this email submission."
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:231
+#: admin/dashboard/components/Emails/Table.js:235
 msgid "Date"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:245
+#: admin/dashboard/components/Emails/Table.js:249
 msgid "Actions"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:277
+#: admin/dashboard/components/Emails/Table.js:281
 msgid "No video"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:286
+#: admin/dashboard/components/Emails/Table.js:290
 msgid "No preset"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:305
+#: admin/dashboard/components/Emails/Table.js:309
 msgid "No emails found."
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:315
+#: admin/dashboard/components/Emails/Table.js:319
 #: admin/dashboard/components/RankedTable.js:205
-#: admin/dashboard/pages/MediaHub.js:1125
+#: admin/dashboard/pages/MediaHub.js:1079
 msgid "of"
 msgstr ""
 
-#: admin/dashboard/components/Emails/Table.js:318
+#: admin/dashboard/components/Emails/Table.js:322
 #: admin/dashboard/components/RankedTable.js:208
-#: admin/dashboard/pages/MediaHub.js:1128
+#: admin/dashboard/pages/MediaHub.js:1082
 msgid "items"
 msgstr ""
 
@@ -2445,7 +2446,7 @@ msgstr ""
 
 #: admin/dashboard/components/Emails/Utils.js:16
 #: admin/dashboard/components/Emails/Utils.js:57
-#: admin/dashboard/components/MediaHub/BulkActions.js:44
+#: admin/dashboard/components/MediaHub/BulkActions.js:45
 #: admin/dashboard/components/MediaHub/PostSettings.js:28
 #: admin/dashboard/components/MediaHub/PostSettings.js:36
 #: admin/dashboard/components/Popup/EmailFormPopupUtils.js:28
@@ -2604,48 +2605,55 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/BulkActions.js:21
+#: admin/dashboard/components/MediaHub/BulkActions.js:22
 msgid "Bulk actions: "
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/BulkActions.js:23
+#: admin/dashboard/components/MediaHub/BulkActions.js:24
 msgid "media selected"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/BulkActions.js:34
-#: admin/dashboard/pages/MediaHub.js:313
+#: admin/dashboard/components/MediaHub/BulkActions.js:35
+#: admin/dashboard/pages/MediaHub.js:382
 msgid "Publish"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/BulkActions.js:65
+#: admin/dashboard/components/MediaHub/BulkActions.js:66
 msgid "Delete permanently"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/MediaRow.js:149
+#: admin/dashboard/components/MediaHub/MediaRow.js:169
 msgid "No tags"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/MediaRow.js:182
+#: admin/dashboard/components/MediaHub/MediaRow.js:202
 msgid "No shortcode"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/MediaRow.js:190
 #: admin/dashboard/components/MediaHub/MediaRow.js:210
+#: admin/dashboard/components/MediaHub/MediaRow.js:230
 msgid "Copy shortcode"
 msgstr ""
 
-#: admin/dashboard/components/MediaHub/MediaRow.js:223
-#: admin/dashboard/components/MediaHub/MediaRow.js:232
+#: admin/dashboard/components/MediaHub/MediaRow.js:249
+msgid "Preview"
+msgstr ""
+
+#: admin/dashboard/components/MediaHub/MediaRow.js:250
 msgid "View"
 msgstr ""
 
+#. translators: %s: post title (WP core string, default domain).
 #: admin/dashboard/components/MediaHub/PostSettings.js:256
-#, js-format
+#: Services/API/RestMediaListController.php:369
+#, js-format,php-format
 msgid "Protected: %s"
 msgstr ""
 
+#. translators: %s: post title (WP core string, default domain).
 #: admin/dashboard/components/MediaHub/PostSettings.js:257
-#, js-format
+#: Services/API/RestMediaListController.php:371
+#, js-format,php-format
 msgid "Private: %s"
 msgstr ""
 
@@ -2716,7 +2724,7 @@ msgid "Save Settings"
 msgstr ""
 
 #: admin/dashboard/components/MediaHub/SearchBar.js:9
-#: admin/dashboard/pages/MediaHub.js:930
+#: admin/dashboard/pages/MediaHub.js:855
 msgid "Search media…"
 msgstr ""
 
@@ -3040,7 +3048,7 @@ msgid "Popup Title"
 msgstr ""
 
 #: admin/dashboard/components/Popup/ConfirmPopup.js:12
-#: admin/dashboard/pages/MediaHub.js:216
+#: admin/dashboard/pages/MediaHub.js:276
 #: admin/dashboard/pages/settings/shared/ConfirmDialog.js:68
 msgid "Confirm"
 msgstr ""
@@ -3121,7 +3129,7 @@ msgstr ""
 
 #: admin/dashboard/components/TopMedia.js:74
 #: admin/dashboard/components/TopPerformingMedia.js:82
-#: admin/dashboard/pages/MediaHub.js:1020
+#: admin/dashboard/pages/MediaHub.js:951
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:111
 #: Integrations/Elementor/ReusableVideoWidget.php:108
 msgid "Media"
@@ -3396,213 +3404,263 @@ msgstr ""
 msgid "Shows how many viewers watched each moment of the video. Drop-offs indicate where people stopped watching."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:72
+#: admin/dashboard/pages/Emails.js:73
 msgid "All dates"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:75
+#: admin/dashboard/pages/Emails.js:76
 msgid "January"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:76
+#: admin/dashboard/pages/Emails.js:77
 msgid "February"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:77
+#: admin/dashboard/pages/Emails.js:78
 msgid "March"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:78
+#: admin/dashboard/pages/Emails.js:79
 msgid "April"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:79
+#: admin/dashboard/pages/Emails.js:80
 msgid "May"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:80
+#: admin/dashboard/pages/Emails.js:81
 msgid "June"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:81
+#: admin/dashboard/pages/Emails.js:82
 msgid "July"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:82
+#: admin/dashboard/pages/Emails.js:83
 msgid "August"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:83
+#: admin/dashboard/pages/Emails.js:84
 msgid "September"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:84
+#: admin/dashboard/pages/Emails.js:85
 msgid "October"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:85
+#: admin/dashboard/pages/Emails.js:86
 msgid "November"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:86
+#: admin/dashboard/pages/Emails.js:87
 msgid "December"
 msgstr ""
 
 #. translators: %d is the number of deleted items
-#: admin/dashboard/pages/Emails.js:166
+#: admin/dashboard/pages/Emails.js:174
 #, js-format
 msgid "%d email submission(s) deleted successfully."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:175
-#: admin/dashboard/pages/Emails.js:252
+#: admin/dashboard/pages/Emails.js:183
+#: admin/dashboard/pages/Emails.js:351
 msgid "Failed to delete."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:195
-#: admin/dashboard/pages/MediaHub.js:339
-msgid "Move to Trash?"
-msgstr ""
+#. translators: %d: number of items moved to trash
+#: admin/dashboard/pages/Emails.js:203
+#, js-format
+msgid "%d email submission moved to trash."
+msgid_plural "%d email submissions moved to trash."
+msgstr[0] ""
+msgstr[1] ""
 
-#: admin/dashboard/pages/Emails.js:196
-msgid "Are you sure you want to move this email submission to the trash?"
-msgstr ""
-
-#: admin/dashboard/pages/Emails.js:211
-#: admin/dashboard/pages/MediaHub.js:359
-msgid "Successfully trashed."
-msgstr ""
-
-#: admin/dashboard/pages/Emails.js:216
-#: admin/dashboard/pages/MediaHub.js:363
+#: admin/dashboard/pages/Emails.js:214
+#: admin/dashboard/pages/Emails.js:315
+#: admin/dashboard/pages/MediaHub.js:406
 msgid "Failed to trash."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:228
-#: admin/dashboard/pages/MediaHub.js:371
+#: admin/dashboard/pages/Emails.js:243
+msgid "Failed to update email submissions."
+msgstr ""
+
+#. translators: 1: number of items updated, 2: new status (publish or draft)
+#: admin/dashboard/pages/Emails.js:256
+#, js-format
+msgid "%1$d email submission updated to %2$s."
+msgid_plural "%1$d email submissions updated to %2$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of items that failed to update
+#: admin/dashboard/pages/Emails.js:271
+#, js-format
+msgid "Failed to update %d email submission."
+msgid_plural "Failed to update %d email submissions."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/dashboard/pages/Emails.js:294
+#: admin/dashboard/pages/MediaHub.js:393
+msgid "Move to Trash?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:295
+msgid "Are you sure you want to move this email submission to the trash?"
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:310
+#: admin/dashboard/pages/MediaHub.js:405
+msgid "Successfully trashed."
+msgstr ""
+
+#: admin/dashboard/pages/Emails.js:327
+#: admin/dashboard/pages/MediaHub.js:411
 msgid "Delete?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:229
+#: admin/dashboard/pages/Emails.js:328
 msgid "Are you sure you want to delete this email submission? This action cannot be undone."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:244
+#: admin/dashboard/pages/Emails.js:343
 msgid "Email submission deleted successfully."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:264
-#: admin/dashboard/pages/MediaHub.js:403
+#: admin/dashboard/pages/Emails.js:363
+#: admin/dashboard/pages/MediaHub.js:429
 msgid "Restore?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:265
+#: admin/dashboard/pages/Emails.js:364
 msgid "Are you sure you want to restore this email submission?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:279
-#: admin/dashboard/pages/MediaHub.js:423
+#: admin/dashboard/pages/Emails.js:378
+#: admin/dashboard/pages/MediaHub.js:440
 msgid "Successfully restored."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:284
-#: admin/dashboard/pages/MediaHub.js:427
+#: admin/dashboard/pages/Emails.js:383
+#: admin/dashboard/pages/MediaHub.js:441
 msgid "Failed to restore."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:299
+#: admin/dashboard/pages/Emails.js:398
 msgid "Mark as Publish?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:300
-#: admin/dashboard/pages/MediaHub.js:277
+#: admin/dashboard/pages/Emails.js:399
+#: admin/dashboard/pages/MediaHub.js:361
 msgid "Save as Draft?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:302
+#: admin/dashboard/pages/Emails.js:401
 msgid "Are you sure you want to mark this email submission as published?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:306
+#: admin/dashboard/pages/Emails.js:405
 msgid "Are you sure you want to save this email submission as draft?"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:311
-#: admin/dashboard/pages/Emails.js:345
-#: admin/dashboard/pages/MediaHub.js:192
+#: admin/dashboard/pages/Emails.js:410
+#: admin/dashboard/pages/Emails.js:444
+#: admin/dashboard/pages/MediaHub.js:252
 msgid "Mark as Publish"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:312
-#: admin/dashboard/pages/Emails.js:344
-#: admin/dashboard/pages/MediaHub.js:187
-#: admin/dashboard/pages/MediaHub.js:282
+#: admin/dashboard/pages/Emails.js:411
+#: admin/dashboard/pages/Emails.js:443
+#: admin/dashboard/pages/MediaHub.js:247
+#: admin/dashboard/pages/MediaHub.js:366
 msgid "Save as Draft"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:323
-#: admin/dashboard/pages/MediaHub.js:327
+#: admin/dashboard/pages/Emails.js:422
+#: admin/dashboard/pages/MediaHub.js:387
 msgid "Successfully published."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:324
-#: admin/dashboard/pages/MediaHub.js:296
+#: admin/dashboard/pages/Emails.js:423
+#: admin/dashboard/pages/MediaHub.js:371
 msgid "Successfully drafted."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:330
-#: admin/dashboard/pages/MediaHub.js:331
+#: admin/dashboard/pages/Emails.js:429
+#: admin/dashboard/pages/MediaHub.js:388
 msgid "Failed to publish."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:331
-#: admin/dashboard/pages/MediaHub.js:300
+#: admin/dashboard/pages/Emails.js:430
+#: admin/dashboard/pages/MediaHub.js:372
 msgid "Failed to draft."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:426
+#: admin/dashboard/pages/Emails.js:525
 msgid "Email updated."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:427
+#: admin/dashboard/pages/Emails.js:526
 msgid "Email added."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:431
+#: admin/dashboard/pages/Emails.js:530
 msgid "Failed to save."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:506
+#: admin/dashboard/pages/Emails.js:601
 msgid "Your email submissions will be displayed here."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:507
+#: admin/dashboard/pages/Emails.js:602
 msgid "Click \"Add New Submission\" to add a new email submission."
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:511
-#: admin/dashboard/pages/Emails.js:529
+#: admin/dashboard/pages/Emails.js:606
+#: admin/dashboard/pages/Emails.js:624
 msgid "Add New Submission"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:521
-#: admin/dashboard/pages/Emails.js:567
+#: admin/dashboard/pages/Emails.js:616
+#: admin/dashboard/pages/Emails.js:696
 #: Services/Menu.php:91
 #: Services/Menu.php:92
 msgid "Emails"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:525
+#: admin/dashboard/pages/Emails.js:620
 msgid "Search emails…"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:538
-#: admin/dashboard/pages/MediaHub.js:965
+#. translators: %d is the number of email submissions selected
+#: admin/dashboard/pages/Emails.js:633
+#, js-format
+msgid "%d email submission selected"
+msgid_plural "%d email submissions selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/dashboard/pages/Emails.js:644
+#: admin/dashboard/pages/MediaHub.js:868
+msgid "Move Selected to Trash?"
+msgstr ""
+
+#. translators: %d: number of items being moved to trash
+#: admin/dashboard/pages/Emails.js:647
+#, js-format
+msgid "Are you sure you want to move %d email submission to the trash?"
+msgid_plural "Are you sure you want to move %d email submissions to the trash?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/dashboard/pages/Emails.js:667
+#: admin/dashboard/pages/MediaHub.js:888
 msgid "Delete Selected Items?"
 msgstr ""
 
 #. translators: %d is the number of items to delete
-#: admin/dashboard/pages/Emails.js:544
+#: admin/dashboard/pages/Emails.js:673
 #, js-format
 msgid "Are you sure you want to delete %d item(s)? This action cannot be undone."
 msgstr ""
@@ -3662,57 +3720,57 @@ msgstr ""
 msgid "Could not update your progress. Please try again."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:182
-#: admin/dashboard/pages/MediaHub.js:268
+#: admin/dashboard/pages/MediaHub.js:242
+#: admin/dashboard/pages/MediaHub.js:356
 msgid "Duplicate"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:215
+#: admin/dashboard/pages/MediaHub.js:275
 msgid "Are you sure you want to proceed?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:263
+#: admin/dashboard/pages/MediaHub.js:351
 msgid "Duplicate?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:264
+#: admin/dashboard/pages/MediaHub.js:352
 msgid "Are you sure you want to duplicate this media?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:278
+#: admin/dashboard/pages/MediaHub.js:362
 msgid "Are you sure you want to mark this media as a draft?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:308
+#: admin/dashboard/pages/MediaHub.js:377
 msgid "Publish?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:309
+#: admin/dashboard/pages/MediaHub.js:378
 msgid "Are you sure you want to publish this media?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:340
+#: admin/dashboard/pages/MediaHub.js:394
 msgid "Are you sure you want to move this media to the trash?"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:372
+#: admin/dashboard/pages/MediaHub.js:412
 msgid "This will permanently delete this media. It cannot be recovered. To remove it temporarily instead, use Trash."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:390
+#: admin/dashboard/pages/MediaHub.js:423
 msgid "Media deleted successfully."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:395
+#: admin/dashboard/pages/MediaHub.js:424
 msgid "Failed to delete media."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:404
+#: admin/dashboard/pages/MediaHub.js:430
 msgid "Are you sure you want to restore this media?"
 msgstr ""
 
 #. translators: %d: number of media items deleted
-#: admin/dashboard/pages/MediaHub.js:507
+#: admin/dashboard/pages/MediaHub.js:528
 #, js-format
 msgid "%d media item deleted successfully."
 msgid_plural "%d media items deleted successfully."
@@ -3720,7 +3778,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of media items that failed to delete
-#: admin/dashboard/pages/MediaHub.js:521
+#: admin/dashboard/pages/MediaHub.js:539
 #, js-format
 msgid "Failed to delete %d media item."
 msgid_plural "Failed to delete %d media items."
@@ -3728,7 +3786,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of media items moved to trash
-#: admin/dashboard/pages/MediaHub.js:570
+#: admin/dashboard/pages/MediaHub.js:557
 #, js-format
 msgid "%d media item moved to trash."
 msgid_plural "%d media items moved to trash."
@@ -3736,7 +3794,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of media items that failed to move to trash
-#: admin/dashboard/pages/MediaHub.js:584
+#: admin/dashboard/pages/MediaHub.js:568
 #, js-format
 msgid "Failed to trash %d media item."
 msgid_plural "Failed to trash %d media items."
@@ -3744,7 +3802,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of items updated, 2: new status (e.g. "publish")
-#: admin/dashboard/pages/MediaHub.js:625
+#: admin/dashboard/pages/MediaHub.js:586
 #, js-format
 msgid "%1$d item updated to %2$s."
 msgid_plural "%1$d items updated to %2$s."
@@ -3752,26 +3810,34 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of items that failed to update
-#: admin/dashboard/pages/MediaHub.js:640
+#: admin/dashboard/pages/MediaHub.js:598
 #, js-format
 msgid "Failed to update %d item."
 msgid_plural "Failed to update %d items."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/dashboard/pages/MediaHub.js:685
+#: admin/dashboard/pages/MediaHub.js:624
 msgid "All Tags"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:887
+#: admin/dashboard/pages/MediaHub.js:795
+msgid "Couldn’t load your media."
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:797
+msgid "Try again"
+msgstr ""
+
+#: admin/dashboard/pages/MediaHub.js:815
 msgid "Your media will be displayed here."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:888
+#: admin/dashboard/pages/MediaHub.js:816
 msgid "Click the \"Add Media\" button to create a new Media Hub item"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:926
+#: admin/dashboard/pages/MediaHub.js:851
 #: admin/dashboard/pages/settings/config.js:54
 #: admin/dashboard/pages/settings/general/MediaHubPage.js:100
 #: Services/Menu.php:75
@@ -3780,17 +3846,13 @@ msgstr ""
 msgid "Media Hub"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:934
+#: admin/dashboard/pages/MediaHub.js:859
 #: Services/VideoPostType.php:449
 msgid "New Media"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:943
-msgid "Move Selected to Trash?"
-msgstr ""
-
 #. translators: %d: number of selected items being moved to trash
-#: admin/dashboard/pages/MediaHub.js:946
+#: admin/dashboard/pages/MediaHub.js:871
 #, js-format
 msgid "Are you sure you want to move %d item to the trash?"
 msgid_plural "Are you sure you want to move %d items to the trash?"
@@ -3798,39 +3860,39 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of selected items being permanently deleted
-#: admin/dashboard/pages/MediaHub.js:968
+#: admin/dashboard/pages/MediaHub.js:891
 #, js-format
 msgid "This will permanently delete %d item. It cannot be recovered. To remove it temporarily instead, use Trash."
 msgid_plural "This will permanently delete %d items. They cannot be recovered. To remove them temporarily instead, use Trash."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/dashboard/pages/MediaHub.js:994
+#: admin/dashboard/pages/MediaHub.js:915
 msgid "Posts"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:1040
+#: admin/dashboard/pages/MediaHub.js:975
 msgid "Tags"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:1042
+#: admin/dashboard/pages/MediaHub.js:977
 msgid "Tags help organize and filter your media library."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:1059
+#: admin/dashboard/pages/MediaHub.js:994
 #: Services/VideoPostType.php:203
 msgid "Shortcode"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:1061
+#: admin/dashboard/pages/MediaHub.js:996
 msgid "Copy the shortcode to embed this media in any post, page, or widget."
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:1078
+#: admin/dashboard/pages/MediaHub.js:1013
 msgid "Published on"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:1115
+#: admin/dashboard/pages/MediaHub.js:1069
 msgid "No media found."
 msgstr ""
 
@@ -5362,25 +5424,28 @@ msgstr ""
 msgid "This preset could not be trashed."
 msgstr ""
 
-#: Services/API/RestEmailSubmissionsController.php:354
+#: Services/API/RestEmailSubmissionsController.php:381
 msgid "Invalid email address."
 msgstr ""
 
-#: Services/API/RestEmailSubmissionsController.php:404
+#: Services/API/RestEmailSubmissionsController.php:431
 msgid "Email submission not found."
 msgstr ""
 
-#: Services/API/RestEmailSubmissionsController.php:457
+#: Services/API/RestEmailSubmissionsController.php:484
+#: Services/API/RestEmailSubmissionsController.php:536
 msgid "IDs are required."
 msgstr ""
 
 #. translators: %d: maximum number of IDs allowed per delete request
-#: Services/API/RestEmailSubmissionsController.php:464
+#. translators: %d: maximum number of IDs allowed per bulk request
+#: Services/API/RestEmailSubmissionsController.php:491
+#: Services/API/RestEmailSubmissionsController.php:543
 #, php-format
 msgid "Too many IDs in a single request. Maximum %d."
 msgstr ""
 
-#: Services/API/RestEmailSubmissionsController.php:594
+#: Services/API/RestEmailSubmissionsController.php:677
 msgid "Presto Player Pro is required for email submissions."
 msgstr ""
 
@@ -5395,6 +5460,10 @@ msgstr ""
 
 #: Services/API/RestLicenseController.php:314
 msgid "Presto Player Pro is required to manage your license."
+msgstr ""
+
+#: Services/API/RestMediaListController.php:192
+msgid "No valid post statuses provided."
 msgstr ""
 
 #: Services/API/RestMediaPostController.php:138

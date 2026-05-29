@@ -663,8 +663,14 @@ class VideoPostType {
 		if ( $this->post_type !== $post->post_type ) {
 			return $id;
 		}
-		$block         = $this->getMediaHubBlock( $post );
-		$poster        = ( ! empty( $block ) ) && isset( $block['attrs']['poster'] ) ? $block['attrs']['poster'] : '';
+		$block  = $this->getMediaHubBlock( $post );
+		$poster = ( ! empty( $block ) ) && isset( $block['attrs']['poster'] ) ? $block['attrs']['poster'] : '';
+		// No URL → nothing to resolve. Skips a wasted attachment_url_to_postid()
+		// DB query on every get_post_thumbnail_id() call for posts whose block
+		// doesn't define a poster (most YouTube / Vimeo / audio sources).
+		if ( '' === $poster ) {
+			return $id;
+		}
 		$attachment_id = attachment_url_to_postid( $poster );
 		return $attachment_id ? $attachment_id : $id;
 	}

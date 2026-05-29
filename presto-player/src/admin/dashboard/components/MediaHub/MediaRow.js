@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { __ } from "@wordpress/i18n";
+import { addQueryArgs } from "@wordpress/url";
 import {
   Tooltip,
   Button,
@@ -12,6 +13,25 @@ import { Eye, PencilLine, Ellipsis, Copy, Check, Settings } from "lucide-react";
 import { decodeHTMLEntities } from "../../utils";
 import { getViewportBoundary } from "../../utils/viewportBoundary";
 import iconWhiteSvg from "../../../../../img/icon-white.svg";
+
+// Statuses for which the front-end permalink would 404 (or worse — leak the
+// slug). For these we either redirect via the WP preview URL or hide the
+// View button entirely (trash).
+const PREVIEW_STATUSES = ["draft", "pending", "future", "private"];
+
+// Resolve the View button target for a given row, accounting for the post
+// status. Returns null when there's no meaningful front-end URL (trash).
+const resolveViewUrl = (item) => {
+  const status = item?.status;
+  if (status === "trash") {
+    return null;
+  }
+  const baseUrl = item?.link || `?p=${item?.id}`;
+  if (PREVIEW_STATUSES.includes(status)) {
+    return addQueryArgs(baseUrl, { preview: "true" });
+  }
+  return baseUrl;
+};
 
 const MediaRow = ({
   item,
@@ -219,26 +239,32 @@ const MediaRow = ({
       </Table.Cell>
       <Table.Cell className="text-right">
         <div className="flex items-center justify-center gap-2">
-          <Tooltip
-            content={__("View", "presto-player")}
-            arrow
-            placement="top"
-          >
-            <Button
-              variant="ghost"
-              icon={<Eye />}
-              size="xs"
-              className="text-icon-secondary hover:text-icon-primary"
-              aria-label={__("View", "presto-player")}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const viewUrl =
-                  item?.view_url || item?.link || `?p=${item?.id}`;
-                window.open(viewUrl, "_blank", "noopener,noreferrer");
-              }}
-            />
-          </Tooltip>
+          {(() => {
+            const viewUrl = resolveViewUrl(item);
+            if (!viewUrl) {
+              return null;
+            }
+            const isPreview = PREVIEW_STATUSES.includes(item?.status);
+            const label = isPreview
+              ? __("Preview", "presto-player")
+              : __("View", "presto-player");
+            return (
+              <Tooltip content={label} arrow placement="top">
+                <Button
+                  variant="ghost"
+                  icon={<Eye />}
+                  size="xs"
+                  className="text-icon-secondary hover:text-icon-primary"
+                  aria-label={label}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(viewUrl, "_blank", "noopener,noreferrer");
+                  }}
+                />
+              </Tooltip>
+            );
+          })()}
           <Tooltip content={__("Edit", "presto-player")} arrow placement="top">
             <Button
               variant="ghost"

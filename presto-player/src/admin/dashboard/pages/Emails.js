@@ -7,7 +7,7 @@
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React, { useState, useRef, useMemo, useEffect } from 'react';
-const { __, sprintf } = wp.i18n;
+const { __, _n, sprintf } = wp.i18n;
 import apiFetch from '@wordpress/api-fetch';
 import '../../../styles/tailwind.css';
 import { Container, DropdownMenu, toast } from '@bsf/force-ui';
@@ -20,6 +20,7 @@ import PageHeader from '../components/PageHeader';
 import {
 	Table,
 	statusOptions,
+	togglePageSelection,
 } from '../components/Emails';
 import MediaHubPageSkeleton from '../components/Skeletons/MediaHubPageSkeleton';
 import NoFound from '../components/NoFound';
@@ -125,11 +126,12 @@ const EmailsContent = () => {
 	}, [ postCount ] );
 
 	useEffect( () => {
-		const filtersChanged =
+		const contentFiltersChanged =
 			prevFiltersRef.current.searchTerm !== searchTerm ||
-			prevFiltersRef.current.postCount !== postCount ||
 			prevFiltersRef.current.filterMonth !== filterMonth ||
 			prevFiltersRef.current.selectedStatus !== selectedStatus;
+		const filtersChanged =
+			contentFiltersChanged || prevFiltersRef.current.postCount !== postCount;
 		if ( filtersChanged ) {
 			setCurrentPage( 1 );
 			prevFiltersRef.current = {
@@ -138,6 +140,12 @@ const EmailsContent = () => {
 				filterMonth,
 				selectedStatus,
 			};
+		}
+		// Drop the selection when a content filter changes so a "Delete N
+		// items" click can't act on rows the user can no longer see. A
+		// page-size change keeps every row visible, so selection survives.
+		if ( contentFiltersChanged ) {
+			setSelected( [] );
 		}
 	}, [ searchTerm, postCount, filterMonth, selectedStatus ] );
 
@@ -177,8 +185,99 @@ const EmailsContent = () => {
 		}
 	};
 
+	const handleBulkTrash = async ( selectedIds ) => {
+		if ( ! selectedIds || selectedIds.length === 0 ) {
+			return;
+		}
+		try {
+			await apiFetch( {
+				path: '/presto-player/v1/email-submissions/delete',
+				method: 'POST',
+				data: { ids: selectedIds },
+			} );
+			await fetchEmails();
+			setSelected( [] );
+			toast.success(
+				sprintf(
+					/* translators: %d: number of items moved to trash */
+					_n(
+						'%d email submission moved to trash.',
+						'%d email submissions moved to trash.',
+						selectedIds.length,
+						'presto-player'
+					),
+					selectedIds.length
+				)
+			);
+		} catch ( error ) {
+			toast.error(
+				error?.message || __( 'Failed to trash.', 'presto-player' )
+			);
+		}
+	};
+
 	const handleBulkCancel = () => {
 		setSelected( [] );
+	};
+
+	const handleBulkStatusChange = async ( selectedIds, status ) => {
+		if ( ! selectedIds || selectedIds.length === 0 ) {
+			return;
+		}
+		let updated = 0;
+		let failed = 0;
+		try {
+			const response = await apiFetch( {
+				path: `${ EMAIL_SUBMISSIONS_PATH }/status`,
+				method: 'POST',
+				data: { ids: selectedIds, status },
+			} );
+			updated = response?.updated ?? 0;
+			failed = response?.failed ?? ( selectedIds.length - updated );
+		} catch ( error ) {
+			// Response was lost — server may have applied the change. Refresh so the UI
+			// reflects authoritative state instead of staying stale until next interaction.
+			await fetchEmails();
+			toast.error(
+				error?.message ||
+					__( 'Failed to update email submissions.', 'presto-player' )
+			);
+			return;
+		}
+		await fetchEmails();
+		// Keep selection on partial failure so the user can retry the failed rows.
+		if ( failed === 0 ) {
+			setSelected( [] );
+		}
+		if ( updated > 0 ) {
+			toast.success(
+				sprintf(
+					/* translators: 1: number of items updated, 2: new status (publish or draft) */
+					_n(
+						'%1$d email submission updated to %2$s.',
+						'%1$d email submissions updated to %2$s.',
+						updated,
+						'presto-player'
+					),
+					updated,
+					status
+				)
+			);
+		}
+		if ( failed > 0 ) {
+			toast.error(
+				sprintf(
+					/* translators: %d: number of items that failed to update */
+					_n(
+						'Failed to update %d email submission.',
+						'Failed to update %d email submissions.',
+						failed,
+						'presto-player'
+					),
+					failed
+				)
+			);
+		}
 	};
 
 	const handleMenuActions = ( id, action ) => {
@@ -435,11 +534,9 @@ const EmailsContent = () => {
 	};
 
 	const handleCheckboxChange = ( checked, value ) => {
-		if ( checked ) {
-			setSelected( [ ...selected, value.id ] );
-		} else {
-			setSelected( selected.filter( ( id ) => id !== value.id ) );
-		}
+		setSelected( ( prev ) =>
+			checked ? [ ...prev, value.id ] : prev.filter( ( id ) => id !== value.id )
+		);
 	};
 
 	const filteredAndSortedEmails = useMemo( () => {
@@ -476,11 +573,9 @@ const EmailsContent = () => {
 	}, [ filteredAndSortedEmails, currentPage, postCount ] );
 
 	const toggleSelectAll = ( checked ) => {
-		if ( checked ) {
-			setSelected( filteredAndSortedEmails.map( ( item ) => item.id ) );
-		} else {
-			setSelected( [] );
-		}
+		setSelected( ( prev ) =>
+			togglePageSelection( prev, paginatedData, checked )
+		);
 	};
 
 	const containerClassName = 'p-8';
@@ -533,6 +628,40 @@ const EmailsContent = () => {
 				<Container gap="md" direction="column">
 					<BulkActions
 						selected={ selected }
+						selectedLabel={ sprintf(
+							/* translators: %d is the number of email submissions selected */
+							_n(
+								'%d email submission selected',
+								'%d email submissions selected',
+								selected.length,
+								'presto-player'
+							),
+							selected.length
+						) }
+						onStatusChange={ handleBulkStatusChange }
+						onTrash={ ( selectedIds ) => {
+							setActionPopupData( {
+								title: __( 'Move Selected to Trash?', 'presto-player' ),
+								description: sprintf(
+									/* translators: %d: number of items being moved to trash */
+									_n(
+										'Are you sure you want to move %d email submission to the trash?',
+										'Are you sure you want to move %d email submissions to the trash?',
+										selectedIds.length,
+										'presto-player'
+									),
+									selectedIds.length
+								),
+								confirmText: __( 'Move to Trash', 'presto-player' ),
+								destructive: true,
+								confirmCallback: () => {
+									handleBulkTrash( selectedIds );
+									setOpenActionPopup( false );
+								},
+								cancelCallback: () => setOpenActionPopup( false ),
+							} );
+							setOpenActionPopup( true );
+						} }
 						onDelete={ ( selectedIds ) => {
 							setActionPopupData( {
 								title: __(

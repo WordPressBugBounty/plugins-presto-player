@@ -92,7 +92,7 @@ class ReusableVideos {
 	 * Get reusable video block function.
 	 *
 	 * @param mixed $id The ID of the reusable block.
-	 * @return $content The content of the block.
+	 * @return string The content of the block.
 	 */
 	public static function get( $id ) {
 		$content_post = get_post( $id );

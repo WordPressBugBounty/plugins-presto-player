@@ -50,9 +50,9 @@ class RestEmailSubmissionsController extends \WP_REST_Controller {
 	const DEFAULT_PER_PAGE = 100;
 
 	/**
-	 * Hard cap on the number of IDs accepted by delete_items in a single request.
-	 * Prevents DoS amplification via deletion hooks and bounds blast radius if an admin
-	 * session is stolen.
+	 * Hard cap on the number of IDs accepted by bulk endpoints (delete_items,
+	 * bulk_update_status). Prevents DoS amplification via deletion /
+	 * transition_post_status hooks and bounds blast radius on a stolen session.
 	 */
 	const MAX_DELETE_IDS = 500;
 
@@ -200,6 +200,33 @@ class RestEmailSubmissionsController extends \WP_REST_Controller {
 						'permanent' => array(
 							'type'    => 'boolean',
 							'default' => false,
+						),
+					),
+				),
+			)
+		);
+
+		register_rest_route(
+			$this->namespace . '/' . $this->version,
+			'/' . $this->base . '/status',
+			array(
+				array(
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'bulk_update_status' ),
+					'permission_callback' => $permission,
+					'args'                => array(
+						'ids'    => array(
+							'required'          => true,
+							'type'              => 'array',
+							'items'             => array( 'type' => 'integer' ),
+							'sanitize_callback' => function ( $ids ) {
+								return array_filter( array_map( 'absint', (array) $ids ) );
+							},
+						),
+						'status' => array(
+							'required' => true,
+							'type'     => 'string',
+							'enum'     => self::ALLOWED_STATUSES,
 						),
 					),
 				),
@@ -488,6 +515,62 @@ class RestEmailSubmissionsController extends \WP_REST_Controller {
 			array(
 				'success' => true,
 				'deleted' => $deleted,
+			)
+		);
+	}
+
+	/**
+	 * Bulk update post_status for email submissions.
+	 *
+	 * Mirrors the delete_items shape so the React client can call one endpoint
+	 * instead of fanning out N parallel PUTs (which left selection state
+	 * inconsistent on partial failure).
+	 *
+	 * @param \WP_REST_Request $request Request object.
+	 * @return \WP_REST_Response|\WP_Error
+	 */
+	public function bulk_update_status( $request ) {
+		$ids    = $request->get_param( 'ids' );
+		$status = $request->get_param( 'status' );
+		if ( ! is_array( $ids ) || empty( $ids ) ) {
+			return new \WP_Error( 'invalid_param', __( 'IDs are required.', 'presto-player' ), array( 'status' => 400 ) );
+		}
+		if ( count( $ids ) > self::MAX_DELETE_IDS ) {
+			return new \WP_Error(
+				'too_many_ids',
+				sprintf(
+					/* translators: %d: maximum number of IDs allowed per bulk request */
+					__( 'Too many IDs in a single request. Maximum %d.', 'presto-player' ),
+					self::MAX_DELETE_IDS
+				),
+				array( 'status' => 400 )
+			);
+		}
+		if ( ! post_type_exists( self::PRO_POST_TYPE ) ) {
+			return $this->pro_required_error();
+		}
+		$updated = 0;
+		foreach ( $ids as $post_id ) {
+			$post = get_post( $post_id );
+			if ( ! $post || self::PRO_POST_TYPE !== $post->post_type ) {
+				continue;
+			}
+			$result = wp_update_post(
+				array(
+					'ID'          => $post_id,
+					'post_status' => $this->maybe_promote_to_future( $status, $post->post_date_gmt ),
+				),
+				true
+			);
+			if ( ! is_wp_error( $result ) && $result ) {
+				++$updated;
+			}
+		}
+		return rest_ensure_response(
+			array(
+				'success' => $updated > 0,
+				'updated' => $updated,
+				'failed'  => count( $ids ) - $updated,
 			)
 		);
 	}

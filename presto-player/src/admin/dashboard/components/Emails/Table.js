@@ -19,7 +19,12 @@ import {
 	Ellipsis,
 	Info,
 } from 'lucide-react';
-import { getBadge, formatPublishDate } from './Utils';
+import {
+	getBadge,
+	formatPublishDate,
+	isPageFullySelected,
+	isPagePartiallySelected,
+} from './Utils';
 import { getViewportBoundary } from '../../utils/viewportBoundary';
 
 const Table = ( {
@@ -179,13 +184,12 @@ const Table = ( {
 		<div className="gap-0">
 			<ForceTable checkboxSelection={ true }>
 				<ForceTable.Head
-					selected={
-						selected.length > 0 && selected.length === filteredAndSortedEmailsLength
-					}
+					selected={ isPageFullySelected( paginatedData, selected ) }
 					onChangeSelection={ onToggleSelectAll }
-					indeterminate={
-						selected.length > 0 && selected.length < filteredAndSortedEmailsLength
-					}
+					indeterminate={ isPagePartiallySelected(
+						paginatedData,
+						selected
+					) }
 					className="bg-background-primary items-center"
 				>
 					<ForceTable.HeadCell className="text-text-secondary items-center">

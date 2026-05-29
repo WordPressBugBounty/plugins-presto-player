@@ -299,7 +299,7 @@ class ReusableVideo {
 	/**
 	 * Get reusable video block function.
 	 *
-	 * @return $content The content of the block.
+	 * @return string The content of the block.
 	 */
 	public function content() {
 		return ! empty( $this->post->post_content ) ? $this->post->post_content : '';

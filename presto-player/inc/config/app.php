@@ -80,6 +80,7 @@ return array(
 		\PrestoPlayer\Services\API\RestSettingsController::class,
 		\PrestoPlayer\Services\API\RestVideosController::class,
 		\PrestoPlayer\Services\API\RestMediaPostController::class,
+		\PrestoPlayer\Services\API\RestMediaListController::class,
 		\PrestoPlayer\Services\API\RestEmailSubmissionsController::class,
 		\PrestoPlayer\Services\API\RestLicenseController::class,
 	),

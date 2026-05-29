@@ -5,6 +5,7 @@ import { Trash, Trash2, CheckCheck, FolderArchive } from "lucide-react";
 
 const BulkActions = ({
   selected = [],
+  selectedLabel,
   onDelete,
   onTrash,
   onStatusChange,
@@ -20,7 +21,7 @@ const BulkActions = ({
         <span className="text-text-primary">
           {__("Bulk actions: ", "presto-player")}
         </span>
-        {selected.length} {__("media selected", "presto-player")}
+        {selectedLabel || `${selected.length} ${__("media selected", "presto-player")}`}
       </span>
       <div className="flex items-center gap-0">
         <Button

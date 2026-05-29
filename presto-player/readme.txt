@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, youtube, vimeo, lms, elementor, learndash, beaver builder, lifterlms
 Requires at least: 6.3
 Tested up to: 7.0
-Stable tag: 4.2.0
+Stable tag: 4.2.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -155,6 +155,12 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.2.1 =
+* Security: Hardening improvements to input and output sanitization.
+* Improvement: Significantly faster Media Hub loading on sites with large video libraries.
+* Improvement: Bug fixes and stability improvements in the Media Hub.
+* Improvement: More reliable bulk actions and selection on the Emails dashboard.
 
 = 4.2.0 =
 * New: Redesigned admin experience for a more modern, intuitive interface.

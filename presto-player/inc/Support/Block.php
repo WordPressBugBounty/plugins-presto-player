@@ -236,6 +236,14 @@ class Block {
 			$attributes['title'] = $video ? $video->title : $src;
 		}
 
+		// Strip unsafe schemes (javascript:, data:, vbscript:) from overlay link URLs before they reach the player.
+		$overlays = ! empty( $attributes['overlays'] ) ? (array) $attributes['overlays'] : array();
+		foreach ( $overlays as $k => $overlay ) {
+			if ( ! empty( $overlay['link']['url'] ) ) {
+				$overlays[ $k ]['link']['url'] = esc_url_raw( $overlay['link']['url'] );
+			}
+		}
+
 		// Default config.
 		$default_config = apply_filters(
 			'presto_player/block/default_attributes',
@@ -263,7 +271,7 @@ class Block {
 				'tracks'          => ! empty( $attributes['tracks'] ) ? (array) $attributes['tracks'] : array(),
 				'preset'          => $preset ? $preset->toArray() : array(),
 				'chapters'        => ! empty( $attributes['chapters'] ) ? $attributes['chapters'] : array(),
-				'overlays'        => DynamicData::replaceItems( ! empty( $attributes['overlays'] ) ? $attributes['overlays'] : array(), 'text' ),
+				'overlays'        => DynamicData::replaceItems( $overlays, 'text' ),
 				'blockAttributes' => $attributes,
 				'videoAttributes' => array(),
 				'provider'        => $this->name,
