@@ -3,15 +3,17 @@
  * Plugin Name: Presto Player
  * Plugin URI: http://prestoplayer.com
  * Description: A beautiful, fast media player for WordPress.
- * Version: 4.2.1
+ * Version: 4.2.2
  * Author: Presto Made, Inc
  * Author URI: https://prestoplayer.com/
  * Text Domain: presto-player
  * Tags: private, video, lms, hls
- * Domain Path: languages
+ * Domain Path: /languages
  * Requires at least: 6.3
  * Tested up to: 7.0
  * Requires PHP: 7.4
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package PrestoPlayer
  */

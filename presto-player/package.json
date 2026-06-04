@@ -17,6 +17,7 @@
     "*.php",
     "*.md",
     "readme.txt",
+    "changelog.txt",
     "layouts/**",
     "!inc/Integrations/BeaverBuilder/ReusableVideoModule/node_modules",
     "!inc/Integrations/Divi/node_modules",
