@@ -1,5 +1,8 @@
 *** Presto Player Changelog ***
 
+= 4.2.3 =
+* Improvement: Formatting improvements to the readme.
+
 = 4.2.2 =
 * Improvement: Documentation and readme updates.
 

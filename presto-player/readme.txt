@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.3
 Tested up to: 7.0
-Stable tag: 4.2.2
+Stable tag: 4.2.3
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -58,8 +58,8 @@ Presto Player is built on WordPress, an open platform you fully control.
 * RankMath Integration
 * AutomatorWP Integration
 * Global video hub.
- 
-**Pro Features**
+
+### Pro Features ###
 
 * Secure, self-hosted private video for logged-in users.
 * Public and private video via Bunny.net.
@@ -81,27 +81,30 @@ Presto Player is built on WordPress, an open platform you fully control.
 
 ## Join the Presto Player community ##
 
-**[Join our Facebook group](https://www.facebook.com/groups/prestomade/)** to learn how other Presto Player users grow their businesses and to get early news on upcoming features.
+**[Join our Facebook group](https://www.facebook.com/groups/surecrafted/)** to learn how other Presto Player users grow their businesses and to get early news on upcoming features.
 
-[Terms And Conditions](https://prestoplayer.com/terms-of-service/)
-[Privacy Policy](https://prestoplayer.com/privacy-policy/)
+[Terms And Conditions](https://prestoplayer.com/terms-of-service/) | [Privacy Policy](https://prestoplayer.com/privacy-policy/)
 
 == External services ==
 
 Presto Player can connect to the third-party services below. Each connection, the data that is sent, and when it happens are described here.
 
 **YouTube and Vimeo (only when you embed their videos):** Embedding a YouTube or Vimeo video loads that video from the service in the visitor's browser, which sends the visitor's IP address and playback interactions to that service. This only happens for videos you choose to embed.
-YouTube terms: https://www.youtube.com/t/terms — privacy: https://policies.google.com/privacy
-Vimeo terms: https://vimeo.com/terms — privacy: https://vimeo.com/privacy
+
+* YouTube: [Terms of Service](https://www.youtube.com/t/terms) and [Privacy Policy](https://policies.google.com/privacy)
+* Vimeo: [Terms of Service](https://vimeo.com/terms) and [Privacy Policy](https://vimeo.com/privacy)
 
 **Usage tracking (opt-in, disabled by default):** If you explicitly opt in, the plugin periodically sends non-sensitive environment data — such as PHP and WordPress versions, active plugins and theme, site locale, and which plugin features are used — to Brainstorm Force to help improve the product. It is off until you give consent, and you can opt out at any time.
-Details: https://store.brainstormforce.com/usage-tracking/ — privacy: https://store.brainstormforce.com/privacy-policy/
+
+* [Usage tracking details](https://store.brainstormforce.com/usage-tracking/) and [Privacy Policy](https://store.brainstormforce.com/privacy-policy/)
 
 **Feedback survey (optional):** The plugin may show an in-dashboard NPS feedback survey. If you choose to submit it, your rating and optional comment are sent to Brainstorm Force.
-Privacy: https://store.brainstormforce.com/privacy-policy/
+
+* [Privacy Policy](https://store.brainstormforce.com/privacy-policy/)
 
 **License activation (Presto Player Pro only):** If you use Presto Player Pro, activating or validating your license contacts the Presto Player account server to verify the license key for your site URL.
-Terms: https://prestoplayer.com/terms-of-service/ — privacy: https://prestoplayer.com/privacy-policy/
+
+* [Terms of Service](https://prestoplayer.com/terms-of-service/) and [Privacy Policy](https://prestoplayer.com/privacy-policy/)
 
 == Installation ==
 
@@ -154,6 +157,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.2.3 =
+* Improvement: Formatting improvements to the readme.
 
 = 4.2.2 =
 * Improvement: Documentation and readme updates.
@@ -241,15 +247,15 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 * Fix: Issue where video analytics link was incorrectly being shown on profile page, even though they don't have permission to access the page.
 * Fix: Incorrect text domain for some plugin strings.
 
-= 3.1.0 = 
-- New: Setting to adjust the aspect ratio of the videos (vertical video support) [Learn More](https://www.youtube.com/watch?v=dKL8t9RtdvA).
-- Fix: Issue where action bar was sometimes not appearing for lazy loaded YouTube videos.
-- Fix: YouTube playlist item showing loading bar before playing on iOS devices.
-- Fix: Select media dropdown spacing issue on initial load in upcoming WordPress 6.8.
+= 3.1.0 =
+* New: Setting to adjust the aspect ratio of the videos (vertical video support) [Learn More](https://www.youtube.com/watch?v=dKL8t9RtdvA).
+* Fix: Issue where action bar was sometimes not appearing for lazy loaded YouTube videos.
+* Fix: YouTube playlist item showing loading bar before playing on iOS devices.
+* Fix: Select media dropdown spacing issue on initial load in upcoming WordPress 6.8.
 
-= 3.0.8 = 
-- Fix: LearnDash video progression not working when DIVI builder is used to build lesson pages.
-- Change: Rename admin bar menu item from "Media" to "Presto Media" to prevent conflict with WordPress media library.
+= 3.0.8 =
+* Fix: LearnDash video progression not working when DIVI builder is used to build lesson pages.
+* Change: Rename admin bar menu item from "Media" to "Presto Media" to prevent conflict with WordPress media library.
 
 = 3.0.7 =
 * Improvement: Fix minor spacing issues with block inspector sidebar in WordPress 6.7.
@@ -292,6 +298,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 For changelog entries prior to version 3.0.0, see [changelog.txt](https://plugins.svn.wordpress.org/presto-player/trunk/changelog.txt).
 
 == Upgrade Notice ==
+
+= 4.2.3 =
+Formatting improvements to the readme.
 
 = 4.2.2 =
 Documentation and readme updates.
