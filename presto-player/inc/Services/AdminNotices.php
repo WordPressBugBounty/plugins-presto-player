@@ -142,7 +142,7 @@ class AdminNotices {
 					$image_path,
 					__( 'Thanks a ton for choosing Presto Player! We are hard at work adding more features to help you harness the power of videos.', 'presto-player' ),
 					__( 'Could you please do us a BIG favor and give us a 5-star rating on WordPress? It really boosts the motivation of our team.', 'presto-player' ),
-					'https://wordpress.org/support/plugin/presto-player/reviews/?filter=5#new-post',
+					'https://wordpress.org/support/plugin/presto-player/reviews/',
 					__( 'Ok, you deserve it', 'presto-player' ),
 					MONTH_IN_SECONDS,
 					__( 'Nope, maybe later', 'presto-player' ),

@@ -21,6 +21,24 @@ class Onboarding {
 	private $status_option = 'presto_player_onboarding_completed';
 
 	/**
+	 * Option key recording how the wizard ended ('completed' or 'skipped').
+	 *
+	 * Only the wizard endpoints write this — unlike the completion flag,
+	 * which legacy installs and the 4.2.0 backfill also set — so the
+	 * analytics sweep can tell a real wizard outcome from old state.
+	 *
+	 * @var string
+	 */
+	private $result_option = 'presto_player_onboarding_result';
+
+	/**
+	 * Option key storing the step the user bailed on.
+	 *
+	 * @var string
+	 */
+	private $skipped_step_option = 'presto_player_onboarding_skipped_step';
+
+	/**
 	 * Register hooks and REST routes.
 	 */
 	public function register() {
@@ -65,6 +83,24 @@ class Onboarding {
 				'permission_callback' => function () {
 					return current_user_can( 'manage_options' );
 				},
+				'args'                => array(
+					'status'          => array(
+						'type'              => 'string',
+						'required'          => true,
+						'enum'              => array( 'completed', 'skipped' ),
+						// Custom sanitize_callback suppresses the auto-attached
+						// enum check, so wire validation back in explicitly.
+						'validate_callback' => 'rest_validate_request_arg',
+						'sanitize_callback' => 'sanitize_text_field',
+					),
+					'skipped_on_step' => array(
+						'type'              => 'string',
+						'required'          => false,
+						'enum'              => array( 'welcome', 'user_info', 'premium_features', 'integrations' ),
+						'validate_callback' => 'rest_validate_request_arg',
+						'sanitize_callback' => 'sanitize_key',
+					),
+				),
 			)
 		);
 
@@ -128,10 +164,38 @@ class Onboarding {
 	 * @return \WP_REST_Response
 	 */
 	public function set_status( $request ) {
-		$completed = sanitize_text_field( $request->get_param( 'completed' ) );
+		$status = (string) $request->get_param( 'status' );
 
-		if ( 'yes' === $completed ) {
-			update_option( $this->status_option, 'yes' );
+		// Mark onboarding finished either way so activation redirects stop.
+		update_option( $this->status_option, 'yes' );
+
+		if ( 'skipped' === $status ) {
+			// A completion is sticky — a later re-run that gets bailed on
+			// shouldn't downgrade the recorded outcome.
+			if ( 'completed' !== get_option( $this->result_option ) ) {
+				update_option( $this->result_option, 'skipped', false );
+				$step = (string) $request->get_param( 'skipped_on_step' );
+				if ( '' !== $step ) {
+					update_option( $this->skipped_step_option, $step, false );
+				} else {
+					// Re-skip without a step: clear any stale step from a prior
+					// skip so the recorded value always reflects the latest skip.
+					delete_option( $this->skipped_step_option );
+				}
+			}
+		} else {
+			if ( 'skipped' === get_option( $this->result_option ) ) {
+				// The skip may already be queued or sent as
+				// `onboarding_completed = no`; force-track the corrected value
+				// so the funnel ends up right (overwrites pending, bypasses
+				// the pushed dedup).
+				$events = Usage::events();
+				if ( $events ) {
+					$events->track( 'onboarding_completed', 'yes', array(), true );
+				}
+			}
+			update_option( $this->result_option, 'completed', false );
+			delete_option( $this->skipped_step_option );
 		}
 
 		return new \WP_REST_Response( array( 'success' => true ), 200 );

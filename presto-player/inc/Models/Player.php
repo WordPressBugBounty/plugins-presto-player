@@ -1,19 +1,38 @@
 <?php
+/**
+ * Player model.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Models;
 
+/**
+ * Player model.
+ */
 class Player {
 
+	/**
+	 * Option key used to store branding settings.
+	 *
+	 * @var string
+	 */
 	public static $branding_key = 'presto_player_branding';
 
+	/**
+	 * Determine whether a post contains a Presto Player instance.
+	 *
+	 * @param int $id Post ID to inspect.
+	 * @return bool True if the post contains a player, false otherwise.
+	 */
 	public static function postHasPlayer( $id ) {
-		// global is the most reliable between page builders
+		// Global is the most reliable between page builders.
 		global $load_presto_js;
 		if ( $load_presto_js ) {
 			return true;
 		}
 
-		// change to see if we have one of our blocks
+		// Change to see if we have one of our blocks.
 		$types = Block::getBlockTypes();
 		foreach ( $types as $type ) {
 			if ( has_block( $type, $id ) ) {
@@ -21,7 +40,7 @@ class Player {
 			}
 		}
 
-		// check for data-presto-config (player rendered)
+		// Check for data-presto-config (player rendered).
 		$wp_post = get_post( $id );
 		if ( $wp_post instanceof \WP_Post ) {
 			$post = $wp_post->post_content;
@@ -31,12 +50,14 @@ class Player {
 			return true;
 		}
 
-		// check that we have a shortcode
+		// Check that we have a shortcode.
 		if ( has_shortcode( $post, 'presto_player' ) ) {
 			return true;
 		}
 
-		// enable on Elementor
+		// Read-only request-context detection for page builders; no state change, so nonce verification does not apply.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+		// Enable on Elementor.
 		if ( ! empty( $_GET['action'] ) && 'elementor' === $_GET['action'] ) {
 			return true;
 		}
@@ -44,12 +65,13 @@ class Player {
 			return true;
 		}
 
-		// load for beaver builder
+		// Load for beaver builder.
 		if ( isset( $_GET['fl_builder'] ) ) {
 			return true;
 		}
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 
-		// do we have the player
+		// Do we have the player.
 		return $has_player;
 	}
 
@@ -70,9 +92,9 @@ class Player {
 	/**
 	 * Revert to option default in case it's empty
 	 *
-	 * @param string $key
-	 * @param array  $defaults
-	 * @return array
+	 * @param string $key      Option key to retrieve.
+	 * @param array  $defaults Default value used when the stored option is empty.
+	 * @return array The stored option value, or the defaults when empty.
 	 */
 	public static function get_option( $key, $defaults ) {
 		$config = get_option( $key, $defaults );

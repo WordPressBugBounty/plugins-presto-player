@@ -28,7 +28,6 @@ class Translation implements Service {
 	 * @return void
 	 */
 	public function register() {
-		add_action( 'load_script_textdomain_relative_path', array( $this, 'scriptsPath' ), 10, 2 );
 		add_filter( 'presto_player/presto_player_presets/data', array( $this, 'translateDefaultPresets' ) );
 		add_action( 'init', array( $this, 'loadPluginTextDomain' ), 0 );
 		add_action( 'init', array( $this, 'initPresetTranslations' ), 0 );
@@ -68,20 +67,6 @@ class Translation implements Service {
 		}
 
 		return $preset;
-	}
-
-	/**
-	 * Get the scripts path.
-	 *
-	 * @param string $path Path.
-	 * @param string $src Source.
-	 * @return string
-	 */
-	public function scriptsPath( $path, $src ) {
-		if ( strpos( $src, 'presto-player' ) !== false ) {
-			return './src';
-		}
-		return $path;
 	}
 
 	/**

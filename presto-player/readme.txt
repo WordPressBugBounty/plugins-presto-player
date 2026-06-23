@@ -2,9 +2,9 @@
 Contributors: 2winfactor, wpcrafter
 Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
-Requires at least: 6.3
+Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 4.2.3
+Stable tag: 4.2.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -158,6 +158,11 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 == Changelog ==
 
+= 4.2.4 =
+* Improvement: WordPress.org plugin guideline compliance and Plugin Check hardening.
+* Fix: Corrected JavaScript translation file loading so admin interface strings are translated properly.
+* Fix: Made dashboard navigation tabs and the Media Hub 'Actions' column header translatable.
+
 = 4.2.3 =
 * Improvement: Formatting improvements to the readme.
 
@@ -298,6 +303,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 For changelog entries prior to version 3.0.0, see [changelog.txt](https://plugins.svn.wordpress.org/presto-player/trunk/changelog.txt).
 
 == Upgrade Notice ==
+
+= 4.2.4 =
+WordPress.org compliance hardening and translation fixes for the admin dashboard.
 
 = 4.2.3 =
 Formatting improvements to the readme.

@@ -503,6 +503,7 @@ class VideoPostType {
 			return;
 		}
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin list-table filter; core admin filters use GET without a nonce.
 		$selected      = isset( $_GET[ $taxonomy ] ) ? absint( $_GET[ $taxonomy ] ) : '';
 		$info_taxonomy = get_taxonomy( $taxonomy );
 

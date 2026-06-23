@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button, Text, Topbar, ProgressSteps, Container } from "@bsf/force-ui";
 import { X } from "lucide-react";
-import wpApiFetch from "@wordpress/api-fetch";
 import PrestoPlayerIcon from "../components/PrestoPlayerIcon";
+import useCompleteOnboarding from "../hooks/useCompleteOnboarding";
 import Welcome from "../components/Onboarding/Welcome";
 import PremiumFeatures from "../components/Onboarding/PremiumFeatures";
 import Integrations from "../components/Onboarding/Integrations";
@@ -12,11 +12,11 @@ import UserInfo from "../components/Onboarding/UserInfo";
 const { __ } = wp.i18n;
 
 const onboardingSteps = [
-  { component: Welcome, maxWidth: "max-w-xl" },
-  { component: UserInfo, maxWidth: "max-w-2xl" },
-  { component: PremiumFeatures, maxWidth: "max-w-2xl" },
-  { component: Integrations, maxWidth: "max-w-2xl" },
-  { component: Done, maxWidth: "max-w-2xl" },
+  { id: "welcome", component: Welcome, maxWidth: "max-w-xl" },
+  { id: "user_info", component: UserInfo, maxWidth: "max-w-2xl" },
+  { id: "premium_features", component: PremiumFeatures, maxWidth: "max-w-2xl" },
+  { id: "integrations", component: Integrations, maxWidth: "max-w-2xl" },
+  { id: "done", component: Done, maxWidth: "max-w-2xl" },
 ];
 
 const VISIBLE_STEPS = 4;
@@ -45,19 +45,7 @@ const Onboarding = () => {
     }
   };
 
-  const exitOnboarding = async () => {
-    try {
-      await wpApiFetch({
-        path: "/presto-player/v1/onboarding/set-status",
-        method: "POST",
-        data: { completed: "yes" },
-      });
-    } catch (error) {
-      console.error("Error exiting onboarding:", error);
-    }
-    window.location.href =
-      window.prestoPlayer?.dashboardUrl || "admin.php?page=presto-dashboard";
-  };
+  const { exitOnboarding, isSubmitting } = useCompleteOnboarding();
 
   const isDoneStep = currentStepIndex >= VISIBLE_STEPS;
   const currentStep = onboardingSteps[currentStepIndex];
@@ -101,7 +89,8 @@ const Onboarding = () => {
               iconPosition="right"
               size="xs"
               variant="ghost"
-              onClick={exitOnboarding}
+              disabled={isSubmitting}
+              onClick={() => exitOnboarding(isDoneStep ? null : currentStep.id)}
               className="align-middle"
             >
               {__("Exit Guided Setup", "presto-player")}
@@ -120,9 +109,6 @@ const Onboarding = () => {
           <CurrentStepComponent
             goToNextStep={goToNextStep}
             goToPreviousStep={goToPreviousStep}
-            exitOnboarding={exitOnboarding}
-            currentStepIndex={currentStepIndex}
-            totalSteps={onboardingSteps.length}
             userInfoData={userInfoData}
             setUserInfoData={setUserInfoData}
           />

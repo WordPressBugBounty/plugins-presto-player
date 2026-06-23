@@ -231,6 +231,7 @@ class Usage implements Service {
 		$this->detect_update_event( $events );
 		$this->detect_video_events( $events );
 		$this->detect_first_view_event( $events );
+		$this->detect_onboarding_event( $events );
 	}
 
 	/**
@@ -322,7 +323,7 @@ class Usage implements Service {
 		global $wpdb;
 		$table = $wpdb->prefix . 'presto_player_videos';
 
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$first_video = $wpdb->get_row(
 			"SELECT type FROM {$table} WHERE deleted_at IS NULL ORDER BY created_at ASC LIMIT 1" // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		);
@@ -353,6 +354,38 @@ class Usage implements Service {
 				array( 'days_since_install' => (string) $this->get_days_since_install() )
 			);
 		}
+	}
+
+	/**
+	 * Track onboarding wizard outcome.
+	 *
+	 * Mirrors the SureDash shape so Metabase reads one event across
+	 * products: value 'yes' when the wizard was finished, 'no' when it was
+	 * exited early (with the step the user bailed on). Gated on the result
+	 * option only the wizard endpoints write — the completion flag alone
+	 * won't do, since legacy installs and the 4.2.0 backfill set it too and
+	 * would flood Metabase with retroactive events on update.
+	 *
+	 * @param \BSF_Analytics_Events $events Events tracker instance.
+	 * @return void
+	 */
+	private function detect_onboarding_event( $events ) {
+		$result = (string) get_option( 'presto_player_onboarding_result', '' );
+		if ( '' === $result ) {
+			return;
+		}
+
+		$skipped    = 'skipped' === $result;
+		$properties = array();
+
+		if ( $skipped ) {
+			$step = sanitize_key( (string) get_option( 'presto_player_onboarding_skipped_step', '' ) );
+			if ( '' !== $step ) {
+				$properties['skipped_on_step'] = $step;
+			}
+		}
+
+		$events->track( 'onboarding_completed', $skipped ? 'no' : 'yes', $properties );
 	}
 
 	/**
@@ -423,7 +456,7 @@ class Usage implements Service {
 		global $wpdb;
 		$table = $wpdb->prefix . 'presto_player_videos';
 
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$video_count = (int) $wpdb->get_var(
 			"SELECT COUNT(*) FROM {$table} WHERE deleted_at IS NULL" // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		);
@@ -551,7 +584,7 @@ class Usage implements Service {
 		$table = $wpdb->prefix . 'presto_player_videos';
 
 		// Video counts by type.
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$type_counts = $wpdb->get_results(
 			"SELECT type, COUNT(*) as cnt FROM {$table} WHERE deleted_at IS NULL GROUP BY type" // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		);
@@ -568,7 +601,7 @@ class Usage implements Service {
 		$counts['content_total_videos'] = $total;
 
 		// New videos in last 7 days.
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$counts['content_new_videos_7d'] = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT(*) FROM {$table} WHERE deleted_at IS NULL AND created_at >= %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
@@ -594,17 +627,17 @@ class Usage implements Service {
 		$audio_table   = $wpdb->prefix . 'presto_player_audio_presets';
 
 		// Custom presets.
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$custom_presets = (int) $wpdb->get_var(
 			"SELECT COUNT(*) FROM {$presets_table} WHERE is_locked = 0" // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		);
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$custom_audio = (int) $wpdb->get_var(
 			"SELECT COUNT(*) FROM {$audio_table} WHERE is_locked = 0" // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		);
 
 		// Preset feature usage (0/1 — is any preset using this feature?).
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter
 		$preset_features = $wpdb->get_row(
 			"SELECT
 				MAX(CASE WHEN cta != '' THEN 1 ELSE 0 END) as has_cta,

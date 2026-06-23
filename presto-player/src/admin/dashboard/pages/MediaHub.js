@@ -1026,7 +1026,7 @@ const MediaHub = () => {
 									style={ { width: '140px' } }
 									className="items-center justify-center"
 								>
-									<span className="sr-only">Actions</span>
+									<span className="sr-only">{ __( 'Actions', 'presto-player' ) }</span>
 								</Table.HeadCell>
 							</Table.Head>
 

@@ -140,19 +140,19 @@ class Utility {
 		// Add the hour part to the string.
 		if ( is_numeric( $hour ) && $hour > 0 ) {
 			/* translators: %s: Time duration in hour or hours. */
-			$human_readable_duration[] = sprintf( _n( '%s hour', '%s hours', $hour ), (int) $hour );
+			$human_readable_duration[] = sprintf( _n( '%s hour', '%s hours', $hour, 'presto-player' ), (int) $hour );
 		}
 
 		// Add the minute part to the string.
 		if ( is_numeric( $minute ) && $minute > 0 ) {
 			/* translators: %s: Time duration in minute or minutes. */
-			$human_readable_duration[] = sprintf( _n( '%s minute', '%s minutes', $minute ), (int) $minute );
+			$human_readable_duration[] = sprintf( _n( '%s minute', '%s minutes', $minute, 'presto-player' ), (int) $minute );
 		}
 
 		// Add the second part to the string.
 		if ( is_numeric( $second ) && $second > 0 ) {
 			/* translators: %s: Time duration in second or seconds. */
-			$human_readable_duration[] = sprintf( _n( '%s second', '%s seconds', $second ), (int) $second );
+			$human_readable_duration[] = sprintf( _n( '%s second', '%s seconds', $second, 'presto-player' ), (int) $second );
 		}
 
 		return implode( ', ', $human_readable_duration );
@@ -165,7 +165,7 @@ class Utility {
 	 * @return string Valid IP address or empty string.
 	 */
 	public static function getIPAddress( $ip_address = '' ) {
-		$ip = $ip_address ? $ip_address : ( isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '' );
+		$ip = $ip_address ? $ip_address : ( isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '' );
 
 		if ( filter_var( $ip, FILTER_VALIDATE_IP ) ) {
 			return $ip;

@@ -1,16 +1,31 @@
 <?php
+/**
+ * Clears pro update transients on plugin upgrade.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Database\Upgrades;
 
 use PrestoPlayer\Plugin;
 
 /**
- * Clears pro transients every upgrade to ensure update notifications are immediate
+ * Clears pro transients every upgrade to ensure update notifications are immediate.
  */
 class TransientsUpgrade {
 
+	/**
+	 * Option name used to track the last processed version.
+	 *
+	 * @var string
+	 */
 	protected $name = 'presto_player_pro_update_transient';
 
+	/**
+	 * Runs the upgrade routine.
+	 *
+	 * @return void
+	 */
 	public function run() {
 		$this->runUpdate();
 	}
@@ -23,15 +38,15 @@ class TransientsUpgrade {
 	public function runUpdate() {
 		$current_version = get_option( $this->name, 0 );
 
-		// we've done this for the update already
+		// We've done this for the update already.
 		if ( Plugin::version() === $current_version ) {
 			return;
 		}
 
-		// delete update transient to check for pro upgrade
+		// Delete update transient to check for pro upgrade.
 		$this->deleteTransients();
 
-		// update version
+		// Update version.
 		update_option( $this->name, Plugin::version() );
 	}
 
@@ -49,15 +64,20 @@ class TransientsUpgrade {
 	/**
 	 * Gets transients with a specific prefix.
 	 *
-	 * @param string $prefix
-	 * @return array
+	 * @param string $prefix Transient name prefix to match.
+	 * @return array Array of matching option names.
 	 */
 	public function getTransientsWithPrefix( $prefix ) {
 		global $wpdb;
 
 		$prefix = $wpdb->esc_like( '_site_transient_' . $prefix );
-		$sql    = "SELECT `option_name` FROM $wpdb->options WHERE `option_name` LIKE '%s'";
-		$keys   = $wpdb->get_results( $wpdb->prepare( $sql, $prefix . '%' ), ARRAY_A );
+		$keys   = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT `option_name` FROM $wpdb->options WHERE `option_name` LIKE %s",
+				$prefix . '%'
+			),
+			ARRAY_A
+		);
 
 		if ( is_wp_error( $keys ) ) {
 			return array();

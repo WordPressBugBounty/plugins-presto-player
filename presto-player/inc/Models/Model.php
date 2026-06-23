@@ -154,6 +154,7 @@ abstract class Model implements ModelInterface {
 		// Maybe get only published if we have soft deletes.
 		$where = ! empty( $this->schema()['deleted_at'] ) ? "WHERE (deleted_at IS NULL OR deleted_at = '0000-00-00 00:00:00') " : '';
 
+		// phpcs:ignore PluginCheck.Security.DirectDB.UnescapedDBParameter -- Table name is a class property; $where is built from whitelisted schema values.
 		$results = $wpdb->get_results(
 			"SELECT * FROM {$wpdb->prefix}{$this->table} $where" // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a class property. $where is built from safe values.
 		);
@@ -292,9 +293,9 @@ abstract class Model implements ModelInterface {
 			}
 		}
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared -- $where, $order_by, $pagination are built from safe values above.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $where, $order_by, $pagination are built from safe values above.
 		$total = $wpdb->get_var( "SELECT count(id) as count FROM {$wpdb->prefix}{$this->table} $where" );
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared -- $select, $where, $order_by, $pagination are built from safe values above.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $select, $where, $order_by, $pagination are built from safe values above.
 		$results = $wpdb->get_results( "SELECT $select FROM {$wpdb->prefix}{$this->table} $where$order_by$pagination" );
 
 		return (object) array(

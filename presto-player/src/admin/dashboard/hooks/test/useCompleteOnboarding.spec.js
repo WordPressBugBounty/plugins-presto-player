@@ -1,6 +1,8 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import apiFetch from "@wordpress/api-fetch";
-import useCompleteOnboarding from "../useCompleteOnboarding";
+import useCompleteOnboarding, {
+  __resetInFlightForTests,
+} from "../useCompleteOnboarding";
 
 jest.mock("@wordpress/api-fetch");
 
@@ -8,6 +10,8 @@ let originalLocation;
 
 beforeEach(() => {
   apiFetch.mockReset();
+  __resetInFlightForTests();
+
   originalLocation = window.location;
   delete window.location;
   window.location = { href: "" };
@@ -15,6 +19,7 @@ beforeEach(() => {
 
 afterEach(() => {
   window.location = originalLocation;
+  delete window.prestoPlayer;
 });
 
 describe("useCompleteOnboarding", () => {
@@ -29,7 +34,7 @@ describe("useCompleteOnboarding", () => {
     expect(apiFetch).toHaveBeenCalledWith({
       path: "/presto-player/v1/onboarding/set-status",
       method: "POST",
-      data: { completed: "yes" },
+      data: { status: "completed" },
     });
     expect(window.location.href).toBe("admin.php?page=done");
   });
@@ -78,5 +83,86 @@ describe("useCompleteOnboarding", () => {
     });
 
     expect(window.location.href).toBe("first");
+  });
+
+  it("blocks exit from another hook instance while a completion is in flight", async () => {
+    let resolveFetch;
+    apiFetch.mockReturnValueOnce(
+      new Promise((res) => {
+        resolveFetch = res;
+      })
+    );
+
+    // Two instances, like the premium step's button and the topbar Exit.
+    const first = renderHook(() => useCompleteOnboarding());
+    const second = renderHook(() => useCompleteOnboarding());
+
+    let completePending;
+    act(() => {
+      completePending = first.result.current.completeOnboarding("license-page");
+    });
+
+    await act(async () => {
+      await second.result.current.exitOnboarding("premium_features");
+    });
+
+    expect(apiFetch).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      resolveFetch({ ok: true });
+      await completePending;
+    });
+
+    expect(window.location.href).toBe("license-page");
+  });
+
+  describe("exitOnboarding", () => {
+    it("POSTs a skip with the step id and redirects to the dashboard", async () => {
+      window.prestoPlayer = { dashboardUrl: "admin.php?page=presto-dashboard&custom" };
+      apiFetch.mockResolvedValueOnce({ ok: true });
+
+      const { result } = renderHook(() => useCompleteOnboarding());
+      await act(async () => {
+        await result.current.exitOnboarding("premium_features");
+      });
+
+      expect(apiFetch).toHaveBeenCalledWith({
+        path: "/presto-player/v1/onboarding/set-status",
+        method: "POST",
+        data: { status: "skipped", skipped_on_step: "premium_features" },
+      });
+      expect(window.location.href).toBe("admin.php?page=presto-dashboard&custom");
+    });
+
+    it("records a completion when exiting from the done step", async () => {
+      apiFetch.mockResolvedValueOnce({ ok: true });
+
+      const { result } = renderHook(() => useCompleteOnboarding());
+      await act(async () => {
+        await result.current.exitOnboarding(null);
+      });
+
+      expect(apiFetch).toHaveBeenCalledWith({
+        path: "/presto-player/v1/onboarding/set-status",
+        method: "POST",
+        data: { status: "completed" },
+      });
+      expect(window.location.href).toBe("admin.php?page=presto-dashboard");
+    });
+
+    it("redirects even when the API call fails", async () => {
+      const errorSpy = jest
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      apiFetch.mockRejectedValueOnce(new Error("server"));
+
+      const { result } = renderHook(() => useCompleteOnboarding());
+      await act(async () => {
+        await result.current.exitOnboarding("welcome");
+      });
+
+      expect(window.location.href).toBe("admin.php?page=presto-dashboard");
+      errorSpy.mockRestore();
+    });
   });
 });

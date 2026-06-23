@@ -190,6 +190,7 @@ class Scripts {
 	 * @return void
 	 */
 	public function elementorPreviewScripts() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only preview-context detection; no state change.
 		if ( ! isset( $_GET['elementor-preview'] ) ) {
 			return;
 		}
@@ -370,6 +371,8 @@ class Scripts {
 			return true;
 		}
 
+		// Read-only request-context detection for page builders; no state change, so nonce verification does not apply.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		// enable on Elementor.
 		if ( ! empty( $_GET['action'] ) && 'elementor' === $_GET['action'] ) {
 			return true;
@@ -395,6 +398,7 @@ class Scripts {
 		if ( isset( $_GET['et_fb'] ) ) {
 			return true;
 		}
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		// do we have the player.
 		return $has_player;
@@ -408,7 +412,7 @@ class Scripts {
 	public function globalStyles() {
 		?>
 		<style>
-			<?php readfile( PRESTO_PLAYER_PLUGIN_DIR . 'src/player/global.css' ); ?>
+			<?php readfile( PRESTO_PLAYER_PLUGIN_DIR . 'src/player/global.css' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile -- Inlining a static plugin-bundled CSS file from a trusted constant path. ?>
 		</style>
 		<?php
 	}

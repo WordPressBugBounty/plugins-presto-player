@@ -1586,10 +1586,8 @@ class BunnyCDN {
 
 		$string = $info_file_name;
 
-		$src = 'àáâãäçèéêëìíîïñòóôõöøùúûüýÿßÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝ';
-		$rep = 'aaaaaceeeeiiiinoooooouuuuyysAAAAACEEEEIIIINOOOOOOUUUUY';
-		// strip off accents (assuming utf8 PHP - note strtr() requires single-byte)
-		$string = strtr( utf8_decode( $string ), utf8_decode( $src ), $rep );
+		// Strip accents to their ASCII equivalents using WordPress core (replaces deprecated utf8_decode()).
+		$string = remove_accents( $string );
 		// convert to lower case
 		$string = strtolower( $string );
 		// strip all but alphanumeric, whitespace, dot, underscore, hyphen

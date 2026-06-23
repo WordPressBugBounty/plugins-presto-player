@@ -1,5 +1,17 @@
 <?php
+/**
+ * Registers the Presto Player Divi Builder extension.
+ *
+ * @package PrestoPlayer
+ */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * Presto Player Divi Builder extension.
+ */
 class PrestoDiviExtension extends DiviExtension {
 
 
@@ -33,8 +45,8 @@ class PrestoDiviExtension extends DiviExtension {
 	/**
 	 * PrestoDiviExtensions constructor.
 	 *
-	 * @param string $name
-	 * @param array  $args
+	 * @param string $name The extension name.
+	 * @param array  $args Optional extension arguments.
 	 */
 	public function __construct( $name = 'presto-player', $args = array() ) {
 		$this->plugin_dir     = plugin_dir_path( __FILE__ );
@@ -51,9 +63,19 @@ class PrestoDiviExtension extends DiviExtension {
 	protected function _enqueue_bundles() {
 	}
 
+	/**
+	 * Enqueues backend styles.
+	 *
+	 * @return void
+	 */
 	protected function _enqueue_backend_styles() {
 	}
 
+	/**
+	 * Enqueues scripts on the wp_enqueue_scripts hook.
+	 *
+	 * @return void
+	 */
 	public function wp_hook_enqueue_scripts() {
 	}
 }

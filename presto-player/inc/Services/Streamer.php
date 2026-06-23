@@ -1,27 +1,85 @@
 <?php
+/**
+ * Byte-range video streamer.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Services;
 
+/**
+ * Streams a file to the browser with HTTP byte-range support.
+ */
 class Streamer {
 
-	private $path   = '';
-	private $stream = '';
-	private $buffer = 0;
-	private $start  = -1;
-	private $end    = -1;
-	private $size   = 0;
-	private $type   = '';
+	/**
+	 * Path to the file being streamed.
+	 *
+	 * @var string
+	 */
+	private $path = '';
 
-	function __construct( $file_path, $file_type, $buffer = 102400 ) {
+	/**
+	 * Open file stream resource.
+	 *
+	 * @var resource|false|string
+	 */
+	private $stream = '';
+
+	/**
+	 * Number of bytes to read per chunk.
+	 *
+	 * @var int
+	 */
+	private $buffer = 0;
+
+	/**
+	 * Start byte of the requested range.
+	 *
+	 * @var int
+	 */
+	private $start = -1;
+
+	/**
+	 * End byte of the requested range.
+	 *
+	 * @var int
+	 */
+	private $end = -1;
+
+	/**
+	 * Total size of the file in bytes.
+	 *
+	 * @var int
+	 */
+	private $size = 0;
+
+	/**
+	 * MIME type of the file being streamed.
+	 *
+	 * @var string
+	 */
+	private $type = '';
+
+	/**
+	 * Constructor.
+	 *
+	 * @param string $file_path Path to the file to stream.
+	 * @param string $file_type MIME type of the file.
+	 * @param int    $buffer    Number of bytes to read per chunk.
+	 */
+	public function __construct( $file_path, $file_type, $buffer = 102400 ) {
 		$this->path   = $file_path;
 		$this->type   = $file_type;
 		$this->buffer = $buffer;
 	}
 
 	/**
-	 * Start streaming video content
+	 * Start streaming video content.
+	 *
+	 * @return void
 	 */
-	function start() {
+	public function start() {
 		$this->open();
 		$this->set_header();
 		$this->stream();
@@ -33,7 +91,7 @@ class Streamer {
 	 */
 	private function open() {
 
-		$this->stream = fopen( $this->path, 'rb' );
+		$this->stream = fopen( $this->path, 'rb' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- Byte-range video streaming requires a low-level file handle; WP_Filesystem cannot stream ranges.
 
 		if ( ! $this->stream ) {
 			die( 'Could not open stream for reading' );
@@ -61,7 +119,13 @@ class Streamer {
 			$c_start = $this->start;
 			$c_end   = $this->end;
 
-			list(, $range) = explode( '=', $_SERVER['HTTP_RANGE'], 2 );
+			$parts = explode( '=', sanitize_text_field( wp_unslash( $_SERVER['HTTP_RANGE'] ) ), 2 );
+			if ( count( $parts ) < 2 ) {
+				header( 'HTTP/1.1 416 Requested Range Not Satisfiable' );
+				header( "Content-Range: bytes $this->start-$this->end/$this->size" );
+				exit;
+			}
+			$range = $parts[1];
 			if ( strpos( $range, ',' ) !== false ) {
 				header( 'HTTP/1.1 416 Requested Range Not Satisfiable' );
 				header( "Content-Range: bytes $this->start-$this->end/$this->size" );
@@ -94,7 +158,7 @@ class Streamer {
 	}
 
 	/**
-	 * perform the streaming of calculated range
+	 * Perform the streaming of calculated range.
 	 */
 	private function stream() {
 
@@ -106,18 +170,18 @@ class Streamer {
 			if ( ( $i + $bytes_to_read ) > $this->end ) {
 				$bytes_to_read = $this->end - $i + 1;
 			}
-			$data = fread( $this->stream, $bytes_to_read );
-			echo $data;
+			$data = fread( $this->stream, $bytes_to_read ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fread -- Byte-range video streaming requires direct stream reads.
+			echo $data; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Raw video byte stream; escaping would corrupt binary output.
 			flush();
 			$i += $bytes_to_read;
 		}
 	}
 
 	/**
-	 * close curretly opened stream
+	 * Close currently opened stream.
 	 */
 	private function end() {
-		fclose( $this->stream );
+		fclose( $this->stream ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Closing the stream handle opened for byte-range streaming.
 		exit;
 	}
 }

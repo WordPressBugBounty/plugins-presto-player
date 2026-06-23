@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly. ?>
 <?php if (in_array($data['provider'], ['self-hosted', 'bunny'])) : ?>
     <?php if (!$data['is_hls']) : ?>
         <video controls preload="none">

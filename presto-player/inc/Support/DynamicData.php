@@ -1,7 +1,15 @@
 <?php
+/**
+ * Dynamic data token replacement helper.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Support;
 
+/**
+ * Replaces dynamic data tokens (user, site, IP) with their actual values.
+ */
 class DynamicData {
 
 	/**
@@ -31,7 +39,8 @@ class DynamicData {
 	/**
 	 * Replace dynamic data with actual data.
 	 *
-	 * @param  array $items Array of items with ['text'].
+	 * @param  array  $items Array of items, each containing the given key.
+	 * @param  string $key   Key within each item whose value should be replaced.
 	 * @return array
 	 */
 	public static function replaceItems( $items, $key ) {
@@ -60,8 +69,8 @@ class DynamicData {
 	public static function getIP() {
 		foreach ( array( 'HTTP_CF_CONNECTING_IP', 'HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR' ) as $key ) {
 			if ( array_key_exists( $key, $_SERVER ) === true ) {
-				foreach ( explode( ',', $_SERVER[ $key ] ) as $ip ) {
-					$ip = trim( $ip ); // just to be safe
+				foreach ( explode( ',', sanitize_text_field( wp_unslash( $_SERVER[ $key ] ) ) ) as $ip ) {
+					$ip = trim( $ip ); // Just to be safe.
 
 					if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) !== false ) {
 						return $ip;

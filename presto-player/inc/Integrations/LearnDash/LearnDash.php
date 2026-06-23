@@ -1,4 +1,9 @@
 <?php
+/**
+ * LearnDash integration for Presto Player.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Integrations\LearnDash;
 
@@ -6,8 +11,16 @@ use PrestoPlayer\Models\Post;
 use PrestoPlayer\Support\Utility;
 use PrestoPlayer\Contracts\Service;
 
+/**
+ * Integrates Presto Player video progression with LearnDash.
+ */
 class LearnDash implements Service {
 
+	/**
+	 * Register the integration hooks.
+	 *
+	 * @return void
+	 */
 	public function register() {
 		add_action(
 			'plugins_loaded',
@@ -30,7 +43,7 @@ class LearnDash implements Service {
 	/**
 	 * Add tags to player
 	 *
-	 * @param array $data
+	 * @param array $data Player data containing cookie key and video progress.
 	 * @return void
 	 */
 	public function addPlayerTags( $data ) {
@@ -44,19 +57,19 @@ class LearnDash implements Service {
 		data-video-progression="<?php echo esc_attr( $data['videoProgress'] ); ?>"
 		data-video-provider="presto"
 		<?php
-		echo ob_get_clean();
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output composed of the esc_attr() escaped data attributes above.
 	}
 
 	/**
 	 * Add attributes to video for video progression
 	 *
-	 * @param array $attributes
+	 * @param array $attributes Block attributes.
 	 * @return array
 	 */
 	public function addVideoAttributes( $attributes ) {
 		global $post;
 
-		// bail if not a learndash post type
+		// Bail if not a learndash post type.
 		if ( ! self::isLearnDashPost( $post ) ) {
 			return $attributes;
 		}
@@ -68,7 +81,7 @@ class LearnDash implements Service {
 		if ( $video_completed ) {
 			$logic_video = false;
 		} else {
-			// get lesson settings
+			// Get lesson settings.
 			$step_settings = learndash_get_setting( $post );
 
 			if ( 'BEFORE' === ( $step_settings['lesson_video_shown'] ?? '' ) ) {
@@ -110,7 +123,7 @@ class LearnDash implements Service {
 	 * Build unique video progress cookie key. This is used to track the video state
 	 * in the user's browser.
 	 *
-	 * @param integer $attach_id attachment ID of the video
+	 * @param integer $attach_id Attachment ID of the video.
 	 *
 	 * @return string $cookie_key.
 	 */
@@ -146,22 +159,22 @@ class LearnDash implements Service {
 	/**
 	 * Dynamically replace (presto) with (presto-$video_id)
 	 *
-	 * @param mixed   $value
-	 * @param integer $object_id
-	 * @param string  $meta_key
+	 * @param mixed   $value     The meta value being filtered.
+	 * @param integer $object_id The post ID the meta belongs to.
+	 * @param string  $meta_key  The meta key being requested.
 	 *
 	 * @return mixed
 	 */
 	public function filterVideoURL( $value, $object_id, $meta_key ) {
-		// prevent recursion
+		// Prevent recursion.
 		remove_filter( current_filter(), __FUNCTION__ );
 
-		// only learndash meta
+		// Only learndash meta.
 		if ( ! in_array( $meta_key, array( '_sfwd-topic', '_sfwd-lessons' ) ) ) {
 			return $value;
 		}
 
-		// get meta
+		// Get meta.
 		$meta_cache = wp_cache_get( $object_id, 'post_meta' );
 		if ( ! $meta_cache ) {
 			$meta_cache = update_meta_cache( 'post', array( $object_id ) );
@@ -204,8 +217,8 @@ class LearnDash implements Service {
 	/**
 	 * Pass javascript options to presto player
 	 *
-	 * @param array $options
-	 * @return void
+	 * @param array $options Javascript options passed to the player.
+	 * @return array
 	 */
 	public function jsOptions( $options ) {
 		if ( self::isEnabled() ) {
@@ -245,24 +258,24 @@ class LearnDash implements Service {
 	public static function shouldVideoLoad() {
 		global $post;
 
-		// bail if not a learndash post type
+		// Bail if not a learndash post type.
 		if ( ! self::isLearnDashPost( $post ) ) {
 			return true;
 		}
 
-		// step is completed, load video
+		// Step is completed, load video.
 		if ( self::stepIsCompleted( $post ) ) {
 			return true;
 		}
 
-		// check if lesson steps are complete
+		// Check if lesson steps are complete.
 		return self::areStepsComplete( $post );
 	}
 
 	/**
 	 * Is this a learndash post?
 	 *
-	 * @param \WP_Post $post
+	 * @param \WP_Post $post The post to check.
 	 * @return boolean
 	 */
 	public static function isLearnDashPost( $post ) {
@@ -276,7 +289,7 @@ class LearnDash implements Service {
 	/**
 	 * Is the learndash step completed
 	 *
-	 * @param \WP_Post $post
+	 * @param \WP_Post $post The post to check.
 	 * @return bool
 	 */
 	public static function stepIsCompleted( $post ) {
@@ -292,37 +305,37 @@ class LearnDash implements Service {
 	/**
 	 * Are lesson/topic steps complete?
 	 *
-	 * @param \WP_Post $post
+	 * @param \WP_Post $post The post to check.
 	 * @return boolean
 	 */
 	public static function areStepsComplete( \WP_Post $post ) {
-		// get lesson settings
+		// Get lesson settings.
 		$lesson_settings = learndash_get_setting( $post );
 
-		// we're only concerned with "AFTER"
+		// We're only concerned with "AFTER".
 		if ( 'AFTER' !== ( $lesson_settings['lesson_video_shown'] ?? '' ) ) {
 			return true;
 		}
 
-		// if this is a lesson, check if topics are completed
-		if ( $post->post_type === 'sfwd-lessons' ) {
+		// If this is a lesson, check if topics are completed.
+		if ( 'sfwd-lessons' === $post->post_type ) {
 			if ( ! learndash_lesson_topics_completed( $post->ID ) ) {
 				return false;
 			}
 		}
 
-		// quizes must also be completed
+		// Quizes must also be completed.
 		return self::areQuizzesCompleted( $post );
 	}
 
 	/**
 	 * Are quizzes completed?
 	 *
-	 * @param \WP_Post $post
+	 * @param \WP_Post $post The post to check.
 	 * @return boolean
 	 */
 	public static function areQuizzesCompleted( \WP_Post $post ) {
-		// quizes must also be completed
+		// Quizes must also be completed.
 		$quizzes_completed   = true;
 		$lesson_quizzes_list = learndash_get_lesson_quiz_list( $post->ID );
 		if ( ! empty( $lesson_quizzes_list ) ) {
@@ -339,8 +352,8 @@ class LearnDash implements Service {
 	/**
 	 * Add our video provider to learndash
 	 *
-	 * @param array $video_data
-	 * @param array $step_settings
+	 * @param array $video_data    The current video provider data.
+	 * @param array $step_settings The LearnDash step settings.
 	 * @return array
 	 */
 	public function addProvider( $video_data, $step_settings ) {
@@ -353,12 +366,12 @@ class LearnDash implements Service {
 	/**
 	 * Adds our setting to the lesson settings page
 	 *
-	 * @param array  $settings
-	 * @param string $meta_box_key
+	 * @param array  $settings     The current settings fields.
+	 * @param string $meta_box_key The settings meta box key.
 	 * @return array
 	 */
 	public function settingsFields( $settings, $meta_box_key ) {
-		// if it's not one of these settings pages, bail
+		// If it's not one of these settings pages, bail.
 		if ( ! in_array( $meta_box_key, array( 'learndash-lesson-display-content-settings', 'learndash-topic-display-content-settings' ) ) ) {
 			return $settings;
 		}
@@ -379,7 +392,7 @@ class LearnDash implements Service {
 			),
 		);
 
-		// insert before video url
+		// Insert before video url.
 		$settings = Utility::arrayInsert( $settings, $setting, 'lesson_video_url', 'before' );
 
 		return $settings;

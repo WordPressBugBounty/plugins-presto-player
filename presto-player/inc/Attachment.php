@@ -1,18 +1,41 @@
 <?php
+/**
+ * Private/protected video attachment handling.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer;
 
 use PrestoPlayer\Services\AdminNotices;
 use PrestoPlayer\Services\Streamer;
 
+/**
+ * Handles private/protected video attachment streaming and access.
+ */
 class Attachment {
 
+	/**
+	 * Whether the premium version is active.
+	 *
+	 * @var bool
+	 */
 	protected $is_premium;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param bool $is_premium Whether the premium version is active.
+	 */
 	public function __construct( $is_premium = false ) {
 		$this->is_premium = $is_premium;
 	}
 
+	/**
+	 * Registers WordPress hooks.
+	 *
+	 * @return Attachment
+	 */
 	public function register() {
 		if ( $this->is_premium ) {
 			add_action( 'admin_notices', array( $this, 'checkServer' ) );
@@ -26,19 +49,27 @@ class Attachment {
 		return $this;
 	}
 
+	/**
+	 * Refreshes the temporary security user transient via AJAX.
+	 *
+	 * @param string $action The AJAX action hook name.
+	 * @return void
+	 */
 	public function refreshAjaxTempSecurityUser( $action ) {
-		if ( empty( $_POST['type'] ) ) {
+		$type = isset( $_POST['type'] ) ? sanitize_text_field( wp_unslash( $_POST['type'] ) ) : '';
+
+		if ( empty( $type ) ) {
 			wp_send_json_error( 'type not set' );
 		}
 
 		if ( ! defined( 'DOING_AJAX' ) && ! is_user_logged_in() ) {
-			wp_redirect( home_url() );
+			wp_safe_redirect( home_url() );
 			exit();
 		}
 
 		check_ajax_referer( 'presto_player' );
 
-		if ( $_POST['type'] === 'private-hosted' ) {
+		if ( 'private-hosted' === $type ) {
 			if ( isset( $_POST['id'] ) ) {
 				$post_id = (int) $_POST['id'];
 				$this->setVideoTransient( (int) $post_id );
@@ -54,6 +85,11 @@ class Attachment {
 		wp_send_json_success();
 	}
 
+	/**
+	 * Gets the transient key for the current user's video access list.
+	 *
+	 * @return string
+	 */
 	public function getTransientKey() {
 		if ( ! function_exists( 'wp_get_current_user' ) ) {
 			return '';
@@ -65,7 +101,7 @@ class Attachment {
 	/**
 	 * Adds query vars for rewrites
 	 *
-	 * @param array $query_vars
+	 * @param array $query_vars Existing registered query vars.
 	 * @return array
 	 */
 	public function addQueryVars( $query_vars ) {
@@ -77,7 +113,7 @@ class Attachment {
 	/**
 	 * Add custom rewrite rules
 	 *
-	 * @param \WP_Rewrite $wp_rewrite
+	 * @param \WP_Rewrite $wp_rewrite The WP_Rewrite instance.
 	 * @return void
 	 */
 	public function customRewriteRules( $wp_rewrite ) {
@@ -91,9 +127,9 @@ class Attachment {
 	 * Load virtual template to stream video by id
 	 */
 	public function loadVirtualPage() {
-		// get video attachment id
+		// get video attachment id.
 		$video_id = intval( get_query_var( 'presto-player-video' ) );
-		// get the token
+		// get the token.
 		$token = sanitize_text_field( get_query_var( 'presto-player-token' ) );
 
 		if ( $video_id && $token ) {
@@ -111,7 +147,7 @@ class Attachment {
 	 * @return void
 	 */
 	public function checkServer() {
-		// check for nginx
+		// check for nginx.
 		$notice_name     = 'nginx_rules';
 		$server_software = isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : false;
 		if ( ! stristr( $server_software, 'nginx' ) ) {
@@ -123,14 +159,20 @@ class Attachment {
 		}
 	}
 
+	/**
+	 * Renders the NGINX protection admin notice.
+	 *
+	 * @param string $notice_name The notice identifier.
+	 * @return void
+	 */
 	public function showNotice( $notice_name ) {
 		ob_start(); ?>
 
 		<div class="error">
 			<h3>Presto Player</h3>
-			<p><?php printf( __( 'The video files in the %s folder are not currently protected due to your site running on NGINX.', 'presto-player' ), '<strong>presto-player-private</strong>' ); ?></p>
-			<p><?php _e( 'If you plan on using private video, you will want to protect this directory. To protect them, you must add a firewall rule as explained in <a href="https://prestoplayer.com/protecting-videos-with-nginx" target="_blank">this guide</a>.', 'presto-player' ); ?></p>
-			<p><?php _e( 'If you have already added the rule, you may safely dismiss this notice', 'presto-player' ); ?></p>
+			<p><?php /* translators: %s: Name of the protected uploads folder. */ printf( esc_html__( 'The video files in the %s folder are not currently protected due to your site running on NGINX.', 'presto-player' ), '<strong>presto-player-private</strong>' ); ?></p>
+			<p><?php echo wp_kses_post( __( 'If you plan on using private video, you will want to protect this directory. To protect them, you must add a firewall rule as explained in <a href="https://prestoplayer.com/protecting-videos-with-nginx" target="_blank">this guide</a>.', 'presto-player' ) ); ?></p>
+			<p><?php esc_html_e( 'If you have already added the rule, you may safely dismiss this notice', 'presto-player' ); ?></p>
 			<p><a href="
 			<?php
 			echo esc_url(
@@ -143,28 +185,35 @@ class Attachment {
 				)
 			);
 			?>
-						"><?php _e( 'Dismiss Notice', 'presto-player' ); ?></a></p>
+						"><?php esc_html_e( 'Dismiss Notice', 'presto-player' ); ?></a></p>
 		</div>
 
 		<?php
-		echo ob_get_clean();
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Notice markup is composed of the internally escaped strings above.
 	}
 
 	/**
 	 * Sets the transient for video access
 	 * Sets this for 24 hours
 	 *
-	 * @param integer $post_id
+	 * @param integer $post_id The attachment post ID.
 	 * @return void
 	 */
 	public function setVideoTransient( $post_id ) {
 		$videos   = (array) get_transient( $this->getTransientKey() );
 		$videos[] = sanitize_text_field( $post_id );
 
-		// set temporary user transient for access for 1 hour
+		// set temporary user transient for access for 1 hour.
 		set_transient( $this->getTransientKey(), array_filter( array_unique( $videos ) ), 24 * HOUR_IN_SECONDS );
 	}
 
+	/**
+	 * Gets the source URL for an attachment.
+	 *
+	 * @param int  $id      The attachment ID.
+	 * @param bool $private Whether to return the private (protected) URL.
+	 * @return string|false
+	 */
 	public static function getSrc( $id, $private = false ) {
 		if ( $private ) {
 			return self::getPrivateSrc( $id );
@@ -172,6 +221,12 @@ class Attachment {
 		return wp_get_attachment_url( $id );
 	}
 
+	/**
+	 * Gets the public (unprotected) source URL for an attachment.
+	 *
+	 * @param int $id The attachment ID.
+	 * @return string|false
+	 */
 	public static function getPublicSrc( $id ) {
 		global $presto_override_private_url;
 		$old                         = $presto_override_private_url;
@@ -181,15 +236,27 @@ class Attachment {
 		return $url;
 	}
 
+	/**
+	 * Determines whether an attachment is private.
+	 *
+	 * @param int $id The attachment ID.
+	 * @return int|false Position of the marker in the URL, or false if public.
+	 */
 	public static function isPrivate( $id ) {
 		return strpos( wp_get_attachment_url( $id ), 'video-src' );
 	}
 
+	/**
+	 * Gets the private (token-protected) source URL for an attachment.
+	 *
+	 * @param int $id The attachment ID.
+	 * @return string
+	 */
 	public static function getPrivateSrc( $id ) {
 		if ( ! function_exists( 'wp_create_nonce' ) ) {
 			return '';
 		}
-		// set temporary user transient for access for 1 hour
+		// set temporary user transient for access for 1 hour.
 		( new self() )->setVideoTransient( $id );
 		if ( ! get_option( 'permalink_structure' ) ) {
 			return sprintf( site_url( '?presto-player-video=%d&presto-player-token=%s' ), $id, wp_create_nonce( 'presto-player-user-token' ) );
@@ -200,14 +267,14 @@ class Attachment {
 	/**
 	 * Replaces attachment link
 	 *
-	 * @param [type] $url
-	 * @param [type] $post_id
-	 * @return void
+	 * @param string $url     The attachment URL.
+	 * @param int    $post_id The attachment post ID.
+	 * @return string
 	 */
 	public function replaceLink( $url, $post_id ) {
 		global $presto_override_private_url;
 
-		// only replace for our folder
+		// only replace for our folder.
 		if ( ! stristr( $url, 'presto-player-private' ) ) {
 			return $url;
 		}
@@ -222,9 +289,9 @@ class Attachment {
 	/**
 	 * Check and load stream through PHP
 	 *
-	 * @param \WP_User $current_user
-	 * @param integer  $attachment_id
-	 * @param string   $token
+	 * @param \WP_User $current_user  The current user object.
+	 * @param integer  $attachment_id The attachment post ID.
+	 * @param string   $token         The security token.
 	 * @return void
 	 */
 	public function checkAndLoadStream( $current_user, $attachment_id, $token ) {
@@ -250,10 +317,11 @@ class Attachment {
 			 * Alert user about the misconduct by accessing directly
 			 */
 			$message = sprintf(
+				/* translators: %1$s: Current user display name. */
 				__( 'Sorry %1$s! Access to this video is not allowed. An administrator will be informed.', 'presto-player' ),
 				ucfirst( $current_user->display_name )
 			);
-			wp_die( $message, __( 'Forbidden', 'presto-player' ), 403 );
+			wp_die( esc_html( $message ), esc_html__( 'Forbidden', 'presto-player' ), 403 );
 		}
 	}
 }

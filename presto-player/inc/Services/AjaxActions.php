@@ -1,4 +1,9 @@
 <?php
+/**
+ * Ajax action handlers.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Services;
 
@@ -25,12 +30,13 @@ class AjaxActions {
 	 * @return void
 	 */
 	public function fetchVideos() {
-		// verify nonce
-		if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'wp_rest' ) ) {
+		// Verify nonce.
+		$nonce = isset( $_REQUEST['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ) : '';
+		if ( ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			wp_send_json_error();
 		}
 
-		// need to edit posts
+		// Need to edit posts.
 		if ( ! current_user_can( 'edit_posts' ) ) {
 			wp_send_json_error();
 		}
@@ -38,11 +44,11 @@ class AjaxActions {
 		$args = array();
 
 		if ( ! empty( $_POST['search'] ) ) {
-			$args['s'] = sanitize_text_field( $_POST['search'] );
+			$args['s'] = sanitize_text_field( wp_unslash( $_POST['search'] ) );
 		}
 
 		if ( ! empty( $_POST['post_id'] ) ) {
-			$args['post__in'][0] = sanitize_text_field( $_POST['post_id'] ); // Convert single post_id into array.
+			$args['post__in'][0] = absint( wp_unslash( $_POST['post_id'] ) ); // Convert single post_id into array.
 		}
 
 		$videos = ( new ReusableVideo() )->fetch( $args );

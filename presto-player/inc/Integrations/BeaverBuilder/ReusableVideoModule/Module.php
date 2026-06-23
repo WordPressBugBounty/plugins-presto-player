@@ -1,13 +1,24 @@
 <?php
+/**
+ * Presto Player Reusable Video Beaver Builder module.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Integrations\BeaverBuilder\ReusableVideoModule;
 
 use PrestoPlayer\Services\Scripts;
 use PrestoPlayer\Models\ReusableVideo;
 
+/**
+ * Beaver Builder module for embedding a Presto Player Media Hub item.
+ */
 class Module extends \FLBuilderModule {
 
 
+	/**
+	 * Register the module with Beaver Builder.
+	 */
 	public function __construct() {
 		parent::__construct(
 			array(
@@ -35,7 +46,7 @@ class Module extends \FLBuilderModule {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
-		// always enqueue the css
+		// always enqueue the css.
 		$assets = include trailingslashit( PRESTO_PLAYER_PLUGIN_DIR ) . 'dist/beaver-builder.asset.php';
 		$this->add_css( 'surecart/beaver-builder/admin', trailingslashit( PRESTO_PLAYER_PLUGIN_URL ) . 'dist/beaver-builder.css', array(), $assets['version'] );
 
@@ -70,6 +81,11 @@ class Module extends \FLBuilderModule {
 		);
 	}
 
+	/**
+	 * Get the module settings configuration.
+	 *
+	 * @return array Settings configuration array for Beaver Builder.
+	 */
 	public static function getSettings() {
 		return array(
 			'settings' => array(
@@ -101,11 +117,16 @@ class Module extends \FLBuilderModule {
 		);
 	}
 
+	/**
+	 * Build the markup for the Media Hub item selector dropdown.
+	 *
+	 * @return string The dropdown HTML markup.
+	 */
 	public static function dynamic_dropdown() {
 		ob_start();
 		?>
 		<div class="presto-builder--custom-video-controls">
-			<div class="fl-builder--category-select" x-data="window.prestoBBDropdown({nonce: '<?php echo wp_create_nonce( 'wp_rest' ); ?>'})" x-init="init">
+			<div class="fl-builder--category-select" x-data="window.prestoBBDropdown({nonce: '<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>'})" x-init="init">
 				<div class="fl-builder--selector-display" x-on:click="open">
 					<button class="fl-builder--selector-display-label">
 						<span class="fl-builder--group-label"><?php esc_html_e( 'Media', 'presto-player' ); ?></span>
@@ -115,7 +136,7 @@ class Module extends \FLBuilderModule {
 
 				<div class="presto-builder--selector-menu">
 					<div class="presto-builder--menu" x-show="isOpen()" x-on:click.away="close">
-						<input class="presto-builder--dropdown-search" x-ref="searchbox" type="text" x-model="search" placeholder="<?php _e( 'Search Media Hub', 'presto-player' ); ?>" />
+						<input class="presto-builder--dropdown-search" x-ref="searchbox" type="text" x-model="search" placeholder="<?php esc_attr_e( 'Search Media Hub', 'presto-player' ); ?>" />
 						<template x-if="loading">
 							<svg width='14px' height='14px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring">
 								<rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
@@ -133,11 +154,11 @@ class Module extends \FLBuilderModule {
 				</div>
 				<div class="presto-builder--video-edit-buttons">
 					<a href="/wp-admin/post-new.php?post_type=pp_video_block" class="fl-builder-button presto-create-bb-video" target="_blank">
-						<?php _e( 'Create', 'presto-player' ); ?>
+						<?php esc_html_e( 'Create', 'presto-player' ); ?>
 					</a> &nbsp;
 					<template x-if="video.id">
 						<a x-bind:href="video.editLink" class="fl-builder-button presto-create-bb-video" target="_blank">
-							<?php _e( 'Edit', 'presto-player' ); ?>
+							<?php esc_html_e( 'Edit', 'presto-player' ); ?>
 						</a>
 					</template>
 				</div>
@@ -156,10 +177,10 @@ class Module extends \FLBuilderModule {
 			return;
 		}
 
-		// global is the most reliable between page builders
+		// global is the most reliable between page builders.
 		global $load_presto_js;
 		$load_presto_js = true;
-		( new Scripts() )->blockAssets(); // enqueue block assets
+		( new Scripts() )->blockAssets(); // enqueue block assets.
 
 		$video     = new ReusableVideo( $this->settings->video_id );
 		$overrides = array();
@@ -168,7 +189,7 @@ class Module extends \FLBuilderModule {
 		}
 		$render = $video->renderBlock( $overrides );
 		if ( $render ) {
-			echo $render;
+			echo $render; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- renderBlock() returns player markup escaped within the block renderer.
 			return;
 		}
 		return;

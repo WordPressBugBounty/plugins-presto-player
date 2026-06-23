@@ -1,4 +1,9 @@
 <?php
+/**
+ * Elementor Presto Player reusable video widget.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Integrations\Elementor;
 
@@ -13,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * presto-player video widget.
+ * Presto Player reusable video widget.
  *
- * presto-player widget that displays a video player.
+ * Presto Player widget that displays a reusable video player.
  *
  * @since 1.0.0
  */
@@ -167,6 +172,11 @@ class ReusableVideoWidget extends Widget_Base {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Get the available reusable video options for the select control.
+	 *
+	 * @return array Map of reusable video post ID to post title.
+	 */
 	public function get_videos_options() {
 		$videos  = ( new ReusableVideo() )->fetch();
 		$options = array();
@@ -197,11 +207,11 @@ class ReusableVideoWidget extends Widget_Base {
 		}
 		$render = $video->renderBlock( $overrides );
 		if ( $render ) {
-			echo $render;
+			echo $render; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- renderBlock() returns player markup escaped within the block renderer.
 			return;
 		}
 
 		$video = ( new ReusableVideo() )->first();
-		echo $video ? $video->renderBlock( $overrides ) : '';
+		echo $video ? $video->renderBlock( $overrides ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- renderBlock() returns player markup escaped within the block renderer.
 	}
 }

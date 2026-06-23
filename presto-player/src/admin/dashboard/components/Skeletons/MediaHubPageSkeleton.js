@@ -1,4 +1,5 @@
 import React from "react";
+import { __ } from "@wordpress/i18n";
 import { Skeleton, Container, Table } from "@bsf/force-ui";
 
 const MediaHubPageSkeleton = () => {
@@ -68,7 +69,7 @@ const MediaHubPageSkeleton = () => {
 
               {/* Actions Column Header */}
               <Table.HeadCell className="items-center justify-center">
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">{__("Actions", "presto-player")}</span>
               </Table.HeadCell>
             </Table.Head>
 

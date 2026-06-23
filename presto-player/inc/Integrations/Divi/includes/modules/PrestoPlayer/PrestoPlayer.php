@@ -1,24 +1,62 @@
 <?php
+/**
+ * Presto Player Divi Builder module.
+ *
+ * @package PrestoPlayer
+ */
 
 use PrestoPlayer\Services\Scripts;
 use PrestoPlayer\Models\ReusableVideo;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * Divi Builder module for rendering Presto Player media.
+ */
 class DiviPrestoPlayer extends ET_Builder_Module {
 
-	public $slug       = 'prpl_presto_player';
+	/**
+	 * The module slug.
+	 *
+	 * @var string
+	 */
+	public $slug = 'prpl_presto_player';
+
+	/**
+	 * Whether the Visual Builder is supported.
+	 *
+	 * @var string
+	 */
 	public $vb_support = 'on';
 
+	/**
+	 * The module credits.
+	 *
+	 * @var array
+	 */
 	protected $module_credits = array(
 		'module_uri' => '',
 		'author'     => '',
 		'author_uri' => '',
 	);
 
+	/**
+	 * Initializes the module.
+	 *
+	 * @return void
+	 */
 	public function init() {
 		$this->name = esc_html__( 'Presto Player Media', 'presto-player' );
-		// TODO add icon support
+		// TODO: add icon support.
 	}
 
+	/**
+	 * Returns the module fields configuration.
+	 *
+	 * @return array
+	 */
 	public function get_fields() {
 		return array(
 			'video_id'     => array(
@@ -26,7 +64,7 @@ class DiviPrestoPlayer extends ET_Builder_Module {
 				'type'            => 'prpl_video_selector',
 				'option_category' => 'basic_option',
 				'description'     => esc_html__( 'Select from the media hub.', 'presto-player' ),
-				'toggle_slug'     => 'image_video', // https://www.elegantthemes.com/documentation/developers/divi-module/module-settings-groups/
+				'toggle_slug'     => 'image_video', // See https://www.elegantthemes.com/documentation/developers/divi-module/module-settings-groups/.
 			),
 			'url_override' => array(
 				'label'           => esc_html__( 'Dynamic URL Override', 'presto-player' ),
@@ -39,7 +77,13 @@ class DiviPrestoPlayer extends ET_Builder_Module {
 		);
 	}
 
-	// https://www.elegantthemes.com/documentation/developers/divi-module/advanced-field-types-for-module-settings/
+	/**
+	 * Returns the advanced fields configuration.
+	 *
+	 * See https://www.elegantthemes.com/documentation/developers/divi-module/advanced-field-types-for-module-settings/.
+	 *
+	 * @return array
+	 */
 	public function get_advanced_fields_config() {
 		return array(
 			'background'   => false,
@@ -47,11 +91,19 @@ class DiviPrestoPlayer extends ET_Builder_Module {
 		);
 	}
 
+	/**
+	 * Renders the module output.
+	 *
+	 * @param array       $attrs       The module attributes.
+	 * @param string|null $content     The module content.
+	 * @param string|null $render_slug The render slug.
+	 * @return string|null The rendered markup, or null when nothing renders.
+	 */
 	public function render( $attrs, $content = null, $render_slug = null ) {
-		// global is the most reliable between page builders
+		// Global is the most reliable between page builders.
 		global $load_presto_js;
 		$load_presto_js = true;
-		( new Scripts() )->blockAssets(); // enqueue block assets
+		( new Scripts() )->blockAssets(); // Enqueue block assets.
 
 		$video     = new ReusableVideo( $this->props['video_id'] );
 		$overrides = array();

@@ -16,12 +16,16 @@ import WhatsNewRSS from "./WhatsNew";
 import UpgradeNotice from "./UpgradeNotice";
 
 const NAV_ITEMS_ALL = [
-  { slug: "Dashboard", text: "Dashboard" },
-  { slug: "MediaHub", text: "Media Hub" },
-  { slug: "Analytics", text: "Analytics" },
-  { slug: "Emails", text: "Emails", requireManageOptions: true },
-  { slug: "Settings", text: "Settings" },
-  { slug: "Learn", text: "Learn" },
+  { slug: "Dashboard", text: __("Dashboard", "presto-player") },
+  { slug: "MediaHub", text: __("Media Hub", "presto-player") },
+  { slug: "Analytics", text: __("Analytics", "presto-player") },
+  {
+    slug: "Emails",
+    text: __("Emails", "presto-player"),
+    requireManageOptions: true,
+  },
+  { slug: "Settings", text: __("Settings", "presto-player") },
+  { slug: "Learn", text: __("Learn", "presto-player") },
 ];
 
 const getNavItems = () => {
@@ -156,7 +160,7 @@ const Navbar = () => {
               >
                 <Tabs.Tab
                   slug={item.slug}
-                  text={__(item.text, "presto-player")}
+                  text={item.text}
                   className="h-14 text-sm"
                 />
               </Link>

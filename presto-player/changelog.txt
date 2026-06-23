@@ -1,5 +1,10 @@
 *** Presto Player Changelog ***
 
+= 4.2.4 =
+* Improvement: WordPress.org plugin guideline compliance and Plugin Check hardening.
+* Fix: Corrected JavaScript translation file loading so admin interface strings are translated properly.
+* Fix: Made dashboard navigation tabs and the Media Hub 'Actions' column header translatable.
+
 = 4.2.3 =
 * Improvement: Formatting improvements to the readme.
 

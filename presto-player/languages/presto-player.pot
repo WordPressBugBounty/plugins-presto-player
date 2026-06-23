@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-04T14:26:26+00:00\n"
+"POT-Creation-Date: 2026-06-23T09:59:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -26,7 +26,7 @@ msgstr ""
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:62
 #: admin/blocks/shared/BlockInspectorControls.js:64
 #: admin/blocks/shared/chapters/ChaptersPanel.js:6
-#: Services/Translation.php:98
+#: Services/Translation.php:83
 msgid "Chapters"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:74
 #: admin/blocks/shared/settings/index.js:161
-#: Integrations/Elementor/VideoWidget.php:278
+#: Integrations/Elementor/VideoWidget.php:312
 msgid "Autoplay"
 msgstr ""
 
@@ -133,8 +133,8 @@ msgstr ""
 #: admin/blocks/shared/tracks/TracksEditor.js:86
 #: admin/dashboard/components/MediaHub/MediaRow.js:268
 #: admin/dashboard/components/MediaHub/MediaRow.js:274
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:140
-#: Integrations/Elementor/ReusableVideoWidget.php:128
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:161
+#: Integrations/Elementor/ReusableVideoWidget.php:133
 msgid "Edit"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/APIPlaceholder.js:93
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:244
-#: Services/Translation.php:148
+#: Services/Translation.php:133
 msgid "Next"
 msgstr ""
 
@@ -390,8 +390,8 @@ msgstr ""
 #: admin/blocks/blocks/playlist-list/create.js:28
 #: admin/dashboard/components/MediaHub/PostSettings.js:185
 #: admin/dashboard/pages/settings/integrations/WebhooksPage.js:273
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:136
-#: Integrations/Elementor/ReusableVideoWidget.php:143
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:157
+#: Integrations/Elementor/ReusableVideoWidget.php:148
 msgid "Create"
 msgstr ""
 
@@ -569,7 +569,7 @@ msgid "Presto Private Video"
 msgstr ""
 
 #: admin/blocks/blocks/hosted/HostedPlaceholder.js:65
-#: Integrations/Elementor/VideoWidget.php:63
+#: Integrations/Elementor/VideoWidget.php:91
 msgid "Presto Video"
 msgstr ""
 
@@ -635,7 +635,7 @@ msgid "General"
 msgstr ""
 
 #: admin/blocks/blocks/playlist-list-item/edit.js:40
-#: Services/Translation.php:114
+#: Services/Translation.php:99
 msgid "Duration"
 msgstr ""
 
@@ -797,7 +797,7 @@ msgid "This item is synced with the media hub and can be reused across your site
 msgstr ""
 
 #: admin/blocks/blocks/reusable-display/index.js:17
-#: Integrations/Elementor/ReusableVideoWidget.php:116
+#: Integrations/Elementor/ReusableVideoWidget.php:121
 msgid "Media Hub Item"
 msgstr ""
 
@@ -884,7 +884,7 @@ msgstr ""
 
 #: admin/blocks/shared/audio-placeholder.js:32
 #: admin/blocks/shared/placeholder.js:40
-#: Integrations/Elementor/VideoWidget.php:220
+#: Integrations/Elementor/VideoWidget.php:254
 msgid "URL"
 msgstr ""
 
@@ -975,7 +975,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Behavior.js:84
 #: admin/blocks/shared/presets/Behavior.js:139
-#: Services/Translation.php:131
+#: Services/Translation.php:116
 msgid "Loop"
 msgstr ""
 
@@ -1049,7 +1049,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Controls.js:87
 #: admin/blocks/shared/presets/Controls.js:87
-#: Services/Translation.php:115
+#: Services/Translation.php:100
 msgid "Volume"
 msgstr ""
 
@@ -1060,7 +1060,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Controls.js:97
 #: admin/blocks/shared/presets/Controls.js:97
-#: Services/Translation.php:128
+#: Services/Translation.php:113
 msgid "Speed"
 msgstr ""
 
@@ -1222,13 +1222,13 @@ msgstr ""
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:218
 #: admin/dashboard/components/Onboarding/UserInfo.js:158
 #: lib/bsf-analytics/class-bsf-analytics.php:325
-#: Services/Translation.php:94
+#: Services/Translation.php:79
 msgid "Skip"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preview.js:67
 #: admin/blocks/shared/Preview.js:69
-#: Services/Translation.php:96
+#: Services/Translation.php:81
 msgid "Email address"
 msgstr ""
 
@@ -1277,7 +1277,7 @@ msgid "Video settings"
 msgstr ""
 
 #: admin/blocks/shared/BlockInspectorControls.js:88
-#: Integrations/Elementor/VideoWidget.php:308
+#: Integrations/Elementor/VideoWidget.php:342
 msgid "Video Preset"
 msgstr ""
 
@@ -1325,7 +1325,7 @@ msgid "Add Chapter"
 msgstr ""
 
 #: admin/blocks/shared/components/ColorPopup.js:62
-#: Services/Translation.php:135
+#: Services/Translation.php:120
 msgid "Reset"
 msgstr ""
 
@@ -1347,7 +1347,7 @@ msgid "Search..."
 msgstr ""
 
 #: admin/blocks/shared/components/ProBadge.js:5
-#: admin/dashboard/components/Navbar.js:68
+#: admin/dashboard/components/Navbar.js:72
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:176
 #: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:125
 #: admin/dashboard/pages/learn/StepItem.js:67
@@ -1417,7 +1417,7 @@ msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:33
 #: admin/dashboard/components/Emails/Table.js:203
-#: Integrations/Elementor/VideoWidget.php:139
+#: Integrations/Elementor/VideoWidget.php:173
 #: Services/Shortcodes.php:238
 msgid "Video"
 msgstr ""
@@ -1426,12 +1426,12 @@ msgstr ""
 #: admin/dashboard/pages/settings/config.js:120
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:20
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:26
-#: Integrations/Elementor/VideoWidget.php:150
+#: Integrations/Elementor/VideoWidget.php:184
 msgid "YouTube"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:47
-#: Integrations/Elementor/VideoWidget.php:151
+#: Integrations/Elementor/VideoWidget.php:185
 msgid "Vimeo"
 msgstr ""
 
@@ -1471,8 +1471,8 @@ msgstr ""
 
 #: admin/blocks/shared/overlays/components/Overlay.js:107
 #: admin/blocks/shared/presets/CTA.js:199
-#: Integrations/Elementor/VideoWidget.php:160
-#: Integrations/Elementor/VideoWidget.php:181
+#: Integrations/Elementor/VideoWidget.php:194
+#: Integrations/Elementor/VideoWidget.php:215
 msgid "Link"
 msgstr ""
 
@@ -1554,7 +1554,7 @@ msgid "Add/Select Private Video"
 msgstr ""
 
 #: admin/blocks/shared/placeholder.js:229
-#: Integrations/Elementor/VideoWidget.php:202
+#: Integrations/Elementor/VideoWidget.php:236
 msgid "Add/Select Video"
 msgstr ""
 
@@ -1590,7 +1590,7 @@ msgstr ""
 #: admin/blocks/shared/presets/ActionBar.js:138
 #: admin/blocks/shared/presets/CTA.js:117
 #: admin/blocks/shared/presets/Email.js:93
-#: Services/Translation.php:132
+#: Services/Translation.php:117
 msgid "Start"
 msgstr ""
 
@@ -1603,7 +1603,7 @@ msgstr ""
 #: admin/blocks/shared/presets/ActionBar.js:146
 #: admin/blocks/shared/presets/CTA.js:125
 #: admin/blocks/shared/presets/Email.js:101
-#: Services/Translation.php:133
+#: Services/Translation.php:118
 msgid "End"
 msgstr ""
 
@@ -1755,8 +1755,8 @@ msgstr ""
 #: admin/blocks/shared/presets/Controls.js:133
 #: admin/blocks/shared/tracks/TracksEditor.js:94
 #: admin/blocks/shared/tracks/TracksEditor.js:612
-#: Services/Translation.php:124
-#: parts/captions.php:3
+#: Services/Translation.php:109
+#: parts/captions.php:4
 msgid "Captions"
 msgstr ""
 
@@ -2017,7 +2017,7 @@ msgstr ""
 #: admin/blocks/shared/presets/Style.js:48
 #: Seeds/AudioPresetSeeder.php:35
 #: Seeds/PresetSeeder.php:36
-#: Services/Translation.php:161
+#: Services/Translation.php:146
 msgid "Default"
 msgstr ""
 
@@ -2070,9 +2070,9 @@ msgid "or"
 msgstr ""
 
 #: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:66
-#: admin/dashboard/pages/Onboarding.js:79
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:16
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:17
+#: admin/dashboard/pages/Onboarding.js:67
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:27
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:28
 #: Services/AdminNotices.php:285
 #: Services/License/License.php:236
 #: Services/Menu.php:43
@@ -2117,7 +2117,7 @@ msgid "Show an image over the top of the video either before or after the video.
 msgstr ""
 
 #: admin/blocks/shared/settings/index.js:170
-#: Integrations/Elementor/VideoWidget.php:289
+#: Integrations/Elementor/VideoWidget.php:323
 msgid "Play inline"
 msgstr ""
 
@@ -2400,6 +2400,8 @@ msgid "Date"
 msgstr ""
 
 #: admin/dashboard/components/Emails/Table.js:249
+#: admin/dashboard/components/Skeletons/MediaHubPageSkeleton.js:72
+#: admin/dashboard/pages/MediaHub.js:1029
 msgid "Actions"
 msgstr ""
 
@@ -2728,34 +2730,81 @@ msgstr ""
 msgid "Search media…"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:61
+#: admin/dashboard/components/Navbar.js:19
+#: Services/Menu.php:65
+#: Services/Menu.php:66
+msgid "Dashboard"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:20
+#: admin/dashboard/pages/MediaHub.js:851
+#: admin/dashboard/pages/settings/config.js:54
+#: admin/dashboard/pages/settings/general/MediaHubPage.js:100
+#: Services/Menu.php:75
+#: Services/Menu.php:76
+#: Services/VideoPostType.php:452
+msgid "Media Hub"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:21
+#: admin/dashboard/pages/Analytics.js:95
+#: Services/Menu.php:83
+#: Services/Menu.php:84
+msgid "Analytics"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:24
+#: admin/dashboard/pages/Emails.js:616
+#: admin/dashboard/pages/Emails.js:696
+#: Services/Menu.php:91
+#: Services/Menu.php:92
+msgid "Emails"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:27
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:92
+#: Services/Menu.php:99
+#: Services/Menu.php:100
+#: Services/Translation.php:110
+msgid "Settings"
+msgstr ""
+
+#: admin/dashboard/components/Navbar.js:28
+#: admin/dashboard/pages/Learn.js:8
+#: admin/dashboard/pages/learn/LearnPage.js:38
+#: Services/Menu.php:107
+#: Services/Menu.php:108
+msgid "Learn"
+msgstr ""
+
 #: admin/dashboard/components/Navbar.js:65
+#: admin/dashboard/components/Navbar.js:69
 #, js-format
 msgid "v%s"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:93
+#: admin/dashboard/components/Navbar.js:97
 msgid "Knowledge base"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:101
+#: admin/dashboard/components/Navbar.js:105
 msgid "Support ticket"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:111
+#: admin/dashboard/components/Navbar.js:115
 msgid "Video tutorials"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:172
+#: admin/dashboard/components/Navbar.js:176
 msgid "Core"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:210
-#: admin/dashboard/components/Navbar.js:215
+#: admin/dashboard/components/Navbar.js:214
+#: admin/dashboard/components/Navbar.js:219
 msgid "Unlicensed"
 msgstr ""
 
-#: admin/dashboard/components/Navbar.js:238
+#: admin/dashboard/components/Navbar.js:242
 #: admin/dashboard/components/WhatsNew/index.js:11
 msgid "What's New?"
 msgstr ""
@@ -3130,8 +3179,8 @@ msgstr ""
 #: admin/dashboard/components/TopMedia.js:74
 #: admin/dashboard/components/TopPerformingMedia.js:82
 #: admin/dashboard/pages/MediaHub.js:951
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:111
-#: Integrations/Elementor/ReusableVideoWidget.php:108
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:132
+#: Integrations/Elementor/ReusableVideoWidget.php:113
 msgid "Media"
 msgstr ""
 
@@ -3256,7 +3305,7 @@ msgid "We're excited to help you create amazing video experience for your WordPr
 msgstr ""
 
 #: admin/dashboard/components/WelcomeBanner.js:49
-#: Integrations/Elementor/ReusableVideoWidget.php:139
+#: Integrations/Elementor/ReusableVideoWidget.php:144
 msgid "Create Media"
 msgstr ""
 
@@ -3348,12 +3397,6 @@ msgstr ""
 
 #: admin/dashboard/pages/Analytics.js:34
 msgid "Enable in Settings"
-msgstr ""
-
-#: admin/dashboard/pages/Analytics.js:95
-#: Services/Menu.php:83
-#: Services/Menu.php:84
-msgid "Analytics"
 msgstr ""
 
 #: admin/dashboard/pages/Analytics.js:106
@@ -3622,13 +3665,6 @@ msgstr ""
 msgid "Add New Submission"
 msgstr ""
 
-#: admin/dashboard/pages/Emails.js:616
-#: admin/dashboard/pages/Emails.js:696
-#: Services/Menu.php:91
-#: Services/Menu.php:92
-msgid "Emails"
-msgstr ""
-
 #: admin/dashboard/pages/Emails.js:620
 msgid "Search emails…"
 msgstr ""
@@ -3663,13 +3699,6 @@ msgstr ""
 #: admin/dashboard/pages/Emails.js:673
 #, js-format
 msgid "Are you sure you want to delete %d item(s)? This action cannot be undone."
-msgstr ""
-
-#: admin/dashboard/pages/Learn.js:8
-#: admin/dashboard/pages/learn/LearnPage.js:38
-#: Services/Menu.php:107
-#: Services/Menu.php:108
-msgid "Learn"
 msgstr ""
 
 #: admin/dashboard/pages/learn/LearnPage.js:41
@@ -3837,15 +3866,6 @@ msgstr ""
 msgid "Click the \"Add Media\" button to create a new Media Hub item"
 msgstr ""
 
-#: admin/dashboard/pages/MediaHub.js:851
-#: admin/dashboard/pages/settings/config.js:54
-#: admin/dashboard/pages/settings/general/MediaHubPage.js:100
-#: Services/Menu.php:75
-#: Services/Menu.php:76
-#: Services/VideoPostType.php:452
-msgid "Media Hub"
-msgstr ""
-
 #: admin/dashboard/pages/MediaHub.js:859
 #: Services/VideoPostType.php:449
 msgid "New Media"
@@ -3896,7 +3916,7 @@ msgstr ""
 msgid "No media found."
 msgstr ""
 
-#: admin/dashboard/pages/Onboarding.js:107
+#: admin/dashboard/pages/Onboarding.js:96
 msgid "Exit Guided Setup"
 msgstr ""
 
@@ -4745,7 +4765,7 @@ msgid "%s plugin Installed Successfully.."
 msgstr ""
 
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:208
-#: Integrations/Elementor/VideoWidget.php:245
+#: Integrations/Elementor/VideoWidget.php:279
 msgid "Video Options"
 msgstr ""
 
@@ -4771,7 +4791,7 @@ msgid "Instant Video Page"
 msgstr ""
 
 #: admin/toolbar/index.js:97
-#: single-presto-media.php:42
+#: single-presto-media.php:46
 msgid "Unpublished"
 msgstr ""
 
@@ -4994,31 +5014,34 @@ msgctxt "block description"
 msgid "Presto YouTube block."
 msgstr ""
 
-#: Attachment.php:131
+#. translators: %s: Name of the protected uploads folder.
+#: Attachment.php:173
 #, php-format
 msgid "The video files in the %s folder are not currently protected due to your site running on NGINX."
 msgstr ""
 
-#: Attachment.php:132
+#. translators: %s: Name of the protected uploads folder.
+#: Attachment.php:174
 msgid "If you plan on using private video, you will want to protect this directory. To protect them, you must add a firewall rule as explained in <a href=\"https://prestoplayer.com/protecting-videos-with-nginx\" target=\"_blank\">this guide</a>."
 msgstr ""
 
-#: Attachment.php:133
+#: Attachment.php:175
 msgid "If you have already added the rule, you may safely dismiss this notice"
 msgstr ""
 
-#: Attachment.php:146
+#: Attachment.php:188
 #: Services/ProCompatibility.php:95
 #: Services/ReusableVideos.php:60
 msgid "Dismiss Notice"
 msgstr ""
 
-#: Attachment.php:253
+#. translators: %1$s: Current user display name.
+#: Attachment.php:321
 #, php-format
 msgid "Sorry %1$s! Access to this video is not allowed. An administrator will be informed."
 msgstr ""
 
-#: Attachment.php:256
+#: Attachment.php:324
 msgid "Forbidden"
 msgstr ""
 
@@ -5031,106 +5054,99 @@ msgstr ""
 msgid "Open Presto Popup dialog"
 msgstr ""
 
-#: Files.php:203
+#: Files.php:221
 msgid "Private: "
 msgstr ""
 
-#: Files.php:233
+#: Files.php:251
 msgid "Irks! Error when creating a new private folder for private media"
 msgstr ""
 
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:14
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:15
-#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:18
-#: Integrations/Elementor/ReusableVideoWidget.php:49
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:25
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:26
+#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:51
+#: Integrations/Elementor/ReusableVideoWidget.php:54
 msgid "Presto Player Media"
 msgstr ""
 
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:76
-#: Services/Menu.php:99
-#: Services/Menu.php:100
-#: Services/Translation.php:125
-msgid "Settings"
-msgstr ""
-
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:83
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:99
 msgid "Select Media Hub Item"
 msgstr ""
 
-#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:118
+#: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:139
 msgid "Search Media Hub"
 msgstr ""
 
-#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:25
+#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:63
 msgid "Choose Media"
 msgstr ""
 
-#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:28
+#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:66
 msgid "Select from the media hub."
 msgstr ""
 
-#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:32
-#: Integrations/Elementor/ReusableVideoWidget.php:151
+#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:70
+#: Integrations/Elementor/ReusableVideoWidget.php:156
 msgid "Dynamic URL Override"
 msgstr ""
 
-#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:34
+#: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:72
 msgid "Please choose media above before selecting dynamic URL override."
 msgstr ""
 
-#: Integrations/Elementor/ReusableVideoWidget.php:126
+#: Integrations/Elementor/ReusableVideoWidget.php:131
 #: Services/VideoPostType.php:450
 msgid "Edit Media"
 msgstr ""
 
-#: Integrations/Elementor/ReusableVideoWidget.php:161
+#: Integrations/Elementor/ReusableVideoWidget.php:166
 msgid "Enter a url override"
 msgstr ""
 
-#: Integrations/Elementor/VideoWidget.php:146
+#: Integrations/Elementor/VideoWidget.php:180
 msgid "Source"
 msgstr ""
 
-#: Integrations/Elementor/VideoWidget.php:152
+#: Integrations/Elementor/VideoWidget.php:186
 msgid "Self Hosted"
 msgstr ""
 
-#: Integrations/Elementor/VideoWidget.php:169
-#: Integrations/Elementor/VideoWidget.php:190
-#: Integrations/Elementor/VideoWidget.php:234
+#: Integrations/Elementor/VideoWidget.php:203
+#: Integrations/Elementor/VideoWidget.php:224
+#: Integrations/Elementor/VideoWidget.php:268
 msgid "Enter your URL"
 msgstr ""
 
-#: Integrations/Elementor/VideoWidget.php:256
-#: Integrations/Elementor/VideoWidget.php:266
+#: Integrations/Elementor/VideoWidget.php:290
+#: Integrations/Elementor/VideoWidget.php:300
 msgid "Muted Preview"
 msgstr ""
 
-#: Integrations/Elementor/VideoWidget.php:297
+#: Integrations/Elementor/VideoWidget.php:331
 #: Services/VideoPostType.php:201
 msgid "Poster"
 msgstr ""
 
-#: Integrations/Elementor/VideoWidget.php:318
+#: Integrations/Elementor/VideoWidget.php:352
 msgid "Select A Preset"
 msgstr ""
 
 #. translators: placeholders: 1. Lesson or Topic label, 2. span for counter.
-#: Integrations/LearnDash/LearnDash.php:219
+#: Integrations/LearnDash/LearnDash.php:232
 #, php-format
 msgctxt "placeholders: 1. Lesson or Topic label, 2. span for counter"
 msgid "<p class=\"ld-video-delay-message\">%1$s will auto complete in %2$s seconds</p>"
 msgstr ""
 
-#: Integrations/LearnDash/LearnDash.php:369
+#: Integrations/LearnDash/LearnDash.php:382
 msgid "Use Presto Video"
 msgstr ""
 
-#: Integrations/LearnDash/LearnDash.php:372
+#: Integrations/LearnDash/LearnDash.php:385
 msgid "Use the Presto Player video in your post content for video progression."
 msgstr ""
 
-#: Integrations/LearnDash/LearnDash.php:375
+#: Integrations/LearnDash/LearnDash.php:388
 msgid "The presto video in this post will be used for video progression."
 msgstr ""
 
@@ -5259,11 +5275,11 @@ msgstr ""
 msgid "Nonce verification failed."
 msgstr ""
 
-#: Models/Model.php:666
+#: Models/Model.php:667
 msgid "You must first create or save this model to update it."
 msgstr ""
 
-#: Models/Model.php:688
+#: Models/Model.php:689
 msgid "There was an issue updating the model."
 msgstr ""
 
@@ -5296,19 +5312,19 @@ msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:63
 #: Seeds/PresetSeeder.php:182
-#: Services/Translation.php:163
+#: Services/Translation.php:148
 msgid "Simple"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:90
 #: Seeds/PresetSeeder.php:227
-#: Services/Translation.php:164
+#: Services/Translation.php:149
 msgid "Minimal"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:117
 #: Seeds/PresetSeeder.php:82
-#: Services/Translation.php:162
+#: Services/Translation.php:147
 msgid "Course"
 msgstr ""
 
@@ -5928,11 +5944,6 @@ msgstr ""
 msgid "Buy Subscription"
 msgstr ""
 
-#: Services/Menu.php:65
-#: Services/Menu.php:66
-msgid "Dashboard"
-msgstr ""
-
 #: Services/Menu.php:306
 msgid "Build Your Video Community with SureDash"
 msgstr ""
@@ -6059,161 +6070,161 @@ msgstr ""
 msgid "Playlist"
 msgstr ""
 
-#: Services/Translation.php:62
+#: Services/Translation.php:61
 msgid "Subscribe To Our YouTube Channel"
 msgstr ""
 
-#: Services/Translation.php:95
+#: Services/Translation.php:80
 msgid "Rewatch"
 msgstr ""
 
-#: Services/Translation.php:97
+#: Services/Translation.php:82
 msgid "Enter your email to play this episode."
 msgstr ""
 
-#: Services/Translation.php:99
+#: Services/Translation.php:84
 msgid "Show Chapters"
 msgstr ""
 
-#: Services/Translation.php:100
+#: Services/Translation.php:85
 msgid "Hide Chapters"
 msgstr ""
 
-#: Services/Translation.php:101
+#: Services/Translation.php:86
 msgid "Restart"
 msgstr ""
 
 #. translators: {seektime} is replaced with the number of seconds, e.g. "Rewind 10s"
-#: Services/Translation.php:103
+#: Services/Translation.php:88
 msgid "Rewind {seektime}s"
 msgstr ""
 
-#: Services/Translation.php:104
+#: Services/Translation.php:89
 msgid "Play"
 msgstr ""
 
-#: Services/Translation.php:105
+#: Services/Translation.php:90
 msgid "Pause"
 msgstr ""
 
 #. translators: {seektime} is replaced with the number of seconds, e.g. "Forward 10s"
-#: Services/Translation.php:107
+#: Services/Translation.php:92
 msgid "Forward {seektime}s"
 msgstr ""
 
-#: Services/Translation.php:108
+#: Services/Translation.php:93
 msgid "Seek"
 msgstr ""
 
 #. translators: {currentTime} = current playback time, {duration} = total video length
-#: Services/Translation.php:110
+#: Services/Translation.php:95
 msgid "{currentTime} of {duration}"
 msgstr ""
 
-#: Services/Translation.php:111
+#: Services/Translation.php:96
 msgid "Played"
 msgstr ""
 
-#: Services/Translation.php:112
+#: Services/Translation.php:97
 msgid "Buffered"
 msgstr ""
 
-#: Services/Translation.php:113
+#: Services/Translation.php:98
 msgid "Current time"
 msgstr ""
 
-#: Services/Translation.php:116
+#: Services/Translation.php:101
 msgid "Mute"
 msgstr ""
 
-#: Services/Translation.php:117
+#: Services/Translation.php:102
 msgid "Unmute"
 msgstr ""
 
-#: Services/Translation.php:118
+#: Services/Translation.php:103
 msgid "Enable captions"
 msgstr ""
 
-#: Services/Translation.php:119
+#: Services/Translation.php:104
 msgid "Disable captions"
 msgstr ""
 
-#: Services/Translation.php:120
+#: Services/Translation.php:105
 msgid "Download"
 msgstr ""
 
-#: Services/Translation.php:121
+#: Services/Translation.php:106
 msgid "Enter fullscreen"
 msgstr ""
 
-#: Services/Translation.php:122
+#: Services/Translation.php:107
 msgid "Exit fullscreen"
 msgstr ""
 
-#: Services/Translation.php:123
+#: Services/Translation.php:108
 msgid "Player for {title}"
 msgstr ""
 
-#: Services/Translation.php:126
+#: Services/Translation.php:111
 msgid "PIP"
 msgstr ""
 
-#: Services/Translation.php:127
+#: Services/Translation.php:112
 msgid "Go back to previous menu"
 msgstr ""
 
-#: Services/Translation.php:129
+#: Services/Translation.php:114
 msgid "Normal"
 msgstr ""
 
-#: Services/Translation.php:130
+#: Services/Translation.php:115
 msgid "Quality"
 msgstr ""
 
-#: Services/Translation.php:134
+#: Services/Translation.php:119
 msgid "All"
 msgstr ""
 
-#: Services/Translation.php:136
+#: Services/Translation.php:121
 msgid "Disabled"
 msgstr ""
 
-#: Services/Translation.php:137
+#: Services/Translation.php:122
 msgid "Enabled"
 msgstr ""
 
-#: Services/Translation.php:138
+#: Services/Translation.php:123
 msgid "Ad"
 msgstr ""
 
-#: Services/Translation.php:140
+#: Services/Translation.php:125
 msgid "4K"
 msgstr ""
 
-#: Services/Translation.php:141
-#: Services/Translation.php:142
-#: Services/Translation.php:143
+#: Services/Translation.php:126
+#: Services/Translation.php:127
+#: Services/Translation.php:128
 msgid "HD"
 msgstr ""
 
-#: Services/Translation.php:144
-#: Services/Translation.php:145
+#: Services/Translation.php:129
+#: Services/Translation.php:130
 msgid "SD"
 msgstr ""
 
-#: Services/Translation.php:147
+#: Services/Translation.php:132
 msgid "AUTO"
 msgstr ""
 
-#: Services/Translation.php:149
+#: Services/Translation.php:134
 msgid "Up Next"
 msgstr ""
 
-#: Services/Translation.php:150
+#: Services/Translation.php:135
 msgid "Start Over"
 msgstr ""
 
-#: Services/Translation.php:165
+#: Services/Translation.php:150
 msgid "YouTube Optimized"
 msgstr ""
 
@@ -6323,7 +6334,7 @@ msgid "Media updated."
 msgstr ""
 
 #. translators: %s: taxonomy label
-#: Services/VideoPostType.php:513
+#: Services/VideoPostType.php:514
 #, php-format
 msgid "Show all %s"
 msgstr ""
@@ -6394,10 +6405,10 @@ msgstr ""
 msgid "Rate the Plugin"
 msgstr ""
 
-#: unauthorized.php:3
+#: unauthorized.php:4
 msgid "Please login for access."
 msgstr ""
 
-#: unauthorized.php:5
+#: unauthorized.php:6
 msgid "Login"
 msgstr ""

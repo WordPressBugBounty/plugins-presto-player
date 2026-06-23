@@ -7,6 +7,9 @@
  * @package PrestoPlayer
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 <figure class="wp-block-video presto-block-video <?php echo esc_attr( $data['class'] ); ?> presto-provider-<?php echo sanitize_html_class( $data['provider'] ); ?>" style="<?php echo esc_attr( $data['styles'] ); ?>">
 	<presto-player 

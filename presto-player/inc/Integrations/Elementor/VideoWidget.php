@@ -1,4 +1,9 @@
 <?php
+/**
+ * Elementor Presto Player video widget.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Integrations\Elementor;
 
@@ -16,21 +21,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * presto-player video widget.
+ * Presto Player video widget.
  *
- * presto-player widget that displays a video player.
+ * Presto Player widget that displays a video player.
  *
  * @since 1.0.0
  */
 class VideoWidget extends Widget_Base {
 
+	/**
+	 * Whether the premium version is active.
+	 *
+	 * @var bool
+	 */
 	private $is_premium = false;
-	private $version    = '';
 
+	/**
+	 * Plugin version string.
+	 *
+	 * @var string
+	 */
+	private $version = '';
+
+	/**
+	 * Set whether the premium version is active.
+	 *
+	 * @param bool $pro Whether premium is active.
+	 * @return void
+	 */
 	public function setPremium( $pro ) {
 		$this->is_premium = $pro;
 	}
 
+	/**
+	 * Set the plugin version.
+	 *
+	 * @param string $version Plugin version string.
+	 * @return void
+	 */
 	public function setVersion( $version ) {
 		$this->version = $version;
 	}
@@ -107,6 +135,12 @@ class VideoWidget extends Widget_Base {
 		return array( 'video', 'player', 'embed', 'youtube', 'vimeo' );
 	}
 
+	/**
+	 * Build the fake (disabled) toggle control HTML for non-premium users.
+	 *
+	 * @param string $label Control label text.
+	 * @return string Toggle control HTML markup.
+	 */
 	public function fake_toggle_html( $label = '' ) {
 		return '<div class="elementor-control-muted_preview elementor-control-type-switcher elementor-label-inline elementor-control-separator-default">
 					<div class="elementor-control-content">
@@ -326,6 +360,16 @@ class VideoWidget extends Widget_Base {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Get the available preset options for the preset select control.
+	 *
+	 * @return array {
+	 *     Preset options data.
+	 *
+	 *     @type array $options    Map of preset ID to preset name.
+	 *     @type int   $default_id The default preset ID.
+	 * }
+	 */
 	protected function get_preset_options() {
 		$presets = new Preset();
 		$presets = $presets->all();
@@ -334,7 +378,7 @@ class VideoWidget extends Widget_Base {
 		$default_id     = 0;
 		if ( ! empty( $presets ) ) {
 			foreach ( $presets as $preset ) {
-				if ( $preset->slug === 'default' ) {
+				if ( 'default' === $preset->slug ) {
 					$default_id = $preset->id;
 				}
 				$preset_options[ $preset->id ] = $preset->name;
@@ -361,6 +405,7 @@ class VideoWidget extends Widget_Base {
 		switch ( $settings['video_type'] ) {
 			case 'hosted':
 				$hosted = new SelfHostedBlock( $this->is_premium, $this->version );
+				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- Block html() escapes all values internally; player markup must not be re-escaped.
 				echo $hosted->html(
 					array(
 						'id'          => $settings['hosted_url']['id'],
@@ -373,9 +418,11 @@ class VideoWidget extends Widget_Base {
 					),
 					''
 				);
+				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 				break;
 			case 'youtube':
 				$youtube = new YouTubeBlock( $this->is_premium, $this->version );
+				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- Block html() escapes all values internally; player markup must not be re-escaped.
 				echo $youtube->html(
 					array(
 						'src'         => $settings['youtube_url'],
@@ -387,9 +434,11 @@ class VideoWidget extends Widget_Base {
 					),
 					''
 				);
+				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 				break;
 			case 'vimeo':
 				$vimeo = new VimeoBlock( $this->is_premium, $this->version );
+				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- Block html() escapes all values internally; player markup must not be re-escaped.
 				echo $vimeo->html(
 					array(
 						'src'         => $settings['vimeo_url'],
@@ -401,16 +450,19 @@ class VideoWidget extends Widget_Base {
 					),
 					''
 				);
+				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 				break;
 		}
-
-		// print_r($settings);
 	}
 
 
 	/**
+	 * Build the HTML attribute parameters for a self-hosted video element.
+	 *
 	 * @since 2.1.0
 	 * @access private
+	 *
+	 * @return array Map of attribute name to attribute value.
 	 */
 	private function get_hosted_params() {
 		$settings = $this->get_settings_for_display();
@@ -443,11 +495,12 @@ class VideoWidget extends Widget_Base {
 	}
 
 	/**
-	 * @param bool $from_media
+	 * Get the resolved self-hosted video URL, including time fragments.
 	 *
-	 * @return string
 	 * @since 2.1.0
 	 * @access private
+	 *
+	 * @return string Video URL, or empty string when none is set.
 	 */
 	private function get_hosted_video_url() {
 		$settings = $this->get_settings_for_display();
@@ -478,9 +531,12 @@ class VideoWidget extends Widget_Base {
 	}
 
 	/**
+	 * Render the self-hosted video element markup.
 	 *
 	 * @since 2.1.0
 	 * @access private
+	 *
+	 * @return void
 	 */
 	private function render_hosted_video() {
 		$video_url = $this->get_hosted_video_url();
@@ -490,7 +546,7 @@ class VideoWidget extends Widget_Base {
 
 		$video_params = $this->get_hosted_params();
 		?>
-		<video class="presto-player-video" src="<?php echo esc_url( $video_url ); ?>" <?php echo Utils::render_html_attributes( $video_params ); ?>></video>
+		<video class="presto-player-video" src="<?php echo esc_url( $video_url ); ?>" <?php echo Utils::render_html_attributes( $video_params ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Elementor\Utils::render_html_attributes() escapes each attribute value. ?>></video>
 		<?php
 	}
 }

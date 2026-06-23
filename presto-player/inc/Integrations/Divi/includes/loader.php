@@ -1,4 +1,13 @@
 <?php
+/**
+ * Loads custom Presto Player Divi Builder modules.
+ *
+ * @package PrestoPlayer
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 if ( ! class_exists( 'ET_Builder_Element' ) ) {
 	return;
@@ -6,7 +15,7 @@ if ( ! class_exists( 'ET_Builder_Element' ) ) {
 
 $module_files = glob( __DIR__ . '/modules/*/*.php' );
 
-// Load custom Divi Builder modules
+// Load custom Divi Builder modules.
 foreach ( (array) $module_files as $module_file ) {
 	if ( $module_file && preg_match( "/\/modules\/\b([^\/]+)\/\\1\.php$/", $module_file ) ) {
 		require_once $module_file;
