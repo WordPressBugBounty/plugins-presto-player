@@ -15,10 +15,6 @@ export default function ({ attributes, setAttributes }) {
   data.branding = useSelect((select) => {
     return select("presto-player/player").branding();
   });
-  useEffect(() => {
-    document.body.style.setProperty("--plyr-color-main", data.branding?.color);
-  }, [data.branding?.color]);
-
   data.loading = useSelect((select) => {
     return select("presto-player/player").presetsLoading();
   });

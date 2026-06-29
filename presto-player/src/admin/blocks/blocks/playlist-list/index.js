@@ -12,7 +12,7 @@ export const name = "presto-player/playlist-list";
  * Block Options
  */
 export const options = {
-  apiVersion: "2",
+  apiVersion: 3,
 
   attributes: {
     lock: {

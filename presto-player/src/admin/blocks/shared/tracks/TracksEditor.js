@@ -1,10 +1,8 @@
 /**
  * WordPress dependencies
  */
-/** @jsx jsx */
-// import { __, sprintf } from '@wordpress/i18n';
 const { __, sprintf } = wp.i18n;
-import { css, jsx, Global } from "@emotion/core";
+import "./TracksEditor.scss";
 const {
   NavigableMenu,
   MenuItem,
@@ -21,7 +19,7 @@ const {
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { useSelect } = wp.data;
 const { useState, useRef } = wp.element;
-import TranscriptionLanguageSelect from "../components/TranscriptionLanguageSelect";
+import { TranscriptionLanguageTokenField } from "../components/TranscriptionLanguageSelect";
 
 const ALLOWED_TYPES = ["text/vtt"];
 
@@ -64,11 +62,6 @@ function TrackList({ tracks, onEditPress }) {
         <div
           key={index}
           className="block-library-video-tracks-editor__track-list-track"
-          css={css`
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          `}
         >
           <span>
             {track.label}
@@ -163,13 +156,7 @@ function SingleTrackEditor({
             });
           }}
         /> */}
-        <div
-          className="block-library-video-tracks-editor__single-track-editor-buttons-container"
-          css={css`
-            display: flex;
-            gap: 8px;
-          `}
-        >
+        <div className="block-library-video-tracks-editor__single-track-editor-buttons-container">
           <Button
             isSecondary
             onClick={() => {
@@ -401,24 +388,11 @@ export default function TracksEditor({
     <>
       {trackToRemove && (
         <>
-          <Global
-            styles={css`
-              .presto-player__modal-confirm-overlay {
-                z-index: 1000001 !important;
-              }
-              .presto-player__modal-confirm-overlay .components-modal__frame {
-                z-index: 1000002 !important;
-              }
-            `}
-          />
           <Modal
             className="presto-player__modal-confirm"
             overlayClassName="presto-player__modal-confirm-overlay"
             title={__("Remove Caption Track", "presto-player")}
             onRequestClose={() => setTrackToRemove(null)}
-            css={css`
-              max-width: 400px;
-            `}
           >
             <p>
               {__(
@@ -426,14 +400,7 @@ export default function TracksEditor({
                 "presto-player"
               )}
             </p>
-            <div
-              css={css`
-                display: flex;
-                justify-content: flex-end;
-                gap: 8px;
-                margin-top: 16px;
-              `}
-            >
+            <div className="presto-player__modal-actions">
               <Button
                 onClick={() => setTrackToRemove(null)}
                 disabled={isDeletingTrack}
@@ -454,17 +421,6 @@ export default function TracksEditor({
       )}
       {showTranscribeConfirm && (
         <>
-          <Global
-            styles={css`
-              .presto-player__modal-transcribe-overlay {
-                z-index: 1000001 !important;
-              }
-              .presto-player__modal-transcribe-overlay
-                .components-modal__frame {
-                z-index: 1000002 !important;
-              }
-            `}
-          />
           <Modal
             className="presto-player__modal-transcribe"
             overlayClassName="presto-player__modal-transcribe-overlay"
@@ -475,9 +431,6 @@ export default function TracksEditor({
               setTranscribeError(false);
               dropdownOnCloseRef.current?.();
             }}
-            css={css`
-              max-width: 450px;
-            `}
           >
             {transcribeSuccess ? (
               <>
@@ -487,14 +440,7 @@ export default function TracksEditor({
                     "presto-player"
                   )}
                 </p>
-                <div
-                  css={css`
-                    display: flex;
-                    justify-content: flex-end;
-                    gap: 8px;
-                    margin-top: 16px;
-                  `}
-                >
+                <div className="presto-player__modal-actions">
                   <Button
                     isPrimary
                     onClick={() => {
@@ -515,14 +461,7 @@ export default function TracksEditor({
                     "presto-player"
                   )}
                 </p>
-                <div
-                  css={css`
-                    display: flex;
-                    justify-content: flex-end;
-                    gap: 8px;
-                    margin-top: 16px;
-                  `}
-                >
+                <div className="presto-player__modal-actions">
                   <Button
                     onClick={() => {
                       setShowTranscribeConfirm(false);
@@ -551,34 +490,17 @@ export default function TracksEditor({
                     "presto-player"
                   )}
                 </p>
-                <p
-                  css={css`
-                    margin-top: 8px;
-                  `}
-                >
+                <p className="presto-player__modal-note">
                   <a
                     href="https://docs.bunny.net/docs/stream-pricing#transcribing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    css={css`
-                      color: var(--wp-admin-theme-color, #007cba);
-                      text-decoration: underline;
-                      &:hover {
-                        color: var(--wp-admin-theme-color-darker-10, #006ba1);
-                      }
-                    `}
+                    className="presto-player__transcribe-pricing-link"
                   >
                     {__("View Bunny.net pricing details", "presto-player")} →
                   </a>
                 </p>
-                <div
-                  css={css`
-                    display: flex;
-                    justify-content: flex-end;
-                    gap: 8px;
-                    margin-top: 16px;
-                  `}
-                >
+                <div className="presto-player__modal-actions">
                   <Button
                     onClick={() => {
                       setShowTranscribeConfirm(false);
@@ -703,14 +625,9 @@ export default function TracksEditor({
                   <MenuGroup
                     className="block-library-video-tracks-editor__transcription-container"
                     label={__("Automatic Captions", "presto-player")}
-                    css={css`
-                      .components-menu-group__label {
-                        padding: 0;
-                      }
-                    `}
                   >
                     <div style={{ padding: "6px 12px" }}>
-                      <TranscriptionLanguageSelect
+                      <TranscriptionLanguageTokenField
                         value={transcribeLanguages}
                         onChange={onTranscribeLanguagesChange}
                         showWarning={true}

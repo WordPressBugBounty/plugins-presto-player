@@ -12,6 +12,7 @@ export const name = "presto-player/playlist-list-item";
  * Block Options
  */
 export const options = {
+  apiVersion: 3,
   attributes,
   category: "presto",
   parent: ["presto-player/playlist-list"],

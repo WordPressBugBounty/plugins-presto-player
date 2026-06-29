@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import {
   Placeholder,
   Flex,
@@ -8,6 +6,7 @@ import {
   Button,
   MenuItem,
 } from "@wordpress/components";
+import "./ProvidersPlaceholder.scss";
 import { __ } from "@wordpress/i18n";
 import { useDispatch } from "@wordpress/data";
 import VideoProvider from "./components/VideoProvider";
@@ -26,13 +25,7 @@ const ProvidersPlaceholder = ({
 
   if (loading) {
     return (
-      <Placeholder
-        css={css`
-          &.components-placeholder {
-            padding: 16px;
-          }
-        `}
-      >
+      <Placeholder className="presto-providers-placeholder--loading">
         <Spinner />
       </Placeholder>
     );
@@ -40,40 +33,22 @@ const ProvidersPlaceholder = ({
 
   return (
     <Placeholder
-      css={css`
-        &.components-placeholder {
-          padding: 32px;
-        }
-      `}
+      className="presto-providers-placeholder"
       label={
         <>
           <Flex
             direction="column"
-            css={css`
-              margin-bottom: 4px;
-            `}
+            className="presto-providers-placeholder__label"
             gap="16px"
           >
             <Flex justify="flex-start">
               {providerIcons?.mediaHubBlock}
-              <h1
-                css={css`
-                  font-size: 24px !important;
-                  font-weight: 500 !important;
-                  margin: 0px !important;
-                `}
-              >
+              <h1 className="presto-providers-placeholder__title">
                 {__("Presto Player", "presto-player")}
               </h1>
             </Flex>
             <Flex>
-              <p
-                css={css`
-                  font-size: 14px !important;
-                  font-weight: 300 !important;
-                  margin: 0px !important;
-                `}
-              >
+              <p className="presto-providers-placeholder__description">
                 {__("Choose a video type to get started.", "presto-player")}
               </p>
             </Flex>
@@ -83,18 +58,12 @@ const ProvidersPlaceholder = ({
     >
       <Flex
         direction="column"
-        css={css`
-          max-width: 540px;
-          width: 100%;
-        `}
+        className="presto-providers-placeholder__grid"
         gap="20px"
       >
         <Flex
           justify={"start"}
-          css={css`
-            width: 100%;
-            max-width: 100%;
-          `}
+          className="presto-providers-placeholder__row"
           wrap="wrap"
           gap="20px"
         >
@@ -142,15 +111,7 @@ const ProvidersPlaceholder = ({
                       suffix={type ? name : __("Choose media", "presto-player")}
                       onClick={() => onSelect(item)}
                       key={id}
-                      css={css`
-                        .components-menu-item__item {
-                          white-space: nowrap;
-                          overflow: hidden;
-                          text-overflow: ellipsis;
-                          display: inline-block;
-                          text-align: left;
-                        }
-                      `}
+                      className="presto-providers-placeholder__menu-item"
                     >
                       {title || __("Untitled", "presto-player")}
                     </MenuItem>

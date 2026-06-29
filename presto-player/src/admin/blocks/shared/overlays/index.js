@@ -1,5 +1,3 @@
-/** @jsx jsx */
-
 const { __ } = wp.i18n;
 const { useState } = wp.element;
 const { useSelect, dispatch } = wp.data;
@@ -8,7 +6,7 @@ const { withNotices, BaseControl, Spinner, Button } = wp.components;
 import ProBadge from "@/admin/blocks/shared/components/ProBadge";
 import EditOverlay from "./Edit";
 
-import { css, jsx } from "@emotion/core";
+import "./index.scss";
 
 const VideoOverlays = ({ setAttributes, attributes }) => {
   // modal
@@ -39,17 +37,7 @@ const VideoOverlays = ({ setAttributes, attributes }) => {
             : __("Add Overlay", "presto-player")}
           {!!overlays.length && (
             <div
-              css={css`
-                font-size: 10px;
-                background: #fff;
-                color: var(--wp-admin-theme-color);
-                font-weight: bold;
-                display: inline-block;
-                line-height: 6px;
-                padding: 5px;
-                border-radius: 9999px;
-                margin-left: 10px;
-              `}
+              className="presto-overlays__count"
             >
               {overlays.length}
             </div>

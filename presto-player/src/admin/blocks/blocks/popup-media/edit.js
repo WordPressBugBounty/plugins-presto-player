@@ -1,15 +1,13 @@
 import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
-import { css } from "@emotion/react";
 import Context from "../popup/context/context";
 import Tag from "../../shared/components/Tag";
 import { __ } from "@wordpress/i18n";
+import "./edit.scss";
 
 export default ({ clientId }) => {
   const blockProps = useBlockProps({
-    className: "presto-popup__overlay",
-    css: css`
-      position: relative;
-    `,
+    className: "presto-popup-media-edit",
+    style: { position: "relative" },
   });
 
   const innerBlocksProps = useInnerBlocksProps({
@@ -24,20 +22,12 @@ export default ({ clientId }) => {
         }
 
         return (
-          <div style={{ position: "relative" }}>
+          <div {...blockProps}>
             <Tag
               label={__("Popup", "presto-player")}
-              className="presto-popup-tag"
-              css={css`
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                z-index: 10;
-                display: none;
-                border-radius: 1px;
-              `}
+              className="presto-popup-tag presto-popup-media-edit__tag"
             />
-            <div {...blockProps}>
+            <div className="presto-popup__overlay">
               <button
                 type="button"
                 aria-label="Close"

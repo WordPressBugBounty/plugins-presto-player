@@ -96,7 +96,7 @@ class ReusableVideos {
 	 */
 	public static function get( $id ) {
 		$content_post = get_post( $id );
-		$content      = $content_post->post_content;
+		$content      = $content_post ? $content_post->post_content : '';
 		return $content;
 	}
 

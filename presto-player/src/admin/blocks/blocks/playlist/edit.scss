@@ -1,0 +1,23 @@
+.presto-playlist-edit {
+  .wp-block,
+  [data-block] {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  &__placeholder {
+    max-width: 600px;
+  }
+
+  &__toggle {
+    min-width: 250px;
+  }
+
+  &__wrapper {
+    width: 100%;
+
+    .wp-block-video {
+      margin: 0 !important;
+    }
+  }
+}

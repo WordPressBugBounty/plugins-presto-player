@@ -1,4 +1,3 @@
-/** @jsx jsx */
 /**
  * WordPress dependencies
  */
@@ -20,7 +19,7 @@ const { useSelect, dispatch } = wp.data;
 
 import { snackbarNotice } from "@/admin/blocks/util";
 import Menu from "@/admin/ui/Menu";
-import { css, jsx } from "@emotion/core";
+import "./Edit.scss";
 import Preview from "./Preview";
 import Behavior from "./Behavior";
 import Controls from "./Controls";
@@ -321,17 +320,10 @@ function EditPlayerPreset({
           </BaseControl>
         )}
         <div
-          css={css`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          `}
+          className="presto-audio-presets-edit__footer"
         >
           <div
-            css={css`
-              opacity: 0.5;
-              font-size: 12px;
-            `}
+            className="presto-audio-presets-edit__meta"
           >
             Preset ID: {preset.id}
           </div>

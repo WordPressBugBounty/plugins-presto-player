@@ -1,5 +1,3 @@
-/** @jsx jsx */
-
 /**
  * WordPress dependencies
  */
@@ -8,7 +6,7 @@ const { Button, DropZone, DropZoneProvider, Notice } = wp.components;
 const { useState, useEffect, Fragment } = wp.element;
 const { dispatch, useSelect } = wp.data;
 
-import { css, jsx } from "@emotion/core";
+import "./Popup.scss";
 
 import Sidebar from "./Sidebar";
 import Videos from "./video/Videos";
@@ -75,28 +73,13 @@ export default ({ onClose, onChoose }) => {
    */
   const mainContent = () => {
     return (
-      <DropZoneProvider
-        css={css`
-          overflow: auto;
-          display: flex;
-          flex-direction: column;
-        `}
-      >
-        <div
-          css={css`
-            padding: 12px 24px;
-            overflow: auto;
-            display: flex;
-            flex-direction: column;
-          `}
-        >
+      <DropZoneProvider className="presto-stream-popup__dropzone">
+        <div className="presto-stream-popup__body">
           {!!errors.length &&
             errors.map((error) => {
               return (
                 <Notice
-                  css={css`
-                    margin: 0 0 20px 0;
-                  `}
+                  className="presto-stream-popup__notice"
                   status="error"
                   onRemove={() =>
                     dispatch("presto-player/bunny-popup").removeError(error)
@@ -110,12 +93,7 @@ export default ({ onClose, onChoose }) => {
           {/* Show back button or collections */}
           {!!currentCollection ? <CollectionHeader /> : <Collections />}
 
-          <div
-            css={css`
-              display: flex;
-              align-items: stretch;
-            `}
-          >
+          <div className="presto-stream-popup__layout">
             <Videos />
           </div>
 

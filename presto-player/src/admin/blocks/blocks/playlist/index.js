@@ -15,6 +15,7 @@ const { name } = metadata;
 export { metadata, name };
 
 export const options = {
+  premium: true,
   icon: (
     <svg
       width="19"

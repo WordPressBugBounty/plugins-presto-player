@@ -1,11 +1,10 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 const { Icon, Button } = wp.components;
 const { useEffect, useState } = wp.element;
 const { useSelect, dispatch } = wp.data;
 import ProgressOverlay from "../ProgressOverlay";
 import ProgressBar from "../ProgressBar";
 import Thumbnail from "../ThumbTemplate";
+import "./Video.scss";
 
 import {
   isSelectable,
@@ -36,12 +35,7 @@ export default ({ video }) => {
       isSmall
       isPrimary
       isBusy={!isSelectable(video)}
-      css={css`
-        font-size: 11px;
-        color: #ffffff;
-        padding: 2px 10px;
-        border-radius: 9999px;
-      `}
+      className="presto-stream-video__status-badge"
     >
       {getStatusText(video)}
     </Button>
@@ -61,13 +55,7 @@ export default ({ video }) => {
     if (url) {
       return (
         <img
-          css={css`
-            max-width: 100%;
-            object-fit: cover;
-            width: 100%;
-            height: 140px;
-            display: block;
-          `}
+          className="presto-stream-video__thumbnail"
           src={url}
         />
       );
@@ -75,46 +63,18 @@ export default ({ video }) => {
   };
 
   const renderLength = () => (
-    <div
-      css={css`
-        display: flex;
-        align-items: center;
-      `}
-    >
-      <span
-        css={css`
-          margin-right: 10px;
-          display: flex;
-          align-items: center;
-        `}
-      >
+    <div className="presto-stream-video__length">
+      <span className="presto-stream-video__length-item">
         <Icon
-          css={css`
-            width: 14px;
-            height: 14px;
-            font-size: 14px;
-            margin-right: 5px;
-            opacity: 0.5;
-          `}
+          className="presto-stream-video__length-icon"
           icon="clock"
           size={14}
         />
         <span>{getLengthToTime(video.length)}</span>
       </span>
-      <span
-        css={css`
-          display: flex;
-          align-items: center;
-        `}
-      >
+      <span className="presto-stream-video__length-item">
         <Icon
-          css={css`
-            opacity: 0.5;
-            width: 14px;
-            height: 14px;
-            font-size: 14px;
-            margin-right: 5px;
-          `}
+          className="presto-stream-video__length-icon"
           icon="database"
           size={14}
         />
@@ -128,12 +88,7 @@ export default ({ video }) => {
       onClick={() => {
         dispatch("presto-player/bunny-popup").setUI("selectedId", video?.guid);
       }}
-      css={css`
-        ${selected &&
-        "box-shadow: 0 0 0 0px #fff, 0 0 0 3px var(--wp-admin-theme-color, #007cba);"}
-        border: 1px solid
-          ${selected ? "var(--wp-admin-theme-color, #007cba)" : "#e0e0e0"};
-      `}
+      className={`presto-stream-video ${selected ? 'is-selected' : ''}`}
       thumbnail={renderThumbnail()}
       badge={renderStatusBadge()}
       title={video.title}
@@ -141,13 +96,7 @@ export default ({ video }) => {
       after={
         video.status === 3 ? (
           <ProgressBar
-            css={css`
-              width: 100%;
-              border-radius: 0px;
-              margin: 0;
-              background-color: #e3e3e3;
-              height: 3px;
-            `}
+            className="presto-stream-video__progress-bar"
             progress={video.encodeProgress}
           />
         ) : (

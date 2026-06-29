@@ -1,4 +1,3 @@
-/** @jsx jsx */
 /**
  * WordPress dependencies
  */
@@ -7,7 +6,7 @@ const { TextControl, ExternalLink, Button, Flex } = wp.components;
 const { useState, useEffect } = wp.element;
 const { useSelect, dispatch } = wp.data;
 
-import { css, jsx } from "@emotion/core";
+import "./YoutubeChannelId.scss";
 
 export default ({ onClose, value, setValue }) => {
   const [saving, setSaving] = useState(false);
@@ -62,9 +61,7 @@ export default ({ onClose, value, setValue }) => {
   return (
     <form onSubmit={handleSubmit}>
       <TextControl
-        css={css`
-          margin-bottom: 0 !important;
-        `}
+        className="presto-youtube-channel__input"
         label={__("Youtube Channel ID", "presto-player")}
         help={
           <p>
@@ -81,9 +78,7 @@ export default ({ onClose, value, setValue }) => {
       <Button
         disabled={saving}
         isBusy={saving}
-        css={css`
-          margin-bottom: 1em;
-        `}
+        className="presto-youtube-channel__button"
         isPrimary
         type="submot"
       >
@@ -91,9 +86,7 @@ export default ({ onClose, value, setValue }) => {
       </Button>
       <Button
         onClick={onClose}
-        css={css`
-          margin-bottom: 1em;
-        `}
+        className="presto-youtube-channel__button"
         isTertiary
       >
         {__("Cancel", "presto-player")}

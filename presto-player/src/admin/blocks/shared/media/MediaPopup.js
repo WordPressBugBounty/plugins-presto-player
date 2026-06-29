@@ -1,4 +1,3 @@
-/** @jsx jsx */
 /**
  * WordPress dependencies
  */
@@ -22,7 +21,7 @@ const { useEffect, useState, useRef } = wp.element;
 import MediaItem from "./MediaItem";
 import MediaFolder from "./MediaFolder";
 
-import { css, jsx } from "@emotion/core";
+import "./MediaPopup.scss";
 
 export default ({
   onClose,
@@ -272,13 +271,7 @@ export default ({
     >
       <div className="presto-player__media-modal-layout" data-cy="media-modal">
         <div className="presto-player__media-modal-header">
-          <div
-            className="presto-player__media-modal-upload"
-            css={css`
-              display: flex;
-              align-items: center;
-            `}
-          >
+          <div className="presto-media-popup__upload">
             <FormFileUpload
               isPrimary
               accept="video/mp4,video/x-m4v,video/*"
@@ -292,11 +285,7 @@ export default ({
             >
               {__("Upload New Video", "presto-player")}
             </FormFileUpload>
-            <div
-              css={css`
-                margin-left: 10px;
-              `}
-            >
+            <div className="presto-media-popup__upload-text">
               {__("Or drag a file here to upload.", "presto-player")}
             </div>
           </div>

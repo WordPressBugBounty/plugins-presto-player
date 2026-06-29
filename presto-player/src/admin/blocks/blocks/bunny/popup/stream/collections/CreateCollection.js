@@ -1,10 +1,9 @@
-/** @jsx jsx */
 const { __ } = wp.i18n;
 const { Button, TextControl, Modal, BaseControl } = wp.components;
 const { useState, Fragment } = wp.element;
 const { dispatch, useSelect } = wp.data;
 
-import { jsx, css } from "@emotion/core";
+import "./CreateCollection.scss";
 
 export default () => {
   const [name, setName] = useState("");
@@ -55,9 +54,7 @@ export default () => {
           isDismissible={false}
         >
           <TextControl
-            css={css`
-              margin-bottom: 15px;
-            `}
+            className="presto-stream-create-collection__input"
             tabIndex="0"
             placeholder={__("Enter a collection name", "presto-player")}
             value={name}

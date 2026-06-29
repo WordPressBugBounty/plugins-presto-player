@@ -1,0 +1,36 @@
+.presto-video-provider {
+  &__icon-box {
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+      border-color: #007cba;
+      box-shadow: 0px 5px 9px 0px #00000012;
+    }
+  }
+
+  &__pro-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .presto-player__pro-badge {
+      margin: 4px;
+    }
+  }
+
+  &__label {
+    height: 20px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0px !important;
+  }
+}

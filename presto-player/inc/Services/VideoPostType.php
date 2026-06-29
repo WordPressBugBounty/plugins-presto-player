@@ -732,6 +732,12 @@ class VideoPostType {
 			$assets['version'],
 			true
 		);
+		wp_enqueue_style(
+			'presto-player/toolbar/admin',
+			trailingslashit( PRESTO_PLAYER_PLUGIN_URL ) . 'dist/toolbar.css',
+			array(),
+			$assets['version']
+		);
 	}
 
 	/**

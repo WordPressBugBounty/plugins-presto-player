@@ -1,5 +1,3 @@
-/** @jsx jsx */
-
 /**
  * WordPress dependencies
  */
@@ -20,7 +18,7 @@ import { useSelect } from "@wordpress/data";
 import UrlSelect from "../components/UrlSelect";
 import ColorPopup from "../components/ColorPopup";
 
-import { css, jsx } from "@emotion/core";
+import "./CTA.scss";
 
 function CTA({ state, updateState, className }) {
   const { cta, email_collection } = state;
@@ -94,14 +92,7 @@ function CTA({ state, updateState, className }) {
       {!!cta?.enabled && (
         <>
           <BaseControl
-            className="presto-player__control--percentage-watched"
-            css={css`
-              padding-left: 8px;
-              margin-bottom: 34px !important;
-              .components-range-control__root {
-                align-items: flex-start;
-              }
-            `}
+            className="presto-player__control--percentage-watched presto-cta__range"
           >
             <RangeControl
               label={__("Display At (Percentage)", "presto-player")}
@@ -127,20 +118,14 @@ function CTA({ state, updateState, className }) {
               ]}
               shiftStep={5}
               value={cta?.percentage}
-              css={css`
-                .components-range-control__slider {
-                  position: relative !important;
-                }
-              `}
+              className="presto-cta__slider-fix"
             />
           </BaseControl>
 
           {email_collection?.enabled &&
             email_collection?.percentage === cta?.percentage && (
               <Notice
-                css={css`
-                  margin: 0 0 30px 0 !important;
-                `}
+                className="presto-cta__notice"
                 status="warning"
                 isDismissible={false}
               >
@@ -151,9 +136,7 @@ function CTA({ state, updateState, className }) {
                 <Button
                   onClick={disableEmailCapture}
                   isLink
-                  css={css`
-                    margin-top: 10px !important;
-                  `}
+                  className="presto-cta__button"
                 >
                   {__("Disable Email Capture", "presto-player")}
                 </Button>
@@ -280,12 +263,7 @@ function CTA({ state, updateState, className }) {
                   }
                   min={0}
                   max={25}
-                  css={css`
-                    padding-left: 4px;
-                    .components-range-control__root {
-                      align-items: flex-start;
-                    }
-                  `}
+                  className="presto-cta__range-small"
                 />
               </BaseControl>
 
@@ -334,12 +312,7 @@ function CTA({ state, updateState, className }) {
               }
               min={0}
               max={100}
-              css={css`
-                padding-left: 4px;
-                .components-range-control__root {
-                  align-items: flex-start;
-                }
-              `}
+              className="presto-cta__range-small"
             />
           </BaseControl>
         </>

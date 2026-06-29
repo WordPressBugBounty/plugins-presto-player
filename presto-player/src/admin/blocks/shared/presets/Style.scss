@@ -1,0 +1,9 @@
+.presto-preset-style {
+  &__range {
+    padding-left: 4px;
+
+    .components-range-control__root {
+      align-items: flex-start;
+    }
+  }
+}

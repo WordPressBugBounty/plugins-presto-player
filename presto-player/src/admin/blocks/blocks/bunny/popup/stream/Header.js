@@ -1,10 +1,7 @@
-/** @jsx jsx */
 const { __ } = wp.i18n;
 const { Flex, FlexBlock, FlexItem, Button, FormFileUpload } = wp.components;
 const { dispatch } = wp.data;
 import CreateCollection from "./collections/CreateCollection";
-
-import { jsx } from "@emotion/core";
 
 export default ({ afterUpload }) => {
   return (

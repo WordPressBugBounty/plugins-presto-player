@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import { PrestoPlayer } from "@presto-player/components-react";
-import { css, jsx } from "@emotion/core";
 import React, { useEffect, useState } from "react";
 import { getProvider } from "../util";
 
@@ -84,10 +82,9 @@ export default ({ id, src }) => {
 
     return (
       <div
-        css={css`
-          ${data?.styles}
-        `}
+        className="presto-divi-player"
       >
+        {data?.styles && <style>{`.presto-divi-player{${data.styles}}`}</style>}
         <PrestoPlayer
           key={renderKey}
           video_id={data.id}

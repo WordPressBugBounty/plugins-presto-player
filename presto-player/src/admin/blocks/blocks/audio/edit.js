@@ -1,5 +1,5 @@
 import HostedAudioPlaceholder from "./HostedAudioPlaceholder";
-import { InspectorControls, BlockControls } from "@wordpress/block-editor";
+import { InspectorControls, BlockControls, useBlockProps } from "@wordpress/block-editor";
 import AudioBlockInspectorControl from "./AudioBlockInspectorControl";
 import Player from "@/admin/blocks/shared/Player";
 import { compose } from "@wordpress/compose";
@@ -32,6 +32,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       onRemoveSrc,
     }) => {
       const { poster, src, id } = attributes;
+      const blockProps = useBlockProps();
 
       const onSelectURL = (newUrl) => {
         setAttributes({
@@ -93,28 +94,30 @@ export default compose([withPlayerData(), withPlayerEdit()])(
 
       if (!src) {
         return (
-          <>
+          <div {...blockProps}>
             <HostedAudioPlaceholder
               attributes={attributes}
               setAttributes={setAttributes}
               onSelectURL={onSelectURL}
               onSelect={onSelectAudio}
             ></HostedAudioPlaceholder>
-          </>
+          </div>
         );
       }
 
       // loading presets still
       if (loading || !id) {
         return (
-          <Placeholder className="presto-player__placeholder is-loading">
-            <Spinner />
-          </Placeholder>
+          <div {...blockProps}>
+            <Placeholder className="presto-player__placeholder is-loading">
+              <Spinner />
+            </Placeholder>
+          </div>
         );
       }
 
       return (
-        <>
+        <div {...blockProps}>
           <BlockControls>
             {/* <AudioTranscription
               attributes={attributes}
@@ -158,7 +161,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
               />
             </Disabled>
           </figure>
-        </>
+        </div>
       );
     }
   )

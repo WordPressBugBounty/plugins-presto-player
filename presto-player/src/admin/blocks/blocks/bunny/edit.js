@@ -12,10 +12,10 @@ import {
   Placeholder,
   ToggleControl,
 } from "@wordpress/components";
-import { BlockControls, InspectorControls } from "@wordpress/block-editor";
+import { BlockControls, InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { __ } from "@wordpress/i18n";
 import { compose } from "@wordpress/compose";
-import { useEffect, useState, Fragment } from "@wordpress/element";
+import { useEffect, useState, useRef, Fragment } from "@wordpress/element";
 import { dispatch } from "@wordpress/data";
 
 import { signURL } from "../../shared/services/bunny";
@@ -53,6 +53,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
     }) => {
       const { poster, src, id, tracks, visibility, previewSrc, thumbnail } =
         attributes;
+      const blockProps = useBlockProps();
 
       const [mediaPopup, setMediaPopup] = useState("");
       const [loading, setLoading] = useState(false);
@@ -203,19 +204,75 @@ export default compose([withPlayerData(), withPlayerEdit()])(
         setPreview();
       }, [src]);
 
-      const setThumbnail = async () => {
-        if (isPrivate) {
-          let previewThumbnail = await signURL(thumbnail);
-          if (previewThumbnail) {
-            setAttributes({ previewThumbnail });
-          }
-        } else {
-          setAttributes({ previewThumbnail: thumbnail });
-        }
-      };
+      const blobUrlRef = useRef(null);
+      const blobSourceRef = useRef(null);
       useEffect(() => {
+        let cancelled = false;
+        const setThumbnail = async () => {
+          let thumbUrl = thumbnail;
+          if (isPrivate) {
+            thumbUrl = await signURL(thumbnail);
+          }
+          if (cancelled) {
+            return;
+          }
+          // Private CDN thumbnails are Referer-protected. In the WP 7.0
+          // iframe editor the <video poster> loads from a blob: document
+          // that sends no Referer, so Bunny 403s it. Fetch via the top
+          // window (which has a Referer) and swap in a same-origin blob URL.
+          let host;
+          try {
+            host = new URL(thumbUrl).hostname;
+          } catch (e) {
+            host = "";
+          }
+          if (
+            thumbUrl &&
+            isPrivate &&
+            (host === "b-cdn.net" || host.endsWith(".b-cdn.net"))
+          ) {
+            if (blobUrlRef.current && blobSourceRef.current === thumbnail) {
+              return;
+            }
+            try {
+              const resp = await window.top.fetch(thumbUrl);
+              if (cancelled) {
+                return;
+              }
+              if (resp.ok) {
+                const blob = await resp.blob();
+                if (cancelled) {
+                  return;
+                }
+                if (blobUrlRef.current) {
+                  URL.revokeObjectURL(blobUrlRef.current);
+                }
+                thumbUrl = URL.createObjectURL(blob);
+                blobUrlRef.current = thumbUrl;
+                blobSourceRef.current = thumbnail;
+              }
+            } catch (e) {
+              // Fall back to original URL
+            }
+          }
+          if (cancelled) {
+            return;
+          }
+          setAttributes({ previewThumbnail: thumbUrl || undefined });
+        };
         setThumbnail();
+        return () => {
+          cancelled = true;
+        };
       }, [thumbnail]);
+      useEffect(
+        () => () => {
+          if (blobUrlRef.current) {
+            URL.revokeObjectURL(blobUrlRef.current);
+          }
+        },
+        []
+      );
 
       // Fetch tracks from Bunny transcription service when video id or visibility changes
       useEffect(() => {
@@ -344,40 +401,46 @@ export default compose([withPlayerData(), withPlayerEdit()])(
 
       if (loading || !isAPILoaded) {
         return (
-          <Placeholder className="presto-player__placeholder is-loading">
-            <Spinner />
-          </Placeholder>
+          <div {...blockProps}>
+            <Placeholder className="presto-player__placeholder is-loading">
+              <Spinner />
+            </Placeholder>
+          </div>
         );
       }
 
       if (setup === "stream") {
         return (
-          <APIPlaceholder
-            type="stream"
-            autoSubmit={autoSubmitStream}
-            onRefetch={() => {
-              setIsAPILoaded(false);
-              fetchSettings();
-            }}
-          />
+          <div {...blockProps}>
+            <APIPlaceholder
+              type="stream"
+              autoSubmit={autoSubmitStream}
+              onRefetch={() => {
+                setIsAPILoaded(false);
+                fetchSettings();
+              }}
+            />
+          </div>
         );
       }
 
       if (setup === "storage") {
         return (
-          <APIPlaceholder
-            type="storage"
-            onRefetch={() => {
-              setIsAPILoaded(false);
-              fetchSettings();
-            }}
-          />
+          <div {...blockProps}>
+            <APIPlaceholder
+              type="storage"
+              onRefetch={() => {
+                setIsAPILoaded(false);
+                fetchSettings();
+              }}
+            />
+          </div>
         );
       }
 
       if (!id) {
         return (
-          <div>
+          <div {...blockProps}>
             <Placeholder
               label={
                 isPrivate
@@ -463,7 +526,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       }
 
       return (
-        <>
+        <div {...blockProps}>
           <BlockControls>
             <TracksEditor
               tracks={tracks}
@@ -509,7 +572,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
               />
             </Disabled>
           </figure>
-        </>
+        </div>
       );
     }
   )

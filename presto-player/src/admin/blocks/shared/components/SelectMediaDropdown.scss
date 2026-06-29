@@ -1,0 +1,11 @@
+.presto-select-media-dropdown {
+  &__item {
+    .components-menu-item__item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      text-align: left;
+    }
+  }
+}

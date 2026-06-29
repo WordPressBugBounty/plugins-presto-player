@@ -1,5 +1,7 @@
 import edit from "./edit";
 import blockOptions from "../block-options";
+import metadata from "./block.json";
+export { metadata };
 
 /**
  * Block Name

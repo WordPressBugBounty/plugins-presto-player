@@ -1,0 +1,16 @@
+.presto-action-bar {
+  &__range {
+    padding-left: 8px;
+    margin-bottom: 34px !important;
+
+    .components-range-control__root {
+      align-items: flex-start;
+    }
+  }
+
+  &__slider-fix {
+    .components-range-control__slider {
+      position: relative !important;
+    }
+  }
+}

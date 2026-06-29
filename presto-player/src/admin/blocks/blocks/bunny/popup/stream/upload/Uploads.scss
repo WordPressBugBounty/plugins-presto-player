@@ -1,0 +1,10 @@
+.presto-stream-uploads {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__item {
+    margin-right: 0px;
+  }
+}

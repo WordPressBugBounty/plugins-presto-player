@@ -1,5 +1,3 @@
-/** @jsx jsx */
-
 /**
  * WordPress dependencies
  */
@@ -8,7 +6,7 @@ const { useState } = wp.element;
 const { dispatch, useSelect } = wp.data;
 const { Button, Modal, BaseControl } = wp.components;
 
-import { css, jsx } from "@emotion/core";
+import "./CollectionHeader.scss";
 import BackButton from "./BackButton";
 
 export default () => {
@@ -44,14 +42,7 @@ export default () => {
   };
 
   return (
-    <div
-      css={css`
-        margin-bottom: 2em;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      `}
-    >
+    <div className="presto-stream-collection-header">
       <div>
         <BackButton
           onClick={() => {

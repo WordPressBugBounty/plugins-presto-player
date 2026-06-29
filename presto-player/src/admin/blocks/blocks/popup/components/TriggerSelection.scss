@@ -1,0 +1,55 @@
+.presto-trigger-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__card {
+    border: 1px solid #e2e4e7;
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+
+    &:hover {
+      border-color: #007cba;
+      box-shadow: 0 0 0 1px #007cba;
+    }
+
+    &.is-active {
+      background-color: #f0f6fc;
+      border-color: #007cba;
+    }
+  }
+
+  &__icon {
+    background: #f1f1f1;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+
+  &__label {
+    font-weight: 500;
+  }
+
+  &__description {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 4px;
+  }
+
+  &__pro-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}

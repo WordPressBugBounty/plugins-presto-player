@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import { useState } from "@wordpress/element";
 import { useDispatch } from "@wordpress/data";
 import { store as coreStore } from "@wordpress/core-data";

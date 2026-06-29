@@ -1,0 +1,31 @@
+.presto-color-popup {
+  &__indicator {
+    width: 25px;
+    height: 25px;
+    border-radius: 9999px;
+  }
+
+  &__picker {
+    .components-color-picker,
+    .react-colorful {
+      width: 100%;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  &__button {
+    margin: 0 5px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+}

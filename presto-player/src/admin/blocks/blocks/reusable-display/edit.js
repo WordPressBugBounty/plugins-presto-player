@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./edit.scss";
 import {
   useBlockProps,
   useInnerBlocksProps,
@@ -27,7 +26,7 @@ import { createBlock } from "@wordpress/blocks";
 
 export default ({ attributes, context, clientId, isSelected }) => {
   const [isEditing, setIsEditing] = useState(null);
-  const { selectBlock } = useDispatch(blockEditorStore);
+  const { selectBlock, replaceBlock } = useDispatch(blockEditorStore);
   const { id: idAttribute } = attributes;
   const id = context["presto-player/playlist-media-id"] || idAttribute;
   const blockProps = useBlockProps();
@@ -136,14 +135,12 @@ export default ({ attributes, context, clientId, isSelected }) => {
 
   if (!id && context["presto-player/playlist-media-id"] !== undefined) {
     return (
-      <Placeholder
-        css={css`
-          &.components-placeholder {
-            min-height: 350px;
-          }
-        `}
-        withIllustration
-      />
+      <div {...blockProps}>
+        <Placeholder
+          className="presto-reusable-display-edit__placeholder"
+          withIllustration
+        />
+      </div>
     );
   }
 
@@ -160,14 +157,15 @@ export default ({ attributes, context, clientId, isSelected }) => {
 
   if (!blocks.length) {
     return (
-      <MediaProviders
-        sync={false}
-        onSelect={(type) => {
-          const { replaceBlock } = useDispatch(blockEditorStore);
-          replaceBlock(clientId, createBlock(`presto-player/${type}`));
-        }}
-        onSelectMedia={false}
-      />
+      <div {...blockProps}>
+        <MediaProviders
+          sync={false}
+          onSelect={(type) => {
+            replaceBlock(clientId, createBlock(`presto-player/${type}`));
+          }}
+          onSelectMedia={false}
+        />
+      </div>
     );
   }
 
@@ -194,19 +192,17 @@ export default ({ attributes, context, clientId, isSelected }) => {
             <PanelBody>
               <Flex align="center" justify="flex-start">
                 <Icon icon={symbolFilled} />
-                <h2 class="block-editor-block-card__title">
+                <h2 className="block-editor-block-card__title">
                   {__("Synced", "presto-player")}
                 </h2>
               </Flex>
 
               <BaseControl
+                className="presto-reusable-display-edit__base-control"
                 help={__(
                   "This item is synced with the media hub and can be reused across your site.",
                   "presto-player"
                 )}
-                css={css`
-                  margin-bottom: 10px !important;
-                `}
               ></BaseControl>
 
               <Button

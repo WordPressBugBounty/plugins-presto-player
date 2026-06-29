@@ -4,7 +4,8 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 4.2.4
+Stable tag: 4.3.0
+
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -157,6 +158,10 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.3.0 =
+* Improvement: Migrated to Block API v3 for improved compatibility and performance.
+* Improvement: Reworked editor styling for better performance and reliability.
 
 = 4.2.4 =
 * Improvement: WordPress.org plugin guideline compliance and Plugin Check hardening.

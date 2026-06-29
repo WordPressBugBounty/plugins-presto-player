@@ -1,10 +1,9 @@
-/** @jsx jsx */
 const { __ } = wp.i18n;
 const { useState, useEffect, Fragment } = wp.element;
 const { Flex, FormFileUpload, Notice } = wp.components;
 const { dispatch, useSelect } = wp.data;
-import { css, jsx } from "@emotion/core";
 import Video from "./Video";
+import "./Videos.scss";
 
 import Loading from "../Loading";
 
@@ -75,10 +74,7 @@ export default () => {
       <Flex
         align="center"
         justify="center"
-        css={css`
-          height: 100%;
-          text-align: center;
-        `}
+        className="presto-stream-videos__empty"
       >
         <div>
           <h2>{__("Drop video files here to upload", "presto-player")}</h2>
@@ -104,8 +100,8 @@ export default () => {
   if (notice) {
     return (
       <Notice status="warning" isDismissible={false}>
-        <div css={{ display: "flex", alignItems: "center" }}>
-          <Loading css={{ flex: 1 }} />
+        <div className="presto-stream-videos__notice">
+          <Loading className="presto-stream-videos__loading" />
           {notice}
         </div>
       </Notice>
@@ -114,7 +110,7 @@ export default () => {
 
   // still loading
   if (!fetched) {
-    return <Loading css={{ flex: 1 }} />;
+    return <Loading className="presto-stream-videos__loading" />;
   }
 
   // render

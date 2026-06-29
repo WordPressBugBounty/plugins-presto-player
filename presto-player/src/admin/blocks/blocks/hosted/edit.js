@@ -6,7 +6,7 @@ const { getBlobByURL, isBlobURL } = wp.blob;
 const { Button, Disabled, Toolbar, Notice, withNotices, Placeholder, Spinner } =
   wp.components;
 
-import { BlockControls, InspectorControls } from "@wordpress/block-editor";
+import { BlockControls, InspectorControls, useBlockProps } from "@wordpress/block-editor";
 const { compose } = wp.compose;
 const { useEffect, useState } = wp.element;
 const { dispatch } = wp.data;
@@ -50,6 +50,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       defaultPreset,
     }) => {
       const { poster, src, id, tracks } = attributes;
+      const blockProps = useBlockProps();
       const [upgradeNotice, setUpgradeNotice] = useState("");
 
       const showNotice = (e) => {
@@ -176,7 +177,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
 
       if (!src) {
         return (
-          <div>
+          <div {...blockProps}>
             <HostedPlaceholder
               onSelect={onSelectVideo}
               onSelectURL={onSelectURL}
@@ -193,14 +194,16 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       // loading presets still
       if (loading || !id) {
         return (
-          <Placeholder className="presto-player__placeholder is-loading">
-            <Spinner />
-          </Placeholder>
+          <div {...blockProps}>
+            <Placeholder className="presto-player__placeholder is-loading">
+              <Spinner />
+            </Placeholder>
+          </div>
         );
       }
 
       return (
-        <div>
+        <div {...blockProps}>
           <BlockControls>
             <TracksEditor
               tracks={tracks}

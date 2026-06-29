@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
+import "./edit.scss";
 import { createBlock } from "@wordpress/blocks";
 import { store as blockEditorStore } from "@wordpress/block-editor";
 import { store as coreStore } from "@wordpress/core-data";
@@ -45,21 +44,14 @@ export default ({ clientId, isSelected }) => {
             clientId
           )
         }
-        css={css`
-          width: 100%;
-          padding: 5px;
-          box-sizing: border-box !important;
-        `}
+        className="presto-playlist-list-edit__dropdown"
         renderToggle={({ isOpen, onToggle }) => (
           <Button
-            className={"block-editor-button-block-appender"}
+            className={"block-editor-button-block-appender presto-playlist-list-edit__appender"}
             onClick={onToggle}
             aria-haspopup={true}
             aria-expanded={isOpen}
             label={label}
-            css={css`
-              box-sizing: border-box !important;
-            `}
           >
             <VisuallyHidden as="span">{label}</VisuallyHidden>
             <Icon icon={plus} />

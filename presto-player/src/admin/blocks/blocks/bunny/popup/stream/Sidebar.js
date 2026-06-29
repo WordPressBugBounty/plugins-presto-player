@@ -1,5 +1,3 @@
-/** @jsx jsx */
-
 const { __ } = wp.i18n;
 const { Button, BaseControl, Disabled, Card, CardBody } = wp.components;
 const { useState, useContext, useEffect } = wp.element;
@@ -13,7 +11,7 @@ import {
   bytesToSize,
 } from "./utils";
 
-import { jsx, css } from "@emotion/core";
+import "./Sidebar.scss";
 
 export default () => {
   const [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -50,9 +48,6 @@ export default () => {
     setDeleteConfirm(false);
   };
 
-  const controlCSS = css`
-    margin-top: 5px;
-  `;
 
   if (!video) {
     return "";
@@ -65,29 +60,17 @@ export default () => {
   return (
     video && (
       <div className="presto-player__media-modal-sidebar-content">
-        <BaseControl
-          css={css`
-            position: relative;
-          `}
-        >
+        <BaseControl className="presto-stream-sidebar__preview">
           <Disabled key={video.id}>
             {isSelectable(video) && getThumbnail(video) && (
-              <img src={getThumbnail(video)} css={{ maxWidth: "100%" }} />
+              <img src={getThumbnail(video)} className="presto-stream-sidebar__preview-img" />
             )}
           </Disabled>
           <Button
             isSmall
             isPrimary
             isBusy={!isSelectable(video)}
-            css={css`
-              ${isSelectable(video) ? "position: absolute;" : ""}
-              top: 8px;
-              right: 8px;
-              font-size: 11px;
-              color: #ffffff;
-              padding: 2px 10px;
-              border-radius: 9999px;
-            `}
+            className={`presto-stream-sidebar__badge ${isSelectable(video) ? 'is-selectable' : ''}`}
           >
             {getStatusText(video)}
           </Button>
@@ -96,7 +79,7 @@ export default () => {
           <BaseControl.VisualLabel>
             {__("Name", "presto-player")}
           </BaseControl.VisualLabel>
-          <h3 css={controlCSS}>{video.title}</h3>
+          <h3 className="presto-stream-sidebar__control">{video.title}</h3>
         </BaseControl>
 
         {!!video?.visibility && (
@@ -104,7 +87,7 @@ export default () => {
             <BaseControl.VisualLabel>
               {__("Visibility", "presto-player")}
             </BaseControl.VisualLabel>
-            <h3 css={controlCSS}>{video.visibility}</h3>
+            <h3 className="presto-stream-sidebar__control">{video.visibility}</h3>
           </BaseControl>
         )}
 
@@ -112,21 +95,21 @@ export default () => {
           <BaseControl.VisualLabel>
             {__("Size", "presto-player")}
           </BaseControl.VisualLabel>
-          <h3 css={controlCSS}>{bytesToSize(video?.size || 0)}</h3>
+          <h3 className="presto-stream-sidebar__control">{bytesToSize(video?.size || 0)}</h3>
         </BaseControl>
 
         <BaseControl>
           <BaseControl.VisualLabel>
             {__("Length", "presto-player")}
           </BaseControl.VisualLabel>
-          <h3 css={controlCSS}>{getLengthToTime(video?.length)}</h3>
+          <h3 className="presto-stream-sidebar__control">{getLengthToTime(video?.length)}</h3>
         </BaseControl>
 
         <BaseControl>
           <BaseControl.VisualLabel>
             {__("Created", "presto-player")}
           </BaseControl.VisualLabel>
-          <h3 css={controlCSS}>{stampToDate(video?.created_at)}</h3>
+          <h3 className="presto-stream-sidebar__control">{stampToDate(video?.created_at)}</h3>
         </BaseControl>
 
         <BaseControl>

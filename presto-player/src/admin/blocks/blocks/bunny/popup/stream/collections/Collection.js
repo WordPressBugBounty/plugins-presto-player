@@ -1,11 +1,9 @@
-/** @jsx jsx */
-
 const { Icon } = wp.components;
 const { dispatch } = wp.data;
 
 import Thumb from "../ThumbTemplate";
 
-import { jsx, css } from "@emotion/core";
+import "./Collection.scss";
 
 export default ({ collection }) => {
   // handle click
@@ -22,10 +20,7 @@ export default ({ collection }) => {
         <div>
           <Icon
             icon="open-folder"
-            css={css`
-              color: var(--wp-admin-theme-color);
-              margin-right: 10px;
-            `}
+            className="presto-stream-collection__icon"
           />
           {collection.name}
         </div>

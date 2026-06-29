@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import { PrestoPlaylistUi } from "@presto-player/components-react";
+import "./edit.scss";
 const semverCompare = require("semver/functions/compare");
 import {
   store as blockEditorStore,
@@ -45,13 +44,7 @@ export default ({ attributes, setAttributes, clientId }) => {
   const { replaceInnerBlocks } = useDispatch(blockEditorStore);
 
   const blockProps = useBlockProps({
-    css: css`
-      wp-block,
-      [data-block] {
-        margin: 0 !important;
-        max-width: none !important;
-      }
-    `,
+    className: "presto-playlist-edit",
   });
 
   const { selectedBlock, playlistBlocks, playListWrapper } = useSelect(
@@ -142,9 +135,7 @@ export default ({ attributes, setAttributes, clientId }) => {
           isColumnLayout
         >
           <PlayListPlaceholder
-            css={css`
-              max-width: 600px;
-            `}
+            className="presto-playlist-edit__placeholder"
             setAttributes={({ id, title }) => {
               setAttributes({ selectedItem: id });
               replaceInnerBlocks(playListWrapper?.clientId, [
@@ -184,7 +175,8 @@ export default ({ attributes, setAttributes, clientId }) => {
           backgroundColor={highlightColor}
           textColor={"#ffffff"}
         />
-        {semverCompare(prestoPlayer?.proVersion, "2.0.4") >= 0 &&
+        {!!prestoPlayer?.proVersion &&
+          semverCompare(prestoPlayer.proVersion, "2.0.4") >= 0 &&
           !!highlightColor && (
             <ToggleControl
               label={__("Pass highlight color to player", "presto-player")}
@@ -198,9 +190,7 @@ export default ({ attributes, setAttributes, clientId }) => {
                   matchPlaylistToPlayerColor,
                 })
               }
-              css={css`
-                min-width: 250px;
-              `}
+              className="presto-playlist-edit__toggle"
             />
           )}
       </InspectorControls>
@@ -252,12 +242,7 @@ export default ({ attributes, setAttributes, clientId }) => {
           "--presto-playlist-border-radius": borderProps?.style?.borderRadius,
           border: "none",
         }}
-        css={css`
-          width: 100%;
-          .wp-block-video {
-            margin: 0 !important;
-          }
-        `}
+        className="presto-playlist-edit__wrapper"
       >
         <PrestoPlaylistUi {...innerBlocksProps} />
       </div>

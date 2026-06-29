@@ -1,4 +1,3 @@
-/** @jsx jsx */
 /**
  * WordPress dependencies
  */
@@ -18,9 +17,9 @@ import { useSelect } from "@wordpress/data";
 import ChooseProvider from "./parts/ChooseProvider";
 import ColorPopup from "../components/ColorPopup";
 
-import { css, jsx } from "@emotion/core";
+import "./Email.scss";
 
-export default function ({ state, updateState, className }) {
+export default function Email({ state, updateState, className }) {
   const { email_collection, cta } = state;
 
   const branding = useSelect((select) => {
@@ -70,14 +69,7 @@ export default function ({ state, updateState, className }) {
       {!!email_collection?.enabled && (
         <>
           <BaseControl
-            className="presto-player__control--percentage-watched"
-            css={css`
-              padding-left: 8px;
-              margin-bottom: 34px !important;
-              .components-range-control__root {
-                align-items: flex-start;
-              }
-            `}
+            className="presto-player__control--percentage-watched presto-email__range"
           >
             <RangeControl
               label={__("Display At (Percentage)", "presto-player")}
@@ -103,19 +95,13 @@ export default function ({ state, updateState, className }) {
               ]}
               shiftStep={5}
               value={email_collection?.percentage || 0}
-              css={css`
-                .components-range-control__slider {
-                  position: relative !important;
-                }
-              `}
+              className="presto-email__slider-fix"
             />
           </BaseControl>
 
           {cta?.enabled && email_collection?.percentage === cta?.percentage && (
             <Notice
-              css={css`
-                margin: 0 0 30px 0 !important;
-              `}
+              className="presto-email__notice"
               status="warning"
               isDismissible={false}
             >
@@ -126,9 +112,7 @@ export default function ({ state, updateState, className }) {
               <Button
                 onClick={disableCTA}
                 isLink
-                css={css`
-                  margin-top: 10px !important;
-                `}
+                className="presto-email__button"
               >
                 {__("Disable Call To Action", "presto-player")}
               </Button>
@@ -235,12 +219,7 @@ export default function ({ state, updateState, className }) {
               onChange={(border_radius) => updateEmailState({ border_radius })}
               min={0}
               max={25}
-              css={css`
-                padding-left: 4px;
-                .components-range-control__root {
-                  align-items: flex-start;
-                }
-              `}
+              className="presto-email__range-small"
             />
           </BaseControl>
         </>

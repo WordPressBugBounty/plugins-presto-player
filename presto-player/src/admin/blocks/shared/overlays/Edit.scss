@@ -1,0 +1,16 @@
+.presto-overlays-edit {
+  &__item {
+    padding: 3px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__meta {
+    opacity: 0.5;
+    font-size: 12px;
+  }
+}

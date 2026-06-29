@@ -14,6 +14,7 @@ export const name = "presto-player/reusable-display";
  * Block Options
  */
 export const options = {
+  apiVersion: 3,
   title: __("Media Hub Item", "presto-player"),
 
   category: "presto",

@@ -1,8 +1,7 @@
-/** @jsx jsx */
 const { ColorPicker, ColorIndicator, Popover, Button, Flex } = wp.components;
 const { useState, useEffect } = wp.element;
 const { __ } = wp.i18n;
-import { css, jsx } from "@emotion/core";
+import "./ColorPopup.scss";
 
 export default ({ color, setColor, onFocus }) => {
   const [open, setOpen] = useState(false);
@@ -17,7 +16,7 @@ export default ({ color, setColor, onFocus }) => {
   return (
     <span>
       <ColorIndicator
-        css={{ width: "25px", height: "25px", borderRadius: "9999px" }}
+        className="presto-color-popup__indicator"
         colorValue={color}
         onClick={() => {
           setOpen(!open);
@@ -31,28 +30,16 @@ export default ({ color, setColor, onFocus }) => {
           onFocusOutside={(e) => {
             setOpen(false);
           }}
-          css={css`
-            .components-color-picker,
-            .react-colorful {
-              width: 100%;
-            }
-          `}
+          className="presto-color-popup__picker"
         >
           <ColorPicker
             color={color || ""}
             onChangeComplete={(value) => value?.hex && setColor(value)}
             disableAlpha
           />
-          <div
-            css={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "10px",
-            }}
-          >
+          <div className="presto-color-popup__actions">
             <Button
-              css={{ margin: "0 5px" }}
+              className="presto-color-popup__button"
               isTertiary
               onClick={() => {
                 setColor({ hex: null });
@@ -61,15 +48,9 @@ export default ({ color, setColor, onFocus }) => {
             >
               {__("Reset", "presto-player")}
             </Button>
-            <div
-              css={{
-                display: "flex",
-                justifyContent: "flex-end",
-                padding: "10px",
-              }}
-            >
+            <div className="presto-color-popup__footer">
               <Button
-                css={{ margin: "0 5px" }}
+                className="presto-color-popup__button"
                 isTertiary
                 onClick={() => {
                   setColor({ hex: original });

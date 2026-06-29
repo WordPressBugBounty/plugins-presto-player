@@ -1,0 +1,19 @@
+.presto-video-icon {
+  &--svg {
+    color: var(--wp-admin-theme-color, #007cba);
+  }
+
+  &--img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    margin-right: 8px;
+    border-radius: 3px;
+  }
+
+  &--placeholder {
+    width: 24px;
+    margin-right: 8px;
+    line-height: 0;
+  }
+}

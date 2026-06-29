@@ -1,0 +1,41 @@
+.presto-thumb {
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 220px;
+  flex: 0 0 220px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__content {
+    margin: 14px;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  &__title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    display: inline-block;
+    margin-bottom: 7px;
+    font-size: 13px;
+  }
+
+  &__footer {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-bottom: 7px;
+  }
+}

@@ -1,0 +1,15 @@
+.presto-stream-videos {
+  &__empty {
+    height: 100%;
+    text-align: center;
+  }
+
+  &__notice {
+    display: flex;
+    align-items: center;
+  }
+
+  &__loading {
+    flex: 1;
+  }
+}

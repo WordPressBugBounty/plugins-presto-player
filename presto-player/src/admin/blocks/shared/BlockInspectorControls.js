@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import {
   BaseControl,
   Button,
@@ -7,6 +5,7 @@ import {
   Icon,
   PanelBody,
 } from "@wordpress/components";
+import "./BlockInspectorControls.scss";
 import { check, symbol } from "@wordpress/icons";
 import { __ } from "@wordpress/i18n";
 import { useSelect } from "@wordpress/data";
@@ -21,7 +20,7 @@ import InserterShortcodeInput from "../plugins/reusable-videos/ShortcodeInput";
 import EditContext from "../blocks/reusable-display/context";
 import { useContext } from "@wordpress/element";
 
-export default function ({ attributes, setAttributes }) {
+export default function BlockInspectorControls({ attributes, setAttributes }) {
   const { isEditing, setIsEditing } = useContext(EditContext);
 
   const userCanReadSettings = useSelect((select) =>
@@ -44,9 +43,7 @@ export default function ({ attributes, setAttributes }) {
               "You are currently editing a synced media hub item that may be reused across your site.",
               "presto-player"
             )}
-            css={css`
-              margin-bottom: 10px !important;
-            `}
+            className="presto-block-inspector__base-control"
           ></BaseControl>
 
           <Button

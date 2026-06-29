@@ -1,26 +1,14 @@
-/** @jsx jsx */
 const { Icon } = wp.components;
-import { css, jsx } from "@emotion/core";
+import "./BackButton.scss";
 
 export default ({ children, onClick }) => {
   return (
     <span
       onClick={onClick}
-      css={css`
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-        color: var(--wp-admin-theme-color, #007cba);
-        padding: 6px 0;
-      `}
+      className="presto-stream-back"
     >
       <Icon
-        css={css`
-          width: 14px;
-          height: 14px;
-          font-size: 14px;
-          margin-right: 5px;
-        `}
+        className="presto-stream-back__icon"
         icon="arrow-left-alt"
         size={14}
       />

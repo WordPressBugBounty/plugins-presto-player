@@ -1,0 +1,53 @@
+.presto-toolbar {
+  &__button {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    align-items: center;
+    padding: 4px;
+  }
+
+  &__badge {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: #c49000;
+
+    &.is-active {
+      background-color: #02b80d;
+    }
+  }
+
+  &__icon {
+    width: 12px;
+    line-height: 0;
+    margin: 8px;
+  }
+
+  &__popover-content {
+    padding: 2em;
+    width: 250px;
+    max-width: 100vw;
+    overflow: auto;
+    display: grid;
+    gap: 20px;
+  }
+
+  &__radio {
+    & .components-flex {
+      gap: 12px;
+    }
+
+    & .components-radio-control__input {
+      margin-right: 10px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 12px;
+    font-style: normal;
+    color: rgb(117, 117, 117);
+  }
+}

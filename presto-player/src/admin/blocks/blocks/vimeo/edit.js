@@ -3,7 +3,7 @@
  */
 const { Button, Disabled, Toolbar, Placeholder, Spinner, withNotices } =
   wp.components;
-import { BlockControls, InspectorControls } from "@wordpress/block-editor";
+import { BlockControls, InspectorControls, useBlockProps } from "@wordpress/block-editor";
 const { useEffect } = wp.element;
 const { __ } = wp.i18n;
 const { compose } = wp.compose;
@@ -39,6 +39,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       renderKey,
     }) => {
       const { poster, src, id } = attributes;
+      const blockProps = useBlockProps();
 
       const showNotice = (e) => {
         noticeOperations.removeAllNotices();
@@ -73,7 +74,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
 
       if (!src) {
         return (
-          <div>
+          <div {...blockProps}>
             <LinkPlaceholder
               icon={
                 <svg
@@ -105,14 +106,16 @@ export default compose([withPlayerData(), withPlayerEdit()])(
       // loading presets or id still
       if (loading || !id) {
         return (
-          <Placeholder className="presto-player__placeholder is-loading">
-            <Spinner />
-          </Placeholder>
+          <div {...blockProps}>
+            <Placeholder className="presto-player__placeholder is-loading">
+              <Spinner />
+            </Placeholder>
+          </div>
         );
       }
 
       return (
-        <>
+        <div {...blockProps}>
           <BlockControls>
             <Toolbar>
               <Button onClick={() => onRemoveSrc()}>
@@ -148,7 +151,7 @@ export default compose([withPlayerData(), withPlayerEdit()])(
               />
             </Disabled>
           </figure>
-        </>
+        </div>
       );
     }
   )

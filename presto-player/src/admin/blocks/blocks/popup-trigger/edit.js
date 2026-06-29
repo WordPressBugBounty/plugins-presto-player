@@ -3,8 +3,8 @@ import { useSelect, useDispatch } from "@wordpress/data";
 import { Placeholder } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { button as buttonIcon } from "@wordpress/icons";
-import { css } from "@emotion/react";
 import Tag from "../../shared/components/Tag";
+import "./edit.scss";
 import TriggerSelection from "../popup/components/TriggerSelection";
 import { usePopupTemplate } from "../popup/hooks/usePopupTemplate";
 
@@ -31,21 +31,23 @@ export default ({ clientId }) => {
   const hasInnerBlocks = innerBlocks && innerBlocks.length > 0;
 
   const blockProps = useBlockProps({
-    css: css`
-      position: relative;
-    `,
+    className: "presto-popup-trigger-edit",
+    style: { position: "relative" },
   });
 
   // ================================================
   // Configure inner blocks
   // ================================================
 
-  const innerBlocksProps = useInnerBlocksProps(blockProps, {
-    // Allow different blocks based on premium status - use core/image instead of core/cover for non-premium users.
-    allowedBlocks: !prestoPlayer?.hasRequiredProVersion?.popups
-      ? ["core/image", "core/buttons", "core/button", "core/paragraph"]
-      : true,
-  });
+  const innerBlocksProps = useInnerBlocksProps(
+    {},
+    {
+      // Allow different blocks based on premium status - use core/image instead of core/cover for non-premium users.
+      allowedBlocks: !prestoPlayer?.hasRequiredProVersion?.popups
+        ? ["core/image", "core/buttons", "core/button", "core/paragraph"]
+        : true,
+    }
+  );
 
   // ================================================
   // Render inner blocks
@@ -81,18 +83,10 @@ export default ({ clientId }) => {
   }
 
   return (
-    <div style={{ position: "relative" }}>
+    <div {...blockProps}>
       <Tag
         label={__("Trigger", "presto-player")}
-        className="presto-popup-tag"
-        css={css`
-          position: absolute;
-          top: 0px;
-          right: 0px;
-          z-index: 10;
-          display: none;
-          border-radius: 1px;
-        `}
+        className="presto-popup-tag presto-popup-trigger-edit__tag"
       />
       <div {...innerBlocksProps} />
     </div>

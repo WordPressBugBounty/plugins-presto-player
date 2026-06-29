@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import {
   store as blockEditorStore,
   useBlockProps,

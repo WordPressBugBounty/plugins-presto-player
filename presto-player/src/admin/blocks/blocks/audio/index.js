@@ -1,5 +1,7 @@
 import { __ } from "@wordpress/i18n";
 import edit from "./edit";
+import metadata from "./block.json";
+export { metadata };
 export const name = "presto-player/audio";
 
 export const options = {

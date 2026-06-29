@@ -1,12 +1,11 @@
-/** @jsx jsx */
 const { Flex, FlexBlock, Spinner } = wp.components;
 
-import { jsx } from "@emotion/core";
+import "./Loading.scss";
 
 export default ({ className }) => {
   return (
     <Flex className={className}>
-      <FlexBlock css={{ textAlign: "center" }}>
+      <FlexBlock className="presto-stream-loading">
         <Spinner />
       </FlexBlock>
     </Flex>

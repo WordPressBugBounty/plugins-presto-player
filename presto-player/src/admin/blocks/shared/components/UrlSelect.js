@@ -1,4 +1,3 @@
-/** @jsx jsx */
 const { __ } = wp.i18n;
 const { Button, Popover, Icon } = wp.components;
 
@@ -6,7 +5,7 @@ const { __experimentalLinkControl: LinkControl } = wp.blockEditor;
 const { useState } = wp.element;
 const { prependHTTP } = wp.url;
 
-import { css, jsx } from "@emotion/core";
+import "./UrlSelect.scss";
 
 export default ({ setSettings, settings }) => {
   const [visible, setVisible] = useState(false);
@@ -82,47 +81,16 @@ export default ({ setSettings, settings }) => {
   return (
     <span>
       {url ? (
-        <div
-          css={css`
-            display: flex;
-            justify-content: space-between;
-          `}
-        >
-          <div
-            css={css`
-              max-width: 85%;
-              overflow: hidden;
-              display: flex;
-              align-items: center;
-            `}
-          >
+        <div className="presto-url-select__display">
+          <div className="presto-url-select__url-container">
             <a
               href="#"
-              css={css`
-                padding: 10px;
-                background: #f3f3f3;
-                border-radius: 4px;
-                width: 100%;
-                display: inline-flex;
-                align-items: center;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                text-decoration: none;
-              `}
+              className="presto-url-select__link"
               onClick={() => setVisible(!visible)}
             >
               <Icon
                 icon="edit"
-                css={css`
-                  cursor: pointer;
-                  opacity: 0.75;
-                  margin: 0 2px;
-                  font-size: 16px;
-                  width: 16px;
-                  height: 16px;
-                  text-decoration: none;
-                `}
+                className="presto-url-select__edit-icon"
               />
               {url}
             </a>
@@ -135,28 +103,11 @@ export default ({ setSettings, settings }) => {
               </Popover>
             )}
           </div>
-          <div
-            css={css`
-              display: flex;
-              align-items: center;
-            `}
-          >
+          <div className="presto-url-select__actions">
             <Icon
               onClick={confirmTrash}
               icon="trash"
-              className="presto-icon"
-              css={css`
-                cursor: pointer;
-                opacity: 0.75;
-                margin: 0 2px;
-                fontsize: 18px;
-                width: 18px;
-                height: 18px;
-
-                &:hover {
-                  color: #cc1818;
-                }
-              `}
+              className="presto-url-select__trash-icon"
             />
           </div>
         </div>
@@ -166,7 +117,7 @@ export default ({ setSettings, settings }) => {
             {__("Add Link", "presto-player")}
           </Button>
           {visible && (
-            <Popover css={css`margin-top: 10px`} position="bottom right" onClose={() => setVisible(false)}>
+            <Popover className="presto-url-select__popover" position="bottom right" onClose={() => setVisible(false)}>
               <LinkControl value={settings} onChange={onChangeLink} />
             </Popover>
           )}

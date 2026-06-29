@@ -1,4 +1,3 @@
-/** @jsx jsx */
 /**
  * WordPress dependencies
  */
@@ -8,7 +7,7 @@ const { useState, useEffect } = wp.element;
 const { useSelect } = wp.data;
 import { nanoid } from "nanoid";
 
-import { css, jsx } from "@emotion/core";
+import "./Edit.scss";
 import Preview from "../Preview";
 import Overlay from "./components/Overlay";
 
@@ -134,7 +133,7 @@ const EditOverlay = ({
       <div className="presto-player__preset-options" data-cy="preset-modal">
         <Flex align="stretch" className="presto-player__style-preview-area">
           <FlexItem className="presto-player__style-sidebar">
-            <div css={{ padding: "3px" }}>
+            <div className="presto-overlays-edit__item">
               {sorted().map((overlay, i) => {
                 return (
                   <Overlay
@@ -188,17 +187,10 @@ const EditOverlay = ({
         <br />
 
         <div
-          css={css`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          `}
+          className="presto-overlays-edit__footer"
         >
           <div
-            css={css`
-              opacity: 0.5;
-              font-size: 12px;
-            `}
+            className="presto-overlays-edit__meta"
           ></div>
           <div>
             <Button isTertiary onClick={closeModal} style={{ margin: "0 6px" }}>

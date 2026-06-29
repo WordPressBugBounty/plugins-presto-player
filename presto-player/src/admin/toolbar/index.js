@@ -2,7 +2,7 @@ import { Button, Popover, RadioControl } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
 import { render, useState, useRef } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import { css, jsx } from "@emotion/core";
+import "./index.scss";
 
 const EditApp = () => {
   const META_KEY = "presto_player_instant_video_pages_enabled";
@@ -30,31 +30,14 @@ const EditApp = () => {
       <Button
         variant="tertiary"
         onClick={toggleVisible}
-        css={css`
-          display: flex;
-          justify-content: center;
-          gap: 0;
-          align-items: center;
-          padding: 4px;
-        `}
+        className="presto-toolbar__button"
       >
         <div
-          className="pp-instant-video-badge"
-          css={css`
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            margin: 10px;
-            background-color: ${customMeta ? "#02b80d" : "#c49000"};
-          `}
+          className={`presto-toolbar__badge ${customMeta ? 'is-active' : ''}`}
         ></div>
         {__("Instant Video Page", "presto-player")}
         <div
-          css={css`
-            width: 12px;
-            line-height: 0;
-            margin: 8px;
-          `}
+          className="presto-toolbar__icon"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,14 +63,7 @@ const EditApp = () => {
           className="pp-instant-video-dropdown"
         >
           <div
-            css={css`
-              padding: 2em;
-              width: 250px;
-              max-width: 100vw;
-              overflow: auto;
-              display: grid;
-              gap: 20px;
-            `}
+            className="presto-toolbar__popover-content"
           >
             <RadioControl
               label={__("Visibility", "presto-player")}
@@ -97,22 +73,10 @@ const EditApp = () => {
                 { label: __("Unpublished", "presto-player"), value: "private" },
               ]}
               onChange={onCustomMetaChange}
-              css={css`
-                & .components-flex {
-                  gap: 12px;
-                }
-                & .components-radio-control__input {
-                  margin-right: 10px;
-                }
-              `}
+              className="presto-toolbar__radio"
             />
             <p
-              css={css`
-                margin: 0;
-                font-size: 12px;
-                font-style: normal;
-                color: rgb(117, 117, 117);
-              `}
+              className="presto-toolbar__description"
             >
               {__(
                 "An instant video page gives you an instant shareable page for your media.",

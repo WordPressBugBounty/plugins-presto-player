@@ -1,39 +1,18 @@
 import { Flex } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
-import { css } from "@emotion/core";
 import ProBadge from "../../components/ProBadge";
+import "./VideoProvider.scss";
 
 const VideoProvider = ({ provider, icon, onSelect, pro }) => {
   return (
     <Flex direction="column" gap="14px" onClick={onSelect}>
       <Flex
-        css={css`
-          width: 80px;
-          min-width: 80px;
-          height: 80px;
-          border: 1px solid #dddddd;
-          border-radius: 4px;
-          position: relative;
-          &:hover {
-            cursor: pointer;
-            border-color: #007cba;
-            box-shadow: 0px 5px 9px 0px #00000012;
-          }
-        `}
+        className="presto-video-provider__icon-box"
         justify="center"
         align="center"
       >
         {pro && (
-          <div
-            css={css`
-              position: absolute;
-              top: 0;
-              right: 0;
-              .presto-player__pro-badge {
-                margin: 4px;
-              }
-            `}
-          >
+          <div className="presto-video-provider__pro-badge">
             <ProBadge />
           </div>
         )}
@@ -41,17 +20,9 @@ const VideoProvider = ({ provider, icon, onSelect, pro }) => {
       </Flex>
       <Flex
         justify="center"
-        css={css`
-          height: 20px;
-        `}
+        className="presto-video-provider__label"
       >
-        <p
-          css={css`
-            font-weight: 500;
-            font-size: 14px;
-            margin: 0px !important;
-          `}
-        >
+        <p className="presto-video-provider__name">
           {provider}
         </p>
       </Flex>

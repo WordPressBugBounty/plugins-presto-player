@@ -474,6 +474,7 @@ export declare class PrestoPlayer {
      */
     renderSearchBar(): void;
     stickyPositionClass(): string;
+    updatePoster(newPoster: string): void;
     /** We append this instead of using JSX because we want it to work in fullscreen. */
     renderDynamicOverlays(): void;
     handleCtaStateChange(ev: any): void;

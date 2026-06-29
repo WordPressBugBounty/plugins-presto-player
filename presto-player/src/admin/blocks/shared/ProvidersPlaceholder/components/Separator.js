@@ -2,31 +2,19 @@ import {
   Flex
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
-import { css } from "@emotion/core";
+import "./Separator.scss";
 
 const Separator = ({ icon }) => {
   return (
     <Flex
       align="center"
-      css={css`
-        max-width: 100%;
-      `}
+      className="presto-separator"
     >
-      <span
-        css={css`
-          display: flex;
-          max-width: 210px;
-        `}
-      >
+      <span className="presto-separator__line">
         {icon}
       </span>
       <span>{__('or', 'presto-player')}</span>
-      <span
-        css={css`
-          display: flex;
-          max-width: 210px;
-        `}
-      >
+      <span className="presto-separator__line">
         {icon}
       </span>
     </Flex>

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./Collections.scss";
 
 const { __ } = wp.i18n;
 const { useEffect } = wp.element;
@@ -40,13 +39,7 @@ export default () => {
     !!collections.length && (
       <div>
         <h2>{__("Collections", "presto-player")}</h2>
-        <div
-          css={css`
-            display: flex;
-            align-items: stretch;
-            overflow: auto;
-          `}
-        >
+        <div className="presto-stream-collections">
           {collections.map((collection) => (
             <Collection collection={collection} key={collection.guid} />
           ))}

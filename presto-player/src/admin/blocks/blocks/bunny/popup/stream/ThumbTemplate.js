@@ -1,73 +1,31 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./ThumbTemplate.scss";
 
 export default (props) => {
   const { thumbnail, title, footer, badge, before, after } = props;
   return (
     <div
-      className="presto-player__video-thumb"
-      css={css`
-        cursor: pointer;
-        user-select: none;
-        display: inline-block;
-        position: relative;
-        margin-right: 20px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        width: 220px;
-        flex: 0 0 220px;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        overflow: hidden;
-      `}
       {...props}
+      className={`presto-thumb ${props.className || ''}`}
     >
       {!!before && before}
 
       {!!thumbnail && thumbnail}
 
-      <div
-        css={css`
-          margin: 14px;
-        `}
-      >
+      <div className="presto-thumb__content">
         {!!badge && (
-          <div
-            css={css`
-              position: absolute;
-              top: 8px;
-              right: 8px;
-            `}
-          >
+          <div className="presto-thumb__badge">
             {badge}
           </div>
         )}
 
         {!!title && (
-          <span
-            css={css`
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
-              width: 100%;
-              max-width: 100%;
-              display: inline-block;
-              margin-bottom: 7px;
-              font-size: 13px;
-            `}
-          >
+          <span className="presto-thumb__title">
             {title}
           </span>
         )}
 
         {!!footer && (
-          <div
-            css={css`
-              font-size: 12px;
-              opacity: 0.75;
-              margin-bottom: 7px;
-            `}
-          >
+          <div className="presto-thumb__footer">
             {footer}
           </div>
         )}

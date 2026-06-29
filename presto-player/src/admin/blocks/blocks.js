@@ -105,11 +105,12 @@ const refreshAllBlocks = (changedNames = []) => {
 // Load all block index files.
 autoload({
   getContext: () => require.context("./blocks", true, /index\.js$/),
-  register: ({ name, options }) => {
+  register: ({ name, metadata, options }) => {
+    const blockId = metadata ? { name, ...metadata } : name;
     if (prestoPlayer?.isPremium) {
-      registerBlockType(name, options);
+      registerBlockType(blockId, options);
     } else if (!options.premium) {
-      registerBlockType(name, options);
+      registerBlockType(blockId, options);
     }
   },
   unregister: ({ name }) => unregisterBlockType(name),

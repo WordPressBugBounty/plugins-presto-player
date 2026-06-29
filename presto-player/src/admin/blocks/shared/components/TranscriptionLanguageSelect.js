@@ -1,4 +1,5 @@
 import { Select, Text } from "@bsf/force-ui";
+import { FormTokenField } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
 export const TRANSCRIPTION_LANGUAGES = [
@@ -68,6 +69,42 @@ export const getLanguageLabel = (value) => {
 export const getLanguageValue = (label) => {
   const lang = TRANSCRIPTION_LANGUAGES.find((l) => l.label === label);
   return lang ? lang.value : null;
+};
+
+// Editor variant — FormTokenField is styled by core everywhere (popover + iframe),
+// unlike the force-ui Select which needs tailwind.css (only loaded on the dashboard).
+export const TranscriptionLanguageTokenField = ({
+  value = [],
+  onChange,
+  showWarning = false,
+}) => {
+  const hasNoLanguages = !value || value.length === 0;
+  const helpText =
+    hasNoLanguages && showWarning
+      ? __(
+          "At least one language is required. Please select at least one language.",
+          "presto-player"
+        )
+      : __(
+          "Select one or more languages. Start typing to search.",
+          "presto-player"
+        );
+
+  return (
+    <div className="presto-player__transcription-languages">
+      <FormTokenField
+        label={__("Languages", "presto-player")}
+        value={value.map(getLanguageLabel)}
+        suggestions={TRANSCRIPTION_LANGUAGES.map((l) => l.label)}
+        onChange={(labels) => {
+          onChange(labels.map(getLanguageValue).filter((v) => v !== null));
+        }}
+        __experimentalExpandOnFocus={true}
+        __experimentalShowHowTo={false}
+      />
+      <p className="components-base-control__help">{helpText}</p>
+    </div>
+  );
 };
 
 const TranscriptionLanguageSelect = ({

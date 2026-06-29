@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./edit.scss";
 import {
   store as blockEditorStore,
   useBlockProps,
@@ -18,7 +17,7 @@ import {
   MenuGroup,
 } from "@wordpress/components";
 import { symbol, symbolFilled } from "@wordpress/icons";
-import { useState } from "@wordpress/element";
+import { useState, useEffect } from "@wordpress/element";
 import { useEntityProp } from "@wordpress/core-data";
 import { createBlock } from "@wordpress/blocks";
 import { store as coreStore } from "@wordpress/core-data";
@@ -30,9 +29,11 @@ export default ({ clientId, attributes, setAttributes, context }) => {
   const { saveEntityRecord } = useDispatch(coreStore);
   const { createErrorNotice } = useDispatch("core/notices");
   const innerBlocks = useSelect(
-    (select) => select(blockEditorStore).getBlock(clientId).innerBlocks
+    (select) => select(blockEditorStore).getBlock(clientId)?.innerBlocks
   );
-  setTemplateValidity(true);
+  useEffect(() => {
+    setTemplateValidity(true);
+  }, []);
   const blockProps = useBlockProps();
   const innerBlocksProps = useInnerBlocksProps(blockProps, {
     templateLock: false,
@@ -101,15 +102,7 @@ export default ({ clientId, attributes, setAttributes, context }) => {
                     <Flex>
                       <Button
                         onClick={onToggle}
-                        css={css`
-                          background: transparent;
-                          border: none;
-                          cursor: pointer;
-                          display: flex;
-                          justify-content: space-between;
-                          align-items: center;
-                          gap: 4px;
-                        `}
+                        className="presto-media-hub-edit__sync-button"
                         icon={
                           sync ? (
                             <Icon icon={symbolFilled} />

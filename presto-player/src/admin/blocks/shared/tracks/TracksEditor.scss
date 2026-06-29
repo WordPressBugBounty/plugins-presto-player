@@ -1,0 +1,61 @@
+.block-library-video-tracks-editor {
+  &__track-list-track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__single-track-editor-buttons-container {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__transcription-container {
+    .components-menu-group__label {
+      padding: 0;
+    }
+
+    .presto-player__transcription-languages .components-base-control__help {
+      margin-top: 8px;
+      margin-bottom: 0;
+      color: #757575;
+    }
+  }
+}
+
+.presto-player__modal-confirm {
+  max-width: 400px;
+}
+
+.presto-player__modal-transcribe {
+  max-width: 450px;
+}
+
+.presto-player__modal-confirm-overlay,
+.presto-player__modal-transcribe-overlay {
+  z-index: 1000001 !important;
+
+  .components-modal__frame {
+    z-index: 1000002 !important;
+  }
+}
+
+.presto-player__modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.presto-player__modal-note {
+  margin-top: 8px;
+}
+
+.presto-player__transcribe-pricing-link {
+  color: var(--wp-admin-theme-color, #007cba);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--wp-admin-theme-color-darker-10, #006ba1);
+  }
+}

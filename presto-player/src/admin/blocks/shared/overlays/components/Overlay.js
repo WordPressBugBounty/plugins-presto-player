@@ -1,4 +1,3 @@
-/** @jsx jsx */
 const { __ } = wp.i18n;
 const {
   Flex,
@@ -11,7 +10,7 @@ const {
   withFocusReturn,
 } = wp.components;
 const { useRef, useEffect } = wp.element;
-import { css, jsx } from "@emotion/core";
+import "./Overlay.scss";
 
 import { sanitizeTime, timeToSeconds, secondsToTime } from "../../../util";
 import UrlSelect from "../../components/UrlSelect";
@@ -64,7 +63,7 @@ const Overlay = ({
   };
 
   return (
-    <div>
+    <div className="presto-overlay">
       <Flex align="center" className={className}>
         <FlexItem>
           <TextControl
@@ -193,7 +192,7 @@ const Overlay = ({
         </BaseControl>
       )}
 
-      <hr css={{ marginBottom: "20px" }} />
+      <hr />
     </div>
   );
 };

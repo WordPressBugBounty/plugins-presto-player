@@ -1,4 +1,7 @@
 *** Presto Player Changelog ***
+= 4.3.0 =
+* Improvement: Migrated to Block API v3 for improved compatibility and performance.
+* Improvement: Reworked editor styling for better performance and reliability.
 
 = 4.2.4 =
 * Improvement: WordPress.org plugin guideline compliance and Plugin Check hardening.

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./Uploads.scss";
 
 import Upload from "./Upload";
 const { useSelect } = wp.data;
@@ -14,21 +13,12 @@ export default ({ removeUpload, isPrivate }) => {
   }
 
   return (
-    <div
-      css={css`
-        overflow: auto;
-        display: flex;
-        align-items: center;
-        position: relative;
-      `}
-    >
+    <div className="presto-stream-uploads">
       {uploads.length &&
         uploads.map((upload) => {
           return (
             <Upload
-              css={css`
-                margin-right: 0px;
-              `}
+              className="presto-stream-uploads__item"
               file={upload}
               onComplete={() => removeUpload(upload)}
             />

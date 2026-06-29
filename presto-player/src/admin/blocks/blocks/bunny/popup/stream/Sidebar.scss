@@ -1,0 +1,26 @@
+.presto-stream-sidebar {
+  &__preview {
+    position: relative;
+  }
+
+  &__preview-img {
+    max-width: 100%;
+  }
+
+  &__badge {
+    top: 8px;
+    right: 8px;
+    font-size: 11px;
+    color: #ffffff;
+    padding: 2px 10px;
+    border-radius: 9999px;
+
+    &.is-selectable {
+      position: absolute;
+    }
+  }
+
+  &__control {
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,23 @@
+.presto-stream-popup {
+  &__dropzone {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    padding: 12px 24px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__notice {
+    margin: 0 0 20px 0;
+  }
+
+  &__layout {
+    display: flex;
+    align-items: stretch;
+  }
+}

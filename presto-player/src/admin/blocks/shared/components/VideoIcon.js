@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { getBlockType } from "@wordpress/blocks";
-import { css } from "@emotion/core";
+import "./VideoIcon.scss";
 
 export default ({ thumbnail, type }) => {
   const getIcon = () => {
@@ -12,10 +12,7 @@ export default ({ thumbnail, type }) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="w-6 h-6"
-        css={css`
-          color: var(--wp-admin-theme-color, #007cba);
-        `}
+        className="presto-video-icon--svg"
       >
         <path
           fillRule="evenodd"
@@ -29,13 +26,7 @@ export default ({ thumbnail, type }) => {
   if (thumbnail) {
     return (
       <img
-        css={css`
-          width: 24px;
-          height: 24px;
-          object-fit: cover;
-          margin-right: 8px;
-          border-radius: 3px;
-        `}
+        className="presto-video-icon--img"
         src={thumbnail}
         alt="Presto video thumbnail"
       />
@@ -43,13 +34,7 @@ export default ({ thumbnail, type }) => {
   }
 
   return (
-    <div
-      css={css`
-        width: 24px;
-        margin-right: 8px;
-        line-height: 0;
-      `}
-    >
+    <div className="presto-video-icon--placeholder">
       {getIcon()}
     </div>
   );

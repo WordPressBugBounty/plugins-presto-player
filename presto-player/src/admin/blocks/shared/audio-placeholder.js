@@ -3,7 +3,6 @@
  */
 
 import classnames from "classnames";
-const baseCurrentUrl = window.location.href;
 import helpers from "./helpers";
 
 /**
@@ -204,9 +203,9 @@ export function MediaPlaceholder({
                 event.stopPropagation();
                 helpers.unsetUrlParams();
                 if (isPrivate) {
-                  helpers.setUrlPrivate(baseCurrentUrl);
+                  helpers.setUrlPrivate();
                 } else {
-                  helpers.setUrlPublic(baseCurrentUrl);
+                  helpers.setUrlPublic();
                 }
                 open();
               }}

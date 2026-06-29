@@ -1,0 +1,8 @@
+.presto-separator {
+  max-width: 100%;
+
+  &__line {
+    display: flex;
+    max-width: 210px;
+  }
+}

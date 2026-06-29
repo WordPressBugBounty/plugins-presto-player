@@ -9,7 +9,7 @@ import debounce from "debounce-promise";
 import EntitySearchDropdown from "./EntitySearchDropdown";
 import VideoIcon from "./VideoIcon";
 import { Button, MenuItem } from "@wordpress/components";
-import { css, jsx } from "@emotion/core";
+import "./SelectMediaDropdown.scss";
 
 const SelectMediaDropdown = ({ onSelect, value, ...props }) => {
   const [search, setSearch] = useState("");
@@ -131,15 +131,7 @@ const SelectMediaDropdown = ({ onSelect, value, ...props }) => {
             onClick={() => onSelect(item)}
             disabled={(disabledItems || []).includes(id)}
             key={id}
-            css={css`
-              .components-menu-item__item {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: inline-block;
-                text-align: left;
-              }
-            `}
+            className="presto-select-media-dropdown__item"
           >
             {title || __("Untitled", "presto-player")}
           </MenuItem>

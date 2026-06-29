@@ -1,0 +1,45 @@
+.presto-providers-placeholder {
+  &--loading.components-placeholder {
+    padding: 16px;
+  }
+
+  &.components-placeholder {
+    padding: 32px;
+  }
+
+  &__label {
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    margin: 0px !important;
+  }
+
+  &__description {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    margin: 0px !important;
+  }
+
+  &__grid {
+    max-width: 540px;
+    width: 100%;
+  }
+
+  &__row {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__menu-item {
+    .components-menu-item__item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      text-align: left;
+    }
+  }
+}

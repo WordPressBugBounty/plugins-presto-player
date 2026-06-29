@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./Upload.scss";
 
 const { Icon } = wp.components;
 const { useState, useEffect, useContext } = wp.element;
@@ -96,54 +95,14 @@ export default ({ file, name, onComplete }) => {
   }
 
   return (
-    <div
-      css={css`
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        animation: components-button__busy-animation 2500ms infinite linear;
-        opacity: 1;
-        padding: 6px 12px;
-        border-radius: 99999px;
-        border: 1px solid #dddddd;
-        background-size: 100px 100%;
-        background-image: linear-gradient(
-          -45deg,
-          #ffffff 33%,
-          #f3f3f3 33%,
-          #f3f3f3 70%,
-          #ffffff 70%
-        );
-      `}
-    >
-      <div
-        css={css`
-          flex: 1;
-          white-space: nowrap;
-          overflow: hidden;
-          max-width: 150px;
-          text-overflow: ellipsis;
-          font-weight: bold;
-        `}
-      >
+    <div className="presto-stream-upload">
+      <div className="presto-stream-upload__name">
         {!!error && error}
         {!!name && name} {file.name}...
       </div>
-      <div
-        css={css`
-          display: flex;
-          align-items: center;
-        `}
-      >
+      <div className="presto-stream-upload__progress">
         <ProgressBar
-          css={css`
-            width: 50px;
-            height: 3px;
-            margin: 0 5px;
-            background: #e3e3e3;
-            border-radius: 9999px;
-            overflow: hidden;
-          `}
+          className="presto-stream-upload__progress-bar"
           progress={progress}
         />
         {/* <Icon onClick={onCancel} icon="no-alt" /> */}

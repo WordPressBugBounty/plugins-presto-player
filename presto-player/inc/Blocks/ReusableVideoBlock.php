@@ -37,7 +37,9 @@ class ReusableVideoBlock {
 	public function registerBlockType() {
 		register_block_type(
 			"presto-player/$this->name",
+			// @phpstan-ignore-next-line -- WP stubs follow core's docblock typing api_version as string, but WP_Block_Type::$api_version is int.
 			array(
+				'api_version'     => 3,
 				'render_callback' => array( $this, 'html' ),
 			)
 		);

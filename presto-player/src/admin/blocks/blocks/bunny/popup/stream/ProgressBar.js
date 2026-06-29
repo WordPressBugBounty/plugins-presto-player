@@ -1,14 +1,10 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import "./ProgressBar.scss";
 
 export default ({ className, progress }) => {
   return (
     <div className={className}>
       <div
-        css={css`
-          height: 100%;
-          background-color: var(--wp-admin-theme-color, #007cba);
-        `}
+        className="presto-progress-bar__fill"
         style={{ width: `${progress}%` }}
       ></div>
     </div>

@@ -1,0 +1,12 @@
+.presto-popup-media-edit {
+  position: relative;
+
+  &__tag {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    display: none;
+    border-radius: 1px;
+  }
+}

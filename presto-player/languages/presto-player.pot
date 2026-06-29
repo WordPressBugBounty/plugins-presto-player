@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-23T09:59:11+00:00\n"
+"POT-Creation-Date: 2026-06-29T05:27:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -24,7 +24,7 @@ msgid "Title"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:62
-#: admin/blocks/shared/BlockInspectorControls.js:64
+#: admin/blocks/shared/BlockInspectorControls.js:61
 #: admin/blocks/shared/chapters/ChaptersPanel.js:6
 #: Services/Translation.php:83
 msgid "Chapters"
@@ -80,11 +80,11 @@ msgid "Select"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:138
-#: admin/blocks/blocks/audio/edit.js:128
-#: admin/blocks/blocks/bunny/edit.js:480
-#: admin/blocks/blocks/hosted/edit.js:213
-#: admin/blocks/blocks/vimeo/edit.js:119
-#: admin/blocks/blocks/youtube/edit.js:119
+#: admin/blocks/blocks/audio/edit.js:131
+#: admin/blocks/blocks/bunny/edit.js:543
+#: admin/blocks/blocks/hosted/edit.js:216
+#: admin/blocks/blocks/vimeo/edit.js:122
+#: admin/blocks/blocks/youtube/edit.js:122
 #: admin/blocks/shared/branding/index.js:87
 #: admin/blocks/shared/settings/index.js:244
 #: admin/blocks/shared/settings/MutedPreviewOptions.js:65
@@ -114,7 +114,7 @@ msgid "Audio Preset"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:175
-#: admin/blocks/shared/BlockInspectorControls.js:96
+#: admin/blocks/shared/BlockInspectorControls.js:93
 msgid "Global Player Branding"
 msgstr ""
 
@@ -124,13 +124,13 @@ msgstr ""
 
 #. translators: %s: Label of the video text track e.g: "French subtitles"
 #: admin/blocks/blocks/audio/AudioTranscription.js:61
-#: admin/blocks/shared/tracks/TracksEditor.js:82
+#: admin/blocks/shared/tracks/TracksEditor.js:75
 #, js-format
 msgid "Edit %s"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:65
-#: admin/blocks/shared/tracks/TracksEditor.js:86
+#: admin/blocks/shared/tracks/TracksEditor.js:79
 #: admin/dashboard/components/MediaHub/MediaRow.js:268
 #: admin/dashboard/components/MediaHub/MediaRow.js:274
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:161
@@ -148,44 +148,44 @@ msgid "Edit transcription track"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:93
-#: admin/blocks/shared/tracks/TracksEditor.js:120
+#: admin/blocks/shared/tracks/TracksEditor.js:113
 msgid "File"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:106
-#: admin/blocks/shared/tracks/TracksEditor.js:133
+#: admin/blocks/shared/tracks/TracksEditor.js:126
 msgid "Label"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:108
-#: admin/blocks/shared/tracks/TracksEditor.js:135
+#: admin/blocks/shared/tracks/TracksEditor.js:128
 msgid "Title of track"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:117
-#: admin/blocks/shared/tracks/TracksEditor.js:145
+#: admin/blocks/shared/tracks/TracksEditor.js:138
 msgid "Source language"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:119
-#: admin/blocks/shared/tracks/TracksEditor.js:147
+#: admin/blocks/shared/tracks/TracksEditor.js:140
 msgid "Language tag (en, fr, etc.)"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:144
-#: admin/blocks/shared/tracks/TracksEditor.js:179
+#: admin/blocks/shared/tracks/TracksEditor.js:166
 msgid "English"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:160
-#: admin/blocks/shared/tracks/TracksEditor.js:195
-#: admin/blocks/shared/tracks/TracksEditor.js:506
+#: admin/blocks/shared/tracks/TracksEditor.js:182
+#: admin/blocks/shared/tracks/TracksEditor.js:452
 #: Blocks/PopupMediaBlock.php:118
 msgid "Close"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:163
-#: admin/blocks/shared/tracks/TracksEditor.js:198
+#: admin/blocks/shared/tracks/TracksEditor.js:185
 msgid "Remove track"
 msgstr ""
 
@@ -194,12 +194,12 @@ msgid "Add transcription languages"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:232
-#: admin/blocks/shared/tracks/TracksEditor.js:658
+#: admin/blocks/shared/tracks/TracksEditor.js:580
 msgid "Open Media Library"
 msgstr ""
 
 #: admin/blocks/blocks/audio/AudioTranscription.js:267
-#: admin/blocks/shared/tracks/TracksEditor.js:693
+#: admin/blocks/shared/tracks/TracksEditor.js:615
 msgid "Upload"
 msgstr ""
 
@@ -233,11 +233,11 @@ msgstr ""
 msgid "Private audio uses php to stream your audio. Keep in mind this will use up disk space and bandwidth so it may not be an appropriate choice for some hosts."
 msgstr ""
 
-#: admin/blocks/blocks/audio/index.js:57
+#: admin/blocks/blocks/audio/index.js:59
 msgid "Presto Private Audio"
 msgstr ""
 
-#: admin/blocks/blocks/audio/index.js:75
+#: admin/blocks/blocks/audio/index.js:77
 msgid "Private self-hosted audio block."
 msgstr ""
 
@@ -246,7 +246,7 @@ msgid "Remove this"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/APIPlaceholder.js:42
-#: admin/blocks/blocks/bunny/edit.js:385
+#: admin/blocks/blocks/bunny/edit.js:448
 msgid "Bunny.net Video"
 msgstr ""
 
@@ -264,71 +264,71 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:281
+#: admin/blocks/blocks/bunny/edit.js:338
 msgid "Add/Select Private Video Stream"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:282
+#: admin/blocks/blocks/bunny/edit.js:339
 msgid "Add/Select Video Stream"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:293
+#: admin/blocks/blocks/bunny/edit.js:350
 msgid "Add/Select Private Video (Classic)"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:294
+#: admin/blocks/blocks/bunny/edit.js:351
 msgid "Add/Select Video (Classic)"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:306
+#: admin/blocks/blocks/bunny/edit.js:363
 msgid "Enable Bunny.net Stream!"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:320
+#: admin/blocks/blocks/bunny/edit.js:377
 msgid "Reconnect Stream"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:321
+#: admin/blocks/blocks/bunny/edit.js:378
 msgid "Connect Stream"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:331
+#: admin/blocks/blocks/bunny/edit.js:388
 msgid "Reconnect Storage (Classic)"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:332
+#: admin/blocks/blocks/bunny/edit.js:389
 msgid "Connect Storage (Classic)"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:339
+#: admin/blocks/blocks/bunny/edit.js:396
 msgid "Connection Options"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:384
+#: admin/blocks/blocks/bunny/edit.js:447
 msgid "Bunny.net Private Video"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/edit.js:420
+#: admin/blocks/blocks/bunny/edit.js:483
 msgid "Add or select a Bunny.net video"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:62
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:53
 msgid "Back To Main Folder"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:67
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:58
 msgid "Delete Collection"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:77
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:68
 msgid "Are you sure you want to delete the collection? "
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:83
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:74
 msgid "This will also delete all videos inside of the collection."
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:95
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:86
 #: admin/dashboard/components/MediaHub/BulkActions.js:69
 #: admin/dashboard/pages/Emails.js:332
 #: admin/dashboard/pages/Emails.js:679
@@ -338,24 +338,24 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:98
-#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:79
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:158
+#: admin/blocks/blocks/bunny/popup/stream/CollectionHeader.js:89
+#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:76
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:141
 #: admin/blocks/blocks/playlist-list/create.js:35
-#: admin/blocks/shared/audio-placeholder.js:140
-#: admin/blocks/shared/audio-placeholder.js:144
-#: admin/blocks/shared/audioPresets/Edit.js:340
+#: admin/blocks/shared/audio-placeholder.js:139
+#: admin/blocks/shared/audio-placeholder.js:143
+#: admin/blocks/shared/audioPresets/Edit.js:332
 #: admin/blocks/shared/audioPresets/Preset.js:241
-#: admin/blocks/shared/components/ColorPopup.js:79
-#: admin/blocks/shared/overlays/Edit.js:205
-#: admin/blocks/shared/placeholder.js:151
-#: admin/blocks/shared/placeholder.js:155
-#: admin/blocks/shared/presets/Edit.js:369
-#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:99
+#: admin/blocks/shared/components/ColorPopup.js:60
+#: admin/blocks/shared/overlays/Edit.js:197
+#: admin/blocks/shared/placeholder.js:150
+#: admin/blocks/shared/placeholder.js:154
+#: admin/blocks/shared/presets/Edit.js:361
+#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:92
 #: admin/blocks/shared/presets/Preset.js:241
-#: admin/blocks/shared/tracks/TracksEditor.js:441
-#: admin/blocks/shared/tracks/TracksEditor.js:533
-#: admin/blocks/shared/tracks/TracksEditor.js:591
+#: admin/blocks/shared/tracks/TracksEditor.js:408
+#: admin/blocks/shared/tracks/TracksEditor.js:472
+#: admin/blocks/shared/tracks/TracksEditor.js:513
 #: admin/dashboard/components/EngagementChart/ChartDateFilter.js:93
 #: admin/dashboard/components/MediaHub/BulkActions.js:78
 #: admin/dashboard/components/MediaHub/PostSettings.js:527
@@ -373,19 +373,19 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/collections/Collections.js:42
+#: admin/blocks/blocks/bunny/popup/stream/collections/Collections.js:41
 msgid "Collections"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:48
+#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:47
 msgid "Create Collection"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:62
+#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:59
 msgid "Enter a collection name"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:76
+#: admin/blocks/blocks/bunny/popup/stream/collections/CreateCollection.js:73
 #: admin/blocks/blocks/playlist-list-item/Placeholder.js:66
 #: admin/blocks/blocks/playlist-list/create.js:28
 #: admin/dashboard/components/MediaHub/PostSettings.js:185
@@ -400,104 +400,104 @@ msgid "Please wait, video is encoding..."
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/Footer.js:40
-#: admin/blocks/shared/media/MediaPopup.js:325
+#: admin/blocks/shared/media/MediaPopup.js:314
 msgid "Choose"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Header.js:26
+#: admin/blocks/blocks/bunny/popup/stream/Header.js:23
 msgid "Upload Videos"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Popup.js:68
+#: admin/blocks/blocks/bunny/popup/stream/Popup.js:66
 #: admin/blocks/blocks/bunny/StreamMedia.js:28
 msgid "Private Stream Library"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Popup.js:69
+#: admin/blocks/blocks/bunny/popup/stream/Popup.js:67
 #: admin/blocks/blocks/bunny/StreamMedia.js:29
 msgid "Public Stream Library"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:97
-#: admin/blocks/shared/media/MediaPopup.js:108
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:80
+#: admin/blocks/shared/media/MediaPopup.js:107
 #: admin/dashboard/pages/settings/integrations/WebhooksPage.js:190
 msgid "Name"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:105
-#: admin/blocks/shared/media/MediaPopup.js:116
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:88
+#: admin/blocks/shared/media/MediaPopup.js:115
 #: admin/blocks/shared/VisibilityEditor.js:46
 #: admin/dashboard/components/Popup/EmailFormPopup.js:171
-#: admin/toolbar/index.js:93
+#: admin/toolbar/index.js:69
 msgid "Visibility"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:113
-#: admin/blocks/shared/media/MediaPopup.js:124
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:96
+#: admin/blocks/shared/media/MediaPopup.js:123
 msgid "Size"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:120
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:103
 msgid "Length"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:127
-#: admin/blocks/shared/media/MediaPopup.js:133
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:110
+#: admin/blocks/shared/media/MediaPopup.js:132
 msgid "Created"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:137
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:120
 #: admin/dashboard/pages/MediaHub.js:274
 msgid "Are you sure?"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:140
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:123
 msgid "Are you sure you want to delete this video?"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:155
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:138
 msgid "Yes"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:169
-#: admin/blocks/shared/media/MediaPopup.js:159
+#: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:152
+#: admin/blocks/shared/media/MediaPopup.js:158
 msgid "Delete video"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:15
-#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:28
+#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:14
+#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:27
 #: admin/blocks/blocks/bunny/StorageMedia.js:30
-#: admin/blocks/shared/media/MediaPopup.js:183
+#: admin/blocks/shared/media/MediaPopup.js:182
 msgid "Uploading"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:38
+#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:37
 msgid "Error"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:45
+#: admin/blocks/blocks/bunny/popup/stream/upload/Upload.js:44
 msgid "Creating"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:57
+#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:56
 msgid "Please wait. Pullzone cache is clearing. This may take a minute or two..."
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:84
+#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:80
 msgid "Drop video files here to upload"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:85
+#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:81
 msgid "or browse for a video"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:97
-#: admin/blocks/shared/media/MediaPopup.js:224
-#: admin/blocks/shared/media/MediaPopup.js:293
+#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:93
+#: admin/blocks/shared/media/MediaPopup.js:223
+#: admin/blocks/shared/media/MediaPopup.js:286
 msgid "Upload New Video"
 msgstr ""
 
-#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:125
+#: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:121
 #: Services/Shortcodes.php:237
 msgid "Videos"
 msgstr ""
@@ -551,20 +551,20 @@ msgstr ""
 msgid "Setting up private video library. This make take a few moments..."
 msgstr ""
 
-#: admin/blocks/blocks/hosted/edit.js:116
+#: admin/blocks/blocks/hosted/edit.js:117
 msgid "Get HLS Streaming and more with Presto Player Pro!"
 msgstr ""
 
-#: admin/blocks/blocks/hosted/edit.js:123
+#: admin/blocks/blocks/hosted/edit.js:124
 msgid "Stream HLS links and more with Presto Player Pro."
 msgstr ""
 
-#: admin/blocks/blocks/hosted/edit.js:132
+#: admin/blocks/blocks/hosted/edit.js:133
 msgid "Upgrade"
 msgstr ""
 
 #: admin/blocks/blocks/hosted/HostedPlaceholder.js:64
-#: admin/blocks/blocks/hosted/index.js:23
+#: admin/blocks/blocks/hosted/index.js:25
 msgid "Presto Private Video"
 msgstr ""
 
@@ -593,43 +593,43 @@ msgstr ""
 msgid "Private videos use php to stream your video. Keep in mind this will use up disk space and bandwidth so it may not be an appropriate choice for some hosts."
 msgstr ""
 
-#: admin/blocks/blocks/hosted/index.js:41
+#: admin/blocks/blocks/hosted/index.js:43
 msgid "Private video self-hosted block."
 msgstr ""
 
-#: admin/blocks/blocks/media-hub/edit.js:74
+#: admin/blocks/blocks/media-hub/edit.js:75
 #: admin/blocks/blocks/playlist-list-item/Placeholder.js:43
 #: admin/blocks/shared/components/SelectMediaDropdown.js:96
-#: admin/blocks/shared/MediaProviders/index.js:90
+#: admin/blocks/shared/MediaProviders/index.js:88
 #: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:187
 msgid "Something went wrong"
 msgstr ""
 
-#: admin/blocks/blocks/media-hub/edit.js:122
-#: admin/blocks/blocks/popup/edit.js:146
-#: admin/blocks/blocks/reusable-display/edit.js:198
+#: admin/blocks/blocks/media-hub/edit.js:115
+#: admin/blocks/blocks/popup/edit.js:144
+#: admin/blocks/blocks/reusable-display/edit.js:196
 #: admin/dashboard/pages/settings/general/MediaHubPage.js:132
 #: admin/dashboard/pages/settings/general/MediaHubPage.js:138
 msgid "Synced"
 msgstr ""
 
-#: admin/blocks/blocks/media-hub/edit.js:123
-#: admin/blocks/blocks/popup/edit.js:147
+#: admin/blocks/blocks/media-hub/edit.js:116
+#: admin/blocks/blocks/popup/edit.js:145
 msgid "Not synced"
 msgstr ""
 
-#: admin/blocks/blocks/media-hub/edit.js:148
-#: admin/blocks/blocks/popup/edit.js:160
+#: admin/blocks/blocks/media-hub/edit.js:141
+#: admin/blocks/blocks/popup/edit.js:158
 msgid "Sync to media hub"
 msgstr ""
 
-#: admin/blocks/blocks/media-hub/edit.js:156
-#: admin/blocks/blocks/popup/edit.js:170
+#: admin/blocks/blocks/media-hub/edit.js:149
+#: admin/blocks/blocks/popup/edit.js:168
 msgid "Don't sync to media hub"
 msgstr ""
 
 #: admin/blocks/blocks/playlist-list-item/edit.js:31
-#: admin/blocks/blocks/playlist/edit.js:209
+#: admin/blocks/blocks/playlist/edit.js:199
 #: admin/dashboard/pages/settings/config.js:164
 msgid "General"
 msgstr ""
@@ -643,8 +643,8 @@ msgstr ""
 msgid "Title..."
 msgstr ""
 
-#: admin/blocks/blocks/playlist-list-item/index.js:18
 #: admin/blocks/blocks/playlist-list-item/index.js:19
+#: admin/blocks/blocks/playlist-list-item/index.js:20
 msgid "Playlist Item"
 msgstr ""
 
@@ -656,9 +656,9 @@ msgstr ""
 msgid "Add New Playlist Item"
 msgstr ""
 
-#: admin/blocks/blocks/playlist-list/edit.js:21
-#: admin/blocks/shared/media/MediaPopup.js:268
-#: admin/blocks/shared/media/MediaPopupTemplate.js:22
+#: admin/blocks/blocks/playlist-list/edit.js:20
+#: admin/blocks/shared/media/MediaPopup.js:267
+#: admin/blocks/shared/media/MediaPopupTemplate.js:21
 #: admin/dashboard/pages/MediaHub.js:820
 msgid "Add Media"
 msgstr ""
@@ -679,57 +679,57 @@ msgstr ""
 msgid "Presto Playlist Preview Block - Shows the preview of the playlist item."
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:137
+#: admin/blocks/blocks/playlist/edit.js:130
 msgid "Add a Playlist Item to get started."
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:141
+#: admin/blocks/blocks/playlist/edit.js:134
 msgid "Presto Player Playlist"
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:171
+#: admin/blocks/blocks/playlist/edit.js:162
 msgid "Highlight Color"
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:190
+#: admin/blocks/blocks/playlist/edit.js:182
 msgid "Pass highlight color to player"
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:191
+#: admin/blocks/blocks/playlist/edit.js:183
 msgid "Use the playlist highlight color as player color in case your playlist color is different from your brand."
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:211
+#: admin/blocks/blocks/playlist/edit.js:201
 msgid "Playlist Title"
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:217
+#: admin/blocks/blocks/playlist/edit.js:207
 msgid "Playlist Items Text - Singular"
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:223
+#: admin/blocks/blocks/playlist/edit.js:213
 msgid "Playlist Items Text - Plural"
 msgstr ""
 
-#: admin/blocks/blocks/playlist/edit.js:229
+#: admin/blocks/blocks/playlist/edit.js:219
 msgid "Transition Duration (Seconds)"
 msgstr ""
 
-#: admin/blocks/blocks/popup-media/edit.js:29
+#: admin/blocks/blocks/popup-media/edit.js:27
 msgid "Popup"
 msgstr ""
 
-#: admin/blocks/blocks/popup-trigger/edit.js:58
-#: admin/blocks/blocks/popup/edit.js:120
+#: admin/blocks/blocks/popup-trigger/edit.js:60
+#: admin/blocks/blocks/popup/edit.js:118
 msgid "Popup Trigger"
 msgstr ""
 
-#: admin/blocks/blocks/popup-trigger/edit.js:59
-#: admin/blocks/blocks/popup/edit.js:121
+#: admin/blocks/blocks/popup-trigger/edit.js:61
+#: admin/blocks/blocks/popup/edit.js:119
 msgid "Select a trigger type for your video popup."
 msgstr ""
 
-#: admin/blocks/blocks/popup-trigger/edit.js:86
+#: admin/blocks/blocks/popup-trigger/edit.js:88
 msgid "Trigger"
 msgstr ""
 
@@ -741,35 +741,35 @@ msgstr ""
 msgid "Show Popup"
 msgstr ""
 
-#: admin/blocks/blocks/popup/components/TriggerSelection.js:55
+#: admin/blocks/blocks/popup/components/TriggerSelection.js:16
 #: admin/blocks/plugins/image-popup-trigger/index.js:20
 #: admin/blocks/plugins/popup-cover-trigger/index.js:14
 msgid "Image"
 msgstr ""
 
-#: admin/blocks/blocks/popup/components/TriggerSelection.js:64
+#: admin/blocks/blocks/popup/components/TriggerSelection.js:19
 msgid "Image thumbnail trigger"
 msgstr ""
 
-#: admin/blocks/blocks/popup/components/TriggerSelection.js:105
-#: admin/blocks/shared/presets/ActionBar.js:189
+#: admin/blocks/blocks/popup/components/TriggerSelection.js:31
+#: admin/blocks/shared/presets/ActionBar.js:178
 msgid "Button"
 msgstr ""
 
-#: admin/blocks/blocks/popup/components/TriggerSelection.js:114
+#: admin/blocks/blocks/popup/components/TriggerSelection.js:34
 msgid "Simple button trigger"
 msgstr ""
 
-#: admin/blocks/blocks/popup/components/TriggerSelection.js:166
-#: admin/blocks/shared/presets/ActionBar.js:199
+#: admin/blocks/blocks/popup/components/TriggerSelection.js:51
+#: admin/blocks/shared/presets/ActionBar.js:188
 msgid "Custom"
 msgstr ""
 
-#: admin/blocks/blocks/popup/components/TriggerSelection.js:175
+#: admin/blocks/blocks/popup/components/TriggerSelection.js:54
 msgid "Create your own trigger"
 msgstr ""
 
-#: admin/blocks/blocks/popup/edit.js:142
+#: admin/blocks/blocks/popup/edit.js:140
 msgid "Media Hub Sync"
 msgstr ""
 
@@ -783,33 +783,33 @@ msgstr ""
 msgid "Type / to choose a block to be the popup trigger..."
 msgstr ""
 
-#: admin/blocks/blocks/reusable-display/edit.js:153
+#: admin/blocks/blocks/reusable-display/edit.js:150
 msgid "The selected media item has been deleted or is unavailable."
 msgstr ""
 
-#: admin/blocks/blocks/reusable-display/edit.js:189
-#: admin/blocks/blocks/reusable-display/edit.js:217
+#: admin/blocks/blocks/reusable-display/edit.js:187
+#: admin/blocks/blocks/reusable-display/edit.js:213
 msgid "Edit Original"
 msgstr ""
 
-#: admin/blocks/blocks/reusable-display/edit.js:203
+#: admin/blocks/blocks/reusable-display/edit.js:202
 msgid "This item is synced with the media hub and can be reused across your site."
 msgstr ""
 
-#: admin/blocks/blocks/reusable-display/index.js:17
+#: admin/blocks/blocks/reusable-display/index.js:18
 #: Integrations/Elementor/ReusableVideoWidget.php:121
 msgid "Media Hub Item"
 msgstr ""
 
-#: admin/blocks/blocks/vimeo/edit.js:94
+#: admin/blocks/blocks/vimeo/edit.js:95
 msgid "Presto Vimeo Video"
 msgstr ""
 
-#: admin/blocks/blocks/vimeo/edit.js:95
+#: admin/blocks/blocks/vimeo/edit.js:96
 msgid "Enter Vimeo Video URL"
 msgstr ""
 
-#: admin/blocks/blocks/vimeo/edit.js:96
+#: admin/blocks/blocks/vimeo/edit.js:97
 msgid "Vimeo URL"
 msgstr ""
 
@@ -817,15 +817,15 @@ msgstr ""
 msgid "Remove this video?"
 msgstr ""
 
-#: admin/blocks/blocks/youtube/edit.js:94
+#: admin/blocks/blocks/youtube/edit.js:95
 msgid "Presto Youtube Video"
 msgstr ""
 
-#: admin/blocks/blocks/youtube/edit.js:95
+#: admin/blocks/blocks/youtube/edit.js:96
 msgid "Enter Youtube Video URL"
 msgstr ""
 
-#: admin/blocks/blocks/youtube/edit.js:96
+#: admin/blocks/blocks/youtube/edit.js:97
 #: admin/blocks/shared/LinkPlaceholder.js:44
 msgid "Youtube URL"
 msgstr ""
@@ -840,7 +840,7 @@ msgstr ""
 
 #: admin/blocks/hooks/apply-popup-image-trigger-placeholder.js:81
 #: admin/blocks/shared/components/SelectMediaDropdown.js:130
-#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:142
+#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:111
 msgid "Choose media"
 msgstr ""
 
@@ -882,54 +882,54 @@ msgstr ""
 msgid "Presto Popup dialog opened."
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:32
-#: admin/blocks/shared/placeholder.js:40
+#: admin/blocks/shared/audio-placeholder.js:31
+#: admin/blocks/shared/placeholder.js:39
 #: Integrations/Elementor/VideoWidget.php:254
 msgid "URL"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:33
+#: admin/blocks/shared/audio-placeholder.js:32
 msgid "Paste an mp3 URL"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:41
-#: admin/blocks/shared/components/ColorPopup.js:82
-#: admin/blocks/shared/placeholder.js:52
+#: admin/blocks/shared/audio-placeholder.js:40
+#: admin/blocks/shared/components/ColorPopup.js:63
+#: admin/blocks/shared/placeholder.js:51
 #: admin/dashboard/components/EngagementChart/ChartDateFilter.js:92
 #: admin/dashboard/pages/AnalyticsDetail.js:429
 #: admin/dashboard/pages/UserAnalyticsDetail.js:192
 msgid "Apply"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:103
-#: admin/blocks/shared/placeholder.js:114
+#: admin/blocks/shared/audio-placeholder.js:102
+#: admin/blocks/shared/placeholder.js:113
 msgid "To edit this block, you need permission to upload media."
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:161
+#: admin/blocks/shared/audio-placeholder.js:160
 msgid "Audio URL"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:182
+#: admin/blocks/shared/audio-placeholder.js:181
 msgid "Select or Upload Private Audio"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:183
+#: admin/blocks/shared/audio-placeholder.js:182
 msgid "Select or Upload Audio"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:215
+#: admin/blocks/shared/audio-placeholder.js:214
 msgid "Add/Select Private Audio"
 msgstr ""
 
-#: admin/blocks/shared/audio-placeholder.js:216
+#: admin/blocks/shared/audio-placeholder.js:215
 msgid "Add/Select Audio"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Behavior.js:17
-#: admin/blocks/shared/audioPresets/Edit.js:204
+#: admin/blocks/shared/audioPresets/Edit.js:203
 #: admin/blocks/shared/presets/Behavior.js:17
-#: admin/blocks/shared/presets/Edit.js:217
+#: admin/blocks/shared/presets/Edit.js:216
 msgid "Behavior"
 msgstr ""
 
@@ -985,9 +985,9 @@ msgid "Go to start"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Controls.js:11
-#: admin/blocks/shared/audioPresets/Edit.js:198
+#: admin/blocks/shared/audioPresets/Edit.js:197
 #: admin/blocks/shared/presets/Controls.js:11
-#: admin/blocks/shared/presets/Edit.js:211
+#: admin/blocks/shared/presets/Edit.js:210
 msgid "Controls"
 msgstr ""
 
@@ -1069,118 +1069,118 @@ msgstr ""
 msgid "Shows playback speed controls."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:80
-#: admin/blocks/shared/presets/Edit.js:94
+#: admin/blocks/shared/audioPresets/Edit.js:79
+#: admin/blocks/shared/presets/Edit.js:93
 msgid "The preset could not be saved. Please reload the page and try again."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:124
-#: admin/blocks/shared/presets/Edit.js:138
+#: admin/blocks/shared/audioPresets/Edit.js:123
+#: admin/blocks/shared/presets/Edit.js:137
 msgid "Preset updated!"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:178
-#: admin/blocks/shared/presets/Edit.js:191
+#: admin/blocks/shared/audioPresets/Edit.js:177
+#: admin/blocks/shared/presets/Edit.js:190
 msgid "Preset created!"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:189
-#: admin/blocks/shared/presets/Edit.js:202
+#: admin/blocks/shared/audioPresets/Edit.js:188
+#: admin/blocks/shared/presets/Edit.js:201
 #: Models/AudioPreset.php:188
 #: Models/Preset.php:222
 msgid "You must enter a name for the preset."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:210
+#: admin/blocks/shared/audioPresets/Edit.js:209
 #: admin/blocks/shared/audioPresets/Style.js:18
-#: admin/blocks/shared/presets/CTA.js:271
-#: admin/blocks/shared/presets/Edit.js:223
-#: admin/blocks/shared/presets/Email.js:228
+#: admin/blocks/shared/presets/CTA.js:254
+#: admin/blocks/shared/presets/Edit.js:222
+#: admin/blocks/shared/presets/Email.js:212
 #: admin/blocks/shared/presets/Style.js:13
 msgid "Style"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:216
-#: admin/blocks/shared/presets/Edit.js:229
-#: admin/blocks/shared/presets/Email.js:53
+#: admin/blocks/shared/audioPresets/Edit.js:215
+#: admin/blocks/shared/presets/Edit.js:228
+#: admin/blocks/shared/presets/Email.js:52
 #: admin/dashboard/pages/settings/config.js:128
 #: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:312
 #: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:318
 msgid "Email Capture"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:222
-#: admin/blocks/shared/presets/CTA.js:77
-#: admin/blocks/shared/presets/Edit.js:235
+#: admin/blocks/shared/audioPresets/Edit.js:221
+#: admin/blocks/shared/presets/CTA.js:75
+#: admin/blocks/shared/presets/Edit.js:234
 msgid "Call To Action"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:228
+#: admin/blocks/shared/audioPresets/Edit.js:227
 #: admin/blocks/shared/presets/ActionBar.js:98
-#: admin/blocks/shared/presets/Edit.js:241
+#: admin/blocks/shared/presets/Edit.js:240
 msgid "Action Bar"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:245
+#: admin/blocks/shared/audioPresets/Edit.js:244
 msgid "Edit A Audio Preset"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:246
+#: admin/blocks/shared/audioPresets/Edit.js:245
 msgid "Create A New Audio Preset"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:256
-#: admin/blocks/shared/presets/Edit.js:286
+#: admin/blocks/shared/audioPresets/Edit.js:255
+#: admin/blocks/shared/presets/Edit.js:285
 msgid "Preset Name"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:258
-#: admin/blocks/shared/presets/Edit.js:288
+#: admin/blocks/shared/audioPresets/Edit.js:257
+#: admin/blocks/shared/presets/Edit.js:287
 msgid "Enter a preset name..."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:268
-#: admin/blocks/shared/presets/Edit.js:298
+#: admin/blocks/shared/audioPresets/Edit.js:267
+#: admin/blocks/shared/presets/Edit.js:297
 msgid "Customize"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:280
-#: admin/blocks/shared/presets/Edit.js:310
+#: admin/blocks/shared/audioPresets/Edit.js:279
+#: admin/blocks/shared/presets/Edit.js:309
 msgid "Skin"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:285
-#: admin/blocks/shared/presets/Edit.js:317
+#: admin/blocks/shared/audioPresets/Edit.js:284
+#: admin/blocks/shared/presets/Edit.js:316
 msgid "Basic"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:286
-#: admin/blocks/shared/presets/Edit.js:316
+#: admin/blocks/shared/audioPresets/Edit.js:285
+#: admin/blocks/shared/presets/Edit.js:315
 msgid "Stacked"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:350
-#: admin/blocks/shared/presets/Edit.js:379
+#: admin/blocks/shared/audioPresets/Edit.js:342
+#: admin/blocks/shared/presets/Edit.js:371
 msgid "Update Preset"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Edit.js:351
-#: admin/blocks/shared/presets/Edit.js:380
+#: admin/blocks/shared/audioPresets/Edit.js:343
+#: admin/blocks/shared/presets/Edit.js:372
 #: Services/Learn.php:395
 msgid "Create Preset"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/index.js:65
+#: admin/blocks/shared/audioPresets/index.js:59
 msgid "Select a audio configuration preset, or add your own."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/index.js:94
-#: admin/blocks/shared/presets/index.js:93
+#: admin/blocks/shared/audioPresets/index.js:88
+#: admin/blocks/shared/presets/index.js:87
 msgid "No style presets. You can create a new style by clicking 'Add New Style'."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/index.js:112
-#: admin/blocks/shared/presets/index.js:111
+#: admin/blocks/shared/audioPresets/index.js:106
+#: admin/blocks/shared/presets/index.js:105
 msgid "Add New Preset"
 msgstr ""
 
@@ -1233,9 +1233,9 @@ msgid "Email address"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Style.js:22
-#: admin/blocks/shared/presets/ActionBar.js:258
-#: admin/blocks/shared/presets/CTA.js:275
-#: admin/blocks/shared/presets/Email.js:232
+#: admin/blocks/shared/presets/ActionBar.js:247
+#: admin/blocks/shared/presets/CTA.js:258
+#: admin/blocks/shared/presets/Email.js:216
 #: admin/blocks/shared/presets/Style.js:27
 msgid "Round Corners"
 msgstr ""
@@ -1245,38 +1245,38 @@ msgstr ""
 msgid "Player border radius size."
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Style.js:40
-#: admin/blocks/shared/overlays/components/Overlay.js:159
+#: admin/blocks/shared/audioPresets/Style.js:35
+#: admin/blocks/shared/overlays/components/Overlay.js:158
 #: admin/blocks/shared/presets/Watermark.js:121
 msgid "Background Color"
 msgstr ""
 
-#: admin/blocks/shared/audioPresets/Style.js:54
+#: admin/blocks/shared/audioPresets/Style.js:49
 msgid "Control Color"
 msgstr ""
 
-#: admin/blocks/shared/BlockInspectorControls.js:38
+#: admin/blocks/shared/BlockInspectorControls.js:37
 msgid "Editing Synced Media"
 msgstr ""
 
-#: admin/blocks/shared/BlockInspectorControls.js:43
+#: admin/blocks/shared/BlockInspectorControls.js:42
 msgid "You are currently editing a synced media hub item that may be reused across your site."
 msgstr ""
 
-#: admin/blocks/shared/BlockInspectorControls.js:57
+#: admin/blocks/shared/BlockInspectorControls.js:54
 #: admin/blocks/shared/Editing.js:13
 msgid "Done Editing"
 msgstr ""
 
-#: admin/blocks/shared/BlockInspectorControls.js:75
+#: admin/blocks/shared/BlockInspectorControls.js:72
 msgid "Overlays"
 msgstr ""
 
-#: admin/blocks/shared/BlockInspectorControls.js:84
+#: admin/blocks/shared/BlockInspectorControls.js:81
 msgid "Video settings"
 msgstr ""
 
-#: admin/blocks/shared/BlockInspectorControls.js:88
+#: admin/blocks/shared/BlockInspectorControls.js:85
 #: Integrations/Elementor/VideoWidget.php:342
 msgid "Video Preset"
 msgstr ""
@@ -1324,25 +1324,25 @@ msgstr ""
 msgid "Add Chapter"
 msgstr ""
 
-#: admin/blocks/shared/components/ColorPopup.js:62
+#: admin/blocks/shared/components/ColorPopup.js:49
 #: Services/Translation.php:120
 msgid "Reset"
 msgstr ""
 
 #: admin/blocks/shared/components/EntitySearchDropdown.js:38
-#: admin/blocks/shared/components/EntitySearchDropdown.js:69
+#: admin/blocks/shared/components/EntitySearchDropdown.js:67
 msgid "None found."
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:62
+#: admin/blocks/shared/components/EntitySearchDropdown.js:60
 msgid "Add New"
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:104
+#: admin/blocks/shared/components/EntitySearchDropdown.js:94
 msgid "Load More"
 msgstr ""
 
-#: admin/blocks/shared/components/EntitySearchDropdown.js:149
+#: admin/blocks/shared/components/EntitySearchDropdown.js:109
 msgid "Search..."
 msgstr ""
 
@@ -1358,8 +1358,8 @@ msgstr ""
 msgid "Create or select media"
 msgstr ""
 
-#: admin/blocks/shared/components/SelectMediaDropdown.js:144
-#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:155
+#: admin/blocks/shared/components/SelectMediaDropdown.js:136
+#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:116
 #: admin/dashboard/components/MediaHub/MediaRow.js:120
 #: admin/dashboard/components/TopPerformingMedia.js:44
 #: admin/dashboard/utils/transformers.js:18
@@ -1367,31 +1367,34 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:80
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:84
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:117
 msgid "At least one language is required. Please select at least one language."
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:84
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:88
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:121
 msgid "Select one or more languages. Start typing to search."
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:97
-msgid "Search languages…"
-msgstr ""
-
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:100
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:96
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:137
 msgid "Languages"
 msgstr ""
 
-#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:101
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:134
+msgid "Search languages…"
+msgstr ""
+
+#: admin/blocks/shared/components/TranscriptionLanguageSelect.js:138
 msgid "Select languages…"
 msgstr ""
 
-#: admin/blocks/shared/components/UrlSelect.js:75
+#: admin/blocks/shared/components/UrlSelect.js:74
 msgid "Are you sure you wish to remove this link?"
 msgstr ""
 
-#: admin/blocks/shared/components/UrlSelect.js:166
+#: admin/blocks/shared/components/UrlSelect.js:117
 msgid "Add Link"
 msgstr ""
 
@@ -1407,22 +1410,22 @@ msgstr ""
 msgid "Add Video"
 msgstr ""
 
-#: admin/blocks/shared/media/MediaPopup.js:187
+#: admin/blocks/shared/media/MediaPopup.js:186
 msgid "Please don't navigate away from this page."
 msgstr ""
 
-#: admin/blocks/shared/media/MediaPopup.js:300
+#: admin/blocks/shared/media/MediaPopup.js:289
 msgid "Or drag a file here to upload."
 msgstr ""
 
-#: admin/blocks/shared/MediaProviders/index.js:33
+#: admin/blocks/shared/MediaProviders/index.js:31
 #: admin/dashboard/components/Emails/Table.js:203
 #: Integrations/Elementor/VideoWidget.php:173
 #: Services/Shortcodes.php:238
 msgid "Video"
 msgstr ""
 
-#: admin/blocks/shared/MediaProviders/index.js:40
+#: admin/blocks/shared/MediaProviders/index.js:38
 #: admin/dashboard/pages/settings/config.js:120
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:20
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:26
@@ -1430,16 +1433,16 @@ msgstr ""
 msgid "YouTube"
 msgstr ""
 
-#: admin/blocks/shared/MediaProviders/index.js:47
+#: admin/blocks/shared/MediaProviders/index.js:45
 #: Integrations/Elementor/VideoWidget.php:185
 msgid "Vimeo"
 msgstr ""
 
-#: admin/blocks/shared/MediaProviders/index.js:54
+#: admin/blocks/shared/MediaProviders/index.js:52
 msgid "Audio"
 msgstr ""
 
-#: admin/blocks/shared/MediaProviders/index.js:61
+#: admin/blocks/shared/MediaProviders/index.js:59
 #: admin/dashboard/pages/settings/config.js:137
 #: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:138
 msgid "Bunny.net"
@@ -1461,99 +1464,99 @@ msgstr ""
 msgid "Enter some text."
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:73
+#: admin/blocks/shared/overlays/components/Overlay.js:72
 msgid "Start Time"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:86
+#: admin/blocks/shared/overlays/components/Overlay.js:85
 msgid "End Time"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:107
-#: admin/blocks/shared/presets/CTA.js:199
+#: admin/blocks/shared/overlays/components/Overlay.js:106
+#: admin/blocks/shared/presets/CTA.js:182
 #: Integrations/Elementor/VideoWidget.php:194
 #: Integrations/Elementor/VideoWidget.php:215
 msgid "Link"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:120
+#: admin/blocks/shared/overlays/components/Overlay.js:119
 #: admin/blocks/shared/presets/Watermark.js:84
 msgid "Position"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:122
+#: admin/blocks/shared/overlays/components/Overlay.js:121
 #: admin/blocks/shared/presets/Watermark.js:86
 msgid "Top Right"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:123
+#: admin/blocks/shared/overlays/components/Overlay.js:122
 #: admin/blocks/shared/presets/Watermark.js:87
 msgid "Top Left"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:140
+#: admin/blocks/shared/overlays/components/Overlay.js:139
 #: admin/blocks/shared/presets/Watermark.js:105
 msgid "Text Color"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:177
+#: admin/blocks/shared/overlays/components/Overlay.js:176
 #: admin/blocks/shared/presets/Watermark.js:136
 msgid "Opacity"
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:178
+#: admin/blocks/shared/overlays/components/Overlay.js:177
 msgid "Opacity percentage of the overlay."
 msgstr ""
 
-#: admin/blocks/shared/overlays/components/Overlay.js:190
+#: admin/blocks/shared/overlays/components/Overlay.js:189
 msgid "Remove Overlay"
 msgstr ""
 
-#: admin/blocks/shared/overlays/Edit.js:69
+#: admin/blocks/shared/overlays/Edit.js:68
 msgid "Here's a link to click!"
 msgstr ""
 
-#: admin/blocks/shared/overlays/Edit.js:128
+#: admin/blocks/shared/overlays/Edit.js:127
 msgid "Manage Video Overlays"
 msgstr ""
 
-#: admin/blocks/shared/overlays/Edit.js:166
+#: admin/blocks/shared/overlays/Edit.js:165
 msgid "Add An Overlay"
 msgstr ""
 
-#: admin/blocks/shared/overlays/Edit.js:214
+#: admin/blocks/shared/overlays/Edit.js:206
 msgid "Save Overlays"
 msgstr ""
 
-#: admin/blocks/shared/overlays/index.js:38
+#: admin/blocks/shared/overlays/index.js:36
 msgid "Update Overlays"
 msgstr ""
 
-#: admin/blocks/shared/overlays/index.js:39
+#: admin/blocks/shared/overlays/index.js:37
 msgid "Add Overlay"
 msgstr ""
 
-#: admin/blocks/shared/placeholder.js:41
+#: admin/blocks/shared/placeholder.js:40
 msgid "Paste or type a Youtube, Vimeo or .mp4 video URL"
 msgstr ""
 
-#: admin/blocks/shared/placeholder.js:173
+#: admin/blocks/shared/placeholder.js:172
 msgid "Video URL"
 msgstr ""
 
-#: admin/blocks/shared/placeholder.js:194
+#: admin/blocks/shared/placeholder.js:193
 msgid "Select or Upload Private Video"
 msgstr ""
 
-#: admin/blocks/shared/placeholder.js:195
+#: admin/blocks/shared/placeholder.js:194
 msgid "Select or Upload Video"
 msgstr ""
 
-#: admin/blocks/shared/placeholder.js:228
+#: admin/blocks/shared/placeholder.js:227
 msgid "Add/Select Private Video"
 msgstr ""
 
-#: admin/blocks/shared/placeholder.js:229
+#: admin/blocks/shared/placeholder.js:228
 #: Integrations/Elementor/VideoWidget.php:236
 msgid "Add/Select Video"
 msgstr ""
@@ -1567,8 +1570,8 @@ msgid "Add Youtube Channel Id"
 msgstr ""
 
 #: admin/blocks/shared/presets/ActionBar.js:102
-#: admin/blocks/shared/presets/CTA.js:81
-#: admin/blocks/shared/presets/Email.js:57
+#: admin/blocks/shared/presets/CTA.js:79
+#: admin/blocks/shared/presets/Email.js:56
 #: admin/blocks/shared/presets/Search.js:52
 #: admin/blocks/shared/presets/Watermark.js:57
 #: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:71
@@ -1581,94 +1584,94 @@ msgstr ""
 msgid "Show an action bar below your player while it's playing."
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:128
-#: admin/blocks/shared/presets/CTA.js:107
-#: admin/blocks/shared/presets/Email.js:83
+#: admin/blocks/shared/presets/ActionBar.js:121
+#: admin/blocks/shared/presets/CTA.js:98
+#: admin/blocks/shared/presets/Email.js:75
 msgid "Display At (Percentage)"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:138
-#: admin/blocks/shared/presets/CTA.js:117
-#: admin/blocks/shared/presets/Email.js:93
+#: admin/blocks/shared/presets/ActionBar.js:131
+#: admin/blocks/shared/presets/CTA.js:108
+#: admin/blocks/shared/presets/Email.js:85
 #: Services/Translation.php:117
 msgid "Start"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:142
-#: admin/blocks/shared/presets/CTA.js:121
-#: admin/blocks/shared/presets/Email.js:97
+#: admin/blocks/shared/presets/ActionBar.js:135
+#: admin/blocks/shared/presets/CTA.js:112
+#: admin/blocks/shared/presets/Email.js:89
 msgid "50% Watched"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:146
-#: admin/blocks/shared/presets/CTA.js:125
-#: admin/blocks/shared/presets/Email.js:101
+#: admin/blocks/shared/presets/ActionBar.js:139
+#: admin/blocks/shared/presets/CTA.js:116
+#: admin/blocks/shared/presets/Email.js:93
 #: Services/Translation.php:118
 msgid "End"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:161
+#: admin/blocks/shared/presets/ActionBar.js:150
 msgid "Text"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:162
+#: admin/blocks/shared/presets/ActionBar.js:151
 msgid "Action bar text."
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:175
+#: admin/blocks/shared/presets/ActionBar.js:164
 msgid "Action Bar Background"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:194
+#: admin/blocks/shared/presets/ActionBar.js:183
 msgid "Button Type"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:203
+#: admin/blocks/shared/presets/ActionBar.js:192
 msgid "YouTube Subscribe"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:207
+#: admin/blocks/shared/presets/ActionBar.js:196
 #: admin/blocks/shared/presets/parts/ChooseProvider.js:18
 #: admin/dashboard/components/Popup/EmailFormPopupUtils.js:10
 #: admin/dashboard/components/Popup/EmailFormPopupUtils.js:19
 msgid "None"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:220
+#: admin/blocks/shared/presets/ActionBar.js:209
 msgid "Show Count"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:221
+#: admin/blocks/shared/presets/ActionBar.js:210
 msgid "Show your follower count."
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:237
-#: admin/blocks/shared/presets/CTA.js:257
+#: admin/blocks/shared/presets/ActionBar.js:226
+#: admin/blocks/shared/presets/CTA.js:240
 msgid "Button Text"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:238
-#: admin/blocks/shared/presets/Email.js:183
+#: admin/blocks/shared/presets/ActionBar.js:227
+#: admin/blocks/shared/presets/Email.js:167
 msgid "Submit button text"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:245
+#: admin/blocks/shared/presets/ActionBar.js:234
 msgid "Button Link"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:259
+#: admin/blocks/shared/presets/ActionBar.js:248
 msgid "Border radius of the button"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:271
-#: admin/blocks/shared/presets/CTA.js:295
-#: admin/blocks/shared/presets/Email.js:192
+#: admin/blocks/shared/presets/ActionBar.js:260
+#: admin/blocks/shared/presets/CTA.js:273
+#: admin/blocks/shared/presets/Email.js:176
 msgid "Button Color"
 msgstr ""
 
-#: admin/blocks/shared/presets/ActionBar.js:286
-#: admin/blocks/shared/presets/CTA.js:310
-#: admin/blocks/shared/presets/Email.js:207
+#: admin/blocks/shared/presets/ActionBar.js:275
+#: admin/blocks/shared/presets/CTA.js:288
+#: admin/blocks/shared/presets/Email.js:191
 msgid "Button Text Color"
 msgstr ""
 
@@ -1753,8 +1756,8 @@ msgid "Adds a button to allow the player to be fullscreen."
 msgstr ""
 
 #: admin/blocks/shared/presets/Controls.js:133
-#: admin/blocks/shared/tracks/TracksEditor.js:94
-#: admin/blocks/shared/tracks/TracksEditor.js:612
+#: admin/blocks/shared/tracks/TracksEditor.js:87
+#: admin/blocks/shared/tracks/TracksEditor.js:534
 #: Services/Translation.php:109
 #: parts/captions.php:4
 msgid "Captions"
@@ -1764,138 +1767,138 @@ msgstr ""
 msgid "Shows a dedicated caption toggle button."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:37
+#: admin/blocks/shared/presets/CTA.js:35
 msgid "Want to learn more?"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:39
+#: admin/blocks/shared/presets/CTA.js:37
 msgid "Click Here"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:82
+#: admin/blocks/shared/presets/CTA.js:80
 msgid "Show a call to action message and button over your player."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:147
+#: admin/blocks/shared/presets/CTA.js:132
 msgid "You already have an email capture set display at the same time."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:158
+#: admin/blocks/shared/presets/CTA.js:141
 msgid "Disable Email Capture"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:166
+#: admin/blocks/shared/presets/CTA.js:149
 msgid "Show Rewatch Button"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:167
+#: admin/blocks/shared/presets/CTA.js:150
 msgid "Show a rewatch button at the end of the player."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:182
-#: admin/blocks/shared/presets/Email.js:140
+#: admin/blocks/shared/presets/CTA.js:165
+#: admin/blocks/shared/presets/Email.js:124
 msgid "Allow Skipping"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:183
+#: admin/blocks/shared/presets/CTA.js:166
 msgid "Let the user continue watching the player."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:213
-#: admin/blocks/shared/presets/Email.js:153
+#: admin/blocks/shared/presets/CTA.js:196
+#: admin/blocks/shared/presets/Email.js:137
 msgid "Headline"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:214
-#: admin/blocks/shared/presets/Email.js:154
+#: admin/blocks/shared/presets/CTA.js:197
+#: admin/blocks/shared/presets/Email.js:138
 msgid "The headline for your form."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:226
-#: admin/blocks/shared/presets/Email.js:166
+#: admin/blocks/shared/presets/CTA.js:209
+#: admin/blocks/shared/presets/Email.js:150
 msgid "Bottom Text"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:227
-#: admin/blocks/shared/presets/Email.js:167
+#: admin/blocks/shared/presets/CTA.js:210
+#: admin/blocks/shared/presets/Email.js:151
 msgid "Text displayed below the form. HTML allowed."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:242
+#: admin/blocks/shared/presets/CTA.js:225
 msgid "Show Button"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:243
+#: admin/blocks/shared/presets/CTA.js:226
 msgid "Show a call to action button."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:260
+#: admin/blocks/shared/presets/CTA.js:243
 msgid "Button text for the Call To Action"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:276
-#: admin/blocks/shared/presets/Email.js:233
+#: admin/blocks/shared/presets/CTA.js:259
+#: admin/blocks/shared/presets/Email.js:217
 msgid "Border radius of form elements."
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:326
+#: admin/blocks/shared/presets/CTA.js:304
 msgid "Background Opacity"
 msgstr ""
 
-#: admin/blocks/shared/presets/CTA.js:327
+#: admin/blocks/shared/presets/CTA.js:305
 msgid "Opacity percentage of the cover background."
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:254
+#: admin/blocks/shared/presets/Edit.js:253
 msgid "Dynamic Watermark"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:260
+#: admin/blocks/shared/presets/Edit.js:259
 #: admin/blocks/shared/presets/Search.js:48
 msgid "Searchable Captions"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:275
+#: admin/blocks/shared/presets/Edit.js:274
 msgid "Edit A Video Preset"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:276
+#: admin/blocks/shared/presets/Edit.js:275
 msgid "Create A New Video Preset"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:314
+#: admin/blocks/shared/presets/Edit.js:313
 msgid "Modern"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:315
+#: admin/blocks/shared/presets/Edit.js:314
 msgid "Business"
 msgstr ""
 
-#: admin/blocks/shared/presets/Email.js:58
+#: admin/blocks/shared/presets/Email.js:57
 msgid "Show an email collection form and message over your player."
 msgstr ""
 
-#: admin/blocks/shared/presets/Email.js:122
+#: admin/blocks/shared/presets/Email.js:108
 msgid "You already have a Call To Action set display at the same time."
 msgstr ""
 
-#: admin/blocks/shared/presets/Email.js:133
+#: admin/blocks/shared/presets/Email.js:117
 msgid "Disable Call To Action"
 msgstr ""
 
-#: admin/blocks/shared/presets/Email.js:141
+#: admin/blocks/shared/presets/Email.js:125
 msgid "Let the viewer skip"
 msgstr ""
 
-#: admin/blocks/shared/presets/Email.js:182
+#: admin/blocks/shared/presets/Email.js:166
 msgid "Play Button Text"
 msgstr ""
 
-#: admin/blocks/shared/presets/Email.js:220
+#: admin/blocks/shared/presets/Email.js:204
 msgid "Integrate"
 msgstr ""
 
-#: admin/blocks/shared/presets/index.js:64
+#: admin/blocks/shared/presets/index.js:58
 msgid "Select a video configuration preset, or add your own."
 msgstr ""
 
@@ -1956,16 +1959,16 @@ msgstr ""
 msgid "Choose a webhook"
 msgstr ""
 
-#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:68
+#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:65
 msgid "Youtube Channel ID"
 msgstr ""
 
-#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:72
+#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:69
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:61
 msgid "Find my channel id"
 msgstr ""
 
-#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:90
+#: admin/blocks/shared/presets/parts/YoutubeChannelId.js:85
 #: admin/dashboard/pages/settings/shared/SettingsPageShell.js:38
 msgid "Save"
 msgstr ""
@@ -2010,22 +2013,22 @@ msgstr ""
 msgid "Hides the logo on this video."
 msgstr ""
 
-#: admin/blocks/shared/presets/Style.js:44
+#: admin/blocks/shared/presets/Style.js:39
 msgid "Caption Style"
 msgstr ""
 
-#: admin/blocks/shared/presets/Style.js:48
+#: admin/blocks/shared/presets/Style.js:43
 #: Seeds/AudioPresetSeeder.php:35
 #: Seeds/PresetSeeder.php:36
 #: Services/Translation.php:146
 msgid "Default"
 msgstr ""
 
-#: admin/blocks/shared/presets/Style.js:49
+#: admin/blocks/shared/presets/Style.js:44
 msgid "Full"
 msgstr ""
 
-#: admin/blocks/shared/presets/Style.js:58
+#: admin/blocks/shared/presets/Style.js:53
 msgid "Caption Background"
 msgstr ""
 
@@ -2065,11 +2068,11 @@ msgstr ""
 msgid "Unlock Presto Player"
 msgstr ""
 
-#: admin/blocks/shared/ProvidersPlaceholder/components/Separator.js:23
+#: admin/blocks/shared/ProvidersPlaceholder/components/Separator.js:16
 msgid "or"
 msgstr ""
 
-#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:66
+#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:47
 #: admin/dashboard/pages/Onboarding.js:67
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:27
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:28
@@ -2080,11 +2083,11 @@ msgstr ""
 msgid "Presto Player"
 msgstr ""
 
-#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:77
+#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:52
 msgid "Choose a video type to get started."
 msgstr ""
 
-#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:129
+#: admin/blocks/shared/ProvidersPlaceholder/ProvidersPlaceholder.js:98
 msgid "Select media"
 msgstr ""
 
@@ -2190,82 +2193,82 @@ msgstr ""
 msgid "Max Width (%)"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:55
+#: admin/blocks/shared/tracks/TracksEditor.js:53
 msgid "Captions are .vtt files that help make your content more accesible to a wider range of users."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:117
+#: admin/blocks/shared/tracks/TracksEditor.js:110
 msgid "Edit caption track"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:284
+#: admin/blocks/shared/tracks/TracksEditor.js:271
 msgid "Failed to delete caption from Bunny.net. Please try again."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:373
+#: admin/blocks/shared/tracks/TracksEditor.js:360
 msgid "Failed to generate captions. Please try again."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:389
+#: admin/blocks/shared/tracks/TracksEditor.js:376
 msgid "Caption Generation Started!"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:392
+#: admin/blocks/shared/tracks/TracksEditor.js:379
 msgid "Caption Generation Failed"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:394
+#: admin/blocks/shared/tracks/TracksEditor.js:381
 #: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:455
 msgid "Caption Generation Charges"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:417
+#: admin/blocks/shared/tracks/TracksEditor.js:394
 msgid "Remove Caption Track"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:424
+#: admin/blocks/shared/tracks/TracksEditor.js:398
 msgid "Removing this caption track will also delete it from the Bunny.net Stream Library. This action cannot be undone."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:449
+#: admin/blocks/shared/tracks/TracksEditor.js:416
 msgid "Remove Track"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:485
+#: admin/blocks/shared/tracks/TracksEditor.js:438
 msgid "Captions are being generated and will automatically appear on the player when ready. Depending on the length of the video, it may take few minutes. Please check back later."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:513
+#: admin/blocks/shared/tracks/TracksEditor.js:459
 msgid "We couldn't process your caption generation request. Please try again. If the issue persists, please re-upload the video to Bunny.net Stream Library or contact support@prestomade.com."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:542
+#: admin/blocks/shared/tracks/TracksEditor.js:481
 msgid "Try Again"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:549
+#: admin/blocks/shared/tracks/TracksEditor.js:488
 msgid "This will automatically generate captions for the selected languages. You will be charged $0.10 per minute for each language from your Bunny.net account balance."
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:571
+#: admin/blocks/shared/tracks/TracksEditor.js:500
 #: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:475
 msgid "View Bunny.net pricing details"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:599
+#: admin/blocks/shared/tracks/TracksEditor.js:521
 msgid "Confirm & Generate"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:647
+#: admin/blocks/shared/tracks/TracksEditor.js:569
 msgid "Add caption languages"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:705
+#: admin/blocks/shared/tracks/TracksEditor.js:627
 #: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:408
 msgid "Automatic Captions"
 msgstr ""
 
-#: admin/blocks/shared/tracks/TracksEditor.js:741
+#: admin/blocks/shared/tracks/TracksEditor.js:658
 msgid "Generate"
 msgstr ""
 
@@ -2442,7 +2445,7 @@ msgstr ""
 #: admin/dashboard/components/Emails/Utils.js:56
 #: admin/dashboard/components/MediaHub/PostSettings.js:27
 #: admin/dashboard/components/Popup/EmailFormPopupUtils.js:25
-#: admin/toolbar/index.js:96
+#: admin/toolbar/index.js:72
 msgid "Published"
 msgstr ""
 
@@ -4786,16 +4789,16 @@ msgstr ""
 msgid "Please select media."
 msgstr ""
 
-#: admin/toolbar/index.js:51
+#: admin/toolbar/index.js:38
 msgid "Instant Video Page"
 msgstr ""
 
-#: admin/toolbar/index.js:97
+#: admin/toolbar/index.js:73
 #: single-presto-media.php:46
 msgid "Unpublished"
 msgstr ""
 
-#: admin/toolbar/index.js:117
+#: admin/toolbar/index.js:81
 msgid "An instant video page gives you an instant shareable page for your media."
 msgstr ""
 

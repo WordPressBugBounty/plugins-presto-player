@@ -8,7 +8,7 @@ import {
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { SearchControl } from "@wordpress/components";
-import { css } from "@emotion/core";
+import "./EntitySearchDropdown.scss";
 
 const EntitySearchDropdown = ({
   options,
@@ -49,9 +49,7 @@ const EntitySearchDropdown = ({
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  css={css`
-                    width: 18px;
-                  `}
+                  className="presto-entity-search__icon"
                 >
                   <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
                 </svg>
@@ -86,15 +84,7 @@ const EntitySearchDropdown = ({
           </MenuGroup>
         )}
         {hasMore && options.length && (
-          <div
-            css={css`
-              margin-top: 20px;
-              text-align: center;
-              display: flex;
-              justify-content: center;
-              width: 100%;
-            `}
-          >
+          <div className="presto-entity-search__load-more">
             <Button
               variant="secondary"
               size={"small"}
@@ -110,48 +100,16 @@ const EntitySearchDropdown = ({
   };
 
   return (
-    <div
-      class="pp_search_dropdown_container"
-      css={css`
-        width: 100%;
-        position: relative;
-      `}
-    >
+    <div className="pp_search_dropdown_container presto-entity-search__container">
       <Dropdown
         onToggle={(open) => onOpen(open)}
         renderContent={() => (
-          <div
-            css={css`
-              width: 500px;
-              max-width: 100vw;
-              padding: 8px;
-              .components-menu-group {
-                padding: 8px;
-                margin-top: 0;
-                margin-bottom: 0;
-                margin-left: -8px;
-                margin-right: -8px;
-              }
-              .components-menu-group + .components-menu-group {
-                margin-top: 0;
-                border-top: 1px solid #ccc;
-                padding: 8px;
-              }
-              .components-menu-group:last-child {
-                margin-bottom: -8px;
-              }
-              .components-menu-group:first-child {
-                margin-top: -8px;
-              }
-            `}
-          >
+          <div className="presto-entity-search__content">
             <SearchControl
               placeholder={__("Search...", "presto-player")}
               value={search}
               onChange={onSearch}
-              css={css`
-                padding: 0.5em 0.5em 0em 0.5em;
-              `}
+              className="presto-entity-search__search"
             />
             {renderContent()}
           </div>
