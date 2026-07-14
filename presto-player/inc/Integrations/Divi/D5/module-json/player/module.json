@@ -1,0 +1,86 @@
+{
+  "name": "presto/player",
+  "d4Shortcode": "prpl_presto_player",
+  "moduleClassName": "prpl_presto_player",
+  "title": "Presto Player Media",
+  "titles": "Presto Player Media",
+  "moduleIcon": "divi/module-video",
+  "category": "module",
+  "childrenName": [],
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "%%order_class%%",
+      "settings": {
+        "meta": {
+          "meta": {}
+        },
+        "advanced": {
+          "html": {}
+        },
+        "decoration": {
+          "animation": {},
+          "border": {},
+          "boxShadow": {},
+          "conditions": {},
+          "disabledOn": {},
+          "filters": {},
+          "overflow": {},
+          "position": {},
+          "scroll": {},
+          "sizing": {},
+          "spacing": {},
+          "sticky": {},
+          "transform": {},
+          "transition": {},
+          "zIndex": {}
+        }
+      }
+    },
+    "videoId": {
+      "type": "object",
+      "selector": "%%order_class%%",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupName": "mainContent",
+            "priority": 10,
+            "render": true,
+            "attrName": "videoId.innerContent",
+            "label": "Choose Media",
+            "component": {
+              "name": "presto/media-hub",
+              "type": "field"
+            }
+          }
+        }
+      }
+    },
+    "urlOverride": {
+      "type": "object",
+      "selector": "%%order_class%%",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupName": "mainContent",
+            "priority": 20,
+            "render": true,
+            "attrName": "urlOverride.innerContent",
+            "label": "Dynamic URL Override",
+            "component": {
+              "name": "divi/text",
+              "type": "field"
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "content": "auto",
+    "design": "auto",
+    "advanced": "auto"
+  }
+}

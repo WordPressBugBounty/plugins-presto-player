@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-29T05:27:34+00:00\n"
+"POT-Creation-Date: 2026-07-14T06:38:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -1363,6 +1363,7 @@ msgstr ""
 #: admin/dashboard/components/MediaHub/MediaRow.js:120
 #: admin/dashboard/components/TopPerformingMedia.js:44
 #: admin/dashboard/utils/transformers.js:18
+#: admin/integrations/divi/d5/fields/MediaHubField.jsx:50
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:113
 msgid "Untitled"
 msgstr ""
@@ -4767,6 +4768,32 @@ msgstr ""
 msgid "%s plugin Installed Successfully.."
 msgstr ""
 
+#: admin/integrations/divi/d5/fields/MediaHubField.jsx:213
+msgid "Choose a video…"
+msgstr ""
+
+#: admin/integrations/divi/d5/fields/MediaHubField.jsx:225
+msgid "Search videos…"
+msgstr ""
+
+#: admin/integrations/divi/d5/fields/MediaHubField.jsx:229
+msgid "Loading…"
+msgstr ""
+
+#: admin/integrations/divi/d5/fields/MediaHubField.jsx:232
+msgid "Could not load videos. Please reload and try again."
+msgstr ""
+
+#: admin/integrations/divi/d5/fields/MediaHubField.jsx:235
+msgid "No videos found."
+msgstr ""
+
+#: admin/integrations/divi/d5/modules/PlayerEdit.jsx:35
+#: admin/integrations/divi/modules/PrestoPlayer/PrestoPlayer.jsx:32
+#: Integrations/Divi/D5/PrestoVideoModule.php:81
+msgid "Please select media."
+msgstr ""
+
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:208
 #: Integrations/Elementor/VideoWidget.php:279
 msgid "Video Options"
@@ -4783,10 +4810,6 @@ msgstr ""
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:216
 #: Services/Learn.php:212
 msgid "Create Video"
-msgstr ""
-
-#: admin/integrations/divi/modules/PrestoPlayer/PrestoPlayer.jsx:32
-msgid "Please select media."
 msgstr ""
 
 #: admin/toolbar/index.js:38
@@ -5078,6 +5101,23 @@ msgstr ""
 
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:139
 msgid "Search Media Hub"
+msgstr ""
+
+#: Integrations/Divi/Divi.php:160
+msgid "Invalid nonce."
+msgstr ""
+
+#: Integrations/Divi/Divi.php:164
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: Integrations/Divi/Divi.php:170
+msgid "You must provide an id."
+msgstr ""
+
+#: Integrations/Divi/Divi.php:175
+#: Services/API/RestVideosController.php:355
+msgid "Video not found."
 msgstr ""
 
 #: Integrations/Divi/includes/modules/PrestoPlayer/PrestoPlayer.php:63
@@ -5531,10 +5571,6 @@ msgstr ""
 
 #: Services/API/RestVideosController.php:322
 msgid "Cannot update video."
-msgstr ""
-
-#: Services/API/RestVideosController.php:355
-msgid "Video not found."
 msgstr ""
 
 #: Services/Blocks.php:38

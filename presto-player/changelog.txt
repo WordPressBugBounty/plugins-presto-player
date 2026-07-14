@@ -1,7 +1,17 @@
 *** Presto Player Changelog ***
+= 4.3.1 =
+* New: Native Divi 5 module support for the Presto Player video player.
+* Security: Multiple security hardening improvements.
+* Fixed: Analytics charts no longer flatline on date ranges longer than 31 days.
+
 = 4.3.0 =
 * Improvement: Migrated to Block API v3 for improved compatibility and performance.
 * Improvement: Reworked editor styling for better performance and reliability.
+
+= 4.2.4 =
+* Improvement: WordPress.org plugin guideline compliance and Plugin Check hardening.
+* Fix: Corrected JavaScript translation file loading so admin interface strings are translated properly.
+* Fix: Made dashboard navigation tabs and the Media Hub 'Actions' column header translatable.
 
 = 4.2.4 =
 * Improvement: WordPress.org plugin guideline compliance and Plugin Check hardening.

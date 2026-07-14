@@ -29,12 +29,15 @@ class Player implements Service {
 	}
 
 	/**
-	 * Send a freshly generated REST nonce as a JSON response.
+	 * Send a freshly generated progress nonce as a JSON response.
+	 *
+	 * Scoped to progress tracking only — this endpoint is open to logged-out
+	 * users, so it must not hand out a general-purpose wp_rest nonce.
 	 *
 	 * @return void
 	 */
 	public function generateNonce() {
-		wp_send_json_success( wp_create_nonce( 'wp_rest' ) );
+		wp_send_json_success( wp_create_nonce( 'presto_player_progress' ) );
 	}
 
 	/**
@@ -57,8 +60,9 @@ class Player implements Service {
 	 * @return bool|\WP_Error True on success, or a WP_Error describing the failure.
 	 */
 	public function progressAction() {
-		// Verify nonce.
-		if ( ! wp_verify_nonce( isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '', 'wp_rest' ) ) {
+		// Verify nonce. wp_rest is still accepted for pages rendered before the scoped nonce shipped.
+		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		if ( ! wp_verify_nonce( $nonce, 'presto_player_progress' ) && ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new \WP_Error( 'invalid', 'Nonce invalid', array( 'status' => 403 ) );
 		}
 

@@ -253,6 +253,8 @@ class ComposerStaticInitb92e9494a3fd3f06b5b1878cc9b08f00
         'PrestoPlayer\\Foo\\ExtendedA' => __DIR__ . '/..' . '/level-2/dice/tests/TestData/Namespace.php',
         'PrestoPlayer\\Integrations\\BeaverBuilder\\BeaverBuilder' => __DIR__ . '/../..' . '/inc/Integrations/BeaverBuilder/BeaverBuilder.php',
         'PrestoPlayer\\Integrations\\BeaverBuilder\\ReusableVideoModule\\Module' => __DIR__ . '/../..' . '/inc/Integrations/BeaverBuilder/ReusableVideoModule/Module.php',
+        'PrestoPlayer\\Integrations\\Divi\\D5\\PlayerAttrs' => __DIR__ . '/../..' . '/inc/Integrations/Divi/D5/PlayerAttrs.php',
+        'PrestoPlayer\\Integrations\\Divi\\D5\\PrestoVideoModule' => __DIR__ . '/../..' . '/inc/Integrations/Divi/D5/PrestoVideoModule.php',
         'PrestoPlayer\\Integrations\\Divi\\Divi' => __DIR__ . '/../..' . '/inc/Integrations/Divi/Divi.php',
         'PrestoPlayer\\Integrations\\Elementor\\Elementor' => __DIR__ . '/../..' . '/inc/Integrations/Elementor/Elementor.php',
         'PrestoPlayer\\Integrations\\Elementor\\ReusableVideoWidget' => __DIR__ . '/../..' . '/inc/Integrations/Elementor/ReusableVideoWidget.php',

@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 4.3.0
+Stable tag: 4.3.1
 
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -158,6 +158,11 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.3.1 =
+* New: Native Divi 5 module support for the Presto Player video player.
+* Security: Multiple security hardening improvements.
+* Fixed: Analytics charts no longer flatline on date ranges longer than 31 days.
 
 = 4.3.0 =
 * Improvement: Migrated to Block API v3 for improved compatibility and performance.
