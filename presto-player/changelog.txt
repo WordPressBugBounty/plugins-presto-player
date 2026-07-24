@@ -1,4 +1,10 @@
 *** Presto Player Changelog ***
+= 4.3.2 =
+* Improvement: Added internal unit test coverage.
+* Improvement: Optimized license verification to reduce unnecessary update-check network requests.
+* Fixed: Self-hosted and HLS videos added by URL now show a readable title instead of the raw URL.
+* Fixed: FluentCRM email capture now reliably collects email.
+
 = 4.3.1 =
 * New: Native Divi 5 module support for the Presto Player video player.
 * Security: Multiple security hardening improvements.

@@ -44,10 +44,25 @@ class License {
 	 * @return void
 	 */
 	public function register() {
-		// Gated on wp_doing_cron() inside the callback — the same filter fires
-		// on foreground admin requests too, and a 15s HTTP call would block
-		// the pageload.
-		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'refreshOnUpdateCheck' ) );
+		// Periodic remote license-validity check — DISABLED BY DEFAULT (#1133).
+		//
+		// This filter fires refreshOnUpdateCheck() on every plugin-update check.
+		// It has no freshness guard or negative-cache of its own and free-rode on
+		// core's `last_checked` throttle; when that throttle collapsed during the
+		// WP 7.0.1 rollout (update caches force-cleared fleet-wide + object-cache
+		// write pressure), it re-fired at HTTP-timeout speed and took down the
+		// licensing origin (prestomade 502 outage, 2026-07-17).
+		//
+		// The renewal push this existed for (lock expired users out until they
+		// renew) is complete, so the check is off by default. It is gated behind a
+		// filter rather than commented out so it can be killed or restored
+		// fleet-wide with a hotfix/mu-plugin filter — no release required — if the
+		// origin flaps again. Before flipping the default back to true, add a
+		// freshness guard (skip fetch() unless we checked > N hours ago) and a
+		// negative cache written even on failure.
+		if ( apply_filters( 'presto_player_enable_license_check', false ) ) {
+			add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'refreshOnUpdateCheck' ) );
+		}
 
 		// Any write to the license option clears the cached verdict.
 		$option = Setting::getGroupName( 'license' );

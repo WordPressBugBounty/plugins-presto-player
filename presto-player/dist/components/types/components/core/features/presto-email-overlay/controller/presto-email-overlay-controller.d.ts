@@ -47,11 +47,6 @@ export declare class PrestoEmailOverlayController {
      */
     checkTime(): void;
     /**
-     * Fetch updated nonce in case of caching
-     * @returns Promise
-     */
-    getNonce(): Promise<Response>;
-    /**
      * Submit email collection
      * @param e Event
      */

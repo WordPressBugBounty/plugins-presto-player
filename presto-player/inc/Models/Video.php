@@ -152,8 +152,13 @@ class Video extends Model {
 			}
 		}
 
-		// Fallback to url.
-		$args['title'] = empty( $args['title'] ) ? $args['src'] : $args['title'];
+		// Fallback to a filename extracted from the url, or the raw url. Embed types keep the raw url
+		// so a failed noembed lookup doesn't turn e.g. /watch?v=x into the title "Watch".
+		if ( empty( $args['title'] ) && ! empty( $args['src'] ) ) {
+			$path          = in_array( $args['type'], array( 'youtube', 'vimeo' ), true ) ? '' : wp_parse_url( $args['src'], PHP_URL_PATH );
+			$name          = $path ? pathinfo( rawurldecode( $path ), PATHINFO_FILENAME ) : '';
+			$args['title'] = $name ? ucwords( str_replace( array( '-', '_' ), ' ', $name ) ) : $args['src'];
+		}
 
 		// Return args.
 		return $args;

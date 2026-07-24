@@ -7,8 +7,10 @@ const { useEffect, useState } = wp.element;
 import LoadSelect from "../../components/LoadSelect";
 
 export default ({ options, updateEmailState }) => {
-  const [fetchingLists, setFetchingLists] = useState(false);
-  const [fetchingTags, setFetchingTags] = useState(false);
+  // Start in the fetching state since both requests fire on mount, so the
+  // empty-state help doesn't flash before the lists/tags have loaded.
+  const [fetchingLists, setFetchingLists] = useState(true);
+  const [fetchingTags, setFetchingTags] = useState(true);
 
   const [lists, setLists] = useState([
     { value: null, label: __("Choose a list", "presto-player") },
@@ -94,27 +96,40 @@ export default ({ options, updateEmailState }) => {
       {fetchingLists ? (
         <LoadSelect />
       ) : (
-        lists.length > 1 && (
-          <SelectControl
-            label={__("Choose a list", "presto-player")}
-            value={options?.provider_list}
-            options={lists}
-            onChange={(provider_list) => updateEmailState({ provider_list })}
-          />
-        )
+        <SelectControl
+          label={__("Choose a list", "presto-player")}
+          value={options?.provider_list}
+          options={lists}
+          onChange={(provider_list) => updateEmailState({ provider_list })}
+          // length 1 = only the placeholder option, i.e. FluentCRM has no lists yet
+          help={
+            lists.length <= 1
+              ? __(
+                  "No lists found in FluentCRM. Create a list in FluentCRM to assign contacts to it.",
+                  "presto-player"
+                )
+              : undefined
+          }
+        />
       )}
 
       {fetchingTags ? (
         <LoadSelect />
       ) : (
-        tags.length > 1 && (
-          <SelectControl
-            label={__("Choose a tag", "presto-player")}
-            value={options?.provider_tag}
-            options={tags}
-            onChange={(provider_tag) => updateEmailState({ provider_tag })}
-          />
-        )
+        <SelectControl
+          label={__("Choose a tag", "presto-player")}
+          value={options?.provider_tag}
+          options={tags}
+          onChange={(provider_tag) => updateEmailState({ provider_tag })}
+          help={
+            tags.length <= 1
+              ? __(
+                  "No tags found in FluentCRM. Create a tag in FluentCRM to apply it to contacts.",
+                  "presto-player"
+                )
+              : undefined
+          }
+        />
       )}
     </div>
   );

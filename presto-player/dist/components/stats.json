@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-14T06:38:22",
+  "timestamp": "2026-07-24T10:54:38",
   "compiler": {
     "name": "node",
     "version": "20.20.2"
@@ -405,12 +405,12 @@
           "./dist/index.js",
           "./dist/web-components/index.esm.js",
           "./dist/web-components/index.esm.js.map",
+          "./dist/web-components/p-03ed8a9f.entry.js",
+          "./dist/web-components/p-03ed8a9f.entry.js.map",
           "./dist/web-components/p-0c2a6cd3.entry.js",
           "./dist/web-components/p-0c2a6cd3.entry.js.map",
           "./dist/web-components/p-1528b143.entry.js",
           "./dist/web-components/p-1528b143.entry.js.map",
-          "./dist/web-components/p-1610cee0.entry.js",
-          "./dist/web-components/p-1610cee0.entry.js.map",
           "./dist/web-components/p-193f0db1.entry.js",
           "./dist/web-components/p-193f0db1.entry.js.map",
           "./dist/web-components/p-22488b76.entry.js",
@@ -425,6 +425,8 @@
           "./dist/web-components/p-8c965b5b.entry.js.map",
           "./dist/web-components/p-8e99834a.entry.js",
           "./dist/web-components/p-8e99834a.entry.js.map",
+          "./dist/web-components/p-9c3db6c4.entry.js",
+          "./dist/web-components/p-9c3db6c4.entry.js.map",
           "./dist/web-components/p-BxRAfMA5.js",
           "./dist/web-components/p-BxRAfMA5.js.map",
           "./dist/web-components/p-C3H434xh.js",
@@ -443,8 +445,6 @@
           "./dist/web-components/p-G840BFTB.js.map",
           "./dist/web-components/p-db54b491.entry.js",
           "./dist/web-components/p-db54b491.entry.js.map",
-          "./dist/web-components/p-e50d85c8.entry.js",
-          "./dist/web-components/p-e50d85c8.entry.js.map",
           "./dist/web-components/p-e6ea643f.entry.js",
           "./dist/web-components/p-e6ea643f.entry.js.map",
           "./dist/web-components/p-fH7ZDDmI.js",
@@ -453,12 +453,12 @@
           "./dist/web-components/web-components.esm.js.map",
           "./www/build/index.esm.js",
           "./www/build/index.esm.js.map",
+          "./www/build/p-03ed8a9f.entry.js",
+          "./www/build/p-03ed8a9f.entry.js.map",
           "./www/build/p-0c2a6cd3.entry.js",
           "./www/build/p-0c2a6cd3.entry.js.map",
           "./www/build/p-1528b143.entry.js",
           "./www/build/p-1528b143.entry.js.map",
-          "./www/build/p-1610cee0.entry.js",
-          "./www/build/p-1610cee0.entry.js.map",
           "./www/build/p-193f0db1.entry.js",
           "./www/build/p-193f0db1.entry.js.map",
           "./www/build/p-22488b76.entry.js",
@@ -473,6 +473,8 @@
           "./www/build/p-8c965b5b.entry.js.map",
           "./www/build/p-8e99834a.entry.js",
           "./www/build/p-8e99834a.entry.js.map",
+          "./www/build/p-9c3db6c4.entry.js",
+          "./www/build/p-9c3db6c4.entry.js.map",
           "./www/build/p-BxRAfMA5.js",
           "./www/build/p-BxRAfMA5.js.map",
           "./www/build/p-C3H434xh.js",
@@ -491,8 +493,6 @@
           "./www/build/p-G840BFTB.js.map",
           "./www/build/p-db54b491.entry.js",
           "./www/build/p-db54b491.entry.js.map",
-          "./www/build/p-e50d85c8.entry.js",
-          "./www/build/p-e50d85c8.entry.js.map",
           "./www/build/p-e6ea643f.entry.js",
           "./www/build/p-e6ea643f.entry.js.map",
           "./www/build/p-fH7ZDDmI.js",
@@ -644,13 +644,13 @@
           "presto-email-overlay-ui",
           "presto-player-spinner"
         ],
-        "bundleId": "p-e50d85c8",
-        "fileName": "p-e50d85c8.entry.js",
+        "bundleId": "p-03ed8a9f",
+        "fileName": "p-03ed8a9f.entry.js",
         "imports": [
           "p-BxRAfMA5.js",
           "p-G840BFTB.js"
         ],
-        "originalByteSize": 6355
+        "originalByteSize": 6492
       },
       {
         "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
@@ -673,15 +673,15 @@
           "presto-vimeo",
           "presto-youtube"
         ],
-        "bundleId": "p-1610cee0",
-        "fileName": "p-1610cee0.entry.js",
+        "bundleId": "p-9c3db6c4",
+        "fileName": "p-9c3db6c4.entry.js",
         "imports": [
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-G840BFTB.js",
           "p-D8o-F2Bu.js"
         ],
-        "originalByteSize": 70201
+        "originalByteSize": 69876
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -826,7 +826,7 @@
           "index-BxRAfMA5.js",
           "fittext-kmLX7jv_.js"
         ],
-        "originalByteSize": 6361
+        "originalByteSize": 6498
       },
       {
         "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
@@ -857,7 +857,7 @@
           "fittext-kmLX7jv_.js",
           "cache-cues-D8o-F2Bu.js"
         ],
-        "originalByteSize": 70219
+        "originalByteSize": 69894
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -1004,7 +1004,7 @@
           "index-Dlg6qIxM.js",
           "fittext-D3xDjTej.js"
         ],
-        "originalByteSize": 6437
+        "originalByteSize": 6574
       },
       {
         "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
@@ -1035,7 +1035,7 @@
           "fittext-D3xDjTej.js",
           "cache-cues-ps1fLLit.js"
         ],
-        "originalByteSize": 70796
+        "originalByteSize": 70471
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -16149,6 +16149,7 @@
             "ref",
             "onSubmit",
             "type",
+            "aria-label",
             "placeholder",
             "value",
             "onInput",

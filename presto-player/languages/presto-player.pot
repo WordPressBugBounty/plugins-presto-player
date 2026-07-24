@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-14T06:38:05+00:00\n"
+"POT-Creation-Date: 2026-07-24T10:54:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -1905,15 +1905,15 @@ msgstr ""
 
 #: admin/blocks/shared/presets/parts/ActiveCampaignConfig.js:14
 #: admin/blocks/shared/presets/parts/ActiveCampaignConfig.js:99
-#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:14
-#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:99
+#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:16
+#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:100
 msgid "Choose a list"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/ActiveCampaignConfig.js:17
 #: admin/blocks/shared/presets/parts/ActiveCampaignConfig.js:112
-#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:17
-#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:112
+#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:19
+#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:120
 msgid "Choose a tag"
 msgstr ""
 
@@ -1934,6 +1934,14 @@ msgstr ""
 
 #: admin/blocks/shared/presets/parts/ChooseProvider.js:152
 msgid "Choose an email provider"
+msgstr ""
+
+#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:107
+msgid "No lists found in FluentCRM. Create a list in FluentCRM to assign contacts to it."
+msgstr ""
+
+#: admin/blocks/shared/presets/parts/FluentCRMConfig.js:126
+msgid "No tags found in FluentCRM. Create a tag in FluentCRM to apply it to contacts."
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/MailchimpConfig.js:12
@@ -2078,7 +2086,7 @@ msgstr ""
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:27
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:28
 #: Services/AdminNotices.php:285
-#: Services/License/License.php:236
+#: Services/License/License.php:251
 #: Services/Menu.php:43
 #: Services/Menu.php:44
 msgid "Presto Player"
@@ -2972,7 +2980,7 @@ msgstr ""
 
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:94
 #: admin/dashboard/hooks/useUpgradeCTA.js:37
-#: Services/License/License.php:219
+#: Services/License/License.php:234
 msgid "Activate License"
 msgstr ""
 
@@ -3227,7 +3235,7 @@ msgid "Viewer"
 msgstr ""
 
 #: admin/dashboard/components/UpgradeNotice.js:64
-#: Services/License/License.php:227
+#: Services/License/License.php:242
 msgid "Your Presto Player Pro license has expired. Please renew to restore Pro Features, Premium Support & Automatic Plugin Updates."
 msgstr ""
 
@@ -3240,7 +3248,7 @@ msgid "Ready to go beyond free plan?"
 msgstr ""
 
 #: admin/dashboard/components/UpgradeNotice.js:78
-#: Services/License/License.php:228
+#: Services/License/License.php:243
 msgid "Renew Now"
 msgstr ""
 
@@ -5975,11 +5983,11 @@ msgstr ""
 msgid "Add structured video schema data to boost search visibility — works automatically with RankMath."
 msgstr ""
 
-#: Services/License/License.php:218
+#: Services/License/License.php:233
 msgid "Activate your Presto Player Pro license to unlock Pro features and receive automatic updates."
 msgstr ""
 
-#: Services/License/License.php:222
+#: Services/License/License.php:237
 msgid "Buy Subscription"
 msgstr ""
 
