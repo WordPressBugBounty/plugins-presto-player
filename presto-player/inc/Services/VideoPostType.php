@@ -37,6 +37,7 @@ class VideoPostType {
 
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'init', array( $this, 'registerMetaSettings' ) );
+		add_filter( 'is_protected_meta', array( $this, 'protectInstantVideoMeta' ), 10, 3 );
 
 		if ( version_compare( $wp_version, '5.8', '>=' ) ) {
 			add_filter( 'allowed_block_types_all', array( $this, 'allowedTypes' ), 10, 2 );
@@ -614,12 +615,34 @@ class VideoPostType {
 			$this->post_type,
 			'presto_player_instant_video_pages_enabled',
 			array(
-				'single'       => true,
-				'type'         => 'boolean',
-				'description'  => 'Enable Instant Video Pages',
-				'show_in_rest' => true,
+				'single'        => true,
+				'type'          => 'boolean',
+				'description'   => 'Enable Instant Video Pages',
+				'show_in_rest'  => true,
+				'auth_callback' => function ( $allowed, $meta_key, $post_id, $user_id ) {
+					return user_can( $user_id, 'edit_post', $post_id );
+				},
 			)
 		);
+	}
+
+	/**
+	 * Hide the instant video page meta from the Custom Fields metabox.
+	 *
+	 * If a user has the editor's "Custom fields" panel switched on, the metabox
+	 * renders this key as an editable row and posts its stale value back right
+	 * after Gutenberg's REST save — silently reverting the toggle.
+	 *
+	 * @param  bool   $protected  Whether the key is protected.
+	 * @param  string $meta_key   The meta key.
+	 * @param  string $meta_type  The object type.
+	 * @return bool
+	 */
+	public function protectInstantVideoMeta( $protected, $meta_key, $meta_type ) {
+		if ( 'post' === $meta_type && 'presto_player_instant_video_pages_enabled' === $meta_key ) {
+			return true;
+		}
+		return $protected;
 	}
 
 	/**

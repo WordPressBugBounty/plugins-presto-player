@@ -58,10 +58,10 @@ class PopupTriggerBlock {
 				array(
 					'data-wp-on--click'            => 'actions.showPopup',
 					'tabindex'                     => '0',
-					'data-wp-on--keydown'          => 'actions.handleKeydown',
+					'data-wp-on--keydown'          => 'callbacks.handleKeydown',
 					'aria-label'                   => __( 'Open Presto Popup dialog', 'presto-player' ),
 					'aria-haspopup'                => 'dialog',
-					'data-wp-on-document--keydown' => 'callbacks.handleKeydown',
+					'data-wp-on-document--keydown' => 'callbacks.handleDocumentKeydown',
 					'data-wp-bind--aria-expanded'  => 'state.overlayEnabled',
 				)
 			)

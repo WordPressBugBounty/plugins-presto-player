@@ -116,10 +116,12 @@ class Divi {
 			}
 		}
 		if ( ! empty( $block_id ) ) {
-			$post_model = new Post( get_post( $block_id ) );
-			$block      = $post_model->getMediaHubBlockFromPost( $block_id );
-			if ( ! empty( $block ) ) {
-				return $block;
+			// getMediaHubBlockFromPost() resolves the post itself, so don't build a Post
+			// model here - get_post() returns null for a deleted media hub item and the
+			// constructor is typed \WP_Post, which fataled the whole page.
+			$inner_block = Post::getMediaHubBlockFromPost( $block_id );
+			if ( ! empty( $inner_block ) ) {
+				return $inner_block;
 			}
 		}
 		return $block;

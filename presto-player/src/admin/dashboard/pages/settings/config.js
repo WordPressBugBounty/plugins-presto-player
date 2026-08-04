@@ -148,6 +148,7 @@ export const SETTINGS_PAGES = [
 		component: WebhooksPage,
 		pro: true,
 		requiresProPlugin: true,
+		requireManageOptions: true,
 	},
 
 	{

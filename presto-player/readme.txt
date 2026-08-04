@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 4.3.2
+Stable tag: 4.3.3
 
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -158,6 +158,15 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.3.3 =
+* Fixed: Video analytics and email capture now record correctly on sites running Presto Player Pro.
+* Fixed: Instant Video Page visibility now saves correctly when the block editor's Custom Fields panel is enabled.
+* Fixed: LearnDash video progression now works when the Presto Player shortcode is nested inside another shortcode.
+* Fixed: Popups no longer open when Enter is pressed elsewhere on the page.
+* Fixed: Email capture now recovers from an expired security token on cached pages, and shows a readable message when a submission fails.
+* Fixed: Pages no longer break or become unresponsive when a Presto Player shortcode points at a deleted Media Hub video, or at videos that reference each other.
+* Fixed: Email captures from audio players are now recorded against the correct audio item.
 
 = 4.3.2 =
 * Improvement: Added internal unit test coverage.

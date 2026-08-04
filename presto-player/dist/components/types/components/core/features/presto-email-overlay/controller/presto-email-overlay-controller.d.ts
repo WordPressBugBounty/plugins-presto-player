@@ -47,6 +47,31 @@ export declare class PrestoEmailOverlayController {
      */
     checkTime(): void;
     /**
+     * Post the submission to the email collection handler
+     * @param e Event
+     * @param nonce string
+     * @returns Response
+     */
+    post(e: any, nonce: any): Promise<Response>;
+    /**
+     * Get a fresh nonce.
+     *
+     * The nonce we send is baked into the page markup, so a full page cache that
+     * outlives it hands every visitor a dead one. This endpoint is open to logged
+     * out visitors and always registered, even when analytics is off.
+     * @returns string
+     */
+    refreshNonce(): Promise<string>;
+    /**
+     * Pull a message out of an error payload.
+     *
+     * Validation failures come back as an array of messages, everything else as a
+     * plain string, so this can't just index into it.
+     * @param data any
+     * @returns string
+     */
+    getErrorMessage(data: any): string;
+    /**
      * Submit email collection
      * @param e Event
      */

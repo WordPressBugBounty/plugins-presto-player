@@ -78,13 +78,12 @@ class PopupTriggerService {
 		if ( $processor->next_tag( array( 'tag_name' => 'a' ) ) ) {
 			// Add the same popup directives as PopupTriggerBlock.
 			$processor->set_attribute( 'data-wp-on--click', 'actions.showPopup' );
-			$processor->set_attribute( 'data-wp-init', 'callbacks.initTriggerButton' );
 			$processor->set_attribute( 'tabindex', '0' );
-			$processor->set_attribute( 'data-wp-on--keydown', 'actions.handleKeydown' );
+			$processor->set_attribute( 'data-wp-on--keydown', 'callbacks.handleKeydown' );
 			$processor->set_attribute( 'aria-label', __( 'Open Presto Popup dialog', 'presto-player' ) );
 			$processor->set_attribute( 'aria-haspopup', 'dialog' );
 			$processor->set_attribute( 'data-wp-bind--aria-expanded', 'state.overlayEnabled' );
-			$processor->set_attribute( 'data-wp-on-document--keydown', 'callbacks.handleKeydown' );
+			$processor->set_attribute( 'data-wp-on-document--keydown', 'callbacks.handleDocumentKeydown' );
 
 			return $processor->get_updated_html();
 		}

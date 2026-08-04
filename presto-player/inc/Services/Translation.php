@@ -80,6 +80,7 @@ class Translation implements Service {
 			'rewatch'              => __( 'Rewatch', 'presto-player' ),
 			'emailPlaceholder'     => __( 'Email address', 'presto-player' ),
 			'emailDefaultHeadline' => __( 'Enter your email to play this episode.', 'presto-player' ),
+			'emailError'           => __( 'Something went wrong. Please refresh the page and try again.', 'presto-player' ),
 			'chapters'             => __( 'Chapters', 'presto-player' ),
 			'show_chapters'        => __( 'Show Chapters', 'presto-player' ),
 			'hide_chapters'        => __( 'Hide Chapters', 'presto-player' ),

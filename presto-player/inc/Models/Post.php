@@ -1,13 +1,42 @@
 <?php
+/**
+ * Post model for finding the presto player video in post content.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer\Models;
 
+/**
+ * Finds the presto player video id in a post's content.
+ */
 class Post {
 
+	/**
+	 * The post being searched.
+	 *
+	 * @var \WP_Post
+	 */
 	protected $post;
 
+	/**
+	 * Ids of posts we have already followed a shortcode into.
+	 *
+	 * A [presto_player id=...] can point back at its own post, or at a post
+	 * that points back here. Without this we'd recurse until memory runs out.
+	 *
+	 * @var array<int, bool>
+	 */
+	protected $visited = array();
+
+	/**
+	 * Constructor.
+	 *
+	 * @param \WP_Post $post The post to search.
+	 */
 	public function __construct( \WP_Post $post ) {
-		$this->post = $post;
+		$this->post                       = $post;
+		$this->visited[ (int) $post->ID ] = true;
 	}
 
 	/**
@@ -16,7 +45,7 @@ class Post {
 	 * @return int|false
 	 */
 	public function findVideoId() {
-		// first check for id in block
+		// first check for id in block.
 		$id = $this->getVideoIdFromBlock();
 		if ( $id ) {
 			return (int) $id;
@@ -41,24 +70,60 @@ class Post {
 	 * @return int|false
 	 */
 	public function getVideoIdFromShortcode() {
-		$pattern = get_shortcode_regex();
+		// Scope the regex to our own tag so the shortcode is still found when
+		// nested inside an enclosing shortcode (e.g. [trp_language]).
+		$pattern = get_shortcode_regex( array( 'presto_player' ) );
 		$content = $this->post->post_content;
-		preg_match_all( "/$pattern/", $content, $matches );
 
-		$shortcode = array_keys( $matches[2], 'presto_player' );
-		if ( ! $shortcode ) {
-			return false;
-		}
-		if ( empty( $matches[3][0] ) ) {
+		// false when PCRE hits a backtrack/JIT limit on huge content, 0 when there is no shortcode.
+		if ( ! preg_match_all( "/$pattern/", $content, $matches ) ) {
 			return false;
 		}
 
-		// get media hub id
-		$atts = shortcode_parse_atts( $matches[3][0] );
-		if ( ! empty( $atts['id'] ) ) {
-			$this->post = get_post( $atts['id'] );
-			return $this->findVideoId();
+		// the regex only matches our own tag, so every match is a candidate.
+		foreach ( array_keys( $matches[2] ) as $index ) {
+			// [[presto_player]] is escaped: it renders as literal text, so there is no video.
+			if ( '[' === $matches[1][ $index ] && ']' === $matches[6][ $index ] ) {
+				continue;
+			}
+
+			if ( empty( $matches[3][ $index ] ) ) {
+				continue;
+			}
+
+			// get media hub id.
+			$atts = shortcode_parse_atts( $matches[3][ $index ] );
+			if ( empty( $atts['id'] ) ) {
+				continue;
+			}
+
+			// already been here - it's a self-reference or a loop.
+			$id = (int) $atts['id'];
+			if ( isset( $this->visited[ $id ] ) ) {
+				continue;
+			}
+
+			$post = get_post( $id );
+			// the id can point at a deleted media hub item.
+			if ( ! $post instanceof \WP_Post ) {
+				continue;
+			}
+
+			$this->visited[ $id ] = true;
+			$original             = $this->post;
+			$this->post           = $post;
+
+			$video_id = $this->findVideoId();
+			if ( $video_id ) {
+				return $video_id;
+			}
+
+			// put our own post back, or findVideoId() carries on searching the
+			// post we just followed instead of this one.
+			$this->post = $original;
 		}
+
+		return false;
 	}
 
 	/**
@@ -67,23 +132,23 @@ class Post {
 	public function getVideoIdFromBlock() {
 		$blocks = parse_blocks( $this->post->post_content );
 		foreach ( $blocks as $block ) {
-			// inside wrapper block
+			// inside wrapper block.
 			if ( 'presto-player/reusable-edit' === $block['blockName'] && ! empty( $block['innerBlocks'] ) ) {
 				$block = $block['innerBlocks'][0];
 			}
 
-			// we have a reusable display block
+			// we have a reusable display block.
 			if ( 'presto-player/reusable-display' === $block['blockName'] ) {
-				// find the media hub post
+				// find the media hub post.
 				if ( ! empty( $block['attrs']['id'] ) ) {
-					$block = $this->getMediaHubBlockFromPost( $block['attrs']['id'] );
+					$block = self::getMediaHubBlockFromPost( $block['attrs']['id'] );
 				}
 			}
 
-			// in case block needs to be filtered
+			// in case block needs to be filtered.
 			$block = apply_filters( 'presto_player_get_block_from_content', $block );
 
-			// find the id attribute
+			// find the id attribute.
 			if ( ! empty( $block ) && in_array( $block['blockName'], Block::getBlockTypes() ) ) {
 				if ( ! empty( $block['attrs']['id'] ) ) {
 					return $block['attrs']['id'];
@@ -114,7 +179,7 @@ class Post {
 	 * @param  int $id id of the post.
 	 * @return array|false
 	 */
-	public function getMediaHubBlockFromPost( $id ) {
+	public static function getMediaHubBlockFromPost( $id ) {
 		if ( ! $id ) {
 			return false;
 		}

@@ -25,6 +25,7 @@ export interface i18nConfig extends Object {
     emailPlaceholder?: string;
     skip?: string;
     emailDefaultHeadline?: string;
+    emailError?: string;
     play: string;
 }
 export interface ActionBarConfig extends Object {

@@ -19,12 +19,16 @@ import {
 import './settings/entities';
 
 const isProPluginActive = window.prestoPlayer?.isProPluginActive ?? false;
+const canManageOptions = window.prestoPlayer?.canManageOptions ?? false;
 
 const isPageAvailable = ( page ) => {
 	if ( ! page ) {
 		return false;
 	}
 	if ( page.requiresProPlugin && ! isProPluginActive ) {
+		return false;
+	}
+	if ( page.requireManageOptions && ! canManageOptions ) {
 		return false;
 	}
 	return true;

@@ -21,7 +21,7 @@ class ProCompatibility {
 	 *
 	 * @var string
 	 */
-	protected $recommended_pro_version = '3.2.0';
+	protected $recommended_pro_version = '3.2.3';
 
 	/**
 	 * The minimum Pro version required to function at all.

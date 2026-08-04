@@ -204,7 +204,12 @@ class LearnDash implements Service {
 				return $value;
 			}
 
-			$post_model                 = new Post( get_post( $object_id ) );
+			$post = get_post( $object_id );
+			if ( ! $post instanceof \WP_Post ) {
+				return $value;
+			}
+
+			$post_model                 = new Post( $post );
 			$video_id                   = $post_model->findVideoId();
 			$saved[ $key ]              = "(presto-$video_id)";
 			$meta_cache[ $meta_key ][0] = $saved;

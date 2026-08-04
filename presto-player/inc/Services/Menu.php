@@ -328,6 +328,7 @@ class Menu {
 					),
 				),
 				'canManageEmailSubmissions' => current_user_can( 'manage_options' ),
+				'canManageOptions'          => current_user_can( 'manage_options' ),
 				'i18n'                      => Translation::geti18n(),
 				'api'                       => array(
 					'analyticsViews'     => '/presto-player/v1/analytics/views',
