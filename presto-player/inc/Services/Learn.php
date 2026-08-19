@@ -176,6 +176,7 @@ class Learn {
 	 *  - chapter.title        string Localized heading.
 	 *  - chapter.description  string Localized subheading shown under the title.
 	 *  - chapter.docsUrl      string Optional "Learn how" external link.
+	 *  - chapter.isNew        bool   Optional; shows a "New" badge on the card.
 	 *  - chapter.steps        array  Ordered list of step arrays.
 	 *
 	 *  - step.id           string Unique within the chapter.
@@ -185,6 +186,7 @@ class Learn {
 	 *  - step.headerAction array  { label, url } — optional primary CTA.
 	 *  - step.isPro        bool   Whether the step is a Pro upsell.
 	 *  - step.screenshot   array  { url, alt } — optional screenshot image.
+	 *  - step.prompts      array  Optional list of example prompt strings.
 	 *
 	 * Optional string fields default to empty; the frontend hides the
 	 * corresponding affordance when empty. `completed` is injected by
@@ -726,6 +728,93 @@ class Learn {
 						'screenshot'   => array(
 							'url' => 'https://prestoplayer.com/wp-content/uploads/2026/04/PP-SEO-01.png',
 							'alt' => __( 'Optimize video SEO with RankMath', 'presto-player' ),
+						),
+					),
+				),
+			),
+			// Chapter 7 — AI Abilities.
+			array(
+				'id'          => 'presto-player-ai',
+				'title'       => __( 'AI Abilities', 'presto-player' ),
+				'description' => __( 'Let Claude, ChatGPT or Cursor manage your videos. Just ask, in plain English.', 'presto-player' ),
+				'docsUrl'     => '',
+				'isNew'       => true,
+				'steps'       => array(
+					array(
+						'id'           => 'enable-ai-access',
+						'title'        => __( 'Turn on AI access', 'presto-player' ),
+						'description'  => __( 'Switch on AI access in the settings so assistants like Claude, ChatGPT and Cursor can securely connect to your site.', 'presto-player' ),
+						'docsUrl'      => '',
+						'headerAction' => array(
+							'label' => __( 'Open AI Settings', 'presto-player' ),
+							'url'   => admin_url( $dashboard_base . '&tab=Settings&section=mcp' ),
+						),
+						'isPro'        => false,
+						'screenshot'   => array(
+							'url' => '',
+							'alt' => '',
+						),
+					),
+					array(
+						'id'           => 'allow-changes',
+						'title'        => __( 'Allow AI to make changes', 'presto-player' ),
+						'description'  => __( 'By default AI is read-only — it can list, search and report on your videos and analytics, but cannot change anything. Turn on “Allow AI to make changes” to let it create, update and delete too. Enable this only when you trust the assistant, because it can then modify or permanently remove content on your site.', 'presto-player' ),
+						'docsUrl'      => '',
+						'headerAction' => array(
+							'label' => '',
+							'url'   => '',
+						),
+						'isPro'        => false,
+						'screenshot'   => array(
+							'url' => '',
+							'alt' => '',
+						),
+					),
+					array(
+						'id'           => 'what-you-can-ask',
+						'title'        => __( 'What you can ask', 'presto-player' ),
+						'description'  => __( 'Just talk to it in plain English. Here are some things you can say:', 'presto-player' ),
+						'docsUrl'      => '',
+						'headerAction' => array(
+							'label' => '',
+							'url'   => '',
+						),
+						'prompts'      => array(
+							__( 'Add this YouTube video and give me the shortcode', 'presto-player' ),
+							__( 'Embed this Vimeo video on my site', 'presto-player' ),
+							__( 'Upload my MP4 as a self-hosted player', 'presto-player' ),
+							__( 'Which videos got the most views this month?', 'presto-player' ),
+							__( 'Where do viewers drop off in this video?', 'presto-player' ),
+							__( 'Who are my most active viewers?', 'presto-player' ),
+							__( 'Show me all videos with ‘training’ in the title', 'presto-player' ),
+							__( 'Rename this video and update its description', 'presto-player' ),
+							__( 'Get the shortcode for this video', 'presto-player' ),
+							__( 'Auto-generate chapters from the captions on this video', 'presto-player' ),
+							__( 'Translate this video’s captions to Spanish', 'presto-player' ),
+						),
+						'isPro'        => false,
+						'screenshot'   => array(
+							'url' => '',
+							'alt' => '',
+						),
+					),
+					array(
+						'id'           => 'search-library',
+						'title'        => __( 'Search your library', 'presto-player' ),
+						'description'  => __( 'Not sure what is possible? Open the AI settings — every ability is listed there with a search box, so you can see exactly what the assistant can do. And in chat, just ask it to find things and it searches your Media Hub and analytics for you.', 'presto-player' ),
+						'docsUrl'      => '',
+						'headerAction' => array(
+							'label' => __( 'Open AI Settings', 'presto-player' ),
+							'url'   => admin_url( $dashboard_base . '&tab=Settings&section=mcp' ),
+						),
+						'prompts'      => array(
+							__( 'Show me all my videos about ‘onboarding’', 'presto-player' ),
+							__( 'Find the video I embedded on my pricing page', 'presto-player' ),
+						),
+						'isPro'        => false,
+						'screenshot'   => array(
+							'url' => '',
+							'alt' => '',
 						),
 					),
 				),

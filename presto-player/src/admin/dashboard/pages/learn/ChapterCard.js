@@ -29,9 +29,16 @@ const ChapterCard = ( { chapter, defaultOpen = false, onStepToggle } ) => {
 				className="w-full flex items-start justify-between gap-4 px-5 py-4 bg-transparent border-0 cursor-pointer text-left hover:bg-background-secondary/40 transition-colors"
 			>
 				<div className="flex-1 min-w-0">
-					<h3 className="m-0 text-base font-semibold text-text-primary">
-						{ chapter.title }
-					</h3>
+					<div className="flex items-start gap-1.5">
+						<h3 className="m-0 text-base font-semibold text-text-primary">
+							{ chapter.title }
+						</h3>
+						{ chapter.isNew && (
+							<span className="mt-0.5 shrink-0 rounded-full bg-brand-primary-600 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white">
+								{ __( 'New', 'presto-player' ) }
+							</span>
+						) }
+					</div>
 					{ chapter.description && (
 						<p className="m-0 mt-1 text-sm text-text-secondary leading-relaxed">
 							{ chapter.description }
@@ -57,10 +64,7 @@ const ChapterCard = ( { chapter, defaultOpen = false, onStepToggle } ) => {
 						</span>
 					) }
 
-					<ProgressPill
-						completed={ completedSteps }
-						total={ totalSteps }
-					/>
+					<ProgressPill completed={ completedSteps } total={ totalSteps } />
 
 					{ open ? (
 						<ChevronUp className="w-5 h-5 text-text-secondary" />

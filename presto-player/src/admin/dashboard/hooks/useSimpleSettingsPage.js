@@ -12,10 +12,22 @@ import useRegisterActivePage from './useRegisterActivePage';
  * flow (YouTube, Google Analytics, Performance, etc.). Pages with multi-option
  * combined saves (Bunny, Presets) or non-option REST flows (License,
  * EmailCapture, Webhooks) talk to useSettingOption / useSettingsData directly.
+ *
+ * @param {string}   optionKey          Option name to read and write.
+ * @param {Object}   defaults           Shape to fall back to before the option loads.
+ * @param {Function} registerActivePage Nav-guard registration callback from the page.
  */
 const useSimpleSettingsPage = ( optionKey, defaults, registerActivePage ) => {
-	const { data, setData, save, reset, isDirty, isSaving, isLoading } =
-		useSettingOption( optionKey, defaults );
+	const {
+		data,
+		savedData,
+		setData,
+		save,
+		reset,
+		isDirty,
+		isSaving,
+		isLoading,
+	} = useSettingOption( optionKey, defaults );
 
 	const update = useCallback(
 		( patch ) =>
@@ -42,7 +54,7 @@ const useSimpleSettingsPage = ( optionKey, defaults, registerActivePage ) => {
 		discard: reset,
 	} );
 
-	return { data, update, handleSave, isDirty, isSaving, isLoading };
+	return { data, savedData, update, handleSave, isDirty, isSaving, isLoading };
 };
 
 export default useSimpleSettingsPage;

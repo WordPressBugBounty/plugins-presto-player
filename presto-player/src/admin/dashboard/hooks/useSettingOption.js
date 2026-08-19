@@ -24,17 +24,21 @@ const useSettingOption = ( optionKey, defaultValue ) => {
 
 	const savedValue = lastSaved?.[ optionKey ];
 	const effectiveSaved =
-		savedValue === undefined || savedValue === null
-			? defaultValue
-			: savedValue;
+		savedValue === undefined || savedValue === null ? defaultValue : savedValue;
 
 	const setData = useCallback(
 		( next ) => updateLocal( optionKey, next ),
 		[ optionKey, updateLocal ]
 	);
 
-	const save = useCallback( () => saveSlice( [ optionKey ] ), [ saveSlice, optionKey ] );
-	const reset = useCallback( () => resetKey( optionKey ), [ resetKey, optionKey ] );
+	const save = useCallback(
+		() => saveSlice( [ optionKey ] ),
+		[ saveSlice, optionKey ]
+	);
+	const reset = useCallback(
+		() => resetKey( optionKey ),
+		[ resetKey, optionKey ]
+	);
 
 	// Derived (not a flag): typing + reverting is cleanly not-dirty, and pasting
 	// identical content doesn't falsely mark the page dirty. Deep equality is
@@ -46,9 +50,22 @@ const useSettingOption = ( optionKey, defaultValue ) => {
 
 	const isSaving = savingKeys.has( optionKey );
 
+	// savedData is what the server actually has. Anything that hands the user a
+	// live endpoint or fires a request has to gate on this, not on `data` —
+	// otherwise flipping a switch advertises a connector the backend hasn't
+	// enabled yet.
 	return useMemo(
-		() => ( { data, setData, save, reset, isDirty, isSaving, isLoading } ),
-		[ data, setData, save, reset, isDirty, isSaving, isLoading ]
+		() => ( {
+			data,
+			savedData: effectiveSaved,
+			setData,
+			save,
+			reset,
+			isDirty,
+			isSaving,
+			isLoading,
+		} ),
+		[ data, effectiveSaved, setData, save, reset, isDirty, isSaving, isLoading ]
 	);
 };
 

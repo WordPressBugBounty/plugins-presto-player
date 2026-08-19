@@ -209,6 +209,12 @@ class RestVideosController extends \WP_REST_Controller {
 	public function create_item( $request ) {
 		$item = $this->prepare_item_for_database( $request );
 
+		// With no source at all the $where below is empty, fetch() drops it and
+		// updateOrCreate would rewrite whichever row it finds first. Bail instead.
+		if ( empty( $item['src'] ) && empty( $item['external_id'] ) && empty( $item['attachment_id'] ) ) {
+			return new \WP_Error( 'missing_source', __( 'A video source is required.', 'presto-player' ), array( 'status' => 400 ) );
+		}
+
 		// Which video to first or create.
 		$where = array( 'src' => $item['src'] );
 
@@ -219,11 +225,36 @@ class RestVideosController extends \WP_REST_Controller {
 			$where = array( 'attachment_id' => $item['attachment_id'] );
 		}
 
-		// Create video.
-		$video = new Video();
-		$video->updateOrCreate( $where, $item );
+		// $where dedupes on the source, so swapping a block's video mints a brand new
+		// row (#1181). Video::create() and Video::update() both refuse a post_id
+		// another live row already owns, so the row that got there first keeps it;
+		// this one resolves through the block attributes instead. No REST-layer
+		// restore dance needed on top of that — a second guess here, keyed off
+		// whatever the model just wrote, could only get it wrong when a site
+		// already had two rows sharing one post before either guard existed.
+		$video    = new Video();
+		$existing = $video->fetch( $where );
+		if ( is_wp_error( $existing ) ) {
+			return $existing;
+		}
 
-		$data = $this->prepare_item_for_response( $video->toArray(), $request );
+		// The dedupe hit may be a row this user cannot edit — the source URL is
+		// public on any page embedding the video, so an Author could rewrite an
+		// administrator's title and type through it. This is the same POST the
+		// block editor sends to look up an already-imported source, so hand the
+		// row back untouched rather than refuse a legitimate embed. Changing it
+		// is what update_item_permissions_check() gates.
+		$match = empty( $existing->data[0] ) ? null : $existing->data[0];
+		if ( $match && ! $this->canEditVideo( $match ) ) {
+			$created = $match;
+		} else {
+			$created = $video->updateOrCreate( $where, $item );
+			if ( is_wp_error( $created ) ) {
+				return $created;
+			}
+		}
+
+		$data = $this->prepare_item_for_response( $created->toArray(), $request );
 		if ( is_wp_error( $data ) ) {
 			return $data;
 		}
@@ -357,6 +388,20 @@ class RestVideosController extends \WP_REST_Controller {
 			);
 		}
 
+		return $this->canEditVideo( $video );
+	}
+
+	/**
+	 * Whether the current user may change an existing video row.
+	 *
+	 * Ownership, or `edit_others_posts` for editors and admins. Shared by the
+	 * update route and by the create route's dedupe path, which reaches the same
+	 * UPDATE through updateOrCreate() and so needs the same rule.
+	 *
+	 * @param Video $video Video row to test.
+	 * @return bool
+	 */
+	protected function canEditVideo( $video ) {
 		$owner_id = (int) $video->created_by;
 		if ( $owner_id && get_current_user_id() === $owner_id ) {
 			return true;

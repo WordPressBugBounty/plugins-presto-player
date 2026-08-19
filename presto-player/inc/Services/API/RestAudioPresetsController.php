@@ -450,7 +450,12 @@ class RestAudioPresetsController extends \WP_REST_Controller {
 		$item = $this->prepare_item_for_database( $request );
 
 		$preset = new AudioPreset( $request['id'] );
-		$preset->update( $item );
+		$updated = $preset->update( $item );
+
+		// Bail early on error.
+		if ( is_wp_error( $updated ) ) {
+			return $updated;
+		}
 
 		$data = $this->prepare_item_for_response( $preset, $request );
 

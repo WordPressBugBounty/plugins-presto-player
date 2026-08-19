@@ -64,9 +64,18 @@ return array(
 		\PrestoPlayer\Services\Scripts::class,
 		\PrestoPlayer\Services\Blocks::class,
 		\PrestoPlayer\Services\Settings::class,
+		\PrestoPlayer\Services\Abilities\Module::class,
+
+		// OAuth + MCP auth. Module always registers (installs the schema on the
+		// enable transition); Bootstrap registers the gated endpoints only when
+		// AI access is on.
+		\PrestoPlayer\Services\OAuth\Module::class,
+		\PrestoPlayer\Services\OAuth\Bootstrap::class,
+
 		\PrestoPlayer\Services\VideoPostType::class,
 		\PrestoPlayer\Services\ReusableVideos::class,
 		\PrestoPlayer\Services\AdminNotices::class,
+		\PrestoPlayer\Services\FeatureAnnounce::class,
 		\PrestoPlayer\Services\Usage::class,
 		\PrestoPlayer\Services\ProCompatibility::class,
 		\PrestoPlayer\Services\Compatibility::class,

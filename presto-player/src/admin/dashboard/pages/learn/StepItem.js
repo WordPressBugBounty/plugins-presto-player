@@ -7,6 +7,7 @@ import {
 	ChevronUp,
 	Circle,
 	Info,
+	Sparkles,
 } from 'lucide-react';
 import ScreenshotDialog from './ScreenshotDialog';
 
@@ -83,6 +84,24 @@ const StepItem = ( { chapterId, step, onToggle } ) => {
 							{ step.description }
 						</p>
 
+						{ Array.isArray( step.prompts ) && step.prompts.length > 0 && (
+							<div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+								{ step.prompts.map( ( prompt, i ) => (
+									<div
+										key={ i }
+										className="group flex items-center gap-2.5 rounded-lg border border-solid border-border-subtle bg-background-primary px-3 py-2.5 transition-colors hover:border-brand-primary-600 hover:bg-brand-primary-50"
+									>
+										<span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-brand-primary-50 text-brand-primary-600">
+											<Sparkles className="size-3.5" aria-hidden="true" />
+										</span>
+										<span className="text-sm leading-snug text-text-primary">
+											{ prompt }
+										</span>
+									</div>
+								) ) }
+							</div>
+						) }
+
 						{ step.docsUrl && (
 							<a
 								href={ step.docsUrl }
@@ -97,14 +116,16 @@ const StepItem = ( { chapterId, step, onToggle } ) => {
 					</div>
 
 					<div className="shrink-0 flex items-center gap-2">
-						<button
-							type="button"
-							onClick={ () => setScreenshotOpen( true ) }
-							aria-label={ __( 'View screenshot', 'presto-player' ) }
-							className="inline-flex items-center justify-center w-8 h-8 rounded-full border-0 bg-background-primary text-text-secondary hover:text-brand-primary-600 cursor-pointer transition-colors"
-						>
-							<Info className="w-4 h-4" />
-						</button>
+						{ step.screenshot?.url && (
+							<button
+								type="button"
+								onClick={ () => setScreenshotOpen( true ) }
+								aria-label={ __( 'View screenshot', 'presto-player' ) }
+								className="inline-flex items-center justify-center w-8 h-8 rounded-full border-0 bg-background-primary text-text-secondary hover:text-brand-primary-600 cursor-pointer transition-colors"
+							>
+								<Info className="w-4 h-4" />
+							</button>
+						) }
 
 						{ step.headerAction?.url && (
 							<Button

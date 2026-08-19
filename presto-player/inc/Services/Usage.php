@@ -656,6 +656,7 @@ class Usage implements Service {
 		$youtube_settings   = get_option( 'presto_player_youtube', array() );
 		$ga_settings        = get_option( 'presto_player_google_analytics', array() );
 		$perf_settings      = get_option( 'presto_player_performance', array() );
+		$mcp_settings       = get_option( 'presto_player_mcp', array() );
 
 		return array(
 			'feature_custom_presets'       => $custom_presets,
@@ -672,6 +673,8 @@ class Usage implements Service {
 			'feature_analytics_enabled'    => ( ! empty( $analytics_settings['enable'] ) ) ? 1 : 0,
 			'feature_youtube_nocookie'     => ( ! empty( $youtube_settings['nocookie'] ) ) ? 1 : 0,
 			'feature_performance_module'   => ( ! empty( $perf_settings['module_enabled'] ) ) ? 1 : 0,
+			'feature_mcp_enabled'          => ( ! empty( $mcp_settings['enabled'] ) ) ? 1 : 0,
+			'feature_mcp_allow_changes'    => ( ! empty( $mcp_settings['allow_changes'] ) ) ? 1 : 0,
 		);
 	}
 

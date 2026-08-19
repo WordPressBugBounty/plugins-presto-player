@@ -3,8 +3,8 @@ Contributors: 2winfactor, wpcrafter
 Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.5
-Tested up to: 7.0
-Stable tag: 4.3.3
+Tested up to: 7.1
+Stable tag: 4.4.0
 
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -158,6 +158,14 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.4.0 =
+* New: AI Abilities — connect Claude, ChatGPT, Cursor or any MCP client and work with your videos and analytics in plain language.
+* Improvement: Tested and verified compatibility with WordPress 7.1.
+* Improvement: YouTube and Vimeo video titles are now fetched directly instead of via a third-party service.
+* Fixed: Filtering by trashed status now returns only trashed records.
+* Fixed: Chapters could save onto the wrong video when two Media Hub videos pointed at the same reusable video post.
+* Fixed: Updating a video no longer resets fields that were not part of the update.
 
 = 4.3.3 =
 * Fixed: Video analytics and email capture now record correctly on sites running Presto Player Pro.

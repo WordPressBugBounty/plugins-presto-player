@@ -1,4 +1,9 @@
 <?php
+/**
+ * Model interface for interfacing with custom database tables.
+ *
+ * @package PrestoPlayer\Models
+ */
 
 namespace PrestoPlayer\Models;
 
@@ -7,7 +12,7 @@ interface ModelInterface {
 	/**
 	 * Sets attributes in the model
 	 *
-	 * @param array $args
+	 * @param array $args Attributes to set on the model.
 	 * @return ModelInterface
 	 */
 	public function set( $args );
@@ -15,7 +20,7 @@ interface ModelInterface {
 	/**
 	 * Gets a model from the database
 	 *
-	 * @param integer $id
+	 * @param integer $id Model ID.
 	 * @return ModelInterface
 	 */
 	public function get( $id );
@@ -27,8 +32,8 @@ interface ModelInterface {
 	 * the attributes resulting from merging the first array
 	 * argument with the optional second array argument.
 	 *
-	 * @param array $search Model to search for
-	 * @param array $create Attributes to create
+	 * @param array $search Model to search for.
+	 * @param array $create Attributes to create.
 	 * @return void
 	 */
 	public function firstOrCreate( $search, $create );
@@ -50,7 +55,7 @@ interface ModelInterface {
 	/**
 	 * Fetch models from the database
 	 *
-	 * @param array $args
+	 * @param array $args Query arguments.
 	 * @return array Array of ModelInterface objects
 	 */
 	public function fetch( $args );
@@ -58,7 +63,7 @@ interface ModelInterface {
 	/**
 	 * Create a new model in the database
 	 *
-	 * @param array $args
+	 * @param array $args Attributes for the new model.
 	 * @return int ID of the created model
 	 */
 	public function create( $args );
@@ -66,7 +71,7 @@ interface ModelInterface {
 	/**
 	 * Convenience function to create and get model
 	 *
-	 * @param array $args Model creation args
+	 * @param array $args Model creation args.
 	 * @return Model
 	 */
 	public function createAndGet( $args );
@@ -74,8 +79,8 @@ interface ModelInterface {
 	/**
 	 * Update an existing model or create a new model if no matching model exists
 	 *
-	 * @param array $search
-	 * @param array $create
+	 * @param array $search Model to search for.
+	 * @param array $create Attributes to create.
 	 * @return Model
 	 */
 	public function updateOrCreate( $search, $create );
@@ -83,8 +88,8 @@ interface ModelInterface {
 	/**
 	 * Update a model in the database
 	 *
-	 * @param array $args
-	 * @return ModelInterface
+	 * @param array $args Attributes to update.
+	 * @return ModelInterface|\WP_Error
 	 */
 	public function update( $args );
 

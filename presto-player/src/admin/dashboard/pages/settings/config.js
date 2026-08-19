@@ -21,6 +21,7 @@ import {
 	Webhook,
 	Gauge,
 	KeyRound,
+	Bot,
 } from 'lucide-react';
 
 import BrandingPage from './general/BrandingPage';
@@ -39,6 +40,7 @@ import WebhooksPage from './integrations/WebhooksPage';
 
 import PerformancePage from './PerformancePage';
 import LicensePage from './general/LicensePage';
+import McpPage from './general/McpPage';
 
 export const SETTINGS_PAGES = [
 	{
@@ -150,6 +152,15 @@ export const SETTINGS_PAGES = [
 		requiresProPlugin: true,
 		requireManageOptions: true,
 	},
+	{
+		slug: 'mcp',
+		label: __( 'AI Abilities & MCP', 'presto-player' ),
+		icon: Bot,
+		group: 'integrations',
+		component: McpPage,
+		pro: false,
+		requireManageOptions: true,
+	},
 
 	{
 		slug: 'performance',
@@ -189,6 +200,7 @@ export const OPTION_KEYS = {
 	bunnyStreamPrivate: 'presto_player_bunny_stream_private',
 	bunnyPullZones: 'presto_player_bunny_pull_zones',
 	performance: 'presto_player_performance',
+	mcp: 'presto_player_mcp',
 };
 
 export const BUNNY_STREAM_KEYS = [

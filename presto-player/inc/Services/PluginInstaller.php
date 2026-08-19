@@ -27,7 +27,20 @@ class PluginInstaller {
 		'suremails'    => 'suremails/suremails.php',
 		'sureforms'    => 'sureforms/sureforms.php',
 		'suremembers'  => 'suremembers/suremembers.php',
+		'mcp-adapter'  => 'mcp-adapter/mcp-adapter.php',
 	);
+
+	/**
+	 * Direct download URL for the mcp-adapter release. Pinned to a tagged release matching
+	 * the ^0.5.0 constraint the MCP server code is written against, so a future adapter
+	 * major can't break create_server().
+	 */
+	const MCP_ADAPTER_DOWNLOAD_URL = 'https://github.com/WordPress/mcp-adapter/releases/download/v0.5.0/mcp-adapter.zip';
+
+	/**
+	 * Expected sha256 of the pinned mcp-adapter zip, verified after download.
+	 */
+	const MCP_ADAPTER_SHA256 = 'a13f253c7bf4314b6cce7e238be2d5857eee66242bfe5ff5cb5576f74dc41593';
 
 	/**
 	 * Register hooks.
@@ -260,25 +273,63 @@ class PluginInstaller {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 		}
 
-		$api = plugins_api(
-			'plugin_information',
-			array(
-				'slug'   => $plugin_slug,
-				'fields' => array( 'sections' => false ),
-			)
+		// Plugins that don't live on wordpress.org install from a direct download URL.
+		$direct_download_urls = array(
+			'mcp-adapter' => self::MCP_ADAPTER_DOWNLOAD_URL,
 		);
 
-		if ( is_wp_error( $api ) ) {
-			return new \WP_Error(
-				'plugin_not_found',
-				/* translators: %s: plugin slug */
-				sprintf( __( 'Plugin %s not found in repository.', 'presto-player' ), $plugin_slug ),
-				array( 'status' => 404 )
+		if ( isset( $direct_download_urls[ $plugin_slug ] ) ) {
+			$download_link = $direct_download_urls[ $plugin_slug ];
+		} else {
+			$api = plugins_api(
+				'plugin_information',
+				array(
+					'slug'   => $plugin_slug,
+					'fields' => array( 'sections' => false ),
+				)
 			);
+
+			if ( is_wp_error( $api ) ) {
+				return new \WP_Error(
+					'plugin_not_found',
+					/* translators: %s: plugin slug */
+					sprintf( __( 'Plugin %s not found in repository.', 'presto-player' ), $plugin_slug ),
+					array( 'status' => 404 )
+				);
+			}
+			$download_link = $api->download_link ?? '';
+		}
+
+		$expected_sha256 = array(
+			'mcp-adapter' => self::MCP_ADAPTER_SHA256,
+		);
+
+		$install_source = $download_link;
+		if ( isset( $expected_sha256[ $plugin_slug ] ) ) {
+			if ( ! function_exists( 'download_url' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/file.php';
+			}
+			$tmp = download_url( $download_link );
+			if ( is_wp_error( $tmp ) ) {
+				return new \WP_Error( 'download_failed', $tmp->get_error_message(), array( 'status' => 500 ) );
+			}
+			if ( ! hash_equals( $expected_sha256[ $plugin_slug ], (string) hash_file( 'sha256', $tmp ) ) ) {
+				wp_delete_file( $tmp );
+				return new \WP_Error(
+					'checksum_mismatch',
+					__( 'Downloaded plugin failed integrity verification.', 'presto-player' ),
+					array( 'status' => 500 )
+				);
+			}
+			$install_source = $tmp;
 		}
 
 		$upgrader = new \Plugin_Upgrader( new \Automatic_Upgrader_Skin() );
-		$result   = $upgrader->install( $api->download_link ?? '' );
+		$result   = $upgrader->install( $install_source );
+
+		if ( $install_source !== $download_link ) {
+			wp_delete_file( $install_source );
+		}
 
 		if ( is_wp_error( $result ) ) {
 			return new \WP_Error(

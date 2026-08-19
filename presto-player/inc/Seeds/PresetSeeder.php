@@ -1,9 +1,17 @@
 <?php
+/**
+ * Preset seeder.
+ *
+ * @package PrestoPlayer\Seeds
+ */
 
 namespace PrestoPlayer\Seeds;
 
 use PrestoPlayer\Models\Preset;
 
+/**
+ * Seeds the bundled video presets.
+ */
 class PresetSeeder {
 
 	/**
@@ -14,6 +22,11 @@ class PresetSeeder {
 	 */
 	protected $version = 4;
 
+	/**
+	 * Seed the presets if the seed version has changed.
+	 *
+	 * @return void
+	 */
 	public function run() {
 		$db_version = get_option( 'presto_preset_seed_version', 0 );
 
@@ -28,6 +41,11 @@ class PresetSeeder {
 		}
 	}
 
+	/**
+	 * Seed the default preset.
+	 *
+	 * @return Preset
+	 */
 	public function seedDefault() {
 		$preset  = new Preset();
 		$presets = $preset->fetch( array( 'slug' => 'default' ) );
@@ -49,12 +67,12 @@ class PresetSeeder {
 			'pip'                  => false,
 			'fullscreen'           => true,
 			'captions'             => false,
-			// behavior
+			// behavior.
 			'save_player_position' => true,
 			'auto_hide'            => true,
 			'reset_on_end'         => true,
 			'sticky_scroll'        => false,
-			// youtube
+			// youtube.
 			'hide_youtube'         => false,
 			'lazy_load_youtube'    => false,
 			'hide_logo'            => false,
@@ -74,6 +92,11 @@ class PresetSeeder {
 		return $preset;
 	}
 
+	/**
+	 * Seed the course preset.
+	 *
+	 * @return Preset
+	 */
 	public function seedCourse() {
 		$preset  = new Preset();
 		$presets = $preset->fetch( array( 'slug' => 'course' ) );
@@ -95,12 +118,12 @@ class PresetSeeder {
 			'pip'                  => true,
 			'fullscreen'           => true,
 			'captions'             => false,
-			// behavior
+			// behavior.
 			'save_player_position' => true,
 			'auto_hide'            => true,
 			'reset_on_end'         => true,
 			'sticky_scroll'        => true,
-			// youtube
+			// youtube.
 			'hide_youtube'         => false,
 			'lazy_load_youtube'    => false,
 			'hide_logo'            => false,
@@ -120,6 +143,11 @@ class PresetSeeder {
 		return $preset;
 	}
 
+	/**
+	 * Seed the youtube optimized preset.
+	 *
+	 * @return Preset
+	 */
 	public function seedYoutube() {
 		$preset  = new Preset();
 		$presets = $preset->fetch( array( 'slug' => 'youtube' ) );
@@ -141,12 +169,12 @@ class PresetSeeder {
 			'pip'                  => false,
 			'fullscreen'           => true,
 			'captions'             => false,
-			// behavior
+			// behavior.
 			'save_player_position' => false,
 			'auto_hide'            => true,
 			'reset_on_end'         => true,
 			'sticky_scroll'        => false,
-			// youtube
+			// youtube.
 			'hide_youtube'         => false,
 			'lazy_load_youtube'    => true,
 			'action_bar'           => array(
@@ -174,6 +202,11 @@ class PresetSeeder {
 		return $preset;
 	}
 
+	/**
+	 * Seed the simple preset.
+	 *
+	 * @return Preset
+	 */
 	public function seedSimple() {
 		$preset  = new Preset();
 		$presets = $preset->fetch( array( 'slug' => 'simple' ) );
@@ -194,12 +227,12 @@ class PresetSeeder {
 			'pip'                  => false,
 			'fullscreen'           => true,
 			'captions'             => false,
-			// behavior
+			// behavior.
 			'save_player_position' => false,
 			'auto_hide'            => true,
 			'reset_on_end'         => true,
 			'sticky_scroll'        => false,
-			// youtube
+			// youtube.
 			'hide_youtube'         => true,
 			'lazy_load_youtube'    => false,
 			'hide_logo'            => false,
@@ -219,6 +252,11 @@ class PresetSeeder {
 		return $preset;
 	}
 
+	/**
+	 * Seed the minimal preset.
+	 *
+	 * @return Preset
+	 */
 	public function seedMinimal() {
 		$preset  = new Preset();
 		$presets = $preset->fetch( array( 'slug' => 'minimal' ) );
@@ -239,12 +277,12 @@ class PresetSeeder {
 			'pip'                  => false,
 			'fullscreen'           => false,
 			'captions'             => false,
-			// behavior
+			// behavior.
 			'save_player_position' => false,
 			'auto_hide'            => false,
 			'reset_on_end'         => true,
 			'sticky_scroll'        => false,
-			// youtube
+			// youtube.
 			'hide_youtube'         => true,
 			'lazy_load_youtube'    => false,
 			'hide_logo'            => true,

@@ -1,4 +1,4 @@
-import { useMemo } from '@wordpress/element';
+import { useMemo, useEffect } from '@wordpress/element';
 import { Container } from '@bsf/force-ui';
 import { BookOpen } from 'lucide-react';
 import ChapterCard from './ChapterCard';
@@ -11,10 +11,25 @@ const { __ } = wp.i18n;
 const LearnPage = () => {
 	const { chapters, isLoading, setStepCompleted } = useLearnProgress();
 
+	// Deep-link support: `&chapter=<id>` opens that chapter and scrolls to it,
+	// so links from the AI settings land straight on the AI Abilities chapter.
+	const targetChapter = useMemo(
+		() => new URLSearchParams( window.location.search ).get( 'chapter' ) || '',
+		[]
+	);
+
+	useEffect( () => {
+		if ( ! targetChapter || isLoading ) {
+			return;
+		}
+		const el = document.getElementById( `learn-chapter-${ targetChapter }` );
+		if ( el ) {
+			el.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+		}
+	}, [ targetChapter, isLoading ] );
+
 	const showCelebration = useMemo( () => {
-		const gettingStarted = chapters.find(
-			( c ) => c.id === 'getting-started'
-		);
+		const gettingStarted = chapters.find( ( c ) => c.id === 'getting-started' );
 		if ( ! gettingStarted || ! gettingStarted.steps?.length ) {
 			return false;
 		}
@@ -58,20 +73,20 @@ const LearnPage = () => {
 					<div className="flex flex-col items-center justify-center py-16 gap-3 text-text-secondary">
 						<BookOpen className="w-10 h-10 text-text-tertiary" />
 						<p className="m-0 text-sm">
-							{ __(
-								'No learn chapters available yet.',
-								'presto-player'
-							) }
+							{ __( 'No learn chapters available yet.', 'presto-player' ) }
 						</p>
 					</div>
 				</Container.Item>
 			) : (
 				chapters.map( ( chapter ) => (
 					<Container.Item key={ chapter.id }>
-						<ChapterCard
-							chapter={ chapter }
-							onStepToggle={ setStepCompleted }
-						/>
+						<div id={ `learn-chapter-${ chapter.id }` }>
+							<ChapterCard
+								chapter={ chapter }
+								defaultOpen={ chapter.id === targetChapter }
+								onStepToggle={ setStepCompleted }
+							/>
+						</div>
 					</Container.Item>
 				) )
 			) }

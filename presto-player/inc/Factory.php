@@ -1,4 +1,9 @@
 <?php
+/**
+ * DI container factory and rules.
+ *
+ * @package PrestoPlayer
+ */
 
 namespace PrestoPlayer;
 
@@ -7,22 +12,40 @@ use PrestoPlayer\Attachment;
 use PrestoPlayer\Controller;
 use PrestoPlayer\Support\Block;
 use PrestoPlayer\Services\Scripts;
-// Disabled: PrestoPlayer\Services\BunnyCDN class does not exist. Kept for reference.
-// use PrestoPlayer\Services\BunnyCDN;
+// Disabled import: PrestoPlayer\Services\BunnyCDN class does not exist.
+// Reference only: use PrestoPlayer\Services\BunnyCDN.
 use PrestoPlayer\Services\Settings;
 use PrestoPlayer\Services\AdminNotices;
 use PrestoPlayer\Services\Usage;
 
+/**
+ * Builds the DICE container rules and the plugin component list.
+ */
 class Factory {
 
 	const SHARED = array( 'shared' => true );
 
+	/**
+	 * DICE container instance (provides the INSTANCE marker).
+	 *
+	 * @var mixed
+	 */
 	public $instance;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param mixed $instance DICE container instance.
+	 */
 	public function __construct( $instance ) {
 		$this->instance = $instance;
 	}
 
+	/**
+	 * Whether the Pro plugin is active.
+	 *
+	 * @return bool
+	 */
 	public function isPro() {
 		return Plugin::isPro();
 	}
@@ -36,8 +59,6 @@ class Factory {
 	 */
 	public function getRules() {
 		return array(
-			// Disabled: BunnyCDN service class does not exist; this was a stale reference.
-			// BunnyCDN::class       => self::SHARED,
 			Visits::class         => self::SHARED,
 			ReusableVideos::class => self::SHARED,
 			AdminNotices::class   => self::SHARED,
@@ -55,7 +76,7 @@ class Factory {
 				),
 			),
 
-			// blocks
+			// Blocks.
 			Block::class          => array(
 				'constructParams' => array(
 					$this->isPro(),
@@ -63,7 +84,7 @@ class Factory {
 				),
 			),
 
-			// plugin controller
+			// Plugin controller.
 			Controller::class     => array(
 				'constructParams' => array( $this->getComponents() ),
 			),
@@ -107,9 +128,9 @@ class Factory {
 	}
 
 	/**
-	 * Formats components to use in DICE
+	 * Formats components to use in DICE.
 	 *
-	 * @param array $components
+	 * @param array $components Component class names.
 	 * @return array
 	 */
 	public function formatComponents( $components = array() ) {

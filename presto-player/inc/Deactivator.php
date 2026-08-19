@@ -14,6 +14,7 @@ use PrestoPlayer\Database\Videos;
 use PrestoPlayer\Database\AudioPresets;
 use PrestoPlayer\Database\Webhooks;
 use PrestoPlayer\Models\ReusableVideo;
+use PrestoPlayer\Services\OAuth\Storage\Schema;
 use PrestoPlayer\Services\Usage;
 
 /**
@@ -78,6 +79,12 @@ class Deactivator {
 		delete_option( 'presto_player_audio_presets_database_version' );
 		delete_option( 'presto_player_email_collection_database_version' );
 		delete_option( 'presto_audio_preset_seed_version' );
+
+		// AI abilities / MCP + the OAuth server behind it.
+		delete_option( 'presto_player_mcp' );
+		if ( class_exists( Schema::class ) ) {
+			Schema::uninstall();
+		}
 
 		// Delete our tables.
 		$table = new Table();

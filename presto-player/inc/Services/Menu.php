@@ -94,6 +94,19 @@ class Menu {
 			'admin.php?page=presto-dashboard&tab=Emails'
 		);
 
+		// AI (the MCP settings section) — surfaced as its own menu item, above
+		// Settings, with a "New" badge so the capability is easy to find. The
+		// title carries a small HTML badge; markup is a static, translated,
+		// trusted string. manage_options, like Emails above: the section reads
+		// /wp/v2/settings, so anyone below that just lands on a failed screen.
+		add_submenu_page(
+			'presto-dashboard',
+			__( 'AI Abilities', 'presto-player' ),
+			__( 'AI Abilities', 'presto-player' ) . ' <span class="presto-menu-badge">' . esc_html__( 'New', 'presto-player' ) . '</span>',
+			'manage_options',
+			'admin.php?page=presto-dashboard&tab=Settings&section=mcp'
+		);
+
 		add_submenu_page(
 			'presto-dashboard',
 			__( 'Settings', 'presto-player' ),
@@ -158,8 +171,24 @@ class Menu {
 			}
 			<?php echo esc_attr( $menu ); ?> li:not(:last-child) a[href^="<?php echo esc_attr( $slug ); ?>&tab=MediaHub"]:after,
 			<?php echo esc_attr( $menu ); ?> li:not(:last-child) a[href^="<?php echo esc_attr( $slug ); ?>&tab=Analytics"]:after,
-			<?php echo esc_attr( $menu ); ?> li:not(:last-child) a[href^="<?php echo esc_attr( $slug ); ?>&tab=Settings"]:after {
+			<?php echo esc_attr( $menu ); ?> li:not(:last-child) a[href^="<?php echo esc_attr( $slug ); ?>&tab=Emails"]:after,
+				<?php echo esc_attr( $menu ); ?> li:not(:last-child) a[href$="&tab=Settings"]:after {
 				content: none;
+			}
+			<?php echo esc_attr( $menu ); ?> .wp-submenu .presto-menu-badge {
+				display: inline-block;
+				position: relative;
+				top: -5px;
+				margin-left: 4px;
+				padding: 0 4px;
+				font-size: 8px;
+				font-weight: 600;
+				line-height: 12px;
+				text-transform: uppercase;
+				letter-spacing: .3px;
+				color: #fff;
+				background: #4f46e5;
+				border-radius: 6px;
 			}
 		</style>
 		<?php
@@ -297,6 +326,10 @@ class Menu {
 				'suremembers_status'        => $this->getPluginStatus( 'suremembers/suremembers.php' ),
 				'suremails_status'          => $this->getPluginStatus( 'suremails/suremails.php' ),
 				'sureforms_status'          => $this->getPluginStatus( 'sureforms/sureforms.php' ),
+				'mcpAdapterStatus'          => $this->getPluginStatus( 'mcp-adapter/mcp-adapter.php' ),
+				'mcpAdapterDownloadUrl'     => \PrestoPlayer\Services\PluginInstaller::MCP_ADAPTER_DOWNLOAD_URL,
+				'abilitiesSupported'        => function_exists( 'wp_register_ability' ),
+				'siteUrl'                   => site_url(),
 				'onboarding_completed'      => get_option( 'presto_player_onboarding_completed', 'no' ) === 'yes',
 				'onboarding_redirect'       => isset( $_GET['tab'] ) && 'Onboarding' === $_GET['tab'], // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				'onboarding'                => array(

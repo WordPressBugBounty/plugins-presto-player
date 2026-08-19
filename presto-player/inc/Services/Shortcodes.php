@@ -373,6 +373,10 @@ class Shortcodes {
 			$create
 		);
 
+		if ( is_wp_error( $model ) ) {
+			return 0;
+		}
+
 		$model = $model->toObject();
 		return ! empty( $model->id ) ? $model->id : 0;
 	}

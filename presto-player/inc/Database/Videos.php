@@ -1,19 +1,54 @@
 <?php
+/**
+ * Videos table.
+ *
+ * @package PrestoPlayer\Database
+ */
 
 namespace PrestoPlayer\Database;
 
 use PrestoPlayer\Database\Table;
 
+/**
+ * Videos table.
+ */
 class Videos {
 
+	/**
+	 * Table service.
+	 *
+	 * @var Table
+	 */
 	protected $table;
-	protected $version = 4;
-	protected $name    = 'presto_player_videos';
 
+	/**
+	 * Schema version. Bump to re-run dbDelta.
+	 *
+	 * @var int
+	 */
+	protected $version = 4;
+
+	/**
+	 * Table name, without the site prefix.
+	 *
+	 * @var string
+	 */
+	protected $name = 'presto_player_videos';
+
+	/**
+	 * Constructor.
+	 *
+	 * @param Table $table Table service.
+	 */
 	public function __construct( Table $table ) {
 		$this->table = $table;
 	}
 
+	/**
+	 * The prefixed table name.
+	 *
+	 * @return string
+	 */
 	public function getName() {
 		global $wpdb;
 		return $wpdb->prefix . $this->name;
@@ -26,7 +61,7 @@ class Videos {
 	 * @return void
 	 */
 	public function install() {
-		return $this->table->create(
+		$this->table->create(
 			$this->name,
 			'
             id bigint(20) unsigned NOT NULL auto_increment,
@@ -59,6 +94,11 @@ class Videos {
 		$this->table->drop( $this->getName() );
 	}
 
+	/**
+	 * Whether the table exists.
+	 *
+	 * @return bool
+	 */
 	public function exists() {
 		return $this->table->exists( $this->name );
 	}

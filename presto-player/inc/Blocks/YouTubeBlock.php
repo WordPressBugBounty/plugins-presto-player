@@ -70,7 +70,7 @@ class YouTubeBlock extends Block {
 	 */
 	public function sanitizeAttributes( $attributes, $default_config ) {
 		$preset = ! empty( $attributes['preset'] ) ? new Preset( $attributes['preset'] ) : null;
-		$id     = $this->getIdFromURL( ! empty( $attributes['src'] ) ? $attributes['src'] : '' );
+		$id     = self::getIdFromURL( ! empty( $attributes['src'] ) ? $attributes['src'] : '' );
 
 		return array(
 			'video_id'          => ! empty( $attributes['id'] ) ? $attributes['id'] : 0,
@@ -87,7 +87,7 @@ class YouTubeBlock extends Block {
 	 * @param string $url URL.
 	 * @return string
 	 */
-	public function getIdFromURL( $url = '' ) {
+	public static function getIdFromURL( $url = '' ) {
 		preg_match( "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user|shorts)\/))([^\?&\"'>]+)/", $url, $matches );
 		return ! empty( $matches[1] ) ? $matches[1] : '';
 	}

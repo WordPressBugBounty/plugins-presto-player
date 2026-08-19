@@ -510,7 +510,12 @@ class RestPresetsController extends \WP_REST_Controller {
 
 		$preset = new Preset( $request['id'] );
 
-		$preset->update( $item );
+		$updated = $preset->update( $item );
+
+		// Bail early on error.
+		if ( is_wp_error( $updated ) ) {
+			return $updated;
+		}
 
 		$data = $this->prepare_item_for_response( $preset, $request );
 

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-04T05:46:37+00:00\n"
+"POT-Creation-Date: 2026-08-19T11:45:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -26,6 +26,8 @@ msgstr ""
 #: admin/blocks/blocks/audio/AudioBlockInspectorControl.js:62
 #: admin/blocks/shared/BlockInspectorControls.js:61
 #: admin/blocks/shared/chapters/ChaptersPanel.js:6
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:92
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:144
 #: Services/Translation.php:84
 msgid "Chapters"
 msgstr ""
@@ -181,6 +183,7 @@ msgstr ""
 #: admin/blocks/shared/tracks/TracksEditor.js:182
 #: admin/blocks/shared/tracks/TracksEditor.js:452
 #: Blocks/PopupMediaBlock.php:118
+#: Services/FeatureAnnounce.php:187
 msgid "Close"
 msgstr ""
 
@@ -461,6 +464,7 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/Sidebar.js:152
 #: admin/blocks/shared/media/MediaPopup.js:158
+#: Services/Abilities/Abilities/VideoAbilities.php:1171
 msgid "Delete video"
 msgstr ""
 
@@ -498,6 +502,8 @@ msgid "Upload New Video"
 msgstr ""
 
 #: admin/blocks/blocks/bunny/popup/stream/video/Videos.js:121
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:121
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:142
 #: Services/Shortcodes.php:237
 msgid "Videos"
 msgstr ""
@@ -630,7 +636,7 @@ msgstr ""
 
 #: admin/blocks/blocks/playlist-list-item/edit.js:31
 #: admin/blocks/blocks/playlist/edit.js:199
-#: admin/dashboard/pages/settings/config.js:165
+#: admin/dashboard/pages/settings/config.js:176
 msgid "General"
 msgstr ""
 
@@ -875,6 +881,7 @@ msgid "Add convenient links to skip the player to a specific timestamp."
 msgstr ""
 
 #: admin/blocks/plugins/reusable-videos/ShortcodeInput.js:60
+#: admin/dashboard/pages/settings/general/components/CopyButton.js:77
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -1103,7 +1110,7 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Edit.js:215
 #: admin/blocks/shared/presets/Edit.js:228
 #: admin/blocks/shared/presets/Email.js:52
-#: admin/dashboard/pages/settings/config.js:128
+#: admin/dashboard/pages/settings/config.js:130
 #: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:312
 #: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:318
 msgid "Email Capture"
@@ -1166,7 +1173,7 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:343
 #: admin/blocks/shared/presets/Edit.js:372
-#: Services/Learn.php:395
+#: Services/Learn.php:397
 msgid "Create Preset"
 msgstr ""
 
@@ -1350,7 +1357,7 @@ msgstr ""
 #: admin/dashboard/components/Navbar.js:72
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:176
 #: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:125
-#: admin/dashboard/pages/learn/StepItem.js:67
+#: admin/dashboard/pages/learn/StepItem.js:68
 msgid "Pro"
 msgstr ""
 
@@ -1422,12 +1429,13 @@ msgstr ""
 #: admin/blocks/shared/MediaProviders/index.js:31
 #: admin/dashboard/components/Emails/Table.js:203
 #: Integrations/Elementor/VideoWidget.php:173
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:141
 #: Services/Shortcodes.php:238
 msgid "Video"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:38
-#: admin/dashboard/pages/settings/config.js:120
+#: admin/dashboard/pages/settings/config.js:122
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:20
 #: admin/dashboard/pages/settings/integrations/YouTubePage.js:26
 #: Integrations/Elementor/VideoWidget.php:184
@@ -1444,7 +1452,7 @@ msgid "Audio"
 msgstr ""
 
 #: admin/blocks/shared/MediaProviders/index.js:59
-#: admin/dashboard/pages/settings/config.js:137
+#: admin/dashboard/pages/settings/config.js:139
 #: admin/dashboard/pages/settings/integrations/BunnyNetPage.js:138
 msgid "Bunny.net"
 msgstr ""
@@ -1922,7 +1930,7 @@ msgid "Default list"
 msgstr ""
 
 #: admin/blocks/shared/presets/parts/ChooseProvider.js:56
-#: admin/dashboard/pages/settings/config.js:145
+#: admin/dashboard/pages/settings/config.js:147
 #: admin/dashboard/pages/settings/integrations/WebhooksPage.js:367
 #: admin/dashboard/pages/settings/integrations/WebhooksPage.js:373
 msgid "Webhooks"
@@ -2028,7 +2036,7 @@ msgstr ""
 
 #: admin/blocks/shared/presets/Style.js:43
 #: Seeds/AudioPresetSeeder.php:35
-#: Seeds/PresetSeeder.php:36
+#: Seeds/PresetSeeder.php:54
 #: Services/Translation.php:147
 msgid "Default"
 msgstr ""
@@ -2078,6 +2086,7 @@ msgid "Unlock Presto Player"
 msgstr ""
 
 #: admin/blocks/shared/ProvidersPlaceholder/components/Separator.js:16
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:44
 msgid "or"
 msgstr ""
 
@@ -2085,6 +2094,7 @@ msgstr ""
 #: admin/dashboard/pages/Onboarding.js:67
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:27
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:28
+#: Services/Abilities/Module.php:411
 #: Services/AdminNotices.php:285
 #: Services/License/License.php:251
 #: Services/Menu.php:43
@@ -2619,6 +2629,27 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
+#: admin/dashboard/components/McpPromoBanner.js:23
+#: Services/FeatureAnnounce.php:172
+msgid "Create a video from a link"
+msgstr ""
+
+#: admin/dashboard/components/McpPromoBanner.js:24
+msgid "Ask for your video analytics"
+msgstr ""
+
+#: admin/dashboard/components/McpPromoBanner.js:69
+msgid "Explore Presto Player AI Abilities"
+msgstr ""
+
+#: admin/dashboard/components/McpPromoBanner.js:88
+msgid "Set up AI"
+msgstr ""
+
+#: admin/dashboard/components/McpPromoBanner.js:94
+msgid "Dismiss"
+msgstr ""
+
 #: admin/dashboard/components/MediaHub/BulkActions.js:22
 msgid "Bulk actions: "
 msgstr ""
@@ -2672,7 +2703,7 @@ msgid "Private: %s"
 msgstr ""
 
 #: admin/dashboard/components/MediaHub/PostSettings.js:312
-#: admin/dashboard/hooks/useSimpleSettingsPage.js:29
+#: admin/dashboard/hooks/useSimpleSettingsPage.js:41
 #: admin/dashboard/pages/settings/general/BrandingPage.js:95
 #: admin/dashboard/pages/settings/general/ContributePage.js:19
 #: admin/dashboard/pages/settings/general/CustomCssPage.js:46
@@ -2750,7 +2781,7 @@ msgstr ""
 
 #: admin/dashboard/components/Navbar.js:20
 #: admin/dashboard/pages/MediaHub.js:851
-#: admin/dashboard/pages/settings/config.js:54
+#: admin/dashboard/pages/settings/config.js:56
 #: admin/dashboard/pages/settings/general/MediaHubPage.js:100
 #: Services/Menu.php:75
 #: Services/Menu.php:76
@@ -2760,6 +2791,8 @@ msgstr ""
 
 #: admin/dashboard/components/Navbar.js:21
 #: admin/dashboard/pages/Analytics.js:95
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:100
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:146
 #: Services/Menu.php:83
 #: Services/Menu.php:84
 msgid "Analytics"
@@ -2774,18 +2807,20 @@ msgid "Emails"
 msgstr ""
 
 #: admin/dashboard/components/Navbar.js:27
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:119
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:145
 #: Integrations/BeaverBuilder/ReusableVideoModule/Module.php:92
-#: Services/Menu.php:99
-#: Services/Menu.php:100
+#: Services/Menu.php:112
+#: Services/Menu.php:113
 #: Services/Translation.php:111
 msgid "Settings"
 msgstr ""
 
 #: admin/dashboard/components/Navbar.js:28
 #: admin/dashboard/pages/Learn.js:8
-#: admin/dashboard/pages/learn/LearnPage.js:38
-#: Services/Menu.php:107
-#: Services/Menu.php:108
+#: admin/dashboard/pages/learn/LearnPage.js:53
+#: Services/Menu.php:120
+#: Services/Menu.php:121
 msgid "Learn"
 msgstr ""
 
@@ -2872,6 +2907,7 @@ msgid "Active"
 msgstr ""
 
 #: admin/dashboard/components/Onboarding/Integrations.js:28
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:20
 msgid "Activating…"
 msgstr ""
 
@@ -2880,6 +2916,7 @@ msgid "Inactive"
 msgstr ""
 
 #: admin/dashboard/components/Onboarding/Integrations.js:30
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:22
 msgid "Installing…"
 msgstr ""
 
@@ -2919,6 +2956,7 @@ msgstr ""
 
 #: admin/dashboard/components/Onboarding/Integrations.js:313
 #: admin/dashboard/components/Onboarding/UserInfo.js:168
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:50
 msgid "Continue"
 msgstr ""
 
@@ -2985,8 +3023,8 @@ msgid "Activate License"
 msgstr ""
 
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:95
-#: admin/dashboard/components/UpgradeToPro.js:57
-#: Services/Menu.php:118
+#: admin/dashboard/components/UpgradeToPro.js:59
+#: Services/Menu.php:131
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -3046,6 +3084,7 @@ msgid "Get notified about updates, tips and new features. Plus help us improve b
 msgstr ""
 
 #: admin/dashboard/components/Onboarding/UserInfo.js:129
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:526
 msgid "Learn more"
 msgstr ""
 
@@ -3168,23 +3207,33 @@ msgstr ""
 msgid "Select time"
 msgstr ""
 
-#: admin/dashboard/components/QuickAccess.js:18
+#: admin/dashboard/components/QuickAccess.js:25
+msgid "Explore AI Abilities"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:26
+#: admin/dashboard/pages/learn/ChapterCard.js:38
+#: Services/Menu.php:105
+msgid "New"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:40
 msgid "Guided Onboarding"
 msgstr ""
 
-#: admin/dashboard/components/QuickAccess.js:25
+#: admin/dashboard/components/QuickAccess.js:47
 msgid "Help Center"
 msgstr ""
 
-#: admin/dashboard/components/QuickAccess.js:31
+#: admin/dashboard/components/QuickAccess.js:53
 msgid "Open Support Ticket"
 msgstr ""
 
-#: admin/dashboard/components/QuickAccess.js:37
+#: admin/dashboard/components/QuickAccess.js:59
 msgid "Leave Us a Review"
 msgstr ""
 
-#: admin/dashboard/components/QuickAccess.js:60
+#: admin/dashboard/components/QuickAccess.js:82
 msgid "Quick Access"
 msgstr ""
 
@@ -3284,15 +3333,23 @@ msgstr ""
 msgid "Engagement insights"
 msgstr ""
 
-#: admin/dashboard/components/UpgradeToPro.js:74
+#: admin/dashboard/components/UpgradeToPro.js:43
+msgid "AI Analytics Abilities"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:44
+msgid "Email capture"
+msgstr ""
+
+#: admin/dashboard/components/UpgradeToPro.js:76
 msgid "Unlock Premium Features"
 msgstr ""
 
-#: admin/dashboard/components/UpgradeToPro.js:80
+#: admin/dashboard/components/UpgradeToPro.js:82
 msgid "Power up your videos with Presto Player Pro"
 msgstr ""
 
-#: admin/dashboard/components/UpgradeToPro.js:88
+#: admin/dashboard/components/UpgradeToPro.js:93
 msgid "Engage viewers, grow your audience, and convert with powerful video tools — all in one place."
 msgstr ""
 
@@ -3335,6 +3392,18 @@ msgstr ""
 msgid "Failed to load chart data. Please try again."
 msgstr ""
 
+#: admin/dashboard/hooks/useMcpAdapterInstall.js:73
+msgid "Could not activate the MCP Adapter plugin."
+msgstr ""
+
+#: admin/dashboard/hooks/useMcpAdapterInstall.js:98
+msgid "Could not install the MCP Adapter plugin."
+msgstr ""
+
+#: admin/dashboard/hooks/useMcpAdapterInstall.js:116
+msgid "Installed the MCP Adapter, but activation failed."
+msgstr ""
+
 #: admin/dashboard/hooks/useMediaLibrary.js:8
 msgid "Select Image"
 msgstr ""
@@ -3343,7 +3412,7 @@ msgstr ""
 msgid "Set Image"
 msgstr ""
 
-#: admin/dashboard/hooks/useSimpleSettingsPage.js:33
+#: admin/dashboard/hooks/useSimpleSettingsPage.js:45
 #: admin/dashboard/pages/settings/general/BrandingPage.js:99
 #: admin/dashboard/pages/settings/general/ContributePage.js:23
 #: admin/dashboard/pages/settings/general/CustomCssPage.js:50
@@ -3369,7 +3438,7 @@ msgstr ""
 
 #: admin/dashboard/lib/bsf-learn/components/BsfLearnChapters.js:77
 #: admin/dashboard/lib/bsf-learn/components/BsfLearnStep.js:135
-#: admin/dashboard/pages/learn/ChapterCard.js:55
+#: admin/dashboard/pages/learn/ChapterCard.js:62
 msgid "Learn how"
 msgstr ""
 
@@ -3713,11 +3782,11 @@ msgstr ""
 msgid "Are you sure you want to delete %d item(s)? This action cannot be undone."
 msgstr ""
 
-#: admin/dashboard/pages/learn/LearnPage.js:41
+#: admin/dashboard/pages/learn/LearnPage.js:56
 msgid "Follow these chapters to set up your video player and get the most out of Presto Player — learn how to add videos, brand the player, embed, track analytics, and unlock advanced features."
 msgstr ""
 
-#: admin/dashboard/pages/learn/LearnPage.js:61
+#: admin/dashboard/pages/learn/LearnPage.js:76
 msgid "No learn chapters available yet."
 msgstr ""
 
@@ -3737,19 +3806,19 @@ msgstr ""
 msgid "Your video player is ready. Explore Pro features below to unlock analytics, email capture, and advanced integrations."
 msgstr ""
 
-#: admin/dashboard/pages/learn/StepItem.js:45
+#: admin/dashboard/pages/learn/StepItem.js:46
 msgid "Mark step incomplete"
 msgstr ""
 
-#: admin/dashboard/pages/learn/StepItem.js:46
+#: admin/dashboard/pages/learn/StepItem.js:47
 msgid "Mark step complete"
 msgstr ""
 
-#: admin/dashboard/pages/learn/StepItem.js:93
+#: admin/dashboard/pages/learn/StepItem.js:112
 msgid "Read documentation"
 msgstr ""
 
-#: admin/dashboard/pages/learn/StepItem.js:103
+#: admin/dashboard/pages/learn/StepItem.js:123
 msgid "View screenshot"
 msgstr ""
 
@@ -3932,57 +4001,64 @@ msgstr ""
 msgid "Exit Guided Setup"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:46
+#: admin/dashboard/pages/settings/config.js:48
 #: admin/dashboard/pages/settings/general/BrandingPage.js:148
 msgid "Branding"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:62
+#: admin/dashboard/pages/settings/config.js:64
 #: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:50
 #: admin/dashboard/pages/settings/general/ViewingAnalyticsPage.js:59
 msgid "Video Analytics"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:70
+#: admin/dashboard/pages/settings/config.js:72
 #: admin/dashboard/pages/settings/entities.js:9
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:89
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:143
 #: admin/dashboard/pages/settings/general/PresetsPage.js:95
 msgid "Presets"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:78
+#: admin/dashboard/pages/settings/config.js:80
 #: admin/dashboard/pages/settings/general/CustomCssPage.js:64
 #: admin/dashboard/pages/settings/general/CustomCssPage.js:72
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:86
+#: admin/dashboard/pages/settings/config.js:88
 #: admin/dashboard/pages/settings/general/UninstallPage.js:54
 msgid "Uninstall Options"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:94
+#: admin/dashboard/pages/settings/config.js:96
 #: admin/dashboard/pages/settings/general/ContributePage.js:37
 msgid "Contribute"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:102
+#: admin/dashboard/pages/settings/config.js:104
 #: admin/dashboard/pages/settings/general/LicensePage.js:75
 msgid "License"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:112
+#: admin/dashboard/pages/settings/config.js:114
 #: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:27
 #: admin/dashboard/pages/settings/integrations/GoogleAnalyticsPage.js:36
 msgid "Google Analytics"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:156
+#: admin/dashboard/pages/settings/config.js:157
+#: admin/dashboard/pages/settings/general/McpPage.js:68
+msgid "AI Abilities & MCP"
+msgstr ""
+
 #: admin/dashboard/pages/settings/config.js:167
+#: admin/dashboard/pages/settings/config.js:178
 #: admin/dashboard/pages/settings/PerformancePage.js:35
 msgid "Performance"
 msgstr ""
 
-#: admin/dashboard/pages/settings/config.js:166
+#: admin/dashboard/pages/settings/config.js:177
 msgid "Integrations"
 msgstr ""
 
@@ -4036,6 +4112,227 @@ msgstr ""
 
 #: admin/dashboard/pages/settings/general/BrandingPage.js:263
 msgid "Set the primary brand color for the player UI."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:58
+msgid "Turn on \"Allow AI to make changes\" to activate."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:108
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:147
+msgid "Bunny & Captions"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:116
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:126
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:148
+msgid "LMS & Playlists"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:224
+msgid "Upcoming"
+msgstr ""
+
+#. translators: %s: ability label.
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:231
+#, js-format
+msgid "%s (upcoming)"
+msgstr ""
+
+#. translators: %s: ability label.
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:235
+#, js-format
+msgid "%s (requires Pro)"
+msgstr ""
+
+#. translators: %s: ability label.
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:239
+#, js-format
+msgid "%s (active)"
+msgstr ""
+
+#. translators: %s: ability label.
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:242
+#, js-format
+msgid "%s (inactive)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:256
+msgid "Coming in a future release."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:258
+msgid "Requires Presto Player Pro."
+msgstr ""
+
+#. translators: 1: active count in group, 2: total in group.
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:332
+#, js-format
+msgid "%1$d of %2$d"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:408
+msgid "Could not load the abilities list. Reload the page to try again."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:419
+msgid "No abilities are registered."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:431
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:432
+msgid "Search abilities"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:455
+msgid "No abilities match your search."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:511
+msgid "Abilities"
+msgstr ""
+
+#. translators: 1: active ability count, 2: total ability count.
+#: admin/dashboard/pages/settings/general/components/AbilitiesList.js:516
+#, js-format
+msgid "%1$d of %2$d active"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:10
+msgid "Claude Desktop"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:11
+msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:20
+msgid "Claude Code"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:21
+msgid ".mcp.json (project) or ~/.claude.json (global)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:32
+msgid "Cursor"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:33
+msgid "~/.cursor/mcp.json"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:39
+msgid "VS Code (Copilot)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:40
+msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:51
+msgid "~/.continue/config.yaml or config.json"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:58
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:306
+msgid "Other"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:59
+msgid "Your client's MCP configuration file"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:124
+msgid "Developer / advanced"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:130
+msgid "If your client cannot connect over OAuth, use an Application Password with the stdio bridge instead."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:144
+msgid "AI Client"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:162
+msgid "Generate an Application Password —"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:169
+msgid "Open Application Passwords"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:175
+msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:190
+msgid "Copy the JSON config below into:"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:196
+msgid "Replace \"your-application-password\" with the password from Step 1, then restart the client."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:213
+msgid "WP_API_URL — your site’s MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/AdvancedDisclosure.js:223
+msgid "View setup docs"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ClaudeConnect.js:8
+msgid "Copy the endpoint URL above."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ClaudeConnect.js:9
+msgid "In Claude, open Settings → Connectors → Add custom connector and paste it."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ClaudeConnect.js:13
+msgid "Approve the connection — Presto Player’s tools appear automatically."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ClaudeConnect.js:33
+msgid "Connect with Claude"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ConnectWizard.js:23
+msgid "Your MCP endpoint"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ConnectWizard.js:26
+msgid "Paste this into your AI assistant when adding a connector."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/ConnectWizard.js:40
+msgid "Copy URL"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/CopyButton.js:79
+msgid "Copied"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/CopyButton.js:81
+msgid "Copy failed"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:27
+msgid "Requires the MCP Adapter plugin."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:38
+msgid "Activate MCP Adapter"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:39
+msgid "Install MCP Adapter"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/components/McpAdapterRequiredNote.js:46
+msgid "download it manually"
 msgstr ""
 
 #: admin/dashboard/pages/settings/general/ContributePage.js:50
@@ -4117,6 +4414,40 @@ msgstr ""
 
 #: admin/dashboard/pages/settings/general/LicensePage.js:135
 msgid "You will lose access to Pro features, automatic updates, and support on this site until you reactivate."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:55
+msgid "MCP (Model Context Protocol) is the open standard that lets AI assistants like Claude, ChatGPT and Cursor securely connect to your site. Add this connector in your AI tool to give it access to your videos and analytics."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:87
+msgid "Enable AI access"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:88
+msgid "Let AI assistants like Claude, ChatGPT and Cursor connect to your site and read your videos and analytics. When off, no AI tool can see or do anything."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:96
+msgid "AI access requires WordPress 6.9 or later. Please update WordPress to enable this feature."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:108
+#: Services/Learn.php:760
+msgid "Allow AI to make changes"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:109
+msgid "Let connected assistants create, update and delete videos and settings. When off, AI access is read-only."
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:126
+#: admin/dashboard/pages/settings/general/McpPage.js:140
+msgid "MCP / Connector"
+msgstr ""
+
+#: admin/dashboard/pages/settings/general/McpPage.js:130
+msgid "We could not determine your site’s REST API URL, so the connection details are unavailable. Please reload the page or check your site address settings."
 msgstr ""
 
 #: admin/dashboard/pages/settings/general/MediaHubPage.js:111
@@ -4816,7 +5147,7 @@ msgid "New Video"
 msgstr ""
 
 #: admin/integrations/divi/fields/VideoSelector/VideoSelector.jsx:216
-#: Services/Learn.php:212
+#: Services/Learn.php:214
 msgid "Create Video"
 msgstr ""
 
@@ -5124,7 +5455,12 @@ msgid "You must provide an id."
 msgstr ""
 
 #: Integrations/Divi/Divi.php:177
-#: Services/API/RestVideosController.php:355
+#: Services/Abilities/Abilities/VideoAbilities.php:609
+#: Services/Abilities/Abilities/VideoAbilities.php:613
+#: Services/Abilities/Abilities/VideoAbilities.php:957
+#: Services/Abilities/Abilities/VideoAbilities.php:1265
+#: Services/Abilities/Abilities/VideoAbilities.php:1269
+#: Services/API/RestVideosController.php:386
 msgid "Video not found."
 msgstr ""
 
@@ -5313,24 +5649,26 @@ msgstr ""
 msgid "Please tell us more about the feature."
 msgstr ""
 
-#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:306
-msgid "Other"
-msgstr ""
-
 #: lib/nps-survey/classes/nps-survey-script.php:333
 msgid "Sorry, you are not allowed to do that."
 msgstr ""
 
 #: lib/nps-survey/classes/nps-survey-script.php:387
 #: lib/nps-survey/classes/nps-survey-script.php:505
+#: Services/OAuth/Consent/ConsentController.php:147
 msgid "Nonce verification failed."
 msgstr ""
 
-#: Models/Model.php:667
+#: Models/Model.php:578
+#: Models/Model.php:626
+msgid "Could not create record."
+msgstr ""
+
+#: Models/Model.php:688
 msgid "You must first create or save this model to update it."
 msgstr ""
 
-#: Models/Model.php:689
+#: Models/Model.php:707
 msgid "There was an issue updating the model."
 msgstr ""
 
@@ -5344,6 +5682,10 @@ msgstr ""
 
 #: Models/ReusableVideo.php:520
 msgid "Successfully duplicated."
+msgstr ""
+
+#: Models/Video.php:617
+msgid "Another video already points at that video post."
 msgstr ""
 
 #: Models/Webhook.php:76
@@ -5362,29 +5704,790 @@ msgid "https://wordpress.org/support/article/updating-wordpress/"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:63
-#: Seeds/PresetSeeder.php:182
+#: Seeds/PresetSeeder.php:215
 #: Services/Translation.php:149
 msgid "Simple"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:90
-#: Seeds/PresetSeeder.php:227
+#: Seeds/PresetSeeder.php:265
 #: Services/Translation.php:150
 msgid "Minimal"
 msgstr ""
 
 #: Seeds/AudioPresetSeeder.php:117
-#: Seeds/PresetSeeder.php:82
+#: Seeds/PresetSeeder.php:105
 #: Services/Translation.php:148
 msgid "Course"
 msgstr ""
 
-#: Seeds/PresetSeeder.php:128
+#: Seeds/PresetSeeder.php:156
 msgid "Youtube Optimized"
 msgstr ""
 
-#: Seeds/PresetSeeder.php:155
+#: Seeds/PresetSeeder.php:183
 msgid "Subscribe to our channel"
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:30
+msgid "List video chapters"
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:37
+msgid "Returns the chapters defined on a Presto Player video (either block attributes or [presto_player_chapter] shortcodes)."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:60
+#: Services/Abilities/Abilities/ChapterAbilities.php:307
+#: Services/Abilities/Abilities/VideoAbilities.php:1364
+msgid "The media-hub video_id returned by a create-video-* ability. Resolved to its reusable video post."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:64
+#: Services/Abilities/Abilities/ChapterAbilities.php:311
+#: Services/Abilities/Abilities/VideoAbilities.php:1368
+msgid "The pp_video_block post ID — the N in [presto_player id=N]. Use this when you already have the WordPress post ID instead of a media-hub video_id."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:122
+#: Services/Abilities/Abilities/ChapterAbilities.php:388
+#: Services/Abilities/Abilities/VideoAbilities.php:1430
+msgid "A valid video_id or post_id is required."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:126
+#: Services/Abilities/Abilities/ChapterAbilities.php:392
+#: Services/Abilities/Abilities/VideoAbilities.php:1434
+#: Services/Abilities/Ability.php:126
+#: Services/Abilities/Ability.php:139
+msgid "Presto Player video not found."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:129
+msgid "You are not allowed to read this video."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:136
+msgid "That video has no player block in the post it points at — the post plays a different Media Hub video, so it has no chapters of its own. See shares_post_with on presto-player/get-video."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:273
+msgid "Save video chapters"
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:280
+msgid "Stores a chapter list on a Presto Player video. Replaces every existing chapter — pass the full list you want to end up with, or an empty array to remove them all. Takes the exact shape presto-player/chapters-list returns, so the output of presto-player/chapters-generate-from-captions-deterministic can be passed straight through. Only the chapters are touched: the preset, poster and everything else set in the editor survive."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:315
+msgid "The complete chapter list to store. Anything already saved is replaced."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:323
+msgid "Chapter start time as minutes:seconds, e.g. \"1:30\". Minutes run past 59 for long videos (\"75:00\"); an HH:MM:SS value is folded down to this form."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:327
+msgid "Chapter title shown on the player marker."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:395
+#: Services/Abilities/Ability.php:465
+msgid "You are not allowed to edit this video."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:403
+msgid "That video has no player block in the post it points at — the post plays a different Media Hub video, so saving chapters here would change the wrong video. See shares_post_with on presto-player/get-video."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:428
+msgid "The player block in that post does not say which Media Hub video it plays, and more than one video points at the post — saving chapters here could change the wrong video. See shares_post_with on presto-player/get-video."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:438
+msgid "This video has no player block to store chapters on."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:471
+msgid "A chapters array is required."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:481
+msgid "Every chapter needs a time as minutes:seconds, e.g. \"1:30\"."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:547
+msgid "Auto-generate chapters from captions"
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:554
+msgid "Builds a chapter list from a WebVTT caption track using silence-gap detection. No AI — fully deterministic. Returns chapter markers without writing anything; pass them to presto-player/chapters-save to store them on a video. Each title is taken from the caption text spoken at that point, so it should be reviewed and renamed before saving."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:581
+msgid "WebVTT caption text."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:586
+msgid "Silence gap (in seconds) that starts a new chapter."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:591
+msgid "Minimum chapter length in seconds."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:618
+msgid "How many silence gaps were real chapter breaks but got dropped for landing sooner than min_chapter_len after the previous chapter started. If this is above zero and the chapter list looks too sparse, run the ability again with a smaller min_chapter_len."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:640
+msgid "WebVTT input is required."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:643
+msgid "WebVTT input exceeds the maximum allowed size."
+msgstr ""
+
+#: Services/Abilities/Abilities/ChapterAbilities.php:650
+msgid "No cues found in VTT."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:237
+msgid "Get Presto Player settings"
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:244
+msgid "Returns the current global player settings: branding, YouTube defaults, default presets, performance flags, analytics and Google Analytics state, instant video width, media hub sync default, usage opt-in, and any Pro settings groups. Credentials such as API keys and license keys are never returned — those are reported only as a \"<field>_configured\" boolean."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:403
+msgid "Update Presto Player settings"
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:410
+msgid "Updates one of the global Presto Player option groups. Pass the option key and the new value object. Only the fields the group exposes can be written — credentials, derived flags and data-destroying toggles are read-only."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:437
+msgid "Option key to update."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:441
+msgid "New value to store. An object for setting groups, or a scalar for the width / sync-default / usage opt-in keys."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:460
+msgid "The stored (sanitized) value, shaped the same way get-settings reports it."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:486
+msgid "That option key is not allowed."
+msgstr ""
+
+#: Services/Abilities/Abilities/SettingsAbilities.php:511
+msgid "That preset does not exist, so it cannot be the site default."
+msgstr ""
+
+#. translators: %s: option key.
+#: Services/Abilities/Abilities/SettingsAbilities.php:564
+#, php-format
+msgid "Expected a scalar value for %s."
+msgstr ""
+
+#. translators: 1: option key, 2: comma-separated list of allowed values.
+#: Services/Abilities/Abilities/SettingsAbilities.php:573
+#, php-format
+msgid "Allowed values for %1$s are: %2$s."
+msgstr ""
+
+#. translators: %s: option key.
+#: Services/Abilities/Abilities/SettingsAbilities.php:590
+#, php-format
+msgid "Expected an object value for %s."
+msgstr ""
+
+#. translators: %s: option key.
+#: Services/Abilities/Abilities/SettingsAbilities.php:637
+#, php-format
+msgid "No registered schema for %s; refusing to write a free-form value."
+msgstr ""
+
+#. translators: %s: option key.
+#: Services/Abilities/Abilities/SettingsAbilities.php:650
+#, php-format
+msgid "%s has no writable fields."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:34
+msgid "Add YouTube video"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:41
+msgid "Adds a YouTube video to the Media Hub and returns a ready-to-embed shortcode and block. Just pass the YouTube URL."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:66
+msgid "YouTube video URL."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:70
+#: Services/Abilities/Abilities/VideoAbilities.php:160
+#: Services/Abilities/Abilities/VideoAbilities.php:262
+msgid "Display title. Optional."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:75
+#: Services/Abilities/Abilities/VideoAbilities.php:165
+#: Services/Abilities/Abilities/VideoAbilities.php:267
+msgid "Post status for the embeddable video. Defaults to publish."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:124
+msgid "Add Vimeo video"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:131
+msgid "Adds a Vimeo video to the Media Hub and returns a ready-to-embed shortcode and block. Just pass the Vimeo URL."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:156
+msgid "Vimeo video URL."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:215
+msgid "Add self-hosted video"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:222
+msgid "Adds a self-hosted (MP4/HLS) video and returns a link to watch it plus a shortcode to embed it. If you have the video file, pass it directly as base64 (file + filename) — no manual upload needed. You can also pass a direct file URL or an existing Media Library attachment ID."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:246
+msgid "Direct video file URL (MP4/HLS) that the site can fetch. Provide file, attachment_id, or url."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:250
+msgid "WordPress media library attachment ID. Provide url, attachment_id, or file."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:254
+msgid "Base64-encoded video file contents, uploaded straight into the Media Library. Requires filename. Best for small clips (<= 50MB); for larger files use attachment_id."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:258
+msgid "Filename for the uploaded file, e.g. clip.mp4 (used with file)."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:329
+#: Services/Abilities/Abilities/VideoAbilities.php:389
+msgid "You are not allowed to upload files."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:342
+msgid "The filename must be a video file (mp4, webm, ogv, mov)."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:347
+msgid "Could not decode the file contents."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:350
+msgid "The uploaded file exceeds 50MB. Upload it to the Media Library and pass attachment_id instead."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:394
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:235
+msgid "Video URL must be an http(s) URL."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:409
+msgid "The URL must point to a video file (mp4, webm, ogv, mov)."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:427
+#: Services/Abilities/Abilities/VideoAbilities.php:485
+msgid "The video at that URL exceeds 50MB. Upload it to the Media Library and pass attachment_id instead."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:437
+msgid "Could not create a temporary file for the download."
+msgstr ""
+
+#. translators: 1: video URL. 2: error returned by the remote server.
+#: Services/Abilities/Abilities/VideoAbilities.php:457
+#, php-format
+msgid "Could not download the video from %1$s — the remote server returned: %2$s"
+msgstr ""
+
+#. translators: 1: video URL. 2: HTTP status code.
+#: Services/Abilities/Abilities/VideoAbilities.php:472
+#, php-format
+msgid "Could not download the video from %1$s — the remote server returned HTTP %2$d."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:522
+msgid "Get video"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:529
+msgid "Returns one video record by ID, including its post_id and [presto_player id=N] shortcode."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:553
+#: Services/Abilities/Abilities/VideoAbilities.php:878
+msgid "Video record ID (a video_id from a create-video-* ability)."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:582
+#: Services/Abilities/Abilities/VideoAbilities.php:709
+#: Services/Abilities/Abilities/VideoAbilities.php:926
+msgid "Length in seconds of an uploaded video, read from the file WordPress measured at upload. 0 for embeds and for files that were never measured."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:616
+#: Services/Abilities/Abilities/VideoAbilities.php:960
+#: Services/Abilities/Abilities/VideoAbilities.php:1272
+#: Services/Abilities/Abilities/VideoAbilities.php:1437
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:49
+msgid "You are not allowed to access this video."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:638
+msgid "List videos"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:645
+msgid "Returns videos from the Presto Player library (the Media Hub). Each row carries its post_id, its Media Tags and a ready-to-paste [presto_player id=N] shortcode, empty when that video has no Media Hub post yet. Filter by tag with the tag parameter."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:669
+msgid "Items per page (max 200)."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:674
+msgid "Page number."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:678
+msgid "Filter videos by title substring."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:682
+msgid "Only videos filed under this Media Tag. Takes a tag slug (the same value the by_tag playlist uses), a tag name, or a term ID."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:757
+msgid "No Media Tag matches that slug, name or ID."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:846
+msgid "Update video"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:853
+msgid "Updates a video record by ID. Pass only the fields you want to change. Media Tags can be set here too — pass tags with the full list of tag names you want the video filed under."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:887
+msgid "Change the provider, e.g. swapping a Vimeo video for a self-hosted MP4. Pass the new source alongside it; the player block is rebuilt to match."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:892
+msgid "Also rewrite the URL slug of the video and its page to match the new title. Off by default because moving a slug breaks every existing link: old URLs stop working and search engines have to re-index. Turn it on when the video was auto-named from its URL and its address is still the generated one nobody wants to see."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:897
+msgid "Media Tags to file this video under, by name or slug. Replaces the tags it already has, so pass the full list you want to end up with; an empty array removes them all. Tags that do not exist yet are created."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:934
+msgid "The new URL slug, when update_slug moved it. Empty when the slug was left as it was, so existing links still work."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:978
+msgid "Video source must be an http(s) URL."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:992
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:227
+msgid "Invalid attachment ID."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1178
+msgid "Trashes a Presto Player video record by ID."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1203
+msgid "Video record ID to delete (a video_id from a create-video-* ability)."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1230
+msgid "Post IDs moved to draft so the video stops being reachable — the video post and the page wrapping it. Empty when the post was kept published, or when you cannot edit them."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1234
+msgid "True when the video row was trashed but its post was deliberately left published, because another live Media Hub video (see shares_post_with) still plays through that post and unpublishing it would have taken that video down too."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1239
+msgid "Other live Media Hub video_ids still pointing at this video's post. Normally empty."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1261
+msgid "A valid video ID is required."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1334
+msgid "Get video shortcode"
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1341
+msgid "Returns the [presto_player id=N] shortcode for a reusable video post. Accepts a media-hub video_id (from a create-video-* ability) or a pp_video_block post_id directly. Paste the shortcode into any post or page to embed the player. Check ambiguous before you paste it: when more than one Media Hub video points at the same post, the shortcode cannot name one of them, and renders_video_id says which one it actually plays."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1394
+msgid "True when more than one live Media Hub video points at this post, so the shortcode cannot identify one of them on its own."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1399
+msgid "The other live Media Hub video_ids pointing at this post. Normally empty."
+msgstr ""
+
+#: Services/Abilities/Abilities/VideoAbilities.php:1403
+msgid "The Media Hub video the shortcode really plays, read from the post's player block. When this differs from the video_id you asked for, this shortcode embeds a different video. 0 when the block does not record one."
+msgstr ""
+
+#: Services/Abilities/Ability.php:146
+msgid "This media-hub video has no embeddable video post yet."
+msgstr ""
+
+#: Services/Abilities/Ability.php:460
+msgid "This media-hub video has no embeddable video post to tag yet."
+msgstr ""
+
+#: Services/Abilities/Ability.php:470
+msgid "Media Tags are not available."
+msgstr ""
+
+#: Services/Abilities/Ability.php:473
+msgid "You are not allowed to assign Media Tags."
+msgstr ""
+
+#. translators: %s: comma-separated list of tag names.
+#: Services/Abilities/Ability.php:499
+#, php-format
+msgid "These Media Tags do not exist yet and you are not allowed to create them: %s"
+msgstr ""
+
+#. translators: %s: the canonical parameter name.
+#: Services/Abilities/Ability.php:819
+#, php-format
+msgid "Deprecated alias for \"%s\"; accepted for backward compatibility. Prefer the canonical name."
+msgstr ""
+
+#: Services/Abilities/Ability.php:937
+msgid "Other live Media Hub video_ids pointing at the same post. Normally empty. When it is not, the shortcode names a post that more than one video claims, so it cannot embed one of them on its own — and chapter abilities will refuse the videos whose player block is not the one in that post."
+msgstr ""
+
+#: Services/Abilities/Ability.php:949
+msgid "Media Tags on this video. Pass any of these names or slugs as the list-videos `tag` filter."
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:64
+msgid "Could not create the video record."
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:168
+msgid "The video title."
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:172
+msgid "Link to open the video — a page that plays it, created with the same status as the video. Empty if you cannot create pages."
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:176
+msgid "Shortcode to embed the video anywhere."
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:182
+msgid "True when this source was already in the library, so an existing video was returned instead of a new one being created. Its title is left untouched."
+msgstr ""
+
+#. translators: %s: provider name, e.g. YouTube.
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:285
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:355
+#, php-format
+msgid "That does not look like a %s video URL."
+msgstr ""
+
+#. translators: 1: provider name, e.g. Vimeo. 2: ability name to call instead.
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:339
+#, php-format
+msgid "That is a %1$s URL — use the %2$s ability instead."
+msgstr ""
+
+#. translators: %s: provider name, e.g. YouTube.
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:368
+#, php-format
+msgid "That is not a %s URL."
+msgstr ""
+
+#. translators: %s: comma-separated list of accepted parameter names.
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:446
+#, php-format
+msgid "Provide a video source (%s)."
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:486
+msgid "Presto Player video"
+msgstr ""
+
+#: Services/Abilities/Concerns/CreatesReusableVideos.php:504
+msgid "Could not create the reusable video post."
+msgstr ""
+
+#: Services/Abilities/Module.php:175
+msgid "List top videos"
+msgstr ""
+
+#: Services/Abilities/Module.php:176
+msgid "Returns videos ordered by view count for an optional date range."
+msgstr ""
+
+#: Services/Abilities/Module.php:181
+msgid "List top viewers"
+msgstr ""
+
+#: Services/Abilities/Module.php:182
+msgid "Returns users ordered by total view count for an optional date range."
+msgstr ""
+
+#: Services/Abilities/Module.php:187
+msgid "Get video views"
+msgstr ""
+
+#: Services/Abilities/Module.php:188
+msgid "Returns the total number of views for one video over an optional date range."
+msgstr ""
+
+#: Services/Abilities/Module.php:193
+msgid "Get video drop-off curve"
+msgstr ""
+
+#: Services/Abilities/Module.php:194
+msgid "Returns retention buckets for a video — how many viewers were still watching at each timeline point."
+msgstr ""
+
+#: Services/Abilities/Module.php:199
+msgid "Translate captions"
+msgstr ""
+
+#: Services/Abilities/Module.php:200
+msgid "Translates an existing transcript on a Bunny video into one or more target languages."
+msgstr ""
+
+#: Services/Abilities/Module.php:205
+msgid "Create Bunny Stream video"
+msgstr ""
+
+#: Services/Abilities/Module.php:206
+msgid "Uploads a video to Bunny Stream from a Media Library attachment, a file URL, or raw base64 bytes, and returns an embeddable Media Hub video."
+msgstr ""
+
+#: Services/Abilities/Module.php:211
+msgid "Add Bunny video"
+msgstr ""
+
+#: Services/Abilities/Module.php:212
+msgid "Adds an existing Bunny Stream video (by GUID) to the Media Hub and returns a ready-to-embed shortcode and block."
+msgstr ""
+
+#: Services/Abilities/Module.php:217
+msgid "List Bunny collections"
+msgstr ""
+
+#: Services/Abilities/Module.php:218
+msgid "Returns all Bunny Stream collections for the active library."
+msgstr ""
+
+#: Services/Abilities/Module.php:235
+msgid "Get video attributes"
+msgstr ""
+
+#: Services/Abilities/Module.php:236
+msgid "Returns how one video is configured in the editor — its preset, poster, caption tracks, overlays and playback toggles."
+msgstr ""
+
+#: Services/Abilities/Module.php:242
+msgid "Update video attributes"
+msgstr ""
+
+#: Services/Abilities/Module.php:243
+msgid "Changes how one video is configured — assign a preset, set the poster, replace caption tracks or overlays, or flip the playback toggles."
+msgstr ""
+
+#: Services/Abilities/Module.php:249
+msgid "List video tags"
+msgstr ""
+
+#: Services/Abilities/Module.php:250
+msgid "Returns the Media Tags in the library with how many videos each one holds."
+msgstr ""
+
+#: Services/Abilities/Module.php:256
+msgid "Create video tag"
+msgstr ""
+
+#: Services/Abilities/Module.php:257
+msgid "Creates a Media Tag so videos can be tagged with it later. Calling it again returns the existing tag instead of a duplicate."
+msgstr ""
+
+#: Services/Abilities/Module.php:263
+msgid "Rename video tag"
+msgstr ""
+
+#: Services/Abilities/Module.php:264
+msgid "Renames a Media Tag, keeping it attached to every video that already has it."
+msgstr ""
+
+#: Services/Abilities/Module.php:270
+msgid "Delete video tag"
+msgstr ""
+
+#: Services/Abilities/Module.php:271
+msgid "Deletes a Media Tag, or folds it into another one. The videos themselves are never touched."
+msgstr ""
+
+#: Services/Abilities/Module.php:277
+msgid "List presets"
+msgstr ""
+
+#: Services/Abilities/Module.php:278
+msgid "Returns every player preset with its id, name and settings."
+msgstr ""
+
+#: Services/Abilities/Module.php:284
+msgid "Get preset"
+msgstr ""
+
+#: Services/Abilities/Module.php:285
+msgid "Returns one player preset by id, including all of its settings."
+msgstr ""
+
+#: Services/Abilities/Module.php:291
+msgid "Create preset"
+msgstr ""
+
+#: Services/Abilities/Module.php:292
+msgid "Creates a new player preset and returns it."
+msgstr ""
+
+#: Services/Abilities/Module.php:298
+msgid "Update preset"
+msgstr ""
+
+#: Services/Abilities/Module.php:299
+msgid "Updates the name and settings of an existing player preset."
+msgstr ""
+
+#: Services/Abilities/Module.php:305
+msgid "Delete preset"
+msgstr ""
+
+#: Services/Abilities/Module.php:306
+msgid "Permanently deletes a player preset."
+msgstr ""
+
+#: Services/Abilities/Module.php:312
+msgid "List caption tracks"
+msgstr ""
+
+#: Services/Abilities/Module.php:313
+msgid "Returns the caption tracks on a video with their languages, so you can check what is already captioned."
+msgstr ""
+
+#: Services/Abilities/Module.php:319
+msgid "Upload a caption track"
+msgstr ""
+
+#: Services/Abilities/Module.php:320
+msgid "Puts a WebVTT caption file on a self-hosted or Bunny video."
+msgstr ""
+
+#: Services/Abilities/Module.php:326
+msgid "Bulk upload caption tracks"
+msgstr ""
+
+#: Services/Abilities/Module.php:327
+msgid "Puts a WebVTT caption file on each of several videos in one call, reporting on every item individually."
+msgstr ""
+
+#: Services/Abilities/Module.php:333
+msgid "Transcribe Bunny video"
+msgstr ""
+
+#: Services/Abilities/Module.php:334
+msgid "Asks Bunny.net to auto-transcribe a video. Requires an active Bunny Stream library + transcription enabled."
+msgstr ""
+
+#: Services/Abilities/Module.php:340
+msgid "Bulk translate collection captions"
+msgstr ""
+
+#: Services/Abilities/Module.php:341
+msgid "Iterates videos in a Bunny collection and queues transcription + translation into N target languages for each."
+msgstr ""
+
+#: Services/Abilities/Module.php:347
+msgid "Link video to LearnDash step"
+msgstr ""
+
+#: Services/Abilities/Module.php:348
+msgid "Embeds a Presto Player video into a LearnDash lesson or topic. Requires LearnDash to be active."
+msgstr ""
+
+#: Services/Abilities/Module.php:354
+msgid "Build playlist from a list of videos"
+msgstr ""
+
+#: Services/Abilities/Module.php:355
+msgid "Builds a playlist from an ordered list of videos, publishes it as a page, and returns the page URL."
+msgstr ""
+
+#: Services/Abilities/Module.php:361
+msgid "Reorder or replace playlist videos"
+msgstr ""
+
+#: Services/Abilities/Module.php:362
+msgid "Sets the videos on an existing playlist to a new ordered list — reorder, add, or remove videos."
+msgstr ""
+
+#: Services/Abilities/Module.php:368
+msgid "Build smart playlist"
+msgstr ""
+
+#: Services/Abilities/Module.php:369
+msgid "Builds a playlist from a rule (most-watched, by tag, etc.), publishes it as a page, and returns the page URL."
+msgstr ""
+
+#: Services/Abilities/Module.php:375
+msgid "Build LMS course from Bunny collection"
+msgstr ""
+
+#: Services/Abilities/Module.php:376
+msgid "Creates a LearnDash course and a lesson for every video in a Bunny collection. Requires LearnDash to be active."
+msgstr ""
+
+#: Services/Abilities/Module.php:412
+msgid "Video and audio player management abilities."
+msgstr ""
+
+#: Services/Abilities/Module.php:595
+msgid "Presto Player MCP Server"
+msgstr ""
+
+#: Services/Abilities/Module.php:596
+msgid "Presto Player MCP Server for video, captions, and analytics management."
 msgstr ""
 
 #: Services/AdminNotices.php:143
@@ -5481,13 +6584,13 @@ msgstr ""
 msgid "Cannot create preset."
 msgstr ""
 
-#: Services/API/RestAudioPresetsController.php:465
-#: Services/API/RestPresetsController.php:525
+#: Services/API/RestAudioPresetsController.php:470
+#: Services/API/RestPresetsController.php:530
 msgid "Cannot update preset."
 msgstr ""
 
-#: Services/API/RestAudioPresetsController.php:486
-#: Services/API/RestPresetsController.php:546
+#: Services/API/RestAudioPresetsController.php:491
+#: Services/API/RestPresetsController.php:551
 msgid "This preset could not be trashed."
 msgstr ""
 
@@ -5569,15 +6672,19 @@ msgstr ""
 msgid "Video source url."
 msgstr ""
 
-#: Services/API/RestVideosController.php:235
+#: Services/API/RestVideosController.php:215
+msgid "A video source is required."
+msgstr ""
+
+#: Services/API/RestVideosController.php:266
 msgid "Cannot create video."
 msgstr ""
 
-#: Services/API/RestVideosController.php:260
+#: Services/API/RestVideosController.php:291
 msgid "Cannot get video."
 msgstr ""
 
-#: Services/API/RestVideosController.php:322
+#: Services/API/RestVideosController.php:353
 msgid "Cannot update video."
 msgstr ""
 
@@ -5586,401 +6693,524 @@ msgstr ""
 msgid "Presto"
 msgstr ""
 
-#: Services/Learn.php:202
+#: Services/FeatureAnnounce.php:176
+msgid "Ask for your analytics"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:180
+msgid "Read-only until you allow more"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:196
+msgid "New in Presto Player"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:202
+msgid "Talk to your video library"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:206
+msgid "Connect Claude, ChatGPT or any MCP client to this site, then ask for what you want in plain words. You decide how much it is allowed to change."
+msgstr ""
+
+#: Services/FeatureAnnounce.php:220
+msgid "Set up AI Abilities"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:224
+msgid "Not now"
+msgstr ""
+
+#: Services/Learn.php:204
 msgid "Getting Started"
 msgstr ""
 
-#: Services/Learn.php:203
+#: Services/Learn.php:205
 msgid "Create your first video and learn the core Presto Player workflow."
 msgstr ""
 
-#: Services/Learn.php:208
-#: Services/Learn.php:218
+#: Services/Learn.php:210
+#: Services/Learn.php:220
 msgid "Add a Presto Player video block"
 msgstr ""
 
-#: Services/Learn.php:209
+#: Services/Learn.php:211
 msgid "Create a Presto Player video block in the block editor and embed your first video — from YouTube, Vimeo, or a self-hosted file."
 msgstr ""
 
-#: Services/Learn.php:223
-#: Services/Learn.php:233
+#: Services/Learn.php:225
+#: Services/Learn.php:235
 msgid "Choose your video source"
 msgstr ""
 
-#: Services/Learn.php:224
+#: Services/Learn.php:226
 msgid "Learn the difference between YouTube, Vimeo, self-hosted, and Bunny.net — pick the right source for your use case."
 msgstr ""
 
-#: Services/Learn.php:238
-#: Services/Learn.php:248
+#: Services/Learn.php:240
+#: Services/Learn.php:250
 msgid "Manage your Media Hub"
 msgstr ""
 
-#: Services/Learn.php:239
+#: Services/Learn.php:241
 msgid "Browse, search, and organize all your videos in one central library. The Media Hub is your video command center."
 msgstr ""
 
-#: Services/Learn.php:242
+#: Services/Learn.php:244
 msgid "Open Media Hub"
 msgstr ""
 
-#: Services/Learn.php:253
-#: Services/Learn.php:263
+#: Services/Learn.php:255
+#: Services/Learn.php:265
 msgid "Use shortcodes to embed anywhere"
 msgstr ""
 
-#: Services/Learn.php:254
+#: Services/Learn.php:256
 msgid "Copy a shortcode from the Media Hub to embed videos in widgets, classic editor, or any page builder that supports shortcodes."
 msgstr ""
 
-#: Services/Learn.php:257
+#: Services/Learn.php:259
 msgid "View Media Hub"
 msgstr ""
 
-#: Services/Learn.php:271
+#: Services/Learn.php:273
 msgid "Player Customization"
 msgstr ""
 
-#: Services/Learn.php:272
+#: Services/Learn.php:274
 msgid "Fine-tune how your videos look, feel, and behave."
 msgstr ""
 
-#: Services/Learn.php:277
-#: Services/Learn.php:287
+#: Services/Learn.php:279
+#: Services/Learn.php:289
 msgid "Customize player controls"
 msgstr ""
 
-#: Services/Learn.php:278
+#: Services/Learn.php:280
 msgid "Choose which controls are visible — play, progress, volume, speed, fullscreen, PiP, and more."
 msgstr ""
 
-#: Services/Learn.php:281
-#: Services/Learn.php:296
+#: Services/Learn.php:283
+#: Services/Learn.php:298
 msgid "Edit Preset"
 msgstr ""
 
-#: Services/Learn.php:292
-#: Services/Learn.php:302
+#: Services/Learn.php:294
+#: Services/Learn.php:304
 msgid "Configure playback behavior"
 msgstr ""
 
-#: Services/Learn.php:293
+#: Services/Learn.php:295
 msgid "Set autoplay, muted start, save position, play-in-viewport, and preload options per preset."
 msgstr ""
 
-#: Services/Learn.php:307
+#: Services/Learn.php:309
 msgid "Add captions & subtitles"
 msgstr ""
 
-#: Services/Learn.php:308
+#: Services/Learn.php:310
 msgid "Upload SRT/VTT caption files or enable auto-generated captions to make your videos accessible."
 msgstr ""
 
-#: Services/Learn.php:317
+#: Services/Learn.php:319
 msgid "Add captions and subtitles"
 msgstr ""
 
-#: Services/Learn.php:322
-#: Services/Learn.php:332
+#: Services/Learn.php:324
+#: Services/Learn.php:334
 msgid "Add chapters to videos"
 msgstr ""
 
-#: Services/Learn.php:323
+#: Services/Learn.php:325
 msgid "Create clickable chapter markers so viewers can jump to specific sections inside a video."
 msgstr ""
 
-#: Services/Learn.php:337
-#: Services/Learn.php:347
+#: Services/Learn.php:339
+#: Services/Learn.php:349
 msgid "Set up audio playback"
 msgstr ""
 
-#: Services/Learn.php:338
+#: Services/Learn.php:340
 msgid "Use the dedicated audio block for podcasts, music, or voice content — same preset system as video."
 msgstr ""
 
-#: Services/Learn.php:352
-#: Services/Learn.php:362
+#: Services/Learn.php:354
+#: Services/Learn.php:364
 msgid "Add custom CSS to the player"
 msgstr ""
 
-#: Services/Learn.php:353
+#: Services/Learn.php:355
 msgid "Inject custom CSS for advanced visual tweaks beyond the built-in branding options."
 msgstr ""
 
-#: Services/Learn.php:356
+#: Services/Learn.php:358
 msgid "Edit Custom CSS"
 msgstr ""
 
-#: Services/Learn.php:370
+#: Services/Learn.php:372
 msgid "Branding & Presets"
 msgstr ""
 
-#: Services/Learn.php:371
+#: Services/Learn.php:373
 msgid "Match the player to your brand and save reusable configurations."
 msgstr ""
 
-#: Services/Learn.php:376
-#: Services/Learn.php:386
+#: Services/Learn.php:378
+#: Services/Learn.php:388
 msgid "Set your brand color"
 msgstr ""
 
-#: Services/Learn.php:377
+#: Services/Learn.php:379
 msgid "Choose a color for the play button, progress bar, and interactive elements to match your site identity."
 msgstr ""
 
-#: Services/Learn.php:380
+#: Services/Learn.php:382
 msgid "Set Color"
 msgstr ""
 
-#: Services/Learn.php:391
-#: Services/Learn.php:401
+#: Services/Learn.php:393
+#: Services/Learn.php:403
 msgid "Create a video preset"
 msgstr ""
 
-#: Services/Learn.php:392
+#: Services/Learn.php:394
 msgid "Save a reusable preset with your preferred controls, autoplay, and style settings — apply it across multiple videos in one click."
 msgstr ""
 
-#: Services/Learn.php:406
-#: Services/Learn.php:416
+#: Services/Learn.php:408
+#: Services/Learn.php:418
 msgid "Add a logo watermark"
 msgstr ""
 
-#: Services/Learn.php:407
+#: Services/Learn.php:409
 msgid "Upload your logo to display as a clickable watermark on your videos — professional branding in one click."
 msgstr ""
 
-#: Services/Learn.php:410
+#: Services/Learn.php:412
 msgid "Upload Logo"
 msgstr ""
 
-#: Services/Learn.php:424
+#: Services/Learn.php:426
 msgid "Embedding & Page Builders"
 msgstr ""
 
-#: Services/Learn.php:425
+#: Services/Learn.php:427
 msgid "Place videos anywhere on your site — Gutenberg, Elementor, Divi, Beaver Builder, or shortcodes."
 msgstr ""
 
-#: Services/Learn.php:430
-#: Services/Learn.php:440
+#: Services/Learn.php:432
+#: Services/Learn.php:442
 msgid "Add a video in Gutenberg"
 msgstr ""
 
-#: Services/Learn.php:431
+#: Services/Learn.php:433
 msgid "Open the block editor, add a Presto Player block, select your video source, and publish."
 msgstr ""
 
-#: Services/Learn.php:434
+#: Services/Learn.php:436
 msgid "Add to Page"
 msgstr ""
 
-#: Services/Learn.php:445
-#: Services/Learn.php:455
+#: Services/Learn.php:447
+#: Services/Learn.php:457
 msgid "Add a video in Elementor"
 msgstr ""
 
-#: Services/Learn.php:446
+#: Services/Learn.php:448
 msgid "Use the Presto Player Elementor widget to embed videos in any Elementor layout or template."
 msgstr ""
 
-#: Services/Learn.php:460
-#: Services/Learn.php:470
+#: Services/Learn.php:462
+#: Services/Learn.php:472
 msgid "Add a video in Beaver Builder"
 msgstr ""
 
-#: Services/Learn.php:461
+#: Services/Learn.php:463
 msgid "Use the Presto Player module inside any Beaver Builder page or template."
 msgstr ""
 
-#: Services/Learn.php:475
-#: Services/Learn.php:485
+#: Services/Learn.php:477
+#: Services/Learn.php:487
 msgid "Use with the Classic Editor"
 msgstr ""
 
-#: Services/Learn.php:476
+#: Services/Learn.php:478
 msgid "Embed videos via shortcodes in the classic WordPress editor — paste the shortcode and publish."
 msgstr ""
 
-#: Services/Learn.php:490
-#: Services/Learn.php:500
+#: Services/Learn.php:492
+#: Services/Learn.php:502
 msgid "Create a video popup"
 msgstr ""
 
-#: Services/Learn.php:491
+#: Services/Learn.php:493
 msgid "Launch videos in a lightbox popup triggered by a button, image, or link — grab attention without leaving the page."
 msgstr ""
 
-#: Services/Learn.php:494
+#: Services/Learn.php:496
 msgid "Try Popups"
 msgstr ""
 
-#: Services/Learn.php:505
-#: Services/Learn.php:515
+#: Services/Learn.php:507
+#: Services/Learn.php:517
 msgid "Create a playlist"
 msgstr ""
 
-#: Services/Learn.php:506
+#: Services/Learn.php:508
 msgid "Group related videos into a sequential playlist — perfect for course modules, series, or curated content collections."
 msgstr ""
 
-#: Services/Learn.php:509
+#: Services/Learn.php:511
 msgid "Create Playlist"
 msgstr ""
 
-#: Services/Learn.php:523
+#: Services/Learn.php:525
 msgid "Analytics & Engagement"
 msgstr ""
 
-#: Services/Learn.php:524
+#: Services/Learn.php:526
 msgid "Track how your audience watches and turn viewers into leads."
 msgstr ""
 
-#: Services/Learn.php:529
-#: Services/Learn.php:539
+#: Services/Learn.php:531
+#: Services/Learn.php:541
 msgid "Enable analytics"
 msgstr ""
 
-#: Services/Learn.php:530
+#: Services/Learn.php:532
 msgid "Turn on view tracking to collect watch data — views, watch time, and engagement — for every video on your site."
 msgstr ""
 
-#: Services/Learn.php:533
+#: Services/Learn.php:535
 msgid "Enable Analytics"
 msgstr ""
 
-#: Services/Learn.php:544
-#: Services/Learn.php:554
+#: Services/Learn.php:546
+#: Services/Learn.php:556
 msgid "View video insights"
 msgstr ""
 
-#: Services/Learn.php:545
+#: Services/Learn.php:547
 msgid "See total views, average watch time, and engagement trends per video from the Analytics dashboard."
 msgstr ""
 
-#: Services/Learn.php:548
-#: Services/Learn.php:563
+#: Services/Learn.php:550
+#: Services/Learn.php:565
 msgid "View Analytics"
 msgstr ""
 
-#: Services/Learn.php:559
-#: Services/Learn.php:569
+#: Services/Learn.php:561
+#: Services/Learn.php:571
 msgid "Track per-user engagement"
 msgstr ""
 
-#: Services/Learn.php:560
+#: Services/Learn.php:562
 msgid "See exactly who watched what and for how long — powerful for course creators and membership sites."
 msgstr ""
 
-#: Services/Learn.php:574
-#: Services/Learn.php:584
+#: Services/Learn.php:576
+#: Services/Learn.php:586
 msgid "Set up email capture"
 msgstr ""
 
-#: Services/Learn.php:575
+#: Services/Learn.php:577
 msgid "Capture email addresses mid-video and sync subscribers with your email marketing tool automatically."
 msgstr ""
 
-#: Services/Learn.php:578
+#: Services/Learn.php:580
 msgid "Configure Email"
 msgstr ""
 
-#: Services/Learn.php:589
-#: Services/Learn.php:599
+#: Services/Learn.php:591
+#: Services/Learn.php:601
 msgid "Connect Google Analytics"
 msgstr ""
 
-#: Services/Learn.php:590
+#: Services/Learn.php:592
 msgid "Send video play events to your existing GA4 property for unified site-wide analytics tracking."
 msgstr ""
 
-#: Services/Learn.php:593
+#: Services/Learn.php:595
 msgid "Configure GA"
 msgstr ""
 
-#: Services/Learn.php:607
+#: Services/Learn.php:609
 msgid "Integrations & Advanced"
 msgstr ""
 
-#: Services/Learn.php:608
+#: Services/Learn.php:610
 msgid "Connect Presto Player with your LMS, CDN, CRM, and SEO tools."
 msgstr ""
 
-#: Services/Learn.php:613
-#: Services/Learn.php:623
+#: Services/Learn.php:615
+#: Services/Learn.php:625
 msgid "Connect Bunny.net for private hosting"
 msgstr ""
 
-#: Services/Learn.php:614
+#: Services/Learn.php:616
 msgid "Set up Bunny.net Stream for CDN-powered private video hosting with adaptive HLS streaming — fast, secure, global."
 msgstr ""
 
-#: Services/Learn.php:617
+#: Services/Learn.php:619
 msgid "Connect Bunny"
 msgstr ""
 
-#: Services/Learn.php:628
-#: Services/Learn.php:638
+#: Services/Learn.php:630
+#: Services/Learn.php:640
 msgid "Use the Bunny.net video library"
 msgstr ""
 
-#: Services/Learn.php:629
+#: Services/Learn.php:631
 msgid "Browse and embed videos directly from your Bunny.net library without leaving WordPress."
 msgstr ""
 
-#: Services/Learn.php:643
-#: Services/Learn.php:653
+#: Services/Learn.php:645
+#: Services/Learn.php:655
 msgid "Enable automatic captions"
 msgstr ""
 
-#: Services/Learn.php:644
+#: Services/Learn.php:646
 msgid "Let Bunny.net auto-transcribe your videos and generate caption files — hands-free accessibility."
 msgstr ""
 
-#: Services/Learn.php:658
-#: Services/Learn.php:668
+#: Services/Learn.php:660
+#: Services/Learn.php:670
 msgid "Integrate with LearnDash"
 msgstr ""
 
-#: Services/Learn.php:659
+#: Services/Learn.php:661
 msgid "Track video progress as course completion — students must watch to advance to the next lesson."
 msgstr ""
 
-#: Services/Learn.php:673
-#: Services/Learn.php:683
+#: Services/Learn.php:675
+#: Services/Learn.php:685
 msgid "Integrate with LifterLMS"
 msgstr ""
 
-#: Services/Learn.php:674
+#: Services/Learn.php:676
 msgid "Connect Presto Player with LifterLMS for video-based course progression and completion tracking."
 msgstr ""
 
-#: Services/Learn.php:688
-#: Services/Learn.php:698
+#: Services/Learn.php:690
+#: Services/Learn.php:700
 msgid "Integrate with TutorLMS"
 msgstr ""
 
-#: Services/Learn.php:689
+#: Services/Learn.php:691
 msgid "Use Presto Player as the video engine for TutorLMS courses — full progress tracking included."
 msgstr ""
 
-#: Services/Learn.php:703
-#: Services/Learn.php:713
+#: Services/Learn.php:705
+#: Services/Learn.php:715
 msgid "Connect Fluent CRM"
 msgstr ""
 
-#: Services/Learn.php:704
+#: Services/Learn.php:706
 msgid "Sync email captures and video engagement data with Fluent CRM for automated marketing workflows."
 msgstr ""
 
-#: Services/Learn.php:718
-#: Services/Learn.php:728
+#: Services/Learn.php:720
+#: Services/Learn.php:730
 msgid "Optimize video SEO with RankMath"
 msgstr ""
 
-#: Services/Learn.php:719
+#: Services/Learn.php:721
 msgid "Add structured video schema data to boost search visibility — works automatically with RankMath."
+msgstr ""
+
+#: Services/Learn.php:738
+#: Services/Menu.php:104
+#: Services/Menu.php:105
+msgid "AI Abilities"
+msgstr ""
+
+#: Services/Learn.php:739
+msgid "Let Claude, ChatGPT or Cursor manage your videos. Just ask, in plain English."
+msgstr ""
+
+#: Services/Learn.php:745
+msgid "Turn on AI access"
+msgstr ""
+
+#: Services/Learn.php:746
+msgid "Switch on AI access in the settings so assistants like Claude, ChatGPT and Cursor can securely connect to your site."
+msgstr ""
+
+#: Services/Learn.php:749
+#: Services/Learn.php:807
+msgid "Open AI Settings"
+msgstr ""
+
+#: Services/Learn.php:761
+msgid "By default AI is read-only — it can list, search and report on your videos and analytics, but cannot change anything. Turn on “Allow AI to make changes” to let it create, update and delete too. Enable this only when you trust the assistant, because it can then modify or permanently remove content on your site."
+msgstr ""
+
+#: Services/Learn.php:775
+msgid "What you can ask"
+msgstr ""
+
+#: Services/Learn.php:776
+msgid "Just talk to it in plain English. Here are some things you can say:"
+msgstr ""
+
+#: Services/Learn.php:783
+msgid "Add this YouTube video and give me the shortcode"
+msgstr ""
+
+#: Services/Learn.php:784
+msgid "Embed this Vimeo video on my site"
+msgstr ""
+
+#: Services/Learn.php:785
+msgid "Upload my MP4 as a self-hosted player"
+msgstr ""
+
+#: Services/Learn.php:786
+msgid "Which videos got the most views this month?"
+msgstr ""
+
+#: Services/Learn.php:787
+msgid "Where do viewers drop off in this video?"
+msgstr ""
+
+#: Services/Learn.php:788
+msgid "Who are my most active viewers?"
+msgstr ""
+
+#: Services/Learn.php:789
+msgid "Show me all videos with ‘training’ in the title"
+msgstr ""
+
+#: Services/Learn.php:790
+msgid "Rename this video and update its description"
+msgstr ""
+
+#: Services/Learn.php:791
+msgid "Get the shortcode for this video"
+msgstr ""
+
+#: Services/Learn.php:792
+msgid "Auto-generate chapters from the captions on this video"
+msgstr ""
+
+#: Services/Learn.php:793
+msgid "Translate this video’s captions to Spanish"
+msgstr ""
+
+#: Services/Learn.php:803
+msgid "Search your library"
+msgstr ""
+
+#: Services/Learn.php:804
+msgid "Not sure what is possible? Open the AI settings — every ability is listed there with a search box, so you can see exactly what the assistant can do. And in chat, just ask it to find things and it searches your Media Hub and analytics for you."
+msgstr ""
+
+#: Services/Learn.php:811
+msgid "Show me all my videos about ‘onboarding’"
+msgstr ""
+
+#: Services/Learn.php:812
+msgid "Find the video I embedded on my pricing page"
 msgstr ""
 
 #: Services/License/License.php:233
@@ -5991,66 +7221,354 @@ msgstr ""
 msgid "Buy Subscription"
 msgstr ""
 
-#: Services/Menu.php:306
+#: Services/Menu.php:339
 msgid "Build Your Video Community with SureDash"
 msgstr ""
 
-#: Services/Menu.php:308
+#: Services/Menu.php:341
 msgid "Create a members-only space around your video content with courses, forums, and community features."
 msgstr ""
 
-#: Services/Menu.php:312
+#: Services/Menu.php:345
 msgid "Sell Video Content with SureCart"
 msgstr ""
 
-#: Services/Menu.php:314
+#: Services/Menu.php:347
 msgid "Accept payments for courses, memberships, and digital downloads directly from your site."
 msgstr ""
 
-#: Services/Menu.php:318
+#: Services/Menu.php:351
 msgid "Automate Your Video Workflows with OttoKit"
 msgstr ""
 
-#: Services/Menu.php:320
+#: Services/Menu.php:353
 msgid "Trigger actions when videos are watched, emails captured, or goals reached — no code needed."
 msgstr ""
 
-#: Services/Menu.php:324
+#: Services/Menu.php:357
 msgid "Keep Emails Out of Spam with SureMail"
 msgstr ""
 
-#: Services/Menu.php:326
+#: Services/Menu.php:359
 msgid "Ensure video notifications and email captures actually reach your audience's inbox."
 msgstr ""
 
-#: Services/PluginInstaller.php:111
+#: Services/OAuth/Authentication/Authentication.php:115
+msgid "This token is not permitted to access this route."
+msgstr ""
+
+#: Services/OAuth/Authentication/Authentication.php:225
+msgid "Bearer token invalid or expired"
+msgstr ""
+
+#: Services/OAuth/Authentication/Authentication.php:499
+msgid "Authentication required to access the Presto Player MCP endpoint."
+msgstr ""
+
+#. translators: %s: required OAuth scope.
+#: Services/OAuth/Authentication/Authentication.php:643
+#, php-format
+msgid "Token missing required scope: %s"
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:29
+msgid "View videos, presets, analytics, and settings"
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:30
+msgid "Create and edit videos, presets, captions"
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:31
+msgid "Delete videos, presets, and submissions"
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:32
+msgid "Modify plugin settings and license"
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:154
+#: Services/OAuth/Endpoints/Endpoints.php:386
+msgid "The user denied the authorization request."
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:159
+msgid "Missing consent decision."
+msgstr ""
+
+#: Services/OAuth/Consent/ConsentController.php:186
+msgid "Could not issue the authorization code."
+msgstr ""
+
+#. translators: %s: client application name.
+#: Services/OAuth/Consent/templates/consent.php:29
+#: Services/OAuth/Consent/templates/consent.php:190
+#, php-format
+msgid "Authorize %s"
+msgstr ""
+
+#. translators: 1: client application name, 2: site name.
+#: Services/OAuth/Consent/templates/consent.php:201
+#, php-format
+msgid "<span class=\"client-name\">%1$s</span> is requesting access to your account on %2$s."
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:211
+msgid "This is a third-party application that has not been verified. Only continue if you trust it."
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:214
+msgid "This will allow the app to:"
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:225
+msgid "Access will be sent to:"
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:232
+msgid "Signed in as"
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:243
+msgid "Deny"
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:246
+msgid "Allow"
+msgstr ""
+
+#: Services/OAuth/Consent/templates/consent.php:252
+msgid "An administrator can revoke this access by turning off AI access in the Presto Player settings. That revokes every app at once."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:383
+msgid "Missing or invalid OAuth parameter."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:384
+msgid "Only response_type=code is supported."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:385
+msgid "One or more requested scopes are not recognized."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:422
+msgid "Authorization request rejected"
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:423
+msgid "The OAuth client or redirect URI is not recognized. Stop the authorization attempt and contact the application owner."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:834
+#: Services/OAuth/Endpoints/Endpoints.php:1264
+#: Services/OAuth/Endpoints/Endpoints.php:1478
+msgid "Rate limit exceeded. Try again later."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:860
+msgid "Client registration could not be completed. Try again later."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:902
+msgid "redirect_uris is required and must be a non-empty array."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:906
+msgid "Too many redirect_uris."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:912
+msgid "Every redirect_uri must be a non-empty string."
+msgstr ""
+
+#. translators: %d: the maximum number of characters allowed.
+#: Services/OAuth/Endpoints/Endpoints.php:920
+#, php-format
+msgid "Each redirect_uri must be %d characters or fewer."
+msgstr ""
+
+#. translators: %s: the offending redirect URI.
+#: Services/OAuth/Endpoints/Endpoints.php:929
+#, php-format
+msgid "Invalid redirect_uri: %s"
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:937
+msgid "client_name is required."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:940
+msgid "client_name must be 191 characters or fewer."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:947
+msgid "client_uri must be a valid URL."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:956
+msgid "logo_uri must be a valid URL."
+msgstr ""
+
+#. translators: %s: the offending scope.
+#: Services/OAuth/Endpoints/Endpoints.php:987
+#, php-format
+msgid "Unknown scope: %s"
+msgstr ""
+
+#. translators: %s: the offending grant type.
+#: Services/OAuth/Endpoints/Endpoints.php:1004
+#, php-format
+msgid "Unsupported grant_type: %s"
+msgstr ""
+
+#. translators: %s: the offending response type.
+#: Services/OAuth/Endpoints/Endpoints.php:1020
+#, php-format
+msgid "Unsupported response_type: %s"
+msgstr ""
+
+#. translators: %s: the offending auth method.
+#: Services/OAuth/Endpoints/Endpoints.php:1032
+#, php-format
+msgid "Unsupported token_endpoint_auth_method: %s"
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1042
+msgid "software_id must be 191 characters or fewer."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1270
+msgid "Missing token parameter."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1308
+#: Services/OAuth/Endpoints/Endpoints.php:1678
+msgid "Client storage unavailable."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1314
+#: Services/OAuth/Endpoints/Endpoints.php:1684
+msgid "Client credentials mismatch."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1320
+#: Services/OAuth/Endpoints/Endpoints.php:1690
+msgid "Client authentication required."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1325
+#: Services/OAuth/Endpoints/Endpoints.php:1695
+msgid "Unknown client."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1333
+#: Services/OAuth/Endpoints/Endpoints.php:1703
+msgid "Client authentication failed."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1490
+msgid "The grant type is not supported."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1506
+#: Services/OAuth/Endpoints/Endpoints.php:1584
+msgid "Missing required parameter."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1516
+#: Services/OAuth/Endpoints/Endpoints.php:1594
+msgid "Storage unavailable."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1521
+msgid "Authorization code is invalid or expired."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1525
+msgid "Authorization code was issued to a different client."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1529
+msgid "Redirect URI mismatch."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1536
+msgid "PKCE verification failed."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1544
+#: Services/OAuth/Endpoints/Endpoints.php:1634
+msgid "Requested scope exceeds the client registration."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1548
+#: Services/OAuth/Endpoints/Endpoints.php:1638
+msgid "Unable to issue tokens."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1561
+#: Services/OAuth/Endpoints/Endpoints.php:1657
+msgid "Could not issue tokens."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1605
+msgid "Refresh token is invalid or expired."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1610
+msgid "Token is not a refresh token."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1614
+msgid "Refresh token was issued to a different client."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1618
+msgid "Refresh token has expired."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1625
+msgid "Authorization has expired; please re-authorize."
+msgstr ""
+
+#: Services/OAuth/Endpoints/Endpoints.php:1645
+msgid "Refresh token has already been used."
+msgstr ""
+
+#: Services/PluginInstaller.php:124
 msgid "This plugin is not in the allowed list for this endpoint."
 msgstr ""
 
-#: Services/PluginInstaller.php:149
+#: Services/PluginInstaller.php:162
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: Services/PluginInstaller.php:206
-#: Services/PluginInstaller.php:236
+#: Services/PluginInstaller.php:219
+#: Services/PluginInstaller.php:249
 msgid "Plugin slug is required."
 msgstr ""
 
-#: Services/PluginInstaller.php:247
+#: Services/PluginInstaller.php:260
 msgid "Plugin is already installed."
 msgstr ""
 
 #. translators: %s: plugin slug
-#: Services/PluginInstaller.php:275
+#: Services/PluginInstaller.php:296
 #, php-format
 msgid "Plugin %s not found in repository."
 msgstr ""
 
-#: Services/PluginInstaller.php:294
+#: Services/PluginInstaller.php:320
+msgid "Downloaded plugin failed integrity verification."
+msgstr ""
+
+#: Services/PluginInstaller.php:345
 msgid "Plugin installation failed."
 msgstr ""
 
-#: Services/PluginInstaller.php:304
+#: Services/PluginInstaller.php:355
 msgid "Plugin installed successfully."
 msgstr ""
 
