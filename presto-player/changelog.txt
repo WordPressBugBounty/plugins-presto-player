@@ -1,4 +1,7 @@
 *** Presto Player Changelog ***
+= 4.4.1 =
+* Fixed: The video preview in the preset editor no longer collapses to a thin strip.
+
 = 4.4.0 =
 * New: AI Abilities — connect Claude, ChatGPT, Cursor or any MCP client and work with your videos and analytics in plain language.
 * Improvement: Tested and verified compatibility with WordPress 7.1.

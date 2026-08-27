@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-19T11:45:25+00:00\n"
+"POT-Creation-Date: 2026-08-27T05:58:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -1217,14 +1217,14 @@ msgid "Trash"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preview.js:62
-#: admin/blocks/shared/Preview.js:64
+#: admin/blocks/shared/Preview.js:68
 msgid "Enter your email to play."
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preview.js:65
 #: admin/blocks/shared/audioPresets/Preview.js:102
-#: admin/blocks/shared/Preview.js:67
-#: admin/blocks/shared/Preview.js:103
+#: admin/blocks/shared/Preview.js:71
+#: admin/blocks/shared/Preview.js:107
 #: admin/dashboard/components/Onboarding/Integrations.js:297
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:218
 #: admin/dashboard/components/Onboarding/UserInfo.js:158
@@ -1234,7 +1234,7 @@ msgid "Skip"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Preview.js:67
-#: admin/blocks/shared/Preview.js:69
+#: admin/blocks/shared/Preview.js:73
 #: Services/Translation.php:81
 msgid "Email address"
 msgstr ""
