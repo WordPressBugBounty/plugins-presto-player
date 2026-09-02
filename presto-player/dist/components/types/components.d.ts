@@ -149,6 +149,8 @@ export namespace Components {
         "provider": string;
         "type": string;
     }
+    interface PrestoFloatingPillSkin {
+    }
     interface PrestoModernSkin {
     }
     interface PrestoMutedOverlay {
@@ -699,6 +701,12 @@ declare global {
         prototype: HTMLPrestoEmailOverlayUiElement;
         new (): HTMLPrestoEmailOverlayUiElement;
     };
+    interface HTMLPrestoFloatingPillSkinElement extends Components.PrestoFloatingPillSkin, HTMLStencilElement {
+    }
+    var HTMLPrestoFloatingPillSkinElement: {
+        prototype: HTMLPrestoFloatingPillSkinElement;
+        new (): HTMLPrestoFloatingPillSkinElement;
+    };
     interface HTMLPrestoModernSkinElement extends Components.PrestoModernSkin, HTMLStencilElement {
     }
     var HTMLPrestoModernSkinElement: {
@@ -916,6 +924,7 @@ declare global {
         "presto-email-overlay": HTMLPrestoEmailOverlayElement;
         "presto-email-overlay-controller": HTMLPrestoEmailOverlayControllerElement;
         "presto-email-overlay-ui": HTMLPrestoEmailOverlayUiElement;
+        "presto-floating-pill-skin": HTMLPrestoFloatingPillSkinElement;
         "presto-modern-skin": HTMLPrestoModernSkinElement;
         "presto-muted-overlay": HTMLPrestoMutedOverlayElement;
         "presto-player": HTMLPrestoPlayerElement;
@@ -1100,6 +1109,8 @@ declare namespace LocalJSX {
         "onSubmitForm"?: (event: PrestoEmailOverlayUiCustomEvent<object>) => void;
         "provider"?: string;
         "type"?: string;
+    }
+    interface PrestoFloatingPillSkin {
     }
     interface PrestoModernSkin {
     }
@@ -1433,6 +1444,7 @@ declare namespace LocalJSX {
         "presto-email-overlay": PrestoEmailOverlay;
         "presto-email-overlay-controller": PrestoEmailOverlayController;
         "presto-email-overlay-ui": PrestoEmailOverlayUi;
+        "presto-floating-pill-skin": PrestoFloatingPillSkin;
         "presto-modern-skin": PrestoModernSkin;
         "presto-muted-overlay": PrestoMutedOverlay;
         "presto-player": PrestoPlayer;
@@ -1480,6 +1492,7 @@ declare module "@stencil/core" {
             "presto-email-overlay": LocalJSX.PrestoEmailOverlay & JSXBase.HTMLAttributes<HTMLPrestoEmailOverlayElement>;
             "presto-email-overlay-controller": LocalJSX.PrestoEmailOverlayController & JSXBase.HTMLAttributes<HTMLPrestoEmailOverlayControllerElement>;
             "presto-email-overlay-ui": LocalJSX.PrestoEmailOverlayUi & JSXBase.HTMLAttributes<HTMLPrestoEmailOverlayUiElement>;
+            "presto-floating-pill-skin": LocalJSX.PrestoFloatingPillSkin & JSXBase.HTMLAttributes<HTMLPrestoFloatingPillSkinElement>;
             "presto-modern-skin": LocalJSX.PrestoModernSkin & JSXBase.HTMLAttributes<HTMLPrestoModernSkinElement>;
             "presto-muted-overlay": LocalJSX.PrestoMutedOverlay & JSXBase.HTMLAttributes<HTMLPrestoMutedOverlayElement>;
             "presto-player": LocalJSX.PrestoPlayer & JSXBase.HTMLAttributes<HTMLPrestoPlayerElement>;

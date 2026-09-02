@@ -1,6 +1,6 @@
 import { useLocation } from './router/router';
 import Navbar from './components/Navbar';
-import McpPromoBanner from './components/McpPromoBanner';
+import DashboardPromos from './components/DashboardPromos';
 import Dashboard from './pages/Dashboard';
 import Emails from './pages/Emails';
 import MediaHub from './pages/MediaHub';
@@ -47,7 +47,7 @@ const Routes = () => {
 		<div className="presto-dashboard flex flex-col flex-1 min-h-0">
 			<AdminMenuSync />
 			<Navbar />
-			<McpPromoBanner />
+			<DashboardPromos />
 			{ render() }
 		</div>
 	);

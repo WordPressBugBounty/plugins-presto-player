@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-27T05:58:30+00:00\n"
+"POT-Creation-Date: 2026-09-02T09:32:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -183,7 +183,7 @@ msgstr ""
 #: admin/blocks/shared/tracks/TracksEditor.js:182
 #: admin/blocks/shared/tracks/TracksEditor.js:452
 #: Blocks/PopupMediaBlock.php:118
-#: Services/FeatureAnnounce.php:187
+#: Services/FeatureAnnounce.php:230
 msgid "Close"
 msgstr ""
 
@@ -263,6 +263,7 @@ msgstr ""
 
 #: admin/blocks/blocks/bunny/APIPlaceholder.js:93
 #: admin/dashboard/components/Onboarding/PremiumFeatures.js:244
+#: Services/FeatureAnnounce.php:249
 #: Services/Translation.php:134
 msgid "Next"
 msgstr ""
@@ -353,7 +354,7 @@ msgstr ""
 #: admin/blocks/shared/overlays/Edit.js:197
 #: admin/blocks/shared/placeholder.js:150
 #: admin/blocks/shared/placeholder.js:154
-#: admin/blocks/shared/presets/Edit.js:361
+#: admin/blocks/shared/presets/Edit.js:388
 #: admin/blocks/shared/presets/parts/YoutubeChannelId.js:92
 #: admin/blocks/shared/presets/Preset.js:241
 #: admin/blocks/shared/tracks/TracksEditor.js:408
@@ -936,7 +937,7 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Behavior.js:17
 #: admin/blocks/shared/audioPresets/Edit.js:203
 #: admin/blocks/shared/presets/Behavior.js:17
-#: admin/blocks/shared/presets/Edit.js:216
+#: admin/blocks/shared/presets/Edit.js:227
 msgid "Behavior"
 msgstr ""
 
@@ -994,7 +995,7 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Controls.js:11
 #: admin/blocks/shared/audioPresets/Edit.js:197
 #: admin/blocks/shared/presets/Controls.js:11
-#: admin/blocks/shared/presets/Edit.js:210
+#: admin/blocks/shared/presets/Edit.js:221
 msgid "Controls"
 msgstr ""
 
@@ -1077,22 +1078,22 @@ msgid "Shows playback speed controls."
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:79
-#: admin/blocks/shared/presets/Edit.js:93
+#: admin/blocks/shared/presets/Edit.js:95
 msgid "The preset could not be saved. Please reload the page and try again."
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:123
-#: admin/blocks/shared/presets/Edit.js:137
+#: admin/blocks/shared/presets/Edit.js:141
 msgid "Preset updated!"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:177
-#: admin/blocks/shared/presets/Edit.js:190
+#: admin/blocks/shared/presets/Edit.js:199
 msgid "Preset created!"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:188
-#: admin/blocks/shared/presets/Edit.js:201
+#: admin/blocks/shared/presets/Edit.js:211
 #: Models/AudioPreset.php:188
 #: Models/Preset.php:222
 msgid "You must enter a name for the preset."
@@ -1101,14 +1102,14 @@ msgstr ""
 #: admin/blocks/shared/audioPresets/Edit.js:209
 #: admin/blocks/shared/audioPresets/Style.js:18
 #: admin/blocks/shared/presets/CTA.js:254
-#: admin/blocks/shared/presets/Edit.js:222
+#: admin/blocks/shared/presets/Edit.js:233
 #: admin/blocks/shared/presets/Email.js:212
 #: admin/blocks/shared/presets/Style.js:13
 msgid "Style"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:215
-#: admin/blocks/shared/presets/Edit.js:228
+#: admin/blocks/shared/presets/Edit.js:239
 #: admin/blocks/shared/presets/Email.js:52
 #: admin/dashboard/pages/settings/config.js:130
 #: admin/dashboard/pages/settings/integrations/EmailCapturePage.js:312
@@ -1118,13 +1119,13 @@ msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:221
 #: admin/blocks/shared/presets/CTA.js:75
-#: admin/blocks/shared/presets/Edit.js:234
+#: admin/blocks/shared/presets/Edit.js:245
 msgid "Call To Action"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:227
 #: admin/blocks/shared/presets/ActionBar.js:98
-#: admin/blocks/shared/presets/Edit.js:240
+#: admin/blocks/shared/presets/Edit.js:251
 msgid "Action Bar"
 msgstr ""
 
@@ -1137,42 +1138,42 @@ msgid "Create A New Audio Preset"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:255
-#: admin/blocks/shared/presets/Edit.js:285
+#: admin/blocks/shared/presets/Edit.js:296
 msgid "Preset Name"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:257
-#: admin/blocks/shared/presets/Edit.js:287
+#: admin/blocks/shared/presets/Edit.js:299
 msgid "Enter a preset name..."
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:267
-#: admin/blocks/shared/presets/Edit.js:297
+#: admin/blocks/shared/presets/Edit.js:312
 msgid "Customize"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:279
-#: admin/blocks/shared/presets/Edit.js:309
+#: admin/blocks/shared/presets/Edit.js:329
 msgid "Skin"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:284
-#: admin/blocks/shared/presets/Edit.js:316
+#: admin/blocks/shared/presets/Edit.js:339
 msgid "Basic"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:285
-#: admin/blocks/shared/presets/Edit.js:315
+#: admin/blocks/shared/presets/Edit.js:338
 msgid "Stacked"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:342
-#: admin/blocks/shared/presets/Edit.js:371
+#: admin/blocks/shared/presets/Edit.js:398
 msgid "Update Preset"
 msgstr ""
 
 #: admin/blocks/shared/audioPresets/Edit.js:343
-#: admin/blocks/shared/presets/Edit.js:372
+#: admin/blocks/shared/presets/Edit.js:399
 #: Services/Learn.php:397
 msgid "Create Preset"
 msgstr ""
@@ -1858,29 +1859,34 @@ msgstr ""
 msgid "Opacity percentage of the cover background."
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:253
+#: admin/blocks/shared/presets/Edit.js:264
 msgid "Dynamic Watermark"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:259
+#: admin/blocks/shared/presets/Edit.js:270
 #: admin/blocks/shared/presets/Search.js:48
 msgid "Searchable Captions"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:274
+#: admin/blocks/shared/presets/Edit.js:285
 msgid "Edit A Video Preset"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:275
+#: admin/blocks/shared/presets/Edit.js:286
 msgid "Create A New Video Preset"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:313
+#: admin/blocks/shared/presets/Edit.js:333
 msgid "Modern"
 msgstr ""
 
-#: admin/blocks/shared/presets/Edit.js:314
+#: admin/blocks/shared/presets/Edit.js:335
 msgid "Business"
+msgstr ""
+
+#: admin/blocks/shared/presets/Edit.js:341
+#: admin/dashboard/components/SkinPromoBanner.js:23
+msgid "Floating Pill"
 msgstr ""
 
 #: admin/blocks/shared/presets/Email.js:57
@@ -2629,25 +2635,21 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: admin/dashboard/components/McpPromoBanner.js:23
-#: Services/FeatureAnnounce.php:172
+#: admin/dashboard/components/McpPromoBanner.js:8
+#: Services/FeatureAnnounce.php:196
 msgid "Create a video from a link"
 msgstr ""
 
-#: admin/dashboard/components/McpPromoBanner.js:24
+#: admin/dashboard/components/McpPromoBanner.js:9
 msgid "Ask for your video analytics"
 msgstr ""
 
-#: admin/dashboard/components/McpPromoBanner.js:69
+#: admin/dashboard/components/McpPromoBanner.js:26
 msgid "Explore Presto Player AI Abilities"
 msgstr ""
 
-#: admin/dashboard/components/McpPromoBanner.js:88
+#: admin/dashboard/components/McpPromoBanner.js:28
 msgid "Set up AI"
-msgstr ""
-
-#: admin/dashboard/components/McpPromoBanner.js:94
-msgid "Dismiss"
 msgstr ""
 
 #: admin/dashboard/components/MediaHub/BulkActions.js:22
@@ -3207,14 +3209,19 @@ msgstr ""
 msgid "Select time"
 msgstr ""
 
-#: admin/dashboard/components/QuickAccess.js:25
-msgid "Explore AI Abilities"
-msgstr ""
-
+#: admin/dashboard/components/PromoBanner.js:61
 #: admin/dashboard/components/QuickAccess.js:26
 #: admin/dashboard/pages/learn/ChapterCard.js:38
 #: Services/Menu.php:105
 msgid "New"
+msgstr ""
+
+#: admin/dashboard/components/PromoBanner.js:92
+msgid "Dismiss"
+msgstr ""
+
+#: admin/dashboard/components/QuickAccess.js:25
+msgid "Explore AI Abilities"
 msgstr ""
 
 #: admin/dashboard/components/QuickAccess.js:40
@@ -4166,8 +4173,10 @@ msgid "Requires Presto Player Pro."
 msgstr ""
 
 #. translators: 1: active count in group, 2: total in group.
+#. translators: 1: current slide number, 2: total number of slides.
 #: admin/dashboard/pages/settings/general/components/AbilitiesList.js:332
-#, js-format
+#: Services/FeatureAnnounce.php:273
+#, js-format,php-format
 msgid "%1$d of %2$d"
 msgstr ""
 
@@ -5578,7 +5587,7 @@ msgid "Oops! Something went wrong. Please refresh the page and try again."
 msgstr ""
 
 #: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:80
-#: Services/Usage.php:184
+#: Services/Usage.php:207
 msgid "Quick Feedback"
 msgstr ""
 
@@ -6693,31 +6702,60 @@ msgstr ""
 msgid "Presto"
 msgstr ""
 
+#: Services/FeatureAnnounce.php:163
+msgid "Controls that float over your video"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:164
+msgid "Floating Pill is a new built-in skin. The control bar lifts off the video edges into a frosted, rounded bar — the way QuickTime does it."
+msgstr ""
+
+#: Services/FeatureAnnounce.php:168
+msgid "Detached, frosted control bar"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:172
+msgid "Pick it from the Skin dropdown"
+msgstr ""
+
 #: Services/FeatureAnnounce.php:176
-msgid "Ask for your analytics"
+msgid "Set per preset, so nothing else moves"
 msgstr ""
 
-#: Services/FeatureAnnounce.php:180
-msgid "Read-only until you allow more"
-msgstr ""
-
-#: Services/FeatureAnnounce.php:196
-msgid "New in Presto Player"
-msgstr ""
-
-#: Services/FeatureAnnounce.php:202
+#: Services/FeatureAnnounce.php:191
 msgid "Talk to your video library"
 msgstr ""
 
-#: Services/FeatureAnnounce.php:206
+#: Services/FeatureAnnounce.php:192
 msgid "Connect Claude, ChatGPT or any MCP client to this site, then ask for what you want in plain words. You decide how much it is allowed to change."
 msgstr ""
 
-#: Services/FeatureAnnounce.php:220
+#: Services/FeatureAnnounce.php:200
+msgid "Ask for your analytics"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:204
+msgid "Read-only until you allow more"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:207
 msgid "Set up AI Abilities"
 msgstr ""
 
-#: Services/FeatureAnnounce.php:224
+#: Services/FeatureAnnounce.php:228
+#: Services/FeatureAnnounce.php:291
+msgid "New in Presto Player"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:243
+msgid "Previous"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:279
+msgid "slide"
+msgstr ""
+
+#: Services/FeatureAnnounce.php:317
 msgid "Not now"
 msgstr ""
 
@@ -7797,7 +7835,7 @@ msgstr ""
 msgid "YouTube Optimized"
 msgstr ""
 
-#: Services/Usage.php:186
+#: Services/Usage.php:209
 msgid "If you have a moment, please share why you are deactivating Presto Player:"
 msgstr ""
 

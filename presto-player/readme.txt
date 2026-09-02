@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 4.4.1
+Stable tag: 4.5.0
 
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -158,6 +158,9 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.5.0 =
+* New: Floating Pill player skin — a detached, rounded control bar that floats over your video. Choose it per preset from the Skin option.
 
 = 4.4.1 =
 * Fixed: The video preview in the preset editor no longer collapses to a thin strip.

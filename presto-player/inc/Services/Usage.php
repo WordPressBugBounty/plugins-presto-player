@@ -73,6 +73,29 @@ class Usage implements Service {
 	 */
 	const EVENTS_PENDING_OPTION = 'presto-player_usage_events_pending';
 
+	/**
+	 * Skins we ship, per preset type.
+	 *
+	 * Only used to guarantee a baseline 0 for each shipped skin — actual adoption
+	 * is read from the table, so unlisted/new skins still report.
+	 *
+	 * @var array<string, array<int, string>>
+	 */
+	const KNOWN_SKINS = array(
+		'skin'       => array( 'default', 'modern', 'business', 'stacked', 'floating-pill' ),
+		'audio_skin' => array( 'default', 'stacked' ),
+	);
+
+	/**
+	 * Maximum skin KPI keys reported per preset type.
+	 *
+	 * The skin column is a dropdown in the UI but plain text in the REST schema,
+	 * so odd data must not grow the kpi_name space without bound.
+	 *
+	 * @var int
+	 */
+	const MAX_SKIN_KPIS = 12;
+
 	// -------------------------------------------------------------------------
 	// Properties
 	// -------------------------------------------------------------------------
@@ -557,6 +580,7 @@ class Usage implements Service {
 			$this->get_core_kpis(),
 			$this->get_content_kpis(),
 			$this->get_feature_kpis(),
+			$this->get_skin_kpis(),
 			$this->get_integration_kpis()
 		);
 
@@ -676,6 +700,92 @@ class Usage implements Service {
 			'feature_mcp_enabled'          => ( ! empty( $mcp_settings['enabled'] ) ) ? 1 : 0,
 			'feature_mcp_allow_changes'    => ( ! empty( $mcp_settings['allow_changes'] ) ) ? 1 : 0,
 		);
+	}
+
+	/**
+	 * Skin adoption KPIs — 0/1 per skin for video and audio presets.
+	 *
+	 * Skins come from the table rather than a fixed list, so a newly shipped skin
+	 * starts reporting without a code change here. Keys are sanitised and capped
+	 * (see MAX_SKIN_KPIS) to keep the kpi_name space bounded.
+	 *
+	 * Counts unlocked, non-deleted presets only — that is a deliberate choice by
+	 * someone, rather than the seeds every install ships with.
+	 *
+	 * @return array<string, int>
+	 */
+	private function get_skin_kpis(): array {
+		global $wpdb;
+		$presets_table = $wpdb->prefix . 'presto_player_presets';
+		$audio_table   = $wpdb->prefix . 'presto_player_audio_presets';
+
+		$kpis = array();
+		foreach ( self::KNOWN_SKINS as $prefix => $skins ) {
+			foreach ( $skins as $skin ) {
+				$key = self::skin_kpi_key( $skin );
+				if ( '' === $key ) {
+					continue;
+				}
+				$kpis[ 'feature_' . $prefix . '_' . $key ] = 0;
+			}
+		}
+
+		// One query for both tables. Empty/NULL skin renders as the default skin, so count it there.
+		//
+		// deleted_at IS NULL: presets are soft-deleted, so a trashed preset would
+		// otherwise report adoption forever.
+		//
+		// is_locked = 0: the shipped seeds are locked and already use modern and
+		// stacked on every install, which pinned those keys to 1 everywhere and
+		// left them carrying no signal. Restricting to unlocked presets measures
+		// what someone actually chose.
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		$rows = $wpdb->get_results(
+			"SELECT DISTINCT 'skin' as prefix, COALESCE( NULLIF( skin, '' ), 'default' ) as skin
+				FROM {$presets_table} WHERE deleted_at IS NULL AND is_locked = 0
+			UNION ALL
+			SELECT DISTINCT 'audio_skin' as prefix, COALESCE( NULLIF( skin, '' ), 'default' ) as skin
+				FROM {$audio_table} WHERE deleted_at IS NULL AND is_locked = 0
+			ORDER BY prefix, skin"
+		);
+		// phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
+		$extra = array();
+		foreach ( (array) $rows as $row ) {
+			$key = self::skin_kpi_key( (string) $row->skin );
+			if ( '' === $key ) {
+				continue;
+			}
+
+			$prefix = 'audio_skin' === $row->prefix ? 'audio_skin' : 'skin';
+			$name   = 'feature_' . $prefix . '_' . $key;
+
+			// Shipped skins always report. The cap is spent on unknown slugs only,
+			// so junk in the column can never push a real skin out of the report;
+			// the ORDER BY keeps which ones survive stable between runs.
+			if ( ! array_key_exists( $name, $kpis ) ) {
+				$extra[ $prefix ] = ( $extra[ $prefix ] ?? 0 ) + 1;
+				if ( $extra[ $prefix ] > self::MAX_SKIN_KPIS ) {
+					continue;
+				}
+			}
+
+			$kpis[ $name ] = 1;
+		}
+
+		return $kpis;
+	}
+
+	/**
+	 * Normalise a skin slug for use in a kpi_name (`floating-pill` → `floating_pill`).
+	 *
+	 * @param string $skin Skin slug.
+	 * @return string Empty string when the slug is unusable.
+	 */
+	private static function skin_kpi_key( string $skin ): string {
+		$key = sanitize_key( str_replace( '-', '_', $skin ) );
+
+		return strlen( $key ) > 32 ? '' : $key;
 	}
 
 	/**

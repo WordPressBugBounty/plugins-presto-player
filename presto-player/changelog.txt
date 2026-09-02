@@ -1,4 +1,7 @@
 *** Presto Player Changelog ***
+= 4.5.0 =
+* New: Floating Pill player skin — a detached, rounded control bar that floats over your video. Choose it per preset from the Skin option.
+
 = 4.4.1 =
 * Fixed: The video preview in the preset editor no longer collapses to a thin strip.
 

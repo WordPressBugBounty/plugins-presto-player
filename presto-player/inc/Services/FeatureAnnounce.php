@@ -8,8 +8,10 @@
 namespace PrestoPlayer\Services;
 
 /**
- * Shows a one-time modal introducing a major new feature after the user
- * updates the plugin. Currently announces AI Abilities.
+ * Shows a one-time modal introducing the headline features of a release, one
+ * slide each. Currently announces the Floating Pill skin and AI Abilities.
+ *
+ * @phpstan-type PrestoSlide array{art: string, title: string, text: string, cta?: string, url?: string, feats: array<int, array{icon: string, label: string}>}
  */
 class FeatureAnnounce {
 
@@ -17,13 +19,13 @@ class FeatureAnnounce {
 	 * Bump this when announcing a different feature — a new id means everyone
 	 * sees the modal again, even people who dismissed the previous one.
 	 */
-	const ANNOUNCEMENT_ID = 'wp_abilities_v1';
+	const ANNOUNCEMENT_ID = 'skins_abilities_v1';
 
 	/**
 	 * The release that introduced the feature being announced. Sites already on
 	 * this version or newer never installed without it, so they don't need telling.
 	 */
-	const ANNOUNCED_IN_VERSION = '4.4.0';
+	const ANNOUNCED_IN_VERSION = '4.5.0';
 
 	/**
 	 * Last plugin version this install has seen. Empty on a fresh install.
@@ -109,11 +111,6 @@ class FeatureAnnounce {
 			return false;
 		}
 
-		// Nothing to announce on WordPress versions without the Abilities API.
-		if ( ! function_exists( 'wp_register_ability' ) ) {
-			return false;
-		}
-
 		// Only after an update queued it — see trackVersion().
 		if ( self::ANNOUNCEMENT_ID !== get_option( self::PENDING_OPTION, '' ) ) {
 			return false;
@@ -155,6 +152,66 @@ class FeatureAnnounce {
 	}
 
 	/**
+	 * The slides, in order. One per headline feature of the release.
+	 *
+	 * @return array<int, PrestoSlide>
+	 */
+	protected function slides() {
+		$slides = array(
+			array(
+				'art'   => 'pill',
+				'title' => __( 'Controls that float over your video', 'presto-player' ),
+				'text'  => __( 'Floating Pill is a new built-in skin. The control bar lifts off the video edges into a frosted, rounded bar — the way QuickTime does it.', 'presto-player' ),
+				'feats' => array(
+					array(
+						'icon'  => 'pill',
+						'label' => __( 'Detached, frosted control bar', 'presto-player' ),
+					),
+					array(
+						'icon'  => 'sliders',
+						'label' => __( 'Pick it from the Skin dropdown', 'presto-player' ),
+					),
+					array(
+						'icon'  => 'frame',
+						'label' => __( 'Set per preset, so nothing else moves', 'presto-player' ),
+					),
+				),
+			),
+		);
+
+		// The skin ships to every version the plugin supports; the Abilities API
+		// only exists on WP 6.9+. Announce it only where it exists, rather than
+		// suppressing the whole dialog.
+		if ( ! function_exists( 'wp_register_ability' ) ) {
+			return $slides;
+		}
+
+		$slides[] = array(
+			'art'   => 'abilities',
+			'title' => __( 'Talk to your video library', 'presto-player' ),
+			'text'  => __( 'Connect Claude, ChatGPT or any MCP client to this site, then ask for what you want in plain words. You decide how much it is allowed to change.', 'presto-player' ),
+			'feats' => array(
+				array(
+					'icon'  => 'wand',
+					'label' => __( 'Create a video from a link', 'presto-player' ),
+				),
+				array(
+					'icon'  => 'chart',
+					'label' => __( 'Ask for your analytics', 'presto-player' ),
+				),
+				array(
+					'icon'  => 'shield',
+					'label' => __( 'Read-only until you allow more', 'presto-player' ),
+				),
+			),
+			'cta'   => __( 'Set up AI Abilities', 'presto-player' ),
+			'url'   => admin_url( 'admin.php?page=presto-dashboard&tab=Settings&section=mcp' ),
+		);
+
+		return $slides;
+	}
+
+	/**
 	 * Print the modal.
 	 *
 	 * @return void
@@ -164,73 +221,105 @@ class FeatureAnnounce {
 			return;
 		}
 
-		$settings_url = admin_url( 'admin.php?page=presto-dashboard&tab=Settings&section=mcp' );
-
-		$feats = array(
-			array(
-				'icon'  => 'wand',
-				'label' => __( 'Create a video from a link', 'presto-player' ),
-			),
-			array(
-				'icon'  => 'chart',
-				'label' => __( 'Ask for your analytics', 'presto-player' ),
-			),
-			array(
-				'icon'  => 'shield',
-				'label' => __( 'Read-only until you allow more', 'presto-player' ),
-			),
-		);
+		$slides = $this->slides();
+		$total  = count( $slides );
 
 		?>
-		<div class="presto-announce" role="dialog" aria-modal="true" aria-labelledby="presto-announce-title">
+		<div class="presto-announce" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'New in Presto Player', 'presto-player' ); ?>">
 			<div class="presto-announce__box" tabindex="-1">
 				<button type="button" class="presto-announce__x" aria-label="<?php esc_attr_e( 'Close', 'presto-player' ); ?>">
 					<svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
 				</button>
 
-				<?php $this->art(); ?>
-
-				<div class="presto-announce__body">
-					<p class="presto-announce__tag">
-						<span class="presto-announce__tag-new">
-							<?php esc_html_e( 'New in Presto Player', 'presto-player' ); ?>
-						</span>
-						<span class="presto-announce__tag-ver"><?php echo esc_html( $this->shortVersion() ); ?></span>
-					</p>
-
-					<h2 class="presto-announce__title" id="presto-announce-title">
-						<?php esc_html_e( 'Talk to your video library', 'presto-player' ); ?>
-					</h2>
-
-					<p class="presto-announce__text">
-						<?php esc_html_e( 'Connect Claude, ChatGPT or any MCP client to this site, then ask for what you want in plain words. You decide how much it is allowed to change.', 'presto-player' ); ?>
-					</p>
-
-					<ul class="presto-announce__feats">
-						<?php foreach ( $feats as $feat ) : ?>
-							<li>
-								<?php $this->icon( $feat['icon'] ); ?>
-								<span><?php echo esc_html( $feat['label'] ); ?></span>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-
-					<div class="presto-announce__actions">
-						<a class="presto-announce__cta" href="<?php echo esc_url( $settings_url ); ?>">
-							<?php esc_html_e( 'Set up AI Abilities', 'presto-player' ); ?>
-							<svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true" focusable="false"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-						</a>
-						<button type="button" class="presto-announce__close">
-							<?php esc_html_e( 'Not now', 'presto-player' ); ?>
-						</button>
-					</div>
+				<?php // Swapping which child is hidden is a content change, so let it speak. ?>
+				<div class="presto-announce__slides" aria-live="polite">
+					<?php foreach ( $slides as $index => $slide ) : ?>
+						<?php $this->slide( $slide, $index + 1, $total ); ?>
+					<?php endforeach; ?>
 				</div>
+
+				<?php if ( $total > 1 ) : ?>
+				<div class="presto-announce__nav">
+					<button type="button" class="presto-announce__nav-btn" data-presto-go="-1" aria-label="<?php esc_attr_e( 'Previous', 'presto-player' ); ?>">
+						<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" focusable="false"><path d="M12 4.5L6.5 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+					<p class="presto-announce__nav-count" aria-hidden="true">
+						<span>1</span> / <?php echo esc_html( (string) $total ); ?>
+					</p>
+					<button type="button" class="presto-announce__nav-btn" data-presto-go="1" aria-label="<?php esc_attr_e( 'Next', 'presto-player' ); ?>">
+						<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" focusable="false"><path d="M8 4.5L13.5 10 8 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					</button>
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 		<?php
 
 		$this->styles();
 		$this->script();
+	}
+
+	/**
+	 * Print one slide. Everything but the illustration is shared markup.
+	 *
+	 * @param PrestoSlide $slide Slide content.
+	 * @param int         $index 1-based position.
+	 * @param int         $total Slide count.
+	 * @return void
+	 */
+	protected function slide( $slide, $index, $total ) {
+		$position = sprintf(
+			/* translators: 1: current slide number, 2: total number of slides. */
+			__( '%1$d of %2$d', 'presto-player' ),
+			$index,
+			$total
+		);
+
+		?>
+		<section class="presto-announce__slide" role="group" aria-roledescription="<?php esc_attr_e( 'slide', 'presto-player' ); ?>" aria-label="<?php echo esc_attr( $position ); ?>" <?php echo 1 === $index ? '' : 'hidden'; ?>>
+			<?php
+			if ( 'pill' === $slide['art'] ) {
+				$this->artPill();
+			} else {
+				$this->art();
+			}
+			?>
+
+			<div class="presto-announce__body">
+				<p class="presto-announce__tag">
+					<span class="presto-announce__tag-new">
+						<?php esc_html_e( 'New in Presto Player', 'presto-player' ); ?>
+					</span>
+					<span class="presto-announce__tag-ver"><?php echo esc_html( $this->shortVersion() ); ?></span>
+				</p>
+
+				<h2 class="presto-announce__title"><?php echo esc_html( $slide['title'] ); ?></h2>
+
+				<p class="presto-announce__text"><?php echo esc_html( $slide['text'] ); ?></p>
+
+				<ul class="presto-announce__feats">
+					<?php foreach ( $slide['feats'] as $feat ) : ?>
+						<li>
+							<?php $this->icon( $feat['icon'] ); ?>
+							<span><?php echo esc_html( $feat['label'] ); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+
+				<div class="presto-announce__actions">
+					<?php if ( ! empty( $slide['cta'] ) && ! empty( $slide['url'] ) ) : ?>
+						<a class="presto-announce__cta" href="<?php echo esc_url( $slide['url'] ); ?>">
+							<?php echo esc_html( $slide['cta'] ); ?>
+							<svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true" focusable="false"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						</a>
+					<?php endif; ?>
+					<button type="button" class="presto-announce__close">
+						<?php esc_html_e( 'Not now', 'presto-player' ); ?>
+					</button>
+				</div>
+			</div>
+		</section>
+		<?php
 	}
 
 	/**
@@ -241,9 +330,12 @@ class FeatureAnnounce {
 	 */
 	protected function icon( $name ) {
 		$paths = array(
-			'wand'   => '<path d="M4 16l9-9m-2-3l.9 2.1L14 7l-2.1.9L11 10l-.9-2.1L8 7l2.1-.9zM16 12l.6 1.4L18 14l-1.4.6L16 16l-.6-1.4L14 14l1.4-.6z"/>',
-			'chart'  => '<path d="M4 16V9m4 7V5m4 11v-5m4 5V8"/>',
-			'shield' => '<path d="M10 3.5l5 1.8v4.2c0 3.1-2 5.6-5 7-3-1.4-5-3.9-5-7V5.3z"/><path d="M7.8 10.2L9.4 12l3-3.4"/>',
+			'wand'    => '<path d="M4 16l9-9m-2-3l.9 2.1L14 7l-2.1.9L11 10l-.9-2.1L8 7l2.1-.9zM16 12l.6 1.4L18 14l-1.4.6L16 16l-.6-1.4L14 14l1.4-.6z"/>',
+			'chart'   => '<path d="M4 16V9m4 7V5m4 11v-5m4 5V8"/>',
+			'shield'  => '<path d="M10 3.5l5 1.8v4.2c0 3.1-2 5.6-5 7-3-1.4-5-3.9-5-7V5.3z"/><path d="M7.8 10.2L9.4 12l3-3.4"/>',
+			'pill'    => '<rect x="2.5" y="7" width="15" height="6" rx="3"/><path d="M6.3 10h1.1m3.2 0h4.1"/>',
+			'sliders' => '<path d="M4 7.5h12M4 12.5h12"/><circle cx="8" cy="7.5" r="1.7"/><circle cx="13" cy="12.5" r="1.7"/>',
+			'frame'   => '<path d="M4 8V5.5A1.5 1.5 0 015.5 4H8m4 0h2.5A1.5 1.5 0 0116 5.5V8m0 4v2.5a1.5 1.5 0 01-1.5 1.5H12m-4 0H5.5A1.5 1.5 0 014 14.5V12"/>',
 		);
 
 		if ( empty( $paths[ $name ] ) ) {
@@ -324,6 +416,32 @@ class FeatureAnnounce {
 	protected function shortVersion() {
 		$parts = explode( '.', $this->version() );
 		return implode( '.', array_slice( $parts, 0, 2 ) );
+	}
+
+	/**
+	 * Illustration: a video frame with the new control bar floating over it, and
+	 * the Skin dropdown that switches it on.
+	 *
+	 * Sample content is intentionally not translatable — see art().
+	 *
+	 * @return void
+	 */
+	protected function artPill() {
+		?>
+		<div class="presto-announce__art" aria-hidden="true">
+			<div class="presto-announce__frame">
+				<span class="presto-announce__skinpick">Skin <em>Floating Pill</em></span>
+
+				<div class="presto-announce__pill">
+					<span class="presto-announce__pill-play"></span>
+					<span class="presto-announce__pill-bar"><i></i></span>
+					<span class="presto-announce__pill-time">1:24 / 3:38</span>
+					<span class="presto-announce__pill-dot"></span>
+					<span class="presto-announce__pill-dot"></span>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**
@@ -430,6 +548,16 @@ class FeatureAnnounce {
 				background: linear-gradient( 90deg, var( --presto-violet ), #5B37F0 52%, var( --presto-blue ) );
 			}
 
+			/* Spelled out because some admin resets give section a display value,
+			and a "hidden" slide that still renders would break the whole modal. */
+			.presto-announce__slide[hidden] {
+				display: none;
+			}
+
+			.presto-announce__slide {
+				animation: presto-announce-done .24s ease both;
+			}
+
 			/* A product shot in markup, matching the landing page: the library list
 			with an assistant working against it. Deliberately dark so the graphics
 			read as a separate section from the content below. */
@@ -440,6 +568,104 @@ class FeatureAnnounce {
 					radial-gradient( 82% 122% at 4% -14%, rgba( 154, 32, 248, .42 ), transparent 62% ),
 					radial-gradient( 70% 108% at 99% -6%, rgba( 48, 88, 229, .4 ), transparent 60% ),
 					#0D0F1E;
+			}
+
+			/* Stand-in for the video itself, so the bar below has something to float
+			over — the whole point of the skin. */
+			.presto-announce__frame {
+				position: relative;
+				aspect-ratio: 16 / 9;
+				border-radius: 10px;
+				background:
+					radial-gradient( 58% 86% at 74% 16%, rgba( 154, 32, 248, .45 ), transparent 64% ),
+					linear-gradient( 158deg, #38416F, #1B2040 60%, #12142A );
+				box-shadow: 0 12px 30px -14px rgba( 5, 6, 15, .75 );
+			}
+
+			/* Where you turn it on: the Skin dropdown in preset settings. */
+			.presto-announce__skinpick {
+				position: absolute;
+				top: 12px;
+				left: 12px;
+				display: inline-flex;
+				align-items: center;
+				gap: 7px;
+				padding: 5px 9px;
+				border-radius: 7px;
+				background: #fff;
+				box-shadow: 0 10px 24px -12px rgba( 5, 6, 15, .8 );
+				font-size: 10.5px;
+				color: var( --presto-muted );
+			}
+
+			.presto-announce__skinpick em {
+				font-style: normal;
+				font-weight: 600;
+				color: var( --presto-ink );
+			}
+
+			.presto-announce__skinpick em::after {
+				content: "\00a0\25BE";
+				color: var( --presto-muted );
+			}
+
+			/* Inset on every side and frosted — detached from the video, not welded
+			to its bottom edge. */
+			.presto-announce__pill {
+				position: absolute;
+				right: 12px;
+				bottom: 12px;
+				left: 12px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				padding: 8px 12px;
+				border: 1px solid rgba( 255, 255, 255, .22 );
+				border-radius: 999px;
+				background: rgba( 255, 255, 255, .16 );
+				backdrop-filter: blur( 10px );
+				box-shadow: 0 10px 24px -12px rgba( 5, 6, 15, .85 );
+				animation: presto-announce-chat .45s cubic-bezier( .2, .8, .2, 1 ) .4s both;
+			}
+
+			.presto-announce__pill-play {
+				flex: none;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 5px 0 5px 8px;
+				border-color: transparent transparent transparent #fff;
+			}
+
+			.presto-announce__pill-bar {
+				flex: 1;
+				height: 3px;
+				border-radius: 2px;
+				background: rgba( 255, 255, 255, .3 );
+			}
+
+			.presto-announce__pill-bar i {
+				display: block;
+				width: 38%;
+				height: 100%;
+				border-radius: 2px;
+				background: #fff;
+			}
+
+			.presto-announce__pill-time {
+				flex: none;
+				font-family: var( --presto-mono );
+				font-size: 10px;
+				color: rgba( 255, 255, 255, .92 );
+			}
+
+			/* Volume and fullscreen, abstracted — naming them would only add noise. */
+			.presto-announce__pill-dot {
+				flex: none;
+				width: 10px;
+				height: 10px;
+				border-radius: 3px;
+				background: rgba( 255, 255, 255, .55 );
 			}
 
 			.presto-announce__list {
@@ -669,6 +895,47 @@ class FeatureAnnounce {
 				transition: transform .16s ease;
 			}
 
+			/* Slide paging, under a hairline so it reads as chrome, not content. */
+			.presto-announce__nav {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 14px;
+				padding: 11px 26px 15px;
+				border-top: 1px solid var( --presto-line );
+			}
+
+			.presto-announce__nav-btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 28px;
+				height: 28px;
+				padding: 0;
+				border: 1px solid var( --presto-line );
+				border-radius: 50%;
+				background: #fff;
+				color: var( --presto-muted );
+				cursor: pointer;
+				transition: color .16s ease, border-color .16s ease;
+			}
+
+			.presto-announce__nav-btn:hover {
+				border-color: rgba( 16, 18, 35, .18 );
+				color: var( --presto-ink );
+			}
+
+			.presto-announce__nav-count {
+				margin: 0;
+				font-family: var( --presto-mono );
+				font-size: 11px;
+				color: var( --presto-muted );
+			}
+
+			.presto-announce__nav-count span {
+				color: var( --presto-ink );
+			}
+
 			/* Corner close, over the artwork. */
 			.presto-announce__x {
 				position: absolute;
@@ -696,7 +963,8 @@ class FeatureAnnounce {
 
 			.presto-announce__x:focus-visible,
 			.presto-announce__cta:focus-visible,
-			.presto-announce__close:focus-visible {
+			.presto-announce__close:focus-visible,
+			.presto-announce__nav-btn:focus-visible {
 				outline: 2px solid var( --presto-blue );
 				outline-offset: 3px;
 			}
@@ -724,13 +992,18 @@ class FeatureAnnounce {
 			@media ( max-width: 600px ) {
 				.presto-announce__art { padding: 20px 18px 18px; }
 				.presto-announce__chat { width: 100%; margin-top: 12px; }
+				.presto-announce__pill { gap: 7px; padding: 7px 10px; }
+				.presto-announce__pill-time { font-size: 9px; }
 				.presto-announce__body { padding: 20px 18px 18px; }
 				.presto-announce__title { font-size: 21px; }
+				.presto-announce__nav { padding: 10px 18px 14px; }
 			}
 
 			@media ( prefers-reduced-motion: reduce ) {
 				.presto-announce,
 				.presto-announce__box,
+				.presto-announce__slide,
+				.presto-announce__pill,
 				.presto-announce__chat,
 				.presto-announce__chat-done,
 				.presto-announce__chips,
@@ -743,7 +1016,7 @@ class FeatureAnnounce {
 	}
 
 	/**
-	 * Close behaviour.
+	 * Paging, focus containment and close behaviour.
 	 *
 	 * @return void
 	 */
@@ -760,6 +1033,15 @@ class FeatureAnnounce {
 					return;
 				}
 
+				var box = modal.querySelector( ".presto-announce__box" );
+				var slides = modal.querySelectorAll( ".presto-announce__slide" );
+				var count = modal.querySelector( ".presto-announce__nav-count span" );
+				var at = 0;
+
+				function each( selector, callback ) {
+					Array.prototype.forEach.call( modal.querySelectorAll( selector ), callback );
+				}
+
 				function dismiss() {
 					return window.fetch( %1$s, {
 						method: "POST",
@@ -768,43 +1050,113 @@ class FeatureAnnounce {
 					} );
 				}
 
-				function close() {
+				function teardown() {
 					// The modal renders on the block-editor screen, where Escape is
 					// constant — a listener left bound after dismissal would fire an
 					// admin-ajax POST on every later press.
 					document.removeEventListener( "keydown", onKeydown );
 					modal.remove();
+				}
+
+				function close() {
+					teardown();
 					// A failed request only means the modal shows again.
 					dismiss();
+				}
+
+				// Wraps, so both slides are reachable from either arrow.
+				function go( next ) {
+					at = ( next + slides.length ) %% slides.length;
+					for ( var i = 0; i < slides.length; i++ ) {
+						slides[ i ].hidden = i !== at;
+					}
+					count.textContent = at + 1;
+
+					// Paging can hide whatever had focus, which drops activeElement
+					// to <body> and puts it outside the trap. Only re-home when that
+					// actually happened, so clicking an arrow keeps focus on it.
+					var here = document.activeElement;
+					if ( ! modal.contains( here ) || ( here.closest && here.closest( "[hidden]" ) ) ) {
+						box.focus();
+					}
+				}
+
+				// Recomputed per keypress: the hidden slide keeps its buttons in the
+				// DOM and they must stay out of the tab order.
+				function tabbable() {
+					return Array.prototype.filter.call(
+						modal.querySelectorAll( "a[href], button" ),
+						function( el ) {
+							return ! el.closest( "[hidden]" );
+						}
+					);
 				}
 
 				function onKeydown( event ) {
 					if ( "Escape" === event.key ) {
 						close();
+						return;
+					}
+
+					if ( "Tab" !== event.key ) {
+						return;
+					}
+
+					var items = tabbable();
+					if ( ! items.length ) {
+						return;
+					}
+
+					var first = items[ 0 ];
+					var last = items[ items.length - 1 ];
+					var here = document.activeElement;
+
+					// Safari and Firefox do not focus a button on mouse click, so
+					// activeElement is often <body> by now. Treat anything outside
+					// the dialog as the wrap case, rather than letting the browser
+					// tab away to the admin bar behind an aria-modal dialog.
+					var inside = modal.contains( here ) && ! ( here.closest && here.closest( "[hidden]" ) );
+
+					if ( ! inside ) {
+						event.preventDefault();
+						( event.shiftKey ? last : first ).focus();
+					} else if ( event.shiftKey && ( here === first || here === box ) ) {
+						event.preventDefault();
+						last.focus();
+					} else if ( ! event.shiftKey && here === last ) {
+						event.preventDefault();
+						first.focus();
 					}
 				}
 
 				// aria-modal is a promise that focus is in here, so move it — onto
 				// the card itself, not the CTA, so nothing renders with a ring
 				// around it before the user has touched anything.
-				modal.querySelector( ".presto-announce__box" ).focus();
-
-				var cta = modal.querySelector( ".presto-announce__cta" );
+				box.focus();
 
 				// Wait for the dismiss to land before leaving, otherwise the next
 				// page renders the modal again before the request commits.
-				cta.addEventListener( "click", function( event ) {
-					event.preventDefault();
-					var href = this.href;
-					document.removeEventListener( "keydown", onKeydown );
-					modal.remove();
-					dismiss().catch( function() {} ).then( function() {
-						window.location.assign( href );
+				each( ".presto-announce__cta", function( cta ) {
+					cta.addEventListener( "click", function( event ) {
+						event.preventDefault();
+						var href = this.href;
+						teardown();
+						dismiss().catch( function() {} ).then( function() {
+							window.location.assign( href );
+						} );
 					} );
 				} );
 
-				modal.querySelector( ".presto-announce__close" ).addEventListener( "click", close );
-				modal.querySelector( ".presto-announce__x" ).addEventListener( "click", close );
+				// Closing on either slide dismisses the whole announcement.
+				each( ".presto-announce__close, .presto-announce__x", function( button ) {
+					button.addEventListener( "click", close );
+				} );
+
+				each( "[data-presto-go]", function( button ) {
+					button.addEventListener( "click", function() {
+						go( at + Number( this.getAttribute( "data-presto-go" ) ) );
+					} );
+				} );
 
 				modal.addEventListener( "click", function( event ) {
 					if ( event.target === modal ) {

@@ -1,45 +1,47 @@
 presto-player:not(.hydrated) {
-  position: relative;
-  background: rgba(0, 0, 0, 0.1);
-  width: 100%;
-  display: block;
-  aspect-ratio: var(--presto-player-aspect-ratio, 16/9);
+	position: relative;
+	background: rgba(0, 0, 0, 0.1);
+	width: 100%;
+	display: block;
+	aspect-ratio: var(--presto-player-aspect-ratio, 16 / 9);
 }
 
 presto-player:not(.hydrated) .presto-loader {
-  display: block;
+	display: block;
 }
 
 .presto-block-video:not(.presto-sticky-parent) {
-  border-radius: var(--presto-player-border-radius, 0px);
-  overflow: hidden;
-  transform: translateZ(0);
+	border-radius: var(--presto-player-border-radius, 0);
+	overflow: hidden;
+	transform: translateZ(0);
 }
 
 /* Safari-specific fix - disable transform to prevent fullscreen black screen */
 @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
-  .presto-block-video:not(.presto-sticky-parent) {
-    transform: none;
-  }
+
+	.presto-block-video:not(.presto-sticky-parent) {
+		transform: none;
+	}
 }
 
 .presto-block-video.presto-provider-audio {
-  overflow: visible;
+	overflow: visible;
 }
 
 .presto-block-video .presto-sticky-parent {
-  overflow: auto;
-  transform: none;
+	overflow: auto;
+	transform: none;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .presto-sticky-parent {
-  z-index: 99998 !important;
+	z-index: 99998 !important;
 }
 
 .presto-player-fullscreen-open {
-  z-index: 9999999 !important;
-  overflow: visible !important;
-  transform: none !important;
+	z-index: 9999999 !important;
+	overflow: visible !important;
+	transform: none !important;
 }
 
 
@@ -55,6 +57,8 @@ presto-action-bar-ui,
 presto-youtube-subscribe-button,
 presto-email-overlay-ui,
 presto-player-spinner,
+/* Hide-list must follow the :not(.hydrated) rule above. */
+/* stylelint-disable no-descending-specificity */
 presto-action-bar,
 presto-cta-overlay,
 presto-email-overlay,
@@ -64,6 +68,7 @@ presto-search-bar,
 presto-youtube,
 presto-audio,
 presto-business-skin,
+presto-floating-pill-skin,
 presto-modern-skin,
 presto-muted-overlay,
 presto-stacked-skin,
@@ -76,9 +81,10 @@ presto-player,
 presto-playlist-item,
 presto-playlist-overlay,
 presto-playlist-ui {
-  visibility: hidden;
+	visibility: hidden;
 }
+/* stylelint-enable no-descending-specificity */
 
 .hydrated {
-  visibility: inherit;
+	visibility: inherit;
 }

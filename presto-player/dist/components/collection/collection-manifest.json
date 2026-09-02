@@ -31,6 +31,7 @@
     "components/ui/presto-video-curtain-ui/presto-video-curtain-ui.js",
     "components/ui/presto-youtube-subscribe-button/presto-youtube-subscribe-button.js",
     "components/ui/skins/presto-business-skin/presto-business-skin.js",
+    "components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.js",
     "components/ui/skins/presto-modern-skin/presto-modern-skin.js",
     "components/ui/skins/presto-stacked-skin/presto-stacked-skin.js"
   ],

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-27T05:58:48",
+  "timestamp": "2026-09-02T09:33:05",
   "compiler": {
     "name": "node",
     "version": "20.20.2"
@@ -7,13 +7,13 @@
   "app": {
     "namespace": "WebComponents",
     "fsNamespace": "web-components",
-    "components": 33,
-    "entries": 33,
-    "bundles": 475,
+    "components": 34,
+    "entries": 34,
+    "bundles": 482,
     "outputs": [
       {
         "name": "dist-collection",
-        "files": 100,
+        "files": 102,
         "generatedFiles": [
           "./dist/collection/components/core/features/presto-action-bar/component/presto-action-bar.js",
           "./dist/collection/components/core/features/presto-action-bar/component/presto-action-bar.js.map",
@@ -103,6 +103,8 @@
           "./dist/collection/components/ui/presto-youtube-subscribe-button/presto-youtube-subscribe-button.js.map",
           "./dist/collection/components/ui/skins/presto-business-skin/presto-business-skin.js",
           "./dist/collection/components/ui/skins/presto-business-skin/presto-business-skin.js.map",
+          "./dist/collection/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.js",
+          "./dist/collection/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.js.map",
           "./dist/collection/components/ui/skins/presto-modern-skin/presto-modern-skin.js",
           "./dist/collection/components/ui/skins/presto-modern-skin/presto-modern-skin.js.map",
           "./dist/collection/components/ui/skins/presto-stacked-skin/presto-stacked-skin.js",
@@ -119,7 +121,7 @@
       },
       {
         "name": "dist-custom-elements",
-        "files": 174,
+        "files": 179,
         "generatedFiles": [
           "./dist/components/fittext.js",
           "./dist/components/fittext.js.map",
@@ -202,6 +204,11 @@
           "./dist/components/presto-email-overlay.js.map",
           "./dist/components/presto-email-overlay2.js",
           "./dist/components/presto-email-overlay2.js.map",
+          "./dist/components/presto-floating-pill-skin.d.ts",
+          "./dist/components/presto-floating-pill-skin.js",
+          "./dist/components/presto-floating-pill-skin.js.map",
+          "./dist/components/presto-floating-pill-skin2.js",
+          "./dist/components/presto-floating-pill-skin2.js.map",
           "./dist/components/presto-modern-skin.d.ts",
           "./dist/components/presto-modern-skin.js",
           "./dist/components/presto-modern-skin.js.map",
@@ -305,22 +312,22 @@
           "./dist/cjs/cache-cues-ps1fLLit.js.map",
           "./dist/cjs/fittext-D3xDjTej.js",
           "./dist/cjs/fittext-D3xDjTej.js.map",
-          "./dist/cjs/hls-B2G3yhBJ.js",
-          "./dist/cjs/hls-B2G3yhBJ.js.map",
+          "./dist/cjs/hls-DeWTPiDy.js",
+          "./dist/cjs/hls-DeWTPiDy.js.map",
           "./dist/cjs/index-Dlg6qIxM.js",
           "./dist/cjs/index-Dlg6qIxM.js.map",
           "./dist/cjs/index.cjs.js",
           "./dist/cjs/index.cjs.js.map",
-          "./dist/cjs/learndash-kB9Gvjq5.js",
-          "./dist/cjs/learndash-kB9Gvjq5.js.map",
+          "./dist/cjs/learndash-CROgOJPI.js",
+          "./dist/cjs/learndash-CROgOJPI.js.map",
           "./dist/cjs/lifter-CW8zJnxZ.js",
           "./dist/cjs/lifter-CW8zJnxZ.js.map",
           "./dist/cjs/loader.cjs.js",
           "./dist/cjs/loader.cjs.js.map",
           "./dist/cjs/presto-action-bar-ui_2.cjs.entry.js",
           "./dist/cjs/presto-action-bar-ui_2.cjs.entry.js.map",
-          "./dist/cjs/presto-action-bar_17.cjs.entry.js",
-          "./dist/cjs/presto-action-bar_17.cjs.entry.js.map",
+          "./dist/cjs/presto-action-bar_18.cjs.entry.js",
+          "./dist/cjs/presto-action-bar_18.cjs.entry.js.map",
           "./dist/cjs/presto-cta-overlay-ui.cjs.entry.js",
           "./dist/cjs/presto-cta-overlay-ui.cjs.entry.js.map",
           "./dist/cjs/presto-email-overlay-ui_2.cjs.entry.js",
@@ -329,8 +336,8 @@
           "./dist/cjs/presto-player-button.cjs.entry.js.map",
           "./dist/cjs/presto-player-skeleton.cjs.entry.js",
           "./dist/cjs/presto-player-skeleton.cjs.entry.js.map",
-          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DZB9nVhC.js",
-          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DZB9nVhC.js.map",
+          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DjFDL3vV.js",
+          "./dist/cjs/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DjFDL3vV.js.map",
           "./dist/cjs/presto-player_4.cjs.entry.js",
           "./dist/cjs/presto-player_4.cjs.entry.js.map",
           "./dist/cjs/presto-playlist.cjs.entry.js",
@@ -355,22 +362,22 @@
           "./dist/esm/cache-cues-D8o-F2Bu.js.map",
           "./dist/esm/fittext-kmLX7jv_.js",
           "./dist/esm/fittext-kmLX7jv_.js.map",
-          "./dist/esm/hls-CsbhelHE.js",
-          "./dist/esm/hls-CsbhelHE.js.map",
+          "./dist/esm/hls-DztUO661.js",
+          "./dist/esm/hls-DztUO661.js.map",
           "./dist/esm/index-BxRAfMA5.js",
           "./dist/esm/index-BxRAfMA5.js.map",
           "./dist/esm/index.js",
           "./dist/esm/index.js.map",
-          "./dist/esm/learndash-4JWclJp6.js",
-          "./dist/esm/learndash-4JWclJp6.js.map",
+          "./dist/esm/learndash-DTN2-VBE.js",
+          "./dist/esm/learndash-DTN2-VBE.js.map",
           "./dist/esm/lifter-DcYtxwW6.js",
           "./dist/esm/lifter-DcYtxwW6.js.map",
           "./dist/esm/loader.js",
           "./dist/esm/loader.js.map",
           "./dist/esm/presto-action-bar-ui_2.entry.js",
           "./dist/esm/presto-action-bar-ui_2.entry.js.map",
-          "./dist/esm/presto-action-bar_17.entry.js",
-          "./dist/esm/presto-action-bar_17.entry.js.map",
+          "./dist/esm/presto-action-bar_18.entry.js",
+          "./dist/esm/presto-action-bar_18.entry.js.map",
           "./dist/esm/presto-cta-overlay-ui.entry.js",
           "./dist/esm/presto-cta-overlay-ui.entry.js.map",
           "./dist/esm/presto-email-overlay-ui_2.entry.js",
@@ -379,8 +386,8 @@
           "./dist/esm/presto-player-button.entry.js.map",
           "./dist/esm/presto-player-skeleton.entry.js",
           "./dist/esm/presto-player-skeleton.entry.js.map",
-          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-BG80ci1u.js",
-          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-BG80ci1u.js.map",
+          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-nM5xUpNB.js",
+          "./dist/esm/presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-nM5xUpNB.js.map",
           "./dist/esm/presto-player_4.entry.js",
           "./dist/esm/presto-player_4.entry.js.map",
           "./dist/esm/presto-playlist.entry.js",
@@ -409,6 +416,8 @@
           "./dist/web-components/p-03ed8a9f.entry.js.map",
           "./dist/web-components/p-0c2a6cd3.entry.js",
           "./dist/web-components/p-0c2a6cd3.entry.js.map",
+          "./dist/web-components/p-16ggzMk7.js",
+          "./dist/web-components/p-16ggzMk7.js.map",
           "./dist/web-components/p-193f0db1.entry.js",
           "./dist/web-components/p-193f0db1.entry.js.map",
           "./dist/web-components/p-22488b76.entry.js",
@@ -417,20 +426,20 @@
           "./dist/web-components/p-345e2989.entry.js.map",
           "./dist/web-components/p-4f0eb72c.entry.js",
           "./dist/web-components/p-4f0eb72c.entry.js.map",
-          "./dist/web-components/p-51bb816f.entry.js",
-          "./dist/web-components/p-51bb816f.entry.js.map",
+          "./dist/web-components/p-6d7bec14.entry.js",
+          "./dist/web-components/p-6d7bec14.entry.js.map",
+          "./dist/web-components/p-7cbad79a.entry.js",
+          "./dist/web-components/p-7cbad79a.entry.js.map",
           "./dist/web-components/p-8c965b5b.entry.js",
           "./dist/web-components/p-8c965b5b.entry.js.map",
           "./dist/web-components/p-8e99834a.entry.js",
           "./dist/web-components/p-8e99834a.entry.js.map",
           "./dist/web-components/p-BxRAfMA5.js",
           "./dist/web-components/p-BxRAfMA5.js.map",
-          "./dist/web-components/p-CBpNs6kW.js",
-          "./dist/web-components/p-CBpNs6kW.js.map",
-          "./dist/web-components/p-CYPUaCrp.js",
-          "./dist/web-components/p-CYPUaCrp.js.map",
-          "./dist/web-components/p-D7Snkyuc.js",
-          "./dist/web-components/p-D7Snkyuc.js.map",
+          "./dist/web-components/p-CnbEpKPS.js",
+          "./dist/web-components/p-CnbEpKPS.js.map",
+          "./dist/web-components/p-CzaCFUic.js",
+          "./dist/web-components/p-CzaCFUic.js.map",
           "./dist/web-components/p-D8o-F2Bu.js",
           "./dist/web-components/p-D8o-F2Bu.js.map",
           "./dist/web-components/p-DcYtxwW6.js",
@@ -443,8 +452,6 @@
           "./dist/web-components/p-G840BFTB.js.map",
           "./dist/web-components/p-db54b491.entry.js",
           "./dist/web-components/p-db54b491.entry.js.map",
-          "./dist/web-components/p-e104444c.entry.js",
-          "./dist/web-components/p-e104444c.entry.js.map",
           "./dist/web-components/p-e6ea643f.entry.js",
           "./dist/web-components/p-e6ea643f.entry.js.map",
           "./dist/web-components/p-fH7ZDDmI.js",
@@ -457,6 +464,8 @@
           "./www/build/p-03ed8a9f.entry.js.map",
           "./www/build/p-0c2a6cd3.entry.js",
           "./www/build/p-0c2a6cd3.entry.js.map",
+          "./www/build/p-16ggzMk7.js",
+          "./www/build/p-16ggzMk7.js.map",
           "./www/build/p-193f0db1.entry.js",
           "./www/build/p-193f0db1.entry.js.map",
           "./www/build/p-22488b76.entry.js",
@@ -465,20 +474,20 @@
           "./www/build/p-345e2989.entry.js.map",
           "./www/build/p-4f0eb72c.entry.js",
           "./www/build/p-4f0eb72c.entry.js.map",
-          "./www/build/p-51bb816f.entry.js",
-          "./www/build/p-51bb816f.entry.js.map",
+          "./www/build/p-6d7bec14.entry.js",
+          "./www/build/p-6d7bec14.entry.js.map",
+          "./www/build/p-7cbad79a.entry.js",
+          "./www/build/p-7cbad79a.entry.js.map",
           "./www/build/p-8c965b5b.entry.js",
           "./www/build/p-8c965b5b.entry.js.map",
           "./www/build/p-8e99834a.entry.js",
           "./www/build/p-8e99834a.entry.js.map",
           "./www/build/p-BxRAfMA5.js",
           "./www/build/p-BxRAfMA5.js.map",
-          "./www/build/p-CBpNs6kW.js",
-          "./www/build/p-CBpNs6kW.js.map",
-          "./www/build/p-CYPUaCrp.js",
-          "./www/build/p-CYPUaCrp.js.map",
-          "./www/build/p-D7Snkyuc.js",
-          "./www/build/p-D7Snkyuc.js.map",
+          "./www/build/p-CnbEpKPS.js",
+          "./www/build/p-CnbEpKPS.js.map",
+          "./www/build/p-CzaCFUic.js",
+          "./www/build/p-CzaCFUic.js.map",
           "./www/build/p-D8o-F2Bu.js",
           "./www/build/p-D8o-F2Bu.js.map",
           "./www/build/p-DcYtxwW6.js",
@@ -491,8 +500,6 @@
           "./www/build/p-G840BFTB.js.map",
           "./www/build/p-db54b491.entry.js",
           "./www/build/p-db54b491.entry.js.map",
-          "./www/build/p-e104444c.entry.js",
-          "./www/build/p-e104444c.entry.js.map",
           "./www/build/p-e6ea643f.entry.js",
           "./www/build/p-e6ea643f.entry.js.map",
           "./www/build/p-fH7ZDDmI.js",
@@ -653,7 +660,7 @@
         "originalByteSize": 6492
       },
       {
-        "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
+        "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-floating-pill-skin.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
         "components": [
           "presto-action-bar",
           "presto-action-bar-controller",
@@ -666,6 +673,7 @@
           "presto-dynamic-overlays",
           "presto-email-overlay",
           "presto-email-overlay-controller",
+          "presto-floating-pill-skin",
           "presto-modern-skin",
           "presto-muted-overlay",
           "presto-search-bar",
@@ -673,15 +681,15 @@
           "presto-vimeo",
           "presto-youtube"
         ],
-        "bundleId": "p-51bb816f",
-        "fileName": "p-51bb816f.entry.js",
+        "bundleId": "p-6d7bec14",
+        "fileName": "p-6d7bec14.entry.js",
         "imports": [
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-G840BFTB.js",
           "p-D8o-F2Bu.js"
         ],
-        "originalByteSize": 72081
+        "originalByteSize": 81736
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -691,10 +699,10 @@
           "presto-playlist-overlay",
           "presto-playlist-ui"
         ],
-        "bundleId": "p-e104444c",
-        "fileName": "p-e104444c.entry.js",
+        "bundleId": "p-7cbad79a",
+        "fileName": "p-7cbad79a.entry.js",
         "imports": [
-          "p-D7Snkyuc.js",
+          "p-CzaCFUic.js",
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-D8o-F2Bu.js"
@@ -829,7 +837,7 @@
         "originalByteSize": 6498
       },
       {
-        "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
+        "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-floating-pill-skin.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
         "components": [
           "presto-action-bar",
           "presto-action-bar-controller",
@@ -842,6 +850,7 @@
           "presto-dynamic-overlays",
           "presto-email-overlay",
           "presto-email-overlay-controller",
+          "presto-floating-pill-skin",
           "presto-modern-skin",
           "presto-muted-overlay",
           "presto-search-bar",
@@ -849,15 +858,15 @@
           "presto-vimeo",
           "presto-youtube"
         ],
-        "bundleId": "presto-action-bar_17",
-        "fileName": "presto-action-bar_17.entry.js",
+        "bundleId": "presto-action-bar_18",
+        "fileName": "presto-action-bar_18.entry.js",
         "imports": [
           "index-BxRAfMA5.js",
           "util-EuTDjLsB.js",
           "fittext-kmLX7jv_.js",
           "cache-cues-D8o-F2Bu.js"
         ],
-        "originalByteSize": 72099
+        "originalByteSize": 81754
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -870,7 +879,7 @@
         "bundleId": "presto-player_4",
         "fileName": "presto-player_4.entry.js",
         "imports": [
-          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-BG80ci1u.js",
+          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-nM5xUpNB.js",
           "index-BxRAfMA5.js",
           "util-EuTDjLsB.js",
           "cache-cues-D8o-F2Bu.js"
@@ -1007,7 +1016,7 @@
         "originalByteSize": 6574
       },
       {
-        "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
+        "key": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-floating-pill-skin.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry",
         "components": [
           "presto-action-bar",
           "presto-action-bar-controller",
@@ -1020,6 +1029,7 @@
           "presto-dynamic-overlays",
           "presto-email-overlay",
           "presto-email-overlay-controller",
+          "presto-floating-pill-skin",
           "presto-modern-skin",
           "presto-muted-overlay",
           "presto-search-bar",
@@ -1027,15 +1037,15 @@
           "presto-vimeo",
           "presto-youtube"
         ],
-        "bundleId": "presto-action-bar_17.cjs",
-        "fileName": "presto-action-bar_17.cjs.entry.js",
+        "bundleId": "presto-action-bar_18.cjs",
+        "fileName": "presto-action-bar_18.cjs.entry.js",
         "imports": [
           "index-Dlg6qIxM.js",
           "util-DccLYcrM.js",
           "fittext-D3xDjTej.js",
           "cache-cues-ps1fLLit.js"
         ],
-        "originalByteSize": 72676
+        "originalByteSize": 82362
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -1048,7 +1058,7 @@
         "bundleId": "presto-player_4.cjs",
         "fileName": "presto-player_4.cjs.entry.js",
         "imports": [
-          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DZB9nVhC.js",
+          "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui-DjFDL3vV.js",
           "index-Dlg6qIxM.js",
           "util-DccLYcrM.js",
           "cache-cues-ps1fLLit.js"
@@ -3985,6 +3995,37 @@
       ]
     },
     {
+      "tag": "presto-floating-pill-skin",
+      "path": "./src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.js",
+      "source": "./src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.tsx",
+      "elementRef": null,
+      "componentClassName": "PrestoFloatingPillSkin",
+      "assetsDirs": [],
+      "dependencies": [],
+      "dependents": [
+        "presto-player",
+        "presto-playlist"
+      ],
+      "directDependencies": [],
+      "directDependents": [
+        "presto-player"
+      ],
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "encapsulation": "none",
+      "excludeFromCollection": false,
+      "events": [],
+      "internal": false,
+      "listeners": [],
+      "methods": [],
+      "potentialCmpRefs": [],
+      "properties": [],
+      "shadowDelegatesFocus": false,
+      "states": []
+    },
+    {
       "tag": "presto-modern-skin",
       "path": "./src/components/ui/skins/presto-modern-skin/presto-modern-skin.js",
       "source": "./src/components/ui/skins/presto-modern-skin/presto-modern-skin.tsx",
@@ -4162,6 +4203,7 @@
         "presto-email-overlay",
         "presto-email-overlay-controller",
         "presto-email-overlay-ui",
+        "presto-floating-pill-skin",
         "presto-modern-skin",
         "presto-muted-overlay",
         "presto-player-button",
@@ -4181,6 +4223,7 @@
         "presto-modern-skin",
         "presto-business-skin",
         "presto-stacked-skin",
+        "presto-floating-pill-skin",
         "presto-muted-overlay",
         "presto-vimeo",
         "presto-youtube",
@@ -4668,6 +4711,7 @@
         "presto-modern-skin",
         "presto-business-skin",
         "presto-stacked-skin",
+        "presto-floating-pill-skin",
         "presto-muted-overlay",
         "presto-vimeo",
         "presto-youtube",
@@ -5932,6 +5976,7 @@
         "presto-email-overlay",
         "presto-email-overlay-controller",
         "presto-email-overlay-ui",
+        "presto-floating-pill-skin",
         "presto-modern-skin",
         "presto-muted-overlay",
         "presto-player",
@@ -8266,6 +8311,7 @@
             "presto-email-overlay",
             "presto-email-overlay-controller",
             "presto-email-overlay-ui",
+            "presto-floating-pill-skin",
             "presto-modern-skin",
             "presto-muted-overlay",
             "presto-player",
@@ -9992,6 +10038,7 @@
             "presto-modern-skin",
             "presto-business-skin",
             "presto-stacked-skin",
+            "presto-floating-pill-skin",
             "presto-muted-overlay",
             "presto-vimeo",
             "presto-youtube",
@@ -10016,6 +10063,7 @@
             "presto-modern-skin",
             "presto-business-skin",
             "presto-stacked-skin",
+            "presto-floating-pill-skin",
             "presto-muted-overlay",
             "presto-vimeo",
             "presto-youtube",
@@ -10046,6 +10094,7 @@
             "presto-email-overlay",
             "presto-email-overlay-controller",
             "presto-email-overlay-ui",
+            "presto-floating-pill-skin",
             "presto-modern-skin",
             "presto-muted-overlay",
             "presto-player-button",
@@ -10065,6 +10114,7 @@
             "presto-modern-skin",
             "presto-business-skin",
             "presto-stacked-skin",
+            "presto-floating-pill-skin",
             "presto-muted-overlay",
             "presto-vimeo",
             "presto-youtube",
@@ -13897,6 +13947,113 @@
         {
           "attachInternalsMemberName": null,
           "formAssociated": false,
+          "tagName": "presto-floating-pill-skin",
+          "excludeFromCollection": false,
+          "isCollectionDependency": false,
+          "componentClassName": "PrestoFloatingPillSkin",
+          "elementRef": null,
+          "encapsulation": "none",
+          "shadowDelegatesFocus": false,
+          "properties": [],
+          "virtualProperties": [],
+          "states": [],
+          "methods": [],
+          "listeners": [],
+          "events": [],
+          "watchers": [],
+          "styles": [
+            {
+              "modeName": "$",
+              "styleId": "PRESTO-FLOATING-PILL-SKIN",
+              "styleStr": null,
+              "styleIdentifier": "PrestoFloatingPillSkinStyle",
+              "externalStyles": [
+                {
+                  "absolutePath": "/home/runner/work/presto-player/presto-player/packages/components/src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.scss",
+                  "relativePath": "presto-floating-pill-skin.scss",
+                  "originalComponentPath": "presto-floating-pill-skin.scss"
+                }
+              ]
+            }
+          ],
+          "internal": false,
+          "assetsDirs": [],
+          "styleDocs": [],
+          "docs": {
+            "tags": [],
+            "text": ""
+          },
+          "jsFilePath": "/home/runner/work/presto-player/presto-player/packages/components/src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.js",
+          "sourceFilePath": "/home/runner/work/presto-player/presto-player/packages/components/src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.tsx",
+          "sourceMapPath": "/home/runner/work/presto-player/presto-player/packages/components/src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.js.map",
+          "hasAttributeChangedCallbackFn": false,
+          "hasComponentWillLoadFn": false,
+          "hasComponentDidLoadFn": false,
+          "hasComponentShouldUpdateFn": false,
+          "hasComponentWillUpdateFn": false,
+          "hasComponentDidUpdateFn": false,
+          "hasComponentWillRenderFn": false,
+          "hasComponentDidRenderFn": false,
+          "hasConnectedCallbackFn": false,
+          "hasDisconnectedCallbackFn": false,
+          "hasElement": false,
+          "hasEvent": false,
+          "hasLifecycle": false,
+          "hasListener": false,
+          "hasListenerTarget": false,
+          "hasListenerTargetWindow": false,
+          "hasListenerTargetDocument": false,
+          "hasListenerTargetBody": false,
+          "hasListenerTargetParent": false,
+          "hasMember": false,
+          "hasMethod": false,
+          "hasMode": false,
+          "hasModernPropertyDecls": false,
+          "hasAttribute": false,
+          "hasProp": false,
+          "hasPropNumber": false,
+          "hasPropBoolean": false,
+          "hasPropString": false,
+          "hasPropMutable": false,
+          "hasReflect": false,
+          "hasRenderFn": true,
+          "hasState": false,
+          "hasStyle": true,
+          "hasVdomAttribute": true,
+          "hasVdomXlink": false,
+          "hasVdomClass": false,
+          "hasVdomFunctional": false,
+          "hasVdomKey": true,
+          "hasVdomListener": false,
+          "hasVdomPropOrAttr": false,
+          "hasVdomRef": false,
+          "hasVdomRender": true,
+          "hasVdomStyle": false,
+          "hasVdomText": false,
+          "hasWatchCallback": false,
+          "isPlain": false,
+          "htmlAttrNames": [
+            "key"
+          ],
+          "htmlTagNames": [
+            "slot"
+          ],
+          "htmlParts": [],
+          "isUpdateable": false,
+          "potentialCmpRefs": [],
+          "dependents": [
+            "presto-player",
+            "presto-playlist"
+          ],
+          "dependencies": [],
+          "directDependents": [
+            "presto-player"
+          ],
+          "directDependencies": []
+        },
+        {
+          "attachInternalsMemberName": null,
+          "formAssociated": false,
           "tagName": "presto-modern-skin",
           "excludeFromCollection": false,
           "isCollectionDependency": false,
@@ -14971,7 +15128,7 @@
           ]
         }
       ],
-      "entryKey": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry"
+      "entryKey": "presto-action-bar.presto-action-bar-controller.presto-audio.presto-bunny.presto-business-skin.presto-cta-overlay.presto-cta-overlay-controller.presto-dynamic-overlay-ui.presto-dynamic-overlays.presto-email-overlay.presto-email-overlay-controller.presto-floating-pill-skin.presto-modern-skin.presto-muted-overlay.presto-search-bar.presto-stacked-skin.presto-vimeo.presto-youtube.entry"
     },
     {
       "cmps": [
@@ -17185,6 +17342,12 @@
       "p-BxRAfMA5.js",
       "p-G840BFTB.js"
     ],
+    "sc-presto-floating-pill-skin": [
+      "p-BxRAfMA5.js",
+      "p-EuTDjLsB.js",
+      "p-G840BFTB.js",
+      "p-D8o-F2Bu.js"
+    ],
     "sc-presto-modern-skin": [
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
@@ -17198,7 +17361,7 @@
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-player": [
-      "p-D7Snkyuc.js",
+      "p-CzaCFUic.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
@@ -17218,19 +17381,19 @@
       "p-EuTDjLsB.js"
     ],
     "sc-presto-playlist-item": [
-      "p-D7Snkyuc.js",
+      "p-CzaCFUic.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-playlist-overlay": [
-      "p-D7Snkyuc.js",
+      "p-CzaCFUic.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
     ],
     "sc-presto-playlist-ui": [
-      "p-D7Snkyuc.js",
+      "p-CzaCFUic.js",
       "p-BxRAfMA5.js",
       "p-EuTDjLsB.js",
       "p-D8o-F2Bu.js"
@@ -17370,6 +17533,7 @@
     "./src/components/ui/presto-video-curtain-ui/presto-video-curtain-ui.tsx": [],
     "./src/components/ui/presto-youtube-subscribe-button/presto-youtube-subscribe-button.tsx": [],
     "./src/components/ui/skins/presto-business-skin/presto-business-skin.tsx": [],
+    "./src/components/ui/skins/presto-floating-pill-skin/presto-floating-pill-skin.tsx": [],
     "./src/components/ui/skins/presto-modern-skin/presto-modern-skin.tsx": [],
     "./src/components/ui/skins/presto-stacked-skin/presto-stacked-skin.tsx": [],
     "./src/index.ts": [],

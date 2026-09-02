@@ -1,0 +1,1 @@
+import{P as PrestoFloatingPillSkin$1,d as defineCustomElement$1}from"./presto-floating-pill-skin2.js";const PrestoFloatingPillSkin=PrestoFloatingPillSkin$1,defineCustomElement=defineCustomElement$1;export{PrestoFloatingPillSkin,defineCustomElement};
