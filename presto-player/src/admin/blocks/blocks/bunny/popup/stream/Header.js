@@ -1,33 +1,35 @@
-const { __ } = wp.i18n;
-const { Flex, FlexBlock, FlexItem, Button, FormFileUpload } = wp.components;
+import { __ } from '@wordpress/i18n';
+const { Flex, FlexBlock, FlexItem, FormFileUpload } = wp.components;
 const { dispatch } = wp.data;
-import CreateCollection from "./collections/CreateCollection";
+import CreateCollection from './collections/CreateCollection';
 
-export default ({ afterUpload }) => {
-  return (
-    <Flex>
-      <FlexBlock>
-        <Flex justify="flex-start">
-          <FormFileUpload
-            multiple
-            isPrimary
-            accept="video/mp4,video/x-m4v,video/*"
-            onChange={(e) => {
-              if (!e.target.files) {
-                return;
-              }
-              dispatch("presto-player/bunny-popup").addUploads(e.target.files);
-              jQuery(e.target).val(null);
-            }}
-          >
-            {__("Upload Videos", "presto-player")}
-          </FormFileUpload>{" "}
-          <CreateCollection />
-          {!!afterUpload && afterUpload}
-        </Flex>
-      </FlexBlock>
-      <FlexItem>
-        {/* <Flex align={"stretch"}>
+export default ( { afterUpload } ) => {
+	return (
+		<Flex>
+			<FlexBlock>
+				<Flex justify="flex-start">
+					<FormFileUpload
+						multiple
+						isPrimary
+						accept="video/mp4,video/x-m4v,video/*"
+						onChange={ ( e ) => {
+							if ( ! e.target.files ) {
+								return;
+							}
+							dispatch( 'presto-player/bunny-popup' ).addUploads(
+								e.target.files
+							);
+							jQuery( e.target ).val( null );
+						} }
+					>
+						{ __( 'Upload Videos', 'presto-player' ) }
+					</FormFileUpload>{ ' ' }
+					<CreateCollection />
+					{ !! afterUpload && afterUpload }
+				</Flex>
+			</FlexBlock>
+			<FlexItem>
+				{ /* <Flex align={"stretch"}>
           <input
             class="components-text-control__input"
             type="text"
@@ -47,8 +49,8 @@ export default ({ afterUpload }) => {
           >
             {__("Search", "presto-player")}
           </Button>
-        </Flex> */}
-      </FlexItem>
-    </Flex>
-  );
+        </Flex> */ }
+			</FlexItem>
+		</Flex>
+	);
 };

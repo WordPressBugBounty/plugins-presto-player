@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp, ArrowUpRight } from 'lucide-react';
 import StepItem from './StepItem';
 import ProgressPill from './ProgressPill';
 
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 
 const ChapterCard = ( { chapter, defaultOpen = false, onStepToggle } ) => {
 	const [ open, setOpen ] = useState( defaultOpen );

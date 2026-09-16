@@ -2,7 +2,7 @@ import { useEffect, useState } from '@wordpress/element';
 import { Dialog, Container, Skeleton, Text } from '@bsf/force-ui';
 import { ImageOff } from 'lucide-react';
 
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 
 const ScreenshotDialog = ( { open, onOpenChange, title, screenshot } ) => {
 	const imageUrl = screenshot?.url || '';
@@ -57,10 +57,7 @@ const ScreenshotDialog = ( { open, onOpenChange, title, screenshot } ) => {
 						>
 							<ImageOff className="w-8 h-8 text-text-tertiary" />
 							<Text size={ 14 } color="secondary">
-								{ __(
-									'Screenshot coming soon.',
-									'presto-player'
-								) }
+								{ __( 'Screenshot coming soon.', 'presto-player' ) }
 							</Text>
 						</Container>
 					) }

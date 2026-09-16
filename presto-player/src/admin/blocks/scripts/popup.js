@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { store, getContext, getElement } from '@wordpress/interactivity';
-const { __ } = wp.i18n;
 
 const { state, actions } = store( 'presto-player/popup', {
 	state: {
@@ -87,11 +86,12 @@ const { state, actions } = store( 'presto-player/popup', {
 				ref?.focus();
 			}, 0 );
 
-			// If the popup is open, set the screen reader text.
-			state.screenReaderText = __(
-				'Presto Popup dialog opened.',
-				'presto-player'
-			);
+			// If the popup is open, set the screen reader text. dialogOpenedText comes
+			// from PopupBlock::render_block() via wp_interactivity_state(); it must not
+			// be declared in this store's state, or store()'s deepMerge (override =
+			// true) would overwrite the server value with the client default.
+			state.screenReaderText =
+				state.dialogOpenedText || 'Presto Popup dialog opened.';
 		},
 		handleKeydown( event ) {
 			// Opens the popup when Enter is pressed while the trigger is focused.

@@ -43,6 +43,15 @@ class PopupBlock {
 	 * @return string The rendered HTML for the block.
 	 */
 	public function render_block( $attributes, $content ) {
+		// Script modules have no wp_set_script_translations() equivalent, so the
+		// announcement is translated here and read from the store by popup.js.
+		wp_interactivity_state(
+			'presto-player/popup',
+			array(
+				'dialogOpenedText' => __( 'Presto Popup dialog opened.', 'presto-player' ),
+			)
+		);
+
 		ob_start(); ?>
 		<div 
 		<?php

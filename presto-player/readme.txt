@@ -4,7 +4,7 @@ Donate link: https://prestoplayer.com
 Tags: video, audio, video player, youtube, vimeo
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 4.5.0
+Stable tag: 4.5.1
 
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -158,6 +158,12 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 
 
 == Changelog ==
+
+= 4.5.1 =
+* Fixed: Translations now load in the dashboard, block editor, player and integrations.
+* Fixed: Admin text no longer stays in English after switching the site language.
+* Fixed: Installed language packs now apply, matched to the right scripts.
+* Fixed: The translation template now covers every string the plugin ships.
 
 = 4.5.0 =
 * New: Floating Pill player skin — a detached, rounded control bar that floats over your video. Choose it per preset from the Skin option.

@@ -7,7 +7,7 @@
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React, { useState, useRef, useMemo, useEffect } from 'react';
-const { __, _n, sprintf } = wp.i18n;
+import { __, _n, sprintf } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import '../../../styles/tailwind.css';
 import { Container, DropdownMenu, toast } from '@bsf/force-ui';
@@ -171,10 +171,7 @@ const EmailsContent = () => {
 			toast.success(
 				sprintf(
 					/* translators: %d is the number of deleted items */
-					__(
-						'%d email submission(s) deleted successfully.',
-						'presto-player'
-					),
+					__( '%d email submission(s) deleted successfully.', 'presto-player' ),
 					selectedIds.length
 				)
 			);
@@ -233,7 +230,7 @@ const EmailsContent = () => {
 				data: { ids: selectedIds, status },
 			} );
 			updated = response?.updated ?? 0;
-			failed = response?.failed ?? ( selectedIds.length - updated );
+			failed = response?.failed ?? selectedIds.length - updated;
 		} catch ( error ) {
 			// Response was lost — server may have applied the change. Refresh so the UI
 			// reflects authoritative state instead of staying stale until next interaction.
@@ -306,13 +303,10 @@ const EmailsContent = () => {
 								data: { ids: [ id ] },
 							} );
 							await fetchEmails();
-							toast.success(
-								__( 'Successfully trashed.', 'presto-player' )
-							);
+							toast.success( __( 'Successfully trashed.', 'presto-player' ) );
 						} catch ( error ) {
 							toast.error(
-								error?.message ||
-									__( 'Failed to trash.', 'presto-player' )
+								error?.message || __( 'Failed to trash.', 'presto-player' )
 							);
 						}
 						setOpenActionPopup( false );
@@ -340,15 +334,11 @@ const EmailsContent = () => {
 							} );
 							await fetchEmails();
 							toast.success(
-								__(
-									'Email submission deleted successfully.',
-									'presto-player'
-								)
+								__( 'Email submission deleted successfully.', 'presto-player' )
 							);
 						} catch ( error ) {
 							toast.error(
-								error?.message ||
-									__( 'Failed to delete.', 'presto-player' )
+								error?.message || __( 'Failed to delete.', 'presto-player' )
 							);
 						}
 						setOpenActionPopup( false );
@@ -374,13 +364,10 @@ const EmailsContent = () => {
 								data: { status: 'publish' },
 							} );
 							await fetchEmails();
-							toast.success(
-								__( 'Successfully restored.', 'presto-player' )
-							);
+							toast.success( __( 'Successfully restored.', 'presto-player' ) );
 						} catch ( error ) {
 							toast.error(
-								error?.message ||
-									__( 'Failed to restore.', 'presto-player' )
+								error?.message || __( 'Failed to restore.', 'presto-player' )
 							);
 						}
 						setOpenActionPopup( false );
@@ -440,11 +427,31 @@ const EmailsContent = () => {
 	};
 
 	const actionMenus = [
-		{ value: 'draft', label: __( 'Save as Draft', 'presto-player' ), icon: <FolderArchive width="15" height="15" /> },
-		{ value: 'publish', label: __( 'Mark as Publish', 'presto-player' ), icon: <CheckCheck width="15" height="15" /> },
-		{ value: 'trash', label: __( 'Move to Trash', 'presto-player' ), icon: <Trash width="15" height="15" /> },
-		{ value: 'restore', label: __( 'Restore', 'presto-player' ), icon: <ArchiveRestore width="15" height="15" /> },
-		{ value: 'delete', label: __( 'Delete Permanently', 'presto-player' ), icon: <Trash2 width="15" height="15" /> },
+		{
+			value: 'draft',
+			label: __( 'Save as Draft', 'presto-player' ),
+			icon: <FolderArchive width="15" height="15" />,
+		},
+		{
+			value: 'publish',
+			label: __( 'Mark as Publish', 'presto-player' ),
+			icon: <CheckCheck width="15" height="15" />,
+		},
+		{
+			value: 'trash',
+			label: __( 'Move to Trash', 'presto-player' ),
+			icon: <Trash width="15" height="15" />,
+		},
+		{
+			value: 'restore',
+			label: __( 'Restore', 'presto-player' ),
+			icon: <ArchiveRestore width="15" height="15" />,
+		},
+		{
+			value: 'delete',
+			label: __( 'Delete Permanently', 'presto-player' ),
+			icon: <Trash2 width="15" height="15" />,
+		},
 	];
 
 	const renderActionMenu = ( item ) => {
@@ -453,12 +460,12 @@ const EmailsContent = () => {
 		// Trashed items get only Restore + Delete; everything else gets the
 		// status-change actions plus Move to Trash, with the current status filtered out.
 		const visible = isTrashed
-			? actionMenus.filter( ( a ) => a.value === 'restore' || a.value === 'delete' )
+			? actionMenus.filter(
+					( a ) => a.value === 'restore' || a.value === 'delete'
+			  )
 			: actionMenus.filter(
 					( a ) =>
-						a.value !== 'restore' &&
-						a.value !== 'delete' &&
-						a.value !== status
+						a.value !== 'restore' && a.value !== 'delete' && a.value !== status
 			  );
 		return visible.map( ( action ) => (
 			<DropdownMenu.Item
@@ -511,8 +518,8 @@ const EmailsContent = () => {
 			setRawEmails( ( prev ) =>
 				isEdit
 					? prev.map( ( item ) =>
-						item.id === data.id ? { ...item, ...saved } : item
-					)
+							item.id === data.id ? { ...item, ...saved } : item
+					  )
 					: [ saved, ...prev ]
 			);
 			if ( ! isEdit ) {
@@ -526,9 +533,7 @@ const EmailsContent = () => {
 					: __( 'Email added.', 'presto-player' )
 			);
 		} catch ( error ) {
-			toast.error(
-				error?.message || __( 'Failed to save.', 'presto-player' )
-			);
+			toast.error( error?.message || __( 'Failed to save.', 'presto-player' ) );
 			throw error;
 		}
 	};
@@ -591,14 +596,12 @@ const EmailsContent = () => {
 			>
 				<NoFound
 					icon={
-						<img
-							src={ emailsEmptyState }
-							width={ 70 }
-							height={ 53 }
-							alt=""
-						/>
+						<img src={ emailsEmptyState } width={ 70 } height={ 53 } alt="" />
 					}
-					title={ __( 'Your email submissions will be displayed here.', 'presto-player' ) }
+					title={ __(
+						'Your email submissions will be displayed here.',
+						'presto-player'
+					) }
 					description={ __(
 						'Click "Add New Submission" to add a new email submission.',
 						'presto-player'
@@ -664,10 +667,7 @@ const EmailsContent = () => {
 						} }
 						onDelete={ ( selectedIds ) => {
 							setActionPopupData( {
-								title: __(
-									'Delete Selected Items?',
-									'presto-player'
-								),
+								title: __( 'Delete Selected Items?', 'presto-player' ),
 								description: sprintf(
 									/* translators: %d is the number of items to delete */
 									__(
@@ -682,8 +682,7 @@ const EmailsContent = () => {
 									handleBulkDelete( selectedIds );
 									setOpenActionPopup( false );
 								},
-								cancelCallback: () =>
-									setOpenActionPopup( false ),
+								cancelCallback: () => setOpenActionPopup( false ),
 							} );
 							setOpenActionPopup( true );
 						} }
@@ -695,8 +694,16 @@ const EmailsContent = () => {
 							setPostCount={ setPostCount }
 							perPageLabel={ __( 'Emails', 'presto-player' ) }
 							selects={ [
-								{ options: statusOptions, value: selectedStatus, onChange: setSelectedStatus },
-								{ options: monthFilterOptions, value: filterMonth, onChange: setFilterMonth },
+								{
+									options: statusOptions,
+									value: selectedStatus,
+									onChange: setSelectedStatus,
+								},
+								{
+									options: monthFilterOptions,
+									value: filterMonth,
+									onChange: setFilterMonth,
+								},
 							] }
 							onClear={ handleClearFilters }
 						/>
@@ -743,8 +750,7 @@ const EmailsContent = () => {
 				description={ actionPopupData?.description || '' }
 				confirmText={ actionPopupData?.confirmText || '' }
 				cancelText={
-					actionPopupData?.cancelText ||
-					__( 'Cancel', 'presto-player' )
+					actionPopupData?.cancelText || __( 'Cancel', 'presto-player' )
 				}
 				confirmCallback={ actionPopupData?.confirmCallback }
 				cancelCallback={ actionPopupData?.cancelCallback }

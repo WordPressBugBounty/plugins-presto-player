@@ -4,7 +4,7 @@
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 import { Badge, Tooltip } from '@bsf/force-ui';
 
 export const TRUNCATE_LENGTH = 40;
@@ -124,9 +124,9 @@ export function togglePageSelection( prev, pageItems, checked ) {
  * returns false so the header checkbox doesn't render checked when there
  * is nothing on screen.
  *
- * @param {Array<{ id: string|number }>} pageItems
- * @param {Array<string|number>}         selected
- * @return {boolean}
+ * @param {Array<{ id: string|number }>} pageItems Rows rendered on the current page.
+ * @param {Array<string|number>}         selected  Currently selected row ids.
+ * @return {boolean} True when every row on the page is selected; false for an empty page.
  */
 export function isPageFullySelected( pageItems, selected ) {
 	if ( ! pageItems?.length ) {
@@ -140,9 +140,9 @@ export function isPageFullySelected( pageItems, selected ) {
  * Whether some — but not all — rows on the current page are in the
  * selection. Drives the header checkbox's indeterminate state.
  *
- * @param {Array<{ id: string|number }>} pageItems
- * @param {Array<string|number>}         selected
- * @return {boolean}
+ * @param {Array<{ id: string|number }>} pageItems Rows rendered on the current page.
+ * @param {Array<string|number>}         selected  Currently selected row ids.
+ * @return {boolean} True when some but not all rows on the page are selected.
  */
 export function isPagePartiallySelected( pageItems, selected ) {
 	if ( ! pageItems?.length ) {

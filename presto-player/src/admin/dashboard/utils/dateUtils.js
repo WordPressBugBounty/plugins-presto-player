@@ -1,9 +1,14 @@
-import { format as format_date, startOfDay, subDays, subMonths } from "date-fns";
+import {
+	format as formatDateFns,
+	startOfDay,
+	subDays,
+	subMonths,
+} from 'date-fns';
 
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 
 /** Shared start date for "all time" analytics queries */
-export const ALL_TIME_START = "2020-01-01T00:00:00.000Z";
+export const ALL_TIME_START = '2020-01-01T00:00:00.000Z';
 
 /**
  * Day count used as the dashboard's default analytics window. Centralised
@@ -22,12 +27,12 @@ export const DEFAULT_ANALYTICS_DAYS = 90;
  * `to` is today's start-of-day so it lines up with `getLastNDays(N).to`
  * and the per-day boundaries Force UI's preset matcher expects.
  *
- * @returns {{ from: Date, to: Date }}
+ * @return {{ from: Date, to: Date }} The all-time range: the fixed ALL_TIME_START sentinel through today's start-of-day.
  */
-export const getAllTimeRange = () => ({
-  from: new Date(ALL_TIME_START),
-  to: startOfDay(new Date()),
-});
+export const getAllTimeRange = () => ( {
+	from: new Date( ALL_TIME_START ),
+	to: startOfDay( new Date() ),
+} );
 
 /**
  * Custom preset list passed to Force UI's `<DatePicker variant="presets">`.
@@ -38,54 +43,54 @@ export const getAllTimeRange = () => ({
  *
  * Order here is the order rendered in the dropdown.
  *
- * @returns {{ label: string, range: { from: Date, to: Date } }[]}
+ * @return {{ label: string, range: { from: Date, to: Date } }[]} The preset list, in dropdown render order.
  */
 export const getAnalyticsPresets = () => {
-  const today = startOfDay(new Date());
-  return [
-    {
-      label: __("All Time", "presto-player"),
-      range: getAllTimeRange(),
-    },
-    {
-      label: __("Last 7 days", "presto-player"),
-      range: { from: startOfDay(subDays(today, 6)), to: today },
-    },
-    {
-      label: __("Last 30 days", "presto-player"),
-      range: { from: startOfDay(subDays(today, 29)), to: today },
-    },
-    {
-      label: __("Last 90 days", "presto-player"),
-      range: { from: startOfDay(subDays(today, 89)), to: today },
-    },
-    {
-      label: __("Last 12 months", "presto-player"),
-      range: { from: startOfDay(subMonths(today, 12)), to: today },
-    },
-  ];
+	const today = startOfDay( new Date() );
+	return [
+		{
+			label: __( 'All Time', 'presto-player' ),
+			range: getAllTimeRange(),
+		},
+		{
+			label: __( 'Last 7 days', 'presto-player' ),
+			range: { from: startOfDay( subDays( today, 6 ) ), to: today },
+		},
+		{
+			label: __( 'Last 30 days', 'presto-player' ),
+			range: { from: startOfDay( subDays( today, 29 ) ), to: today },
+		},
+		{
+			label: __( 'Last 90 days', 'presto-player' ),
+			range: { from: startOfDay( subDays( today, 89 ) ), to: today },
+		},
+		{
+			label: __( 'Last 12 months', 'presto-player' ),
+			range: { from: startOfDay( subMonths( today, 12 ) ), to: today },
+		},
+	];
 };
 
 /**
  * Formats a date using date-fns with error handling
  *
- * @param {Date|string|number} date - The date to format
- * @param {string} dateFormat - The format string (default: "yyyy-MM-dd")
- * @returns {string} The formatted date or error message
+ * @param {Date|string|number} date       - The date to format
+ * @param {string}             dateFormat - The format string (default: "yyyy-MM-dd")
+ * @return {string} The formatted date or error message
  *
  * @example
  * format(new Date(), "MMM dd, yyyy") // Returns: "Jan 21, 2026"
  * format("invalid", "yyyy-MM-dd") // Returns: "No Date"
  */
-export const format = (date, dateFormat = "yyyy-MM-dd") => {
-  try {
-    if (!date || isNaN(new Date(date).getTime())) {
-      throw new Error(__("Invalid Date", "presto-player"));
-    }
-    return format_date(new Date(date), dateFormat);
-  } catch (error) {
-    return __("No Date", "presto-player");
-  }
+export const format = ( date, dateFormat = 'yyyy-MM-dd' ) => {
+	try {
+		if ( ! date || isNaN( new Date( date ).getTime() ) ) {
+			throw new Error( __( 'Invalid Date', 'presto-player' ) );
+		}
+		return formatDateFns( new Date( date ), dateFormat );
+	} catch ( error ) {
+		return __( 'No Date', 'presto-player' );
+	}
 };
 
 /**
@@ -95,10 +100,10 @@ export const format = (date, dateFormat = "yyyy-MM-dd") => {
  * truncate labels.
  *
  * @param {string} tickItem - The tick item to format
- * @returns {string} The formatted date string
+ * @return {string} The formatted date string
  */
-export const formatXAxis = (tickItem) => {
-  return format(new Date(tickItem), "MMM dd");
+export const formatXAxis = ( tickItem ) => {
+	return format( new Date( tickItem ), 'MMM dd' );
 };
 
 /**
@@ -118,10 +123,10 @@ export const formatXAxis = (tickItem) => {
  * with 400.
  *
  * @param {Date|string|number} date
- * @returns {string} e.g. "2026-05-07T00:00:00.000Z"
+ * @return {string} e.g. "2026-05-07T00:00:00.000Z"
  */
-export const toAnalyticsDate = (date) =>
-  `${format(date, "yyyy-MM-dd")}T00:00:00.000Z`;
+export const toAnalyticsDate = ( date ) =>
+	`${ format( date, 'yyyy-MM-dd' ) }T00:00:00.000Z`;
 
 /**
  * Gets a date range for the last N days, inclusive of today.
@@ -131,47 +136,47 @@ export const toAnalyticsDate = (date) =>
  * means the matching preset highlights when this range is the selected value.
  *
  * @param {number} days - The number of days in the window (e.g. 30 = today + 29 prior days)
- * @returns {Object} Object with 'from' and 'to' Date objects (both at 00:00 local time)
+ * @return {Object} Object with 'from' and 'to' Date objects (both at 00:00 local time)
  *
  * @example
  * getLastNDays(7)  // { from: startOfDay(today - 6),  to: startOfDay(today) }
  * getLastNDays(30) // { from: startOfDay(today - 29), to: startOfDay(today) }
  */
-export const getLastNDays = (days) => {
-  if (isNaN(days)) {
-    return {
-      from: "",
-      to: "",
-    };
-  }
-  const today = startOfDay(new Date());
-  return {
-    from: startOfDay(subDays(today, days - 1)),
-    to: today,
-  };
+export const getLastNDays = ( days ) => {
+	if ( isNaN( days ) ) {
+		return {
+			from: '',
+			to: '',
+		};
+	}
+	const today = startOfDay( new Date() );
+	return {
+		from: startOfDay( subDays( today, days - 1 ) ),
+		to: today,
+	};
 };
 
 /**
  * Formats selected date range for display
  *
  * @param {Object} selectedDatesForChart - Object with 'from' and 'to' dates
- * @returns {string} The formatted date range string
+ * @return {string} The formatted date range string
  *
  * @example
  * getSelectedDate({ from: new Date('2026-01-01'), to: new Date('2026-01-15') })
  * // Returns: "01/01/2026 - 01/15/2026"
  */
-export const getSelectedDate = (selectedDatesForChart) => {
-  if (!selectedDatesForChart.from) {
-    return "";
-  }
-  if (!selectedDatesForChart.to) {
-    return `${format(selectedDatesForChart.from, "MM/dd/yyyy")}`;
-  }
-  return `${format(selectedDatesForChart.from, "MM/dd/yyyy")} - ${format(
-    selectedDatesForChart.to,
-    "MM/dd/yyyy"
-  )}`;
+export const getSelectedDate = ( selectedDatesForChart ) => {
+	if ( ! selectedDatesForChart.from ) {
+		return '';
+	}
+	if ( ! selectedDatesForChart.to ) {
+		return `${ format( selectedDatesForChart.from, 'MM/dd/yyyy' ) }`;
+	}
+	return `${ format( selectedDatesForChart.from, 'MM/dd/yyyy' ) } - ${ format(
+		selectedDatesForChart.to,
+		'MM/dd/yyyy'
+	) }`;
 };
 
 /**
@@ -184,19 +189,20 @@ export const getSelectedDate = (selectedDatesForChart) => {
  * computed in a previous render or context still matches the preset
  * built fresh this render.
  *
- * @param {{ from: Date, to: Date }} range
- * @returns {string}
+ * @param {{ from: Date, to: Date }} range The selected range.
+ * @return {string} The matching preset label, a formatted "MM/dd/yyyy - MM/dd/yyyy" string, or an empty string.
  */
-export const getRangeLabel = (range) => {
-  if (!range?.from) return "";
-  const sameDay = (a, b) =>
-    a && b && format(a, "yyyy-MM-dd") === format(b, "yyyy-MM-dd");
-  const presets = getAnalyticsPresets();
-  const match = presets.find(
-    (p) =>
-      sameDay(p.range.from, range.from) &&
-      sameDay(p.range.to, range.to ?? range.from)
-  );
-  return match ? match.label : getSelectedDate(range);
+export const getRangeLabel = ( range ) => {
+	if ( ! range?.from ) {
+		return '';
+	}
+	const sameDay = ( a, b ) =>
+		a && b && format( a, 'yyyy-MM-dd' ) === format( b, 'yyyy-MM-dd' );
+	const presets = getAnalyticsPresets();
+	const match = presets.find(
+		( p ) =>
+			sameDay( p.range.from, range.from ) &&
+			sameDay( p.range.to, range.to ?? range.from )
+	);
+	return match ? match.label : getSelectedDate( range );
 };
-

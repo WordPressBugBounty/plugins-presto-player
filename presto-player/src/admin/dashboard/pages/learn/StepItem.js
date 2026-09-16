@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import ScreenshotDialog from './ScreenshotDialog';
 
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 
 const StepItem = ( { chapterId, step, onToggle } ) => {
 	const [ open, setOpen ] = useState( false );

@@ -277,9 +277,7 @@ class Menu {
 
 		wp_enqueue_style( 'wp-components' );
 
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'presto/dashboard/admin', 'presto-player' );
-		}
+		wp_set_script_translations( 'presto/dashboard/admin', 'presto-player', PRESTO_PLAYER_PLUGIN_DIR . 'languages' );
 
 		$current_user = wp_get_current_user();
 

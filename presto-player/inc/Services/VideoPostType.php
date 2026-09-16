@@ -761,6 +761,8 @@ class VideoPostType {
 			array(),
 			$assets['version']
 		);
+
+		wp_set_script_translations( 'presto-player/toolbar/admin', 'presto-player', PRESTO_PLAYER_PLUGIN_DIR . 'languages' );
 	}
 
 	/**

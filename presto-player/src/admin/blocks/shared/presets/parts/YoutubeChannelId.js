@@ -1,96 +1,96 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const { TextControl, ExternalLink, Button, Flex } = wp.components;
+import { __ } from '@wordpress/i18n';
+const { TextControl, ExternalLink, Button } = wp.components;
 const { useState, useEffect } = wp.element;
 const { useSelect, dispatch } = wp.data;
 
-import "./YoutubeChannelId.scss";
+import './YoutubeChannelId.scss';
 
-export default ({ onClose, value, setValue }) => {
-  const [saving, setSaving] = useState(false);
+export default ( { onClose, value, setValue } ) => {
+	const [ saving, setSaving ] = useState( false );
 
-  const userCanReadSettings = wp.data.useSelect((select) =>
-    select("core").canUser("read", "settings")
-  );
+	const userCanReadSettings = wp.data.useSelect( ( select ) =>
+		select( 'core' ).canUser( 'read', 'settings' )
+	);
 
-  const youtube = useSelect((select) => {
-    return select("presto-player/player").youtube();
-  });
+	const youtube = useSelect( ( select ) => {
+		return select( 'presto-player/player' ).youtube();
+	} );
 
-  useEffect(() => {
-    setValue(youtube.channel_id);
-  }, [youtube?.channel_id]);
+	useEffect( () => {
+		setValue( youtube.channel_id );
+	}, [ youtube?.channel_id ] );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSaving(true);
-    dispatch("presto-player/player").updateYoutube({ channel_id: value });
+	const handleSubmit = async ( e ) => {
+		e.preventDefault();
+		setSaving( true );
+		dispatch( 'presto-player/player' ).updateYoutube( { channel_id: value } );
 
-    const data = {
-      ...youtube,
-      ...{ channel_id: value },
-    };
+		const data = {
+			...youtube,
+			...{ channel_id: value },
+		};
 
-    try {
-      let response = await wp.apiFetch({
-        path: "wp/v2/settings",
-        method: "POST",
-        data: {
-          presto_player_youtube: data,
-        },
-      });
-      if (response?.presto_player_youtube) {
-        dispatch("presto-player/player").setYoutube(
-          response?.presto_player_youtube
-        );
-        onClose();
-      }
-    } catch (e) {
-    } finally {
-      setSaving(false);
-    }
-  };
+		try {
+			const response = await wp.apiFetch( {
+				path: 'wp/v2/settings',
+				method: 'POST',
+				data: {
+					presto_player_youtube: data,
+				},
+			} );
+			if ( response?.presto_player_youtube ) {
+				dispatch( 'presto-player/player' ).setYoutube(
+					response?.presto_player_youtube
+				);
+				onClose();
+			}
+		} catch ( saveError ) {
+		} finally {
+			setSaving( false );
+		}
+	};
 
-  // use must be able to read settings
-  if (!userCanReadSettings) {
-    return "";
-  }
+	// use must be able to read settings
+	if ( ! userCanReadSettings ) {
+		return '';
+	}
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <TextControl
-        className="presto-youtube-channel__input"
-        label={__("Youtube Channel ID", "presto-player")}
-        help={
-          <p>
-            <ExternalLink href="https://support.google.com/youtube/answer/3250431?hl=en">
-              {__("Find my channel id", "presto-player")}
-            </ExternalLink>
-          </p>
-        }
-        value={value}
-        onChange={(channel_id) => setValue(channel_id)}
-        // required
-      />
+	return (
+		<form onSubmit={ handleSubmit }>
+			<TextControl
+				className="presto-youtube-channel__input"
+				label={ __( 'Youtube Channel ID', 'presto-player' ) }
+				help={
+					<p>
+						<ExternalLink href="https://support.google.com/youtube/answer/3250431?hl=en">
+							{ __( 'Find my channel id', 'presto-player' ) }
+						</ExternalLink>
+					</p>
+				}
+				value={ value }
+				onChange={ ( channelId ) => setValue( channelId ) }
+				// required
+			/>
 
-      <Button
-        disabled={saving}
-        isBusy={saving}
-        className="presto-youtube-channel__button"
-        isPrimary
-        type="submot"
-      >
-        {__("Save", "presto-player")}
-      </Button>
-      <Button
-        onClick={onClose}
-        className="presto-youtube-channel__button"
-        isTertiary
-      >
-        {__("Cancel", "presto-player")}
-      </Button>
-    </form>
-  );
+			<Button
+				disabled={ saving }
+				isBusy={ saving }
+				className="presto-youtube-channel__button"
+				isPrimary
+				type="submot"
+			>
+				{ __( 'Save', 'presto-player' ) }
+			</Button>
+			<Button
+				onClick={ onClose }
+				className="presto-youtube-channel__button"
+				isTertiary
+			>
+				{ __( 'Cancel', 'presto-player' ) }
+			</Button>
+		</form>
+	);
 };

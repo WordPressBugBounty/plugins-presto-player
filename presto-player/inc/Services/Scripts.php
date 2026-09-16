@@ -93,18 +93,76 @@ class Scripts {
 	/**
 	 * Add a type="module" to our components tag to lazy load them.
 	 *
+	 * Modifies the <script> element in place instead of rebuilding $tag from
+	 * scratch, so any translation block or inline script core has already
+	 * attached to this handle (via the script_loader_tag filter chain) is
+	 * preserved rather than silently dropped.
+	 *
 	 * @param string $tag    The <script> tag for the enqueued script.
 	 * @param string $handle The script's registered handle.
 	 * @param string $source The script's source URL.
 	 * @return string The modified script tag.
 	 */
 	public function prestoComponentsTag( $tag, $handle, $source ) {
-		if ( 'presto-components' === $handle ) {
-            // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
-			$tag = '<script src="' . $source . '" type="module" defer></script>';
+		if ( 'presto-components' !== $handle ) {
+			return $tag;
 		}
 
-		return $tag;
+		// $source arrives esc_url()'d, so "&" and "'" are entity-encoded, while the
+		// tag processor hands back decoded attribute values — compare like for like.
+		$decoded_source = html_entity_decode( $source, ENT_QUOTES, 'UTF-8' );
+
+		$processor = new \WP_HTML_Tag_Processor( $tag );
+		if ( ! $this->seekComponentsScript( $processor, $decoded_source ) ) {
+			return $tag;
+		}
+
+		$processor->set_attribute( 'type', 'module' );
+		$processor->set_attribute( 'defer', true );
+
+		return $processor->get_updated_html();
+	}
+
+	/**
+	 * Leave the processor sitting on the handle's own <script> element.
+	 *
+	 * Prefers an exact src match, then the tag carrying id="presto-components-js"
+	 * (WordPress always stamps it, so the tag stays identifiable when a filter at a
+	 * lower priority rewrote or stripped src — delay-JS style src -> data-src), then
+	 * the first src-bearing tag.
+	 *
+	 * @param \WP_HTML_Tag_Processor $processor      Processor over the filtered tag.
+	 * @param string                 $decoded_source The script's source URL, decoded.
+	 * @return bool Whether a tag to modify was found.
+	 */
+	private function seekComponentsScript( $processor, $decoded_source ) {
+		$fallback = '';
+
+		while ( $processor->next_tag( array( 'tag_name' => 'script' ) ) ) {
+			$src = $processor->get_attribute( 'src' );
+
+			if ( $src === $decoded_source ) {
+				return true;
+			}
+
+			if ( 'presto-components-js' === $processor->get_attribute( 'id' ) ) {
+				$processor->set_bookmark( 'presto_components_tag' );
+				$fallback = 'id';
+				continue;
+			}
+
+			if ( '' === $fallback && null !== $src ) {
+				$processor->set_bookmark( 'presto_components_tag' );
+				$fallback = 'src';
+			}
+		}
+
+		if ( '' === $fallback ) {
+			return false;
+		}
+
+		$processor->seek( 'presto_components_tag' );
+		return true;
 	}
 
 	/**
@@ -150,10 +208,9 @@ class Scripts {
 			)
 		);
 
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'presto-components', 'presto-player' );
-		}
-
+		// No wp_set_script_translations for presto-components: the player bundle
+		// has no wp.i18n calls — its UI strings arrive already-translated via the
+		// localized geti18n() payload below.
 		wp_localize_script(
 			'presto-components',
 			'prestoPlayer',
@@ -269,9 +326,7 @@ class Scripts {
 			)
 		);
 
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'surecart/blocks/admin', 'presto-player' );
-		}
+		wp_set_script_translations( 'surecart/blocks/admin', 'presto-player', PRESTO_PLAYER_PLUGIN_DIR . 'languages' );
 
 		wp_localize_script( 'surecart/blocks/admin', 'scIcons', array( 'path' => esc_url_raw( plugin_dir_url( PRESTO_PLAYER_PLUGIN_FILE ) . 'dist/icon-assets' ) ) );
 

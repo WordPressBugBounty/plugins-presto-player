@@ -1,117 +1,126 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
 const { useState } = wp.element;
 const { dispatch } = wp.data;
-import Chapter from "./components/Chapter";
+import Chapter from './components/Chapter';
 
-const VideoSettings = ({ setAttributes, attributes }) => {
-  const showNotice = () => {
-    dispatch("presto-player/player").setProModal(true);
-  };
-  if (!prestoPlayer?.isPremium) {
-    return (
-      <Chapter
-        disabled={true}
-        className="ph-chapter is-new"
-        time={""}
-        title={""}
-        update={() => {}}
-        showNotice={showNotice}
-        add={showNotice}
-      />
-    );
-  }
+const VideoSettings = ( { setAttributes, attributes } ) => {
+	const showNotice = () => {
+		dispatch( 'presto-player/player' ).setProModal( true );
+	};
 
-  const { chapters } = attributes;
+	// Declared before the early return below: React requires hooks to run on
+	// every render, and this component returns the pro-upsell chapter without
+	// reaching the rest of the body when the licence is inactive.
+	const [ draft, setDraft ] = useState( {
+		title: '',
+		time: '',
+	} );
 
-  let [draft, setDraft] = useState({
-    title: "",
-    time: "",
-  });
+	if ( ! prestoPlayer?.isPremium ) {
+		return (
+			<Chapter
+				disabled={ true }
+				className="ph-chapter is-new"
+				time={ '' }
+				title={ '' }
+				update={ () => {} }
+				showNotice={ showNotice }
+				add={ showNotice }
+			/>
+		);
+	}
 
-  const updateChapter = (chapter, data = {}) => {
-    let itemIndex = chapters.indexOf(chapter);
-    let updated = chapters.map((item, index) => {
-      // This isn't the item we care about - keep it as-is
-      if (index !== itemIndex) {
-        return item;
-      }
-      // Otherwise, this is the one we want - return an updated value
-      return {
-        ...item,
-        ...data,
-      };
-    });
-    setAttributes({ chapters: updated });
-  };
+	const { chapters } = attributes;
 
-  const removeChapter = (chapter) => {
-    let index = chapters.indexOf(chapter);
-    setAttributes({ chapters: chapters.filter((_, i) => i !== index) });
-  };
+	const updateChapter = ( chapter, data = {} ) => {
+		const itemIndex = chapters.indexOf( chapter );
+		const updated = chapters.map( ( item, index ) => {
+			// This isn't the item we care about - keep it as-is
+			if ( index !== itemIndex ) {
+				return item;
+			}
+			// Otherwise, this is the one we want - return an updated value
+			return {
+				...item,
+				...data,
+			};
+		} );
+		setAttributes( { chapters: updated } );
+	};
 
-  const addChapter = () => {
-    if (!draft.time || !draft.title) {
-      return;
-    }
-    setAttributes({
-      chapters: [
-        ...(chapters || []),
-        ...[{ time: draft.time, title: draft.title }],
-      ],
-    });
-    setDraft({
-      title: "",
-      time: "",
-    });
-  };
+	const removeChapter = ( chapter ) => {
+		const index = chapters.indexOf( chapter );
+		setAttributes( { chapters: chapters.filter( ( _, i ) => i !== index ) } );
+	};
 
-  const sorted = () => {
-    return (chapters || []).sort(function (a, b) {
-      if (
-        parseInt(a.time.split(":")[0]) - parseInt(b.time.split(":")[0]) ===
-        0
-      ) {
-        return parseInt(a.time.split(":")[1]) - parseInt(b.time.split(":")[1]);
-      } else {
-        return parseInt(a.time.split(":")[0]) - parseInt(b.time.split(":")[0]);
-      }
-    });
-  };
+	const addChapter = () => {
+		if ( ! draft.time || ! draft.title ) {
+			return;
+		}
+		setAttributes( {
+			chapters: [
+				...( chapters || [] ),
+				...[ { time: draft.time, title: draft.title } ],
+			],
+		} );
+		setDraft( {
+			title: '',
+			time: '',
+		} );
+	};
 
-  return (
-    <>
-      {sorted().map((chapter, i) => {
-        return (
-          <Chapter
-            key={`${i}-${chapter.time}`}
-            className="ph-chapter"
-            time={chapter.time}
-            title={chapter.title}
-            chapter={chapter}
-            update={(data) => {
-              updateChapter(chapter, data);
-            }}
-            remove={() => {
-              removeChapter(chapter);
-            }}
-          />
-        );
-      })}
+	const sorted = () => {
+		return ( chapters || [] ).sort( function ( a, b ) {
+			if (
+				parseInt( a.time.split( ':' )[ 0 ] ) -
+					parseInt( b.time.split( ':' )[ 0 ] ) ===
+				0
+			) {
+				return (
+					parseInt( a.time.split( ':' )[ 1 ] ) -
+					parseInt( b.time.split( ':' )[ 1 ] )
+				);
+			}
+			return (
+				parseInt( a.time.split( ':' )[ 0 ] ) -
+				parseInt( b.time.split( ':' )[ 0 ] )
+			);
+		} );
+	};
 
-      <Chapter
-        className="ph-chapter is-new"
-        time={draft.time}
-        title={draft.title}
-        update={(data) => {
-          setDraft({ ...draft, ...data });
-        }}
-        add={addChapter}
-      />
-    </>
-  );
+	return (
+		<>
+			{ sorted().map( ( chapter, i ) => {
+				return (
+					<Chapter
+						key={ `${ i }-${ chapter.time }` }
+						className="ph-chapter"
+						time={ chapter.time }
+						title={ chapter.title }
+						chapter={ chapter }
+						update={ ( data ) => {
+							updateChapter( chapter, data );
+						} }
+						remove={ () => {
+							removeChapter( chapter );
+						} }
+					/>
+				);
+			} ) }
+
+			<Chapter
+				className="ph-chapter is-new"
+				time={ draft.time }
+				title={ draft.title }
+				update={ ( data ) => {
+					setDraft( { ...draft, ...data } );
+				} }
+				add={ addChapter }
+			/>
+		</>
+	);
 };
 
 export default VideoSettings;

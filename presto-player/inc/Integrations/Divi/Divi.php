@@ -74,6 +74,27 @@ class Divi {
 				),
 			)
 		);
+
+		// PackageBuildManager registers the handle later on wp_enqueue_scripts, so
+		// attach translations after it exists. Named callback, not a closure, so a
+		// second register_d5_builder_assets() call does not stack another copy; the
+		// wp_print_scripts pass catches a handle registered past priority 100.
+		add_action( 'wp_enqueue_scripts', array( $this, 'setD5ScriptTranslations' ), 100 );
+		add_action( 'wp_print_scripts', array( $this, 'setD5ScriptTranslations' ), 1 );
+	}
+
+	/**
+	 * Attach the JSON translations to the D5 builder package once it is registered.
+	 *
+	 * @return void
+	 */
+	public function setD5ScriptTranslations() {
+		if ( ! wp_script_is( 'presto-player-divi-d5', 'registered' ) ) {
+			return;
+		}
+		// Running on both hooks is harmless: WP_Scripts::set_translations() only adds
+		// the wp-i18n dependency once and re-setting the textdomain is a no-op.
+		wp_set_script_translations( 'presto-player-divi-d5', 'presto-player', PRESTO_PLAYER_PLUGIN_DIR . 'languages' );
 	}
 
 	/**
@@ -137,9 +158,35 @@ class Divi {
 	 * @return string
 	 */
 	public function rankMathFix( $tag, $handle, $src ) {
-		if ( 'wp-i18n' === $handle ) {
-            return '<script type="text/javascript" src="' . $src . '"></script>' . "\n"; // phpcs:ignore
+		if ( 'wp-i18n' !== $handle ) {
+			return $tag;
 		}
+		return $this->restoreScriptSrc( $tag, 'wp-i18n-js', $src );
+	}
+
+	/**
+	 * Put a normal type/src back on one <script> element, in place.
+	 *
+	 * Rebuilding the tag from scratch would drop everything else core put in it —
+	 * for wp-i18n that is the inline wp.i18n.setLocaleData() block carrying the
+	 * text direction, so an RTL locale would silently render LTR.
+	 *
+	 * @param string $tag The <script> tag for the enqueued script.
+	 * @param string $id  The id attribute of the element to restore.
+	 * @param string $src The script's source URL.
+	 * @return string
+	 */
+	private function restoreScriptSrc( $tag, $id, $src ) {
+		$processor = new \WP_HTML_Tag_Processor( $tag );
+
+		while ( $processor->next_tag( array( 'tag_name' => 'script' ) ) ) {
+			if ( $id === $processor->get_attribute( 'id' ) ) {
+				$processor->set_attribute( 'type', 'text/javascript' );
+				$processor->set_attribute( 'src', $src );
+				return $processor->get_updated_html();
+			}
+		}
+
 		return $tag;
 	}
 
@@ -198,8 +245,6 @@ class Divi {
 		);
 		wp_enqueue_style( 'surecart/divi/admin', trailingslashit( PRESTO_PLAYER_PLUGIN_URL ) . 'dist/divi.css', array(), $assets['version'] );
 
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'surecart/divi/admin', 'presto-player' );
-		}
+		wp_set_script_translations( 'surecart/divi/admin', 'presto-player', PRESTO_PLAYER_PLUGIN_DIR . 'languages' );
 	}
 }

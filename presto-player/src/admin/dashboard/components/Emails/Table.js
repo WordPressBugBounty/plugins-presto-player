@@ -1,7 +1,7 @@
 /**
  * Data table: sortable columns, pagination, row actions. Matches MediaHub table pattern.
  */
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 import {
 	Table as ForceTable,
 	Pagination,
@@ -186,10 +186,7 @@ const Table = ( {
 				<ForceTable.Head
 					selected={ isPageFullySelected( paginatedData, selected ) }
 					onChangeSelection={ onToggleSelectAll }
-					indeterminate={ isPagePartiallySelected(
-						paginatedData,
-						selected
-					) }
+					indeterminate={ isPagePartiallySelected( paginatedData, selected ) }
 					className="bg-background-primary items-center"
 				>
 					<ForceTable.HeadCell className="text-text-secondary items-center">
@@ -276,7 +273,11 @@ const Table = ( {
 									<Text
 										as="span"
 										size="sm"
-										className={ `${ item.video_title ? 'text-text-primary' : 'text-text-secondary' } block truncate` }
+										className={ `${
+											item.video_title
+												? 'text-text-primary'
+												: 'text-text-secondary'
+										} block truncate` }
 									>
 										{ item.video_title || __( 'No video', 'presto-player' ) }
 									</Text>
@@ -285,7 +286,11 @@ const Table = ( {
 									<Text
 										as="span"
 										size="sm"
-										className={ `${ item.preset_name ? 'text-text-primary' : 'text-text-secondary' } block truncate` }
+										className={ `${
+											item.preset_name
+												? 'text-text-primary'
+												: 'text-text-secondary'
+										} block truncate` }
 									>
 										{ item.preset_name || __( 'No preset', 'presto-player' ) }
 									</Text>

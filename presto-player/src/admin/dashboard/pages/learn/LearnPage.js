@@ -6,7 +6,7 @@ import LearnPageSkeleton from './LearnPageSkeleton';
 import SetupCompleteCard from './SetupCompleteCard';
 import useLearnProgress from './useLearnProgress';
 
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 
 const LearnPage = () => {
 	const { chapters, isLoading, setStepCompleted } = useLearnProgress();

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
-const { __, _n, sprintf } = wp.i18n;
+import { __, _n, sprintf } from '@wordpress/i18n';
 import {
 	Container,
 	Table,
@@ -303,6 +303,7 @@ const MediaHub = () => {
 				toast.success( successText );
 			} )
 			.catch( ( err ) => {
+				// eslint-disable-next-line no-console -- Deliberate error reporting: the user sees a toast, this keeps the underlying API error in the console for support/debugging.
 				console.error( 'Error updating media status:', err );
 				toast.error( errorText );
 			} );
@@ -319,6 +320,7 @@ const MediaHub = () => {
 				toast.success( successText );
 			} )
 			.catch( ( err ) => {
+				// eslint-disable-next-line no-console -- Deliberate error reporting: the user sees a toast, this keeps the underlying API error in the console for support/debugging.
 				console.error( 'Error deleting media:', err );
 				toast.error( errorText );
 			} );
@@ -341,6 +343,7 @@ const MediaHub = () => {
 				}
 			} )
 			.catch( ( err ) => {
+				// eslint-disable-next-line no-console -- Deliberate error reporting: the user sees a toast, this keeps the underlying API error in the console for support/debugging.
 				console.error( 'Error:', err );
 			} );
 	};
@@ -494,6 +497,7 @@ const MediaHub = () => {
 			} )
 				.then( () => ( { success: true, mediaId } ) )
 				.catch( ( err ) => {
+					// eslint-disable-next-line no-console -- Deliberate error reporting: the user sees a toast, this keeps the underlying API error in the console for support/debugging.
 					console.error( `Bulk ${ method.verb } ${ mediaId }:`, err );
 					return { success: false, mediaId };
 				} )
@@ -825,6 +829,52 @@ const MediaHub = () => {
 		);
 	}
 
+	const renderTableRows = () => {
+		if ( loading ) {
+			// Refetch in flight (page change, filter, sort, search).
+			// Swap to skeleton rows so the user gets immediate
+			// feedback instead of stale rows with no indicator.
+			return Array.from( { length: postCount } ).map( ( _, idx ) => (
+				<MediaHubRowSkeleton key={ `row-skeleton-${ idx }` } />
+			) );
+		}
+
+		if ( items.length > 0 ) {
+			return items.map( ( item ) => (
+				<MediaRow
+					key={ item.id }
+					// MediaRow reads `post_date` and `poster_image` field
+					// names from a long-standing API shape — alias here so
+					// the new server-driven payload stays focused on the
+					// canonical `date` / `poster` keys.
+					item={ {
+						...item,
+						post_date: item.date,
+						poster_image: item.poster,
+					} }
+					selected={ selected.includes( item.id ) }
+					onChangeSelection={ handleCheckboxChange }
+					onEditClick={ onEditClick }
+					renderActionMenu={ renderActionMenu }
+					getBadge={ getBadge }
+					formatPublishDate={ formatPublishDate }
+					handleOpenSettings={ handleOpenSettings }
+				/>
+			) );
+		}
+
+		return (
+			<tr>
+				<td
+					colSpan="7"
+					className="px-6 py-8 text-center text-sm text-text-secondary"
+				>
+					{ __( 'No media found.', 'presto-player' ) }
+				</td>
+			</tr>
+		);
+	};
+
 	return (
 		<>
 			{ selectedMediaForSettings && (
@@ -1026,51 +1076,13 @@ const MediaHub = () => {
 									style={ { width: '140px' } }
 									className="items-center justify-center"
 								>
-									<span className="sr-only">{ __( 'Actions', 'presto-player' ) }</span>
+									<span className="sr-only">
+										{ __( 'Actions', 'presto-player' ) }
+									</span>
 								</Table.HeadCell>
 							</Table.Head>
 
-							<Table.Body>
-								{ loading ? (
-									// Refetch in flight (page change, filter, sort, search).
-									// Swap to skeleton rows so the user gets immediate
-									// feedback instead of stale rows with no indicator.
-									Array.from( { length: postCount } ).map( ( _, idx ) => (
-										<MediaHubRowSkeleton key={ `row-skeleton-${ idx }` } />
-									) )
-								) : items.length > 0 ? (
-									items.map( ( item ) => (
-										<MediaRow
-											key={ item.id }
-											// MediaRow reads `post_date` and `poster_image` field
-											// names from a long-standing API shape — alias here so
-											// the new server-driven payload stays focused on the
-											// canonical `date` / `poster` keys.
-											item={ {
-												...item,
-												post_date: item.date,
-												poster_image: item.poster,
-											} }
-											selected={ selected.includes( item.id ) }
-											onChangeSelection={ handleCheckboxChange }
-											onEditClick={ onEditClick }
-											renderActionMenu={ renderActionMenu }
-											getBadge={ getBadge }
-											formatPublishDate={ formatPublishDate }
-											handleOpenSettings={ handleOpenSettings }
-										/>
-									) )
-								) : (
-									<tr>
-										<td
-											colSpan="7"
-											className="px-6 py-8 text-center text-sm text-text-secondary"
-										>
-											{ __( 'No media found.', 'presto-player' ) }
-										</td>
-									</tr>
-								) }
-							</Table.Body>
+							<Table.Body>{ renderTableRows() }</Table.Body>
 
 							{ ( loading || items.length > 0 ) && (
 								<Table.Footer className="bg-background-primary">

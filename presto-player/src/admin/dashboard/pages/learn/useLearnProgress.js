@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { toast } from '@bsf/force-ui';
 
-const { __ } = wp.i18n;
+import { __ } from '@wordpress/i18n';
 
 /**
  * Fetches Learn chapters from the REST API and exposes a toggle function
