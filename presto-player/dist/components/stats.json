@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-16T06:12:47",
+  "timestamp": "2026-09-25T06:40:46",
   "compiler": {
     "name": "node",
     "version": "20.20.2"
@@ -426,8 +426,6 @@
           "./dist/web-components/p-345e2989.entry.js.map",
           "./dist/web-components/p-4f0eb72c.entry.js",
           "./dist/web-components/p-4f0eb72c.entry.js.map",
-          "./dist/web-components/p-6d7bec14.entry.js",
-          "./dist/web-components/p-6d7bec14.entry.js.map",
           "./dist/web-components/p-7cbad79a.entry.js",
           "./dist/web-components/p-7cbad79a.entry.js.map",
           "./dist/web-components/p-8c965b5b.entry.js",
@@ -454,6 +452,8 @@
           "./dist/web-components/p-db54b491.entry.js.map",
           "./dist/web-components/p-e6ea643f.entry.js",
           "./dist/web-components/p-e6ea643f.entry.js.map",
+          "./dist/web-components/p-f224d346.entry.js",
+          "./dist/web-components/p-f224d346.entry.js.map",
           "./dist/web-components/p-fH7ZDDmI.js",
           "./dist/web-components/p-fH7ZDDmI.js.map",
           "./dist/web-components/web-components.esm.js",
@@ -474,8 +474,6 @@
           "./www/build/p-345e2989.entry.js.map",
           "./www/build/p-4f0eb72c.entry.js",
           "./www/build/p-4f0eb72c.entry.js.map",
-          "./www/build/p-6d7bec14.entry.js",
-          "./www/build/p-6d7bec14.entry.js.map",
           "./www/build/p-7cbad79a.entry.js",
           "./www/build/p-7cbad79a.entry.js.map",
           "./www/build/p-8c965b5b.entry.js",
@@ -502,6 +500,8 @@
           "./www/build/p-db54b491.entry.js.map",
           "./www/build/p-e6ea643f.entry.js",
           "./www/build/p-e6ea643f.entry.js.map",
+          "./www/build/p-f224d346.entry.js",
+          "./www/build/p-f224d346.entry.js.map",
           "./www/build/p-fH7ZDDmI.js",
           "./www/build/p-fH7ZDDmI.js.map",
           "./www/build/web-components.esm.js",
@@ -681,15 +681,15 @@
           "presto-vimeo",
           "presto-youtube"
         ],
-        "bundleId": "p-6d7bec14",
-        "fileName": "p-6d7bec14.entry.js",
+        "bundleId": "p-f224d346",
+        "fileName": "p-f224d346.entry.js",
         "imports": [
           "p-BxRAfMA5.js",
           "p-EuTDjLsB.js",
           "p-G840BFTB.js",
           "p-D8o-F2Bu.js"
         ],
-        "originalByteSize": 81736
+        "originalByteSize": 82810
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -866,7 +866,7 @@
           "fittext-kmLX7jv_.js",
           "cache-cues-D8o-F2Bu.js"
         ],
-        "originalByteSize": 81754
+        "originalByteSize": 82828
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -1045,7 +1045,7 @@
           "fittext-D3xDjTej.js",
           "cache-cues-ps1fLLit.js"
         ],
-        "originalByteSize": 82362
+        "originalByteSize": 83436
       },
       {
         "key": "presto-player.presto-playlist-item.presto-playlist-overlay.presto-playlist-ui.entry",
@@ -13214,12 +13214,12 @@
             "position",
             "href",
             "target",
-            "innerHTML",
-            "style"
+            "style",
+            "innerHTML"
           ],
           "htmlTagNames": [
-            "presto-dynamic-overlay-ui",
-            "div"
+            "div",
+            "presto-dynamic-overlay-ui"
           ],
           "htmlParts": [],
           "isUpdateable": true,

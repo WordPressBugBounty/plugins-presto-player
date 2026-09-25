@@ -1,4 +1,7 @@
 *** Presto Player Changelog ***
+= 4.5.2 =
+* Security: Improved the security of the plugin.
+
 = 4.5.1 =
 * Fixed: Translations now load in the dashboard, block editor, player and integrations.
 * Fixed: Admin text no longer stays in English after switching the site language.
