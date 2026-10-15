@@ -397,6 +397,7 @@ class Shortcodes {
 			)
 		);
 		foreach ( (array) $chapters as $key => $chapter ) {
+			$chapters[ $key ]['title'] = sanitize_text_field( $chapter['title'] );
 			if ( ! strpos( $chapter['time'], ':' ) ) {
 				$chapters[ $key ]['time'] = '00:' . $chapter['time'];
 			}
@@ -427,7 +428,7 @@ class Shortcodes {
 				'id'       => $items[ $key ]['id'],
 				'config'   => $video_details,
 				'duration' => $items[ $key ]['duration'],
-				'title'    => $items[ $key ]['title'],
+				'title'    => sanitize_text_field( $items[ $key ]['title'] ),
 			);
 		}
 		return $items;
@@ -445,11 +446,13 @@ class Shortcodes {
 			'presto_player_overlay',
 			$content,
 			array(
-				'start_time' => '00:00',
-				'end_time'   => '',
-				'text'       => '',
-				'link'       => array(),
-				'position'   => '',
+				'start_time'   => '00:00',
+				'end_time'     => '',
+				'text'         => '',
+				'link'         => array(),
+				'link_url'     => '',
+				'link_new_tab' => '',
+				'position'     => '',
 			)
 		);
 		foreach ( (array) $overlays as $key => $overlay ) {
@@ -465,6 +468,7 @@ class Shortcodes {
 				$overlays[ $key ]['endTime'] = $overlay['end_time'];
 			}
 
+			$overlays[ $key ]['text']                  = sanitize_text_field( $overlay['text'] );
 			$overlays[ $key ]['link']['url']           = esc_url_raw( $overlay['link_url'] );
 			$overlays[ $key ]['link']['opensInNewTab'] = (bool) $overlay['link_new_tab'];
 
@@ -483,7 +487,7 @@ class Shortcodes {
 	 * @return array
 	 */
 	public function getTracks( $content ) {
-		return $this->getShortcodesAtts(
+		$tracks = $this->getShortcodesAtts(
 			'presto_player_track',
 			$content,
 			array(
@@ -492,6 +496,12 @@ class Shortcodes {
 				'srclang' => '',
 			)
 		);
+		foreach ( (array) $tracks as $key => $track ) {
+			$tracks[ $key ]['label']   = sanitize_text_field( $track['label'] );
+			$tracks[ $key ]['src']     = esc_url_raw( $track['src'] );
+			$tracks[ $key ]['srclang'] = sanitize_text_field( $track['srclang'] );
+		}
+		return $tracks;
 	}
 
 	/**
